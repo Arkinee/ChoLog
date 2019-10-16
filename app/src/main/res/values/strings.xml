@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ChoLog</string>
+    <string name="tv_serviceFee">월 구독 서비스 이용료</string>
+    <string name="tv_serviceFee_tool">10월 구독 서비스 이용료</string>
+    <string name="btn_add_service">서비스 추가하기</string>
+    <string name="btn_myInfo">내정보</string>
+    <string name="btn_home">홈</string>
+    <string name="btn_look_around">둘러보기</string>
+    <string name="loading">Loading&#8230;</string>
+    <string name="network_failure">연결 실패</string>
+    <string name="tv_main_service_fee">12,400</string>
+    <string name="tv_main_service_fee_won">원</string>
 </resources>

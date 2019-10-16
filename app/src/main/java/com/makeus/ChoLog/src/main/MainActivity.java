@@ -1,8 +1,10 @@
-package com.makeus.ChoLog;
+package com.makeus.ChoLog.src.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.makeus.ChoLog.R;
 
 public class MainActivity extends AppCompatActivity {
 
