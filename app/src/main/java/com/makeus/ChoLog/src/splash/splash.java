@@ -19,8 +19,15 @@ public class splash extends Activity implements SplashActivityView {
         setContentView(R.layout.activity_splash);
 
         Handler hd = new Handler();
-        hd.postDelayed(new splashhandler(), 1500); // 1초 후에 hd handler 실행
+        hd.postDelayed(new splashHandler(), 1000); // 1초 후에 hd handler 실행
 
+    }
+
+    private class splashHandler implements Runnable {
+        public void run() {
+            startActivity(new Intent(getApplication(), MainActivity.class)); //로딩이 끝난 후, ChoiceFunction 이동
+            splash.this.finish(); // 로딩페이지 Activity stack에서 제거
+        }
     }
 
     private void postAutoLogin() {
@@ -28,8 +35,6 @@ public class splash extends Activity implements SplashActivityView {
 //        final splashService splashService = new splashService(this, params, this);
 //        splashService.postAutoLogin();
     }
-
-
 
     @Override
     public void onBackPressed() {
@@ -46,10 +51,4 @@ public class splash extends Activity implements SplashActivityView {
 
     }
 
-    private class splashhandler implements Runnable {
-        public void run() {
-                startActivity(new Intent(getApplication(), MainActivity.class)); //로딩이 끝난 후, ChoiceFunction 이동
-                splash.this.finish(); // 로딩페이지 Activity stack에서 제거
-        }
-    }
 }

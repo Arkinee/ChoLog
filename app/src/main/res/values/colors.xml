@@ -4,11 +4,41 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorConcept">#143355</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorGrey">#424242</color>
+    <color name="colorScrollBar">#4a6585</color>
+    <color name="colorSkyBlue">#4a90e2</color>
+
+    <!-- Main -->
     <color name="colorTextMainServiceFee">#6a7f98</color>
     <color name="colorTextMainNavigationClicked">#92a3b6</color>
     <color name="colorTextMainNavigationNotClicked">#4a6585</color>
-    <color name="colorWhite">#ffffff</color>
+
+    <!-- Home -->
+    <color name="colorTextHomeItemServiceAdd">#6a7f98</color>
+    <color name="colorLinearHomeItemServiceAdd">#1a3a5c</color>
+    <color name="colorTextHomeItemDate">#424242</color>
+    <color name="colorTextHomeItemDDayRed">#ff6b6b</color>
+    <color name="colorTextHomeItemDDayBlack">#424242</color>
+    <color name="colorTextHomeItemCategory">#424242</color>
+    <color name="colorTextHomeItemBrandAndWhile">#8d8d8d</color>
+    <color name="colorTextHomeItemPrice">#424242</color>
+    <color name="colorTextHomeItemBottom">#8d8d8d</color>
+    <color name="colorTextHomeItemBottomBorder">#e1e1e1</color>
+
+    <!-- Service Add -->
+    <color name="colorTextServiceNotPut">#6a7f98</color>
+    <color name="colorTextServicePut">#ffffff</color>
+    <color name="colorTextServiceBtn">#4a90e2</color>
+    <color name="colorTextServiceUnderBarBefore">#4a6585</color>
+    <color name="colorTextServiceUnderBarAfter">#ffffff</color>
+    <color name="colorTextServiceRemove">#ff6b6b</color>
+    <color name="colorTextServiceAdd">#4a90e2</color>
+
+    <!-- My Info -->
     <color name="colorTextMyInfoFee">#e0e0e0</color>
     <color name="colorProgressBarBackground">#4a6585</color>
     <color name="colorProgressBarForeground">#bcc7d3</color>
+
 </resources>
