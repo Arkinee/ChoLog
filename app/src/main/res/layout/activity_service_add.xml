@@ -133,7 +133,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tv_main_service_fee_won"
+                    android:text="@string/tv_main_home_service_fee_won"
                     android:textColor="@color/colorTextServiceNotPut"
                     android:textSize="16sp" />
 
@@ -401,6 +401,7 @@
                 android:background="@drawable/src_service_add_under_bar" />
 
             <TextView
+                android:id="@+id/tv_service_add_remove"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="37dp"
@@ -414,16 +415,55 @@
         </LinearLayout>
     </ScrollView>
 
-    <TextView
-        android:id="@+id/tv_service_add_btn"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="@color/colorTextServiceAdd"
-        android:gravity="center"
-        android:onClick="onClick"
-        android:text="@string/tv_service_add"
-        android:textColor="@color/colorWhite"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_height="58dp">
 
+        <TextView
+            android:id="@+id/tv_service_add_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorTextServiceAdd"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="@string/tv_service_add"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:id="@+id/linear_service_add_remove"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:weightSum="7">
+
+            <TextView
+                android:id="@+id/tv_service_add_btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@color/colorTextServiceRemoveCancelBack"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="@string/tv_service_remove_cancel"
+                android:textColor="@color/colorTextServiceRemoveCancel"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_service_add_btn_remove"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:background="@color/colorTextServiceRemoveRemoveBack"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="@string/tv_service_remove_remove"
+                android:textColor="@color/colorTextServiceRemoveRemove"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 </LinearLayout>

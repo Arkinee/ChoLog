@@ -7,6 +7,7 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
     <color name="colorGrey">#424242</color>
+    <color name="colorTransparent">#00000000</color>
     <color name="colorScrollBar">#4a6585</color>
     <color name="colorSkyBlue">#4a90e2</color>
 
@@ -35,10 +36,18 @@
     <color name="colorTextServiceUnderBarAfter">#ffffff</color>
     <color name="colorTextServiceRemove">#ff6b6b</color>
     <color name="colorTextServiceAdd">#4a90e2</color>
+    <color name="colorTextServiceRemoveCancel">#8d8d8d</color>
+    <color name="colorTextServiceRemoveCancelBack">#e0e0e0</color>
+    <color name="colorTextServiceRemoveRemove">#ffffff</color>
+    <color name="colorTextServiceRemoveRemoveBack">#ff6b6b</color>
+
+    <!-- Dialog -->
+    <color name="colorTextDialogLoginPlease">#8d8d92</color>
+    <color name="colorTextDialogLoginLater">#ededed</color>
 
     <!-- My Info -->
     <color name="colorTextMyInfoFee">#e0e0e0</color>
     <color name="colorProgressBarBackground">#4a6585</color>
-    <color name="colorProgressBarForeground">#bcc7d3</color>
+    <color name="colorProgressBarForeground">#4a6585</color>
 
 </resources>

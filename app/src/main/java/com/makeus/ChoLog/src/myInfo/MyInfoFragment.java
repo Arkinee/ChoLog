@@ -1,9 +1,11 @@
 package com.makeus.ChoLog.src.myInfo;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -50,6 +52,11 @@ public class MyInfoFragment extends Fragment {
         mMyInfoList.add(new MyInfoItem("음악 스트리밍", 9000, 80));
 
         return view;
+    }
+
+    public void scrollToTop() {
+        Log.d("로그", "맨 위로");
+        mRvMyInfo.smoothScrollToPosition(0);
     }
 
 }

@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".src.main.MainActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".src.serviceAdd.ServiceAddActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".src.serviceAdd.ServiceAddActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".src.product.ProductActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity
             android:name=".src.splash.splash"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">

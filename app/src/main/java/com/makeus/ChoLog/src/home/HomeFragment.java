@@ -1,14 +1,17 @@
 package com.makeus.ChoLog.src.home;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +29,7 @@ public class HomeFragment extends Fragment {
     private LinearLayout mLinearServiceAdd;
     private HomeAdapter mHomeAdapter;
     private String mUrl;
+    NestedScrollView mScrollHome;
 
     @Nullable
     @Override
@@ -36,6 +40,7 @@ public class HomeFragment extends Fragment {
         mRvHome = view.findViewById(R.id.rv_home);
         mLinearServiceAdd = view.findViewById(R.id.linear_home_service_add);
         mHomeAdapter = new HomeAdapter(getActivity(), mHomeItemList);
+        mScrollHome = view.findViewById(R.id.scroll_home);
 
         mRvHome.setAdapter(mHomeAdapter);
         mRvHome.addItemDecoration(new RecyclerViewDecoration(50));
@@ -49,9 +54,8 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    public void scrollToTop(){
+    public void scrollToTop() {
         Log.d("로그", "맨 위로");
-        mRvHome.smoothScrollToPosition(0);
+        mScrollHome.fullScroll(ScrollView.FOCUS_UP);
     }
-
 }
