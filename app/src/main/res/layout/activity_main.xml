@@ -81,8 +81,8 @@
                 android:layout_height="25dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="90dp"
-                android:visibility="gone"
-                android:src="@android:drawable/ic_media_previous" />
+                android:src="@android:drawable/ic_media_previous"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tv_main_my_info_service_month"
@@ -103,8 +103,8 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="90dp"
                 android:layout_marginEnd="25dp"
-                android:visibility="gone"
-                android:src="@android:drawable/ic_media_next" />
+                android:src="@android:drawable/ic_media_next"
+                android:visibility="gone" />
 
             <RelativeLayout
                 android:id="@+id/relative_main_my_info"
@@ -156,6 +156,21 @@
             android:layout_marginTop="16dp"
             android:onClick="onClick"
             android:src="@mipmap/ic_launcher_round" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_main_look_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/btn_look_around"
+            android:textColor="@color/colorWhite"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <View
             android:layout_width="0dp"

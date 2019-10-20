@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentTransaction;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -22,6 +24,7 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.makeus.ChoLog.R;
 import com.makeus.ChoLog.src.BaseActivity;
 import com.makeus.ChoLog.src.dialog.loginDialog.LoginDialog;
+import com.makeus.ChoLog.src.dialog.loginDialog.loginListener;
 import com.makeus.ChoLog.src.home.HomeFragment;
 import com.makeus.ChoLog.src.lookAround.LookFragment;
 import com.makeus.ChoLog.src.myInfo.MyInfoFragment;
@@ -55,16 +58,15 @@ public class MainActivity extends BaseActivity {
     private TextView mTvMainMyInfo;
     private TextView mTvMainHome;
     private TextView mTvMainLook;
+    private TextView mTvMainLookTop;
 
     private LoginDialog mLoginDialog;
     private WindowManager.LayoutParams mWm;
     private int mFragmentFlag;
     private int mWidth;
-    private  int mHeight;
+    private int mHeight;
     String Tag = "로그";
 
-    AlertDialog.Builder adb;
-    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         this.initialize();
         this.setFragment();
+        this.setDialog();
 
     }
 
@@ -95,29 +98,12 @@ public class MainActivity extends BaseActivity {
         mTvMainMyInfoServiceFee = findViewById(R.id.tv_main_my_info_service_fee);
         mTvMainHome = findViewById(R.id.tv_main_home);
         mTvMainLook = findViewById(R.id.tv_main_look_around);
+        mTvMainLookTop = findViewById(R.id.tv_main_look_top);
 
         mRelativeMainHome = findViewById(R.id.relative_main_home);
         mRelativeMainMyInfo = findViewById(R.id.relative_main_my_info);
 
         mFragmentFlag = 2;
-
-        //dialog
-        mLoginDialog = new LoginDialog(this);
-        adb = new AlertDialog.Builder(this);
-        adb.setView(R.layout.dialog_login);
-
-//        dialog = new Dialog(this, R.style.dialog);
-        DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
-        mWidth = dm.widthPixels;
-        mHeight = dm.heightPixels;
-
-        dialog = adb.create();
-
-        mWm = new WindowManager.LayoutParams();
-        mWm.copyFrom(dialog.getWindow().getAttributes());
-        mWm.width = WindowManager.LayoutParams.WRAP_CONTENT;
-        mWm.height = mHeight / 3;
-
 
     }
 
@@ -131,23 +117,57 @@ public class MainActivity extends BaseActivity {
         mTransaction.replace(R.id.frame_main, mHomeFragment).commitAllowingStateLoss();
     }
 
+    public void setDialog() {
+
+        mLoginDialog = new LoginDialog(this);
+
+        DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
+        mWidth = dm.widthPixels;
+        mHeight = dm.heightPixels;
+
+        mWm = new WindowManager.LayoutParams();
+        mWm.copyFrom(mLoginDialog.getWindow().getAttributes());
+//        mWm.width =  WindowManager.LayoutParams.MATCH_PARENT;
+
+        mWm.height = mHeight / 3;
+        mWm.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        mWm.dimAmount = 0.8f;
+
+        mLoginDialog.setCancelable(false);
+        mLoginDialog.setDialogListener(new loginListener() {
+            @Override
+            public void onLaterClicked() {
+                mLoginDialog.dismiss();
+            }
+
+            @Override
+            public void onNowClicked() {
+                mLoginDialog.dismiss();
+            }
+        });
+
+    }
+
     public void onClick(View view) {
         mTransaction = mFragmentManager.beginTransaction();
 
         switch (view.getId()) {
             case R.id.linear_main_my_info:
-                mFragmentFlag = 1;
-                mTransaction.replace(R.id.frame_main, mMyInfoFragment).commitAllowingStateLoss();
-                mAppBar.setExpanded(true);
-
                 //AppBar부분 구성요소들
                 mTvMainServiceMonth.setVisibility(View.VISIBLE);
-                mTvMainServiceMonth.setText(getResources().getString(R.string.tv_main_my_info_month));
+                mTvMainServiceMonth.setText(getResources().getString(R.string.tv_main_my_info_fee));
                 mRelativeMainHome.setVisibility(View.GONE);
                 mRelativeMainMyInfo.setVisibility(View.VISIBLE);
                 mTvMainMyInfoServiceMonth.setVisibility(View.VISIBLE);
                 mIvMainMyInfoPrevious.setVisibility(View.VISIBLE);
                 mIvMainMyInfoNext.setVisibility(View.VISIBLE);
+                mTvMainLookTop.setVisibility(View.GONE);
+
+                mAppBar.setExpanded(true);
+
+                //Fragment 교체
+                mFragmentFlag = 1;
+                mTransaction.replace(R.id.frame_main, mMyInfoFragment).commitAllowingStateLoss();
 
                 //하단 네비게이션바
                 mTvMainMyInfo.setTextColor(getResources().getColor(R.color.colorTextMainNavigationClicked));
@@ -156,10 +176,6 @@ public class MainActivity extends BaseActivity {
 
                 break;
             case R.id.linear_main_home:
-                mFragmentFlag = 2;
-                mTransaction.replace(R.id.frame_main, mHomeFragment).commitAllowingStateLoss();
-                mAppBar.setExpanded(true);
-
                 //AppBar부분 구성요소들
                 mTvMainServiceMonth.setVisibility(View.VISIBLE);
                 mTvMainServiceMonth.setText(getResources().getString(R.string.tv_serviceFee_tool));
@@ -168,6 +184,13 @@ public class MainActivity extends BaseActivity {
                 mTvMainMyInfoServiceMonth.setVisibility(View.GONE);
                 mIvMainMyInfoPrevious.setVisibility(View.GONE);
                 mIvMainMyInfoNext.setVisibility(View.GONE);
+                mTvMainLookTop.setVisibility(View.GONE);
+
+                mAppBar.setExpanded(true);
+
+                //Fragment 교체
+                mFragmentFlag = 2;
+                mTransaction.replace(R.id.frame_main, mHomeFragment).commitAllowingStateLoss();
 
                 //하단 네비게이션바
                 mTvMainMyInfo.setTextColor(getResources().getColor(R.color.colorTextMainNavigationNotClicked));
@@ -175,10 +198,6 @@ public class MainActivity extends BaseActivity {
                 mTvMainLook.setTextColor(getResources().getColor(R.color.colorTextMainNavigationNotClicked));
                 break;
             case R.id.linear_main_look_around:
-                mFragmentFlag = 3;
-                mTransaction.replace(R.id.frame_main, mLookFragment).commitAllowingStateLoss();
-                mAppBar.setExpanded(false, false);
-
                 //AppBar부분 구성요소들
                 mTvMainServiceMonth.setVisibility(View.GONE);
                 mRelativeMainHome.setVisibility(View.GONE);
@@ -186,6 +205,13 @@ public class MainActivity extends BaseActivity {
                 mTvMainMyInfoServiceMonth.setVisibility(View.GONE);
                 mIvMainMyInfoPrevious.setVisibility(View.GONE);
                 mIvMainMyInfoNext.setVisibility(View.GONE);
+                mTvMainLookTop.setVisibility(View.VISIBLE);
+
+                mAppBar.setExpanded(false, false);
+
+                //Fragment 교체
+                mFragmentFlag = 3;
+                mTransaction.replace(R.id.frame_main, mLookFragment).commitAllowingStateLoss();
 
                 //하단 네비게이션바
                 mTvMainMyInfo.setTextColor(getResources().getColor(R.color.colorTextMainNavigationNotClicked));
@@ -204,15 +230,21 @@ public class MainActivity extends BaseActivity {
                     HomeFragment hf = (HomeFragment) getSupportFragmentManager().findFragmentById(R.id.frame_main);
                     hf.scrollToTop();
                 } else {
-
+                    LookFragment lf = (LookFragment) getSupportFragmentManager().findFragmentById(R.id.frame_main);
+                    lf.scrollToTop();
                 }
                 mAppBar.setExpanded(true);
                 Log.d(Tag, "로고 클릭");
                 break;
             case R.id.iv_main_setting:
 //                mLoginDialog.show();
-                dialog.show();
-                Window window = dialog.getWindow();
+                mLoginDialog.show();
+                Window window = mLoginDialog.getWindow();
+                try {
+                    window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                } catch (Exception e) {
+                    break;
+                }
                 window.setAttributes(mWm);
                 break;
         }

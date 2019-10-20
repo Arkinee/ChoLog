@@ -2,26 +2,48 @@ package com.makeus.ChoLog.src.lookAround;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.makeus.ChoLog.R;
+import com.makeus.ChoLog.src.lookAround.adapters.LookOfflineAdapter;
+import com.makeus.ChoLog.src.lookAround.adapters.LookOnlineAdapter;
+import com.makeus.ChoLog.src.lookAround.adapters.LookPopularAdapter;
+import com.makeus.ChoLog.src.lookAround.adapters.LookRecommendAdapter;
+import com.makeus.ChoLog.src.lookAround.models.LookItem;
 import com.makeus.ChoLog.src.myInfo.adapter.MyInfoAdapter;
 
 import java.util.ArrayList;
 
 public class LookFragment extends Fragment {
 
-    //    private ArrayList<LookItem> mMyInfoList;
-    private RecyclerView mRvHome;
-    private MyInfoAdapter mMyInfoAdapter;
+    private NestedScrollView mScrollLook;
+
+    private ArrayList<LookItem> mLookPopularList;
+    private ArrayList<LookItem> mLookRecommendList;
+    private ArrayList<LookItem> mLookOnlineList;
+    private ArrayList<LookItem> mLookOfflineList;
+
+    private RecyclerView mRvLookPopular;
+    private RecyclerView mRvLookRecommend;
+    private RecyclerView mRvLookOnline;
+    private RecyclerView mRvLookOffline;
+
+    private LookPopularAdapter mPopularAdapter;
+    private LookRecommendAdapter mRecommendAdapter;
+    private LookOnlineAdapter mOnlineAdapter;
+    private LookOfflineAdapter mOfflineAdapter;
+
     CoordinatorLayout.Behavior behavior;
 
     @Nullable
@@ -29,38 +51,55 @@ public class LookFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_look, container, false);
 
-//        mMyInfoList = new ArrayList<>();
-        mRvHome = view.findViewById(R.id.rv_home);
-//        mMyInfoAdapter = new MyInfoAdapter(getActivity(), mMyInfoList, this);
+        mScrollLook = view.findViewById(R.id.scroll_look);
+        mLookPopularList = new ArrayList<>();
+        mLookRecommendList = new ArrayList<>();
+        mLookOnlineList = new ArrayList<>();
+        mLookOfflineList = new ArrayList<>();
+
+        mRvLookPopular = view.findViewById(R.id.rv_look_popular);
+        mRvLookRecommend = view.findViewById(R.id.rv_look_recommend);
+        mRvLookOnline = view.findViewById(R.id.rv_look_online);
+        mRvLookOffline = view.findViewById(R.id.rv_look_offline);
+
+        mPopularAdapter = new LookPopularAdapter(getActivity(), mLookPopularList);
+        mRecommendAdapter = new LookRecommendAdapter(getActivity(), mLookRecommendList);
+        mOnlineAdapter = new LookOnlineAdapter(getActivity(), mLookOnlineList);
+        mOfflineAdapter = new LookOfflineAdapter(getActivity(), mLookOfflineList);
+
         //mRvHome.setAdapter(mMyInfoAdapter);
+        mRvLookPopular.setAdapter(mPopularAdapter);
+        mRvLookRecommend.setAdapter(mRecommendAdapter);
+        mRvLookOnline.setAdapter(mOnlineAdapter);
+        mRvLookOffline.setAdapter(mOfflineAdapter);
+
+        LookItem adobe = new LookItem("https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "어도비 클라우드", "저장 클라우드", 12000);
+        LookItem netflix = new LookItem("https://lh3.googleusercontent.com/TBRwjS_qfJCSj1m7zZB93FnpJM5fSpMA_wUlFDLxWAb45T9RmwBvQd5cWR5viJJOhkI", "넷플릭스", "영상 스트리밍", 9900);
+        LookItem youtube = new LookItem("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6pLCpPaD76S5-yf5hK0n075HVuqJT2wPC2qpoQorESh9c3GPM", "유튜브 뮤직", "음악 스트리밍", 8950);
+        LookItem google = new LookItem("https://www.google.com/drive/static/images/drive/logo-drive.png", "구글 클라우드", "저장 클라우드", 15000);
+
+        mLookPopularList.add(adobe);
+        mLookPopularList.add(netflix);
+        mLookPopularList.add(youtube);
+
+        mLookRecommendList.add(google);
+        mLookRecommendList.add(google);
+        mLookRecommendList.add(google);
+
+        mLookOnlineList.add(youtube);
+        mLookOnlineList.add(netflix);
+        mLookOnlineList.add(adobe);
+
+        mLookOfflineList.add(netflix);
+        mLookOfflineList.add(adobe);
+        mLookOfflineList.add(youtube);
 
         return view;
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-
-//        if (behavior != null) return;
-//
-//        FrameLayout frame = getActivity().findViewById(R.id.frame_main);
-//        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) frame.getLayoutParams();
-//        behavior = params.getBehavior();
-//        params.setBehavior(null);
-
+    public void scrollToTop() {
+        Log.d("로그", "맨 위로");
+        mScrollLook.fullScroll(ScrollView.FOCUS_UP);
     }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-//        if (behavior == null) return;
-//
-//        FrameLayout frame = (FrameLayout) getActivity().findViewById(R.id.frame_main);
-//        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) frame.getLayoutParams();
-//        params.setBehavior(behavior);
-//        frame.setLayoutParams(params);
-//        behavior = null;
-    }
-
 
 }

@@ -25,14 +25,14 @@
 
     <!-- Service -->
     <string name="tv_service_top">서비스 추가</string>
-    <string name="tv_service_product_name">상품명</string>
+    <string name="tv_service_product_name">구독 서비스명</string>
     <string name="tv_service_product_name_hint">상품명을 입력해 주세요</string>
     <string name="tv_service_search">찾기</string>
     <string name="tv_service_price">금액</string>
     <string name="tv_service_price_hint">0</string>
     <string name="tv_service_last">마지막 결제일</string>
     <string name="tv_service_last_hint">2019.10.10</string>
-    <string name="tv_service_while">이용기간</string>
+    <string name="tv_service_while">결제 주기</string>
     <string name="tv_service_while_tool">0</string>
     <string name="tv_service_while_month">개월</string>
     <string name="tv_service_add_image">이미지 추가</string>
@@ -73,4 +73,22 @@
     <string name="loading">Loading&#8230;</string>
     <string name="network_failure">연결 실패</string>
     <string name="middleDot">·</string>
+
+    <!-- Look -->
+    <string name="tv_look_tool_adobe">어도비 클라우드</string>
+    <string name="tv_look_tool_fee">12,000원</string>
+    <string name="tv_look_detail">상세보기</string>
+    <string name="tv_look_all">모두보기</string>
+    <string name="tv_look_popular">인기 구독</string>
+    <string name="tv_look_recommend">추천</string>
+    <string name="tv_look_category">카테고리</string>
+    <string name="tv_look_online">온라인 구독</string>
+    <string name="tv_look_offline">오프라인 구독</string>
+
+    <!-- Category -->
+    <string name="category_cloud">저장 클라우드</string>
+    <string name="category_music">음악 스트리밍</string>
+    <string name="category_video">영상 스트리밍</string>
+    <string name="category_design">디자인</string>
+
 </resources>
