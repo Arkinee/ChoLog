@@ -17,14 +17,15 @@ import com.makeus.ChoLog.src.product.ProductActivity;
 import com.makeus.ChoLog.src.splash.interfaces.SplashActivityView;
 
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 public class ServiceAddActivity extends BaseActivity {
 
     private EditText mEdtProduct;
     private EditText mEdtPrice;
-    private EditText mEdtLast;
-    private EditText mEdtWhile;
-    private EditText mEdtAlarm;
+    private TextView mTvLast;
+    private TextView mTvDuration;
+    private TextView mTvAlarm;
     private EditText mEdtExtra;
     private EditText mEdtChange;
     private EditText mEdtCancel;
@@ -46,15 +47,16 @@ public class ServiceAddActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_add);
         this.initialize();
+        this.setEdtListener();
 
     }
 
     void initialize() {
         mEdtProduct = findViewById(R.id.edt_service_add_product);
         mEdtPrice = findViewById(R.id.edt_service_add_price);
-        mEdtLast = findViewById(R.id.edt_service_add_last);
-        mEdtWhile = findViewById(R.id.edt_service_add_while);
-        mEdtAlarm = findViewById(R.id.edt_service_add_alarm);
+        mTvLast = findViewById(R.id.tv_service_add_last);
+        mTvDuration = findViewById(R.id.tv_service_add_duration);
+        mTvAlarm = findViewById(R.id.tv_service_add_alarm);
         mEdtExtra = findViewById(R.id.edt_service_add_extra);
         mEdtChange = findViewById(R.id.edt_service_add_change_plan);
         mEdtCancel = findViewById(R.id.edt_service_add_cancel_plan);
@@ -62,14 +64,77 @@ public class ServiceAddActivity extends BaseActivity {
         mTvProductUnder = findViewById(R.id.tv_service_product_under);
         mTvPriceUnder = findViewById(R.id.tv_service_price_under);
         mTvLastUnder = findViewById(R.id.tv_service_last_under);
-        mTvWhileUnder = findViewById(R.id.tv_service_while_under);
+        mTvWhileUnder = findViewById(R.id.tv_service_duration_under);
         mTvAlarmUnder = findViewById(R.id.tv_service_alarm_under);
         mTvExtraUnder = findViewById(R.id.tv_service_extra_under);
         mTvChangeUnder = findViewById(R.id.tv_service_change_plan_under);
         mTvCancelUnder = findViewById(R.id.tv_service_cancel_plan_under);
 
         mLinearRemove = findViewById(R.id.linear_service_add_remove);
-//        mTvAdd = findViewById(R.id.tv_service_add_btn);
+
+        TextView tvEssential = findViewById(R.id.tv_service_add_essential);
+        tvEssential.requestFocus();
+
+    }
+
+    public void setEdtListener(){
+
+        mEdtProduct.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus) {
+                    mTvProductUnder.setBackgroundColor(getResources().getColor(R.color.colorConceptPrimary));
+                } else {
+                    mTvProductUnder.setBackgroundColor(getResources().getColor(R.color.colorTextServiceUnderBarBefore));
+                }
+            }
+        });
+
+        mEdtPrice.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus) {
+                    mTvPriceUnder.setBackgroundColor(getResources().getColor(R.color.colorConceptPrimary));
+                } else {
+                    mTvPriceUnder.setBackgroundColor(getResources().getColor(R.color.colorTextServiceUnderBarBefore));
+                }
+            }
+        });
+
+        mEdtExtra.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus) {
+                    mTvExtraUnder.setBackgroundColor(getResources().getColor(R.color.colorConceptPrimary));
+                } else {
+                    mTvExtraUnder.setBackgroundColor(getResources().getColor(R.color.colorTextServiceUnderBarBefore));
+                }
+            }
+        });
+
+        mEdtChange.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus) {
+                    mTvChangeUnder.setBackgroundColor(getResources().getColor(R.color.colorConceptPrimary));
+                } else {
+                    mTvChangeUnder.setBackgroundColor(getResources().getColor(R.color.colorTextServiceUnderBarBefore));
+                }
+            }
+        });
+
+        mEdtCancel.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus) {
+                    mTvCancelUnder.setBackgroundColor(getResources().getColor(R.color.colorConceptPrimary));
+                } else {
+                    mTvCancelUnder.setBackgroundColor(getResources().getColor(R.color.colorTextServiceUnderBarBefore));
+                }
+            }
+        });
+
+
 
     }
 
@@ -93,7 +158,17 @@ public class ServiceAddActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case R.id.tv_service_add_btn:
-                this.finish();
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("name", mEdtProduct.getText().toString());
+                resultIntent.putExtra("price", mEdtPrice.getText().toString());
+                resultIntent.putExtra("last", mTvLast.getText().toString());
+                resultIntent.putExtra("duration", mTvDuration.getText().toString());
+                resultIntent.putExtra("alarm", mTvAlarm.getText().toString());
+                resultIntent.putExtra("change", mEdtChange.getText().toString());
+                resultIntent.putExtra("cancel", mEdtCancel.getText().toString());
+                resultIntent.putExtra("extra", mEdtExtra.getText().toString());
+                setResult(RESULT_OK, resultIntent);
+                finish();
                 break;
         }
     }

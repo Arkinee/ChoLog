@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="90dp"
-    android:background="@color/colorConcept"
+    android:background="@color/colorTextMyInfoBack"
     android:orientation="vertical"
     android:paddingStart="32dp"
     android:paddingEnd="32dp">
@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorTextMyInfoCategory"
         android:textSize="12sp"
         tools:text="영상 스트리밍" />
 
@@ -26,6 +26,7 @@
             android:id="@+id/tv_item_my_info_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:textColor="@color/colorTextMyInfoFee"
             android:textSize="20sp"
             tools:text="12,000원" />

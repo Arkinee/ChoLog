@@ -1,11 +1,11 @@
 package com.makeus.ChoLog.src.main;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -26,6 +26,7 @@ import com.makeus.ChoLog.src.BaseActivity;
 import com.makeus.ChoLog.src.dialog.loginDialog.LoginDialog;
 import com.makeus.ChoLog.src.dialog.loginDialog.loginListener;
 import com.makeus.ChoLog.src.home.HomeFragment;
+import com.makeus.ChoLog.src.home.models.HomeItem;
 import com.makeus.ChoLog.src.lookAround.LookFragment;
 import com.makeus.ChoLog.src.myInfo.MyInfoFragment;
 import com.makeus.ChoLog.src.serviceAdd.ServiceAddActivity;
@@ -103,7 +104,7 @@ public class MainActivity extends BaseActivity {
         mRelativeMainHome = findViewById(R.id.relative_main_home);
         mRelativeMainMyInfo = findViewById(R.id.relative_main_my_info);
 
-        mFragmentFlag = 2;
+        mFragmentFlag = 1;
 
     }
 
@@ -148,37 +149,34 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK){
+            switch (requestCode){
+                case 1000:
+                    String mUrl = "https://52.79.123.156";
+                    HomeItem item = new HomeItem("10월 3일", 4, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 25100, true, mUrl, mUrl);
+                    HomeFragment hf = (HomeFragment) getSupportFragmentManager().findFragmentById(R.id.frame_main);
+                    hf.addItem(item);
+                    break;
+            }
+        }
+    }
+
     public void onClick(View view) {
         mTransaction = mFragmentManager.beginTransaction();
 
         switch (view.getId()) {
-            case R.id.linear_main_my_info:
-                //AppBar부분 구성요소들
-                mTvMainServiceMonth.setVisibility(View.VISIBLE);
-                mTvMainServiceMonth.setText(getResources().getString(R.string.tv_main_my_info_fee));
-                mRelativeMainHome.setVisibility(View.GONE);
-                mRelativeMainMyInfo.setVisibility(View.VISIBLE);
-                mTvMainMyInfoServiceMonth.setVisibility(View.VISIBLE);
-                mIvMainMyInfoPrevious.setVisibility(View.VISIBLE);
-                mIvMainMyInfoNext.setVisibility(View.VISIBLE);
-                mTvMainLookTop.setVisibility(View.GONE);
-
-                mAppBar.setExpanded(true);
-
+            case R.id.linear_main_home:
                 //Fragment 교체
                 mFragmentFlag = 1;
-                mTransaction.replace(R.id.frame_main, mMyInfoFragment).commitAllowingStateLoss();
+                mTransaction.replace(R.id.frame_main, mHomeFragment).commitAllowingStateLoss();
 
-                //하단 네비게이션바
-                mTvMainMyInfo.setTextColor(getResources().getColor(R.color.colorTextMainNavigationClicked));
-                mTvMainHome.setTextColor(getResources().getColor(R.color.colorTextMainNavigationNotClicked));
-                mTvMainLook.setTextColor(getResources().getColor(R.color.colorTextMainNavigationNotClicked));
-
-                break;
-            case R.id.linear_main_home:
                 //AppBar부분 구성요소들
                 mTvMainServiceMonth.setVisibility(View.VISIBLE);
                 mTvMainServiceMonth.setText(getResources().getString(R.string.tv_serviceFee_tool));
+                mTvMainServiceMonth.setVisibility(View.VISIBLE);
                 mRelativeMainHome.setVisibility(View.VISIBLE);
                 mRelativeMainMyInfo.setVisibility(View.GONE);
                 mTvMainMyInfoServiceMonth.setVisibility(View.GONE);
@@ -188,16 +186,41 @@ public class MainActivity extends BaseActivity {
 
                 mAppBar.setExpanded(true);
 
-                //Fragment 교체
-                mFragmentFlag = 2;
-                mTransaction.replace(R.id.frame_main, mHomeFragment).commitAllowingStateLoss();
-
                 //하단 네비게이션바
                 mTvMainMyInfo.setTextColor(getResources().getColor(R.color.colorTextMainNavigationNotClicked));
                 mTvMainHome.setTextColor(getResources().getColor(R.color.colorTextMainNavigationClicked));
                 mTvMainLook.setTextColor(getResources().getColor(R.color.colorTextMainNavigationNotClicked));
                 break;
+
+            case R.id.linear_main_my_info:
+                //Fragment 교체
+                mFragmentFlag = 2;
+                mTransaction.replace(R.id.frame_main, mMyInfoFragment).commitAllowingStateLoss();
+
+                //AppBar부분 구성요소들
+                mTvMainServiceMonth.setVisibility(View.VISIBLE);
+                mTvMainServiceMonth.setVisibility(View.GONE);
+                mRelativeMainHome.setVisibility(View.GONE);
+                mRelativeMainMyInfo.setVisibility(View.VISIBLE);
+                mTvMainMyInfoServiceMonth.setVisibility(View.VISIBLE);
+                mIvMainMyInfoPrevious.setVisibility(View.VISIBLE);
+                mIvMainMyInfoNext.setVisibility(View.VISIBLE);
+                mTvMainLookTop.setVisibility(View.GONE);
+
+                mAppBar.setExpanded(true);
+
+                //하단 네비게이션바
+                mTvMainMyInfo.setTextColor(getResources().getColor(R.color.colorTextMainNavigationClicked));
+                mTvMainHome.setTextColor(getResources().getColor(R.color.colorTextMainNavigationNotClicked));
+                mTvMainLook.setTextColor(getResources().getColor(R.color.colorTextMainNavigationNotClicked));
+
+                break;
+
             case R.id.linear_main_look_around:
+                //Fragment 교체
+                mFragmentFlag = 3;
+                mTransaction.replace(R.id.frame_main, mLookFragment).commitAllowingStateLoss();
+
                 //AppBar부분 구성요소들
                 mTvMainServiceMonth.setVisibility(View.GONE);
                 mRelativeMainHome.setVisibility(View.GONE);
@@ -209,10 +232,6 @@ public class MainActivity extends BaseActivity {
 
                 mAppBar.setExpanded(false, false);
 
-                //Fragment 교체
-                mFragmentFlag = 3;
-                mTransaction.replace(R.id.frame_main, mLookFragment).commitAllowingStateLoss();
-
                 //하단 네비게이션바
                 mTvMainMyInfo.setTextColor(getResources().getColor(R.color.colorTextMainNavigationNotClicked));
                 mTvMainHome.setTextColor(getResources().getColor(R.color.colorTextMainNavigationNotClicked));
@@ -220,15 +239,15 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.linear_home_service_add:
                 Intent intent = new Intent(this, ServiceAddActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, 1000);
                 break;
             case R.id.iv_main_logo:
                 if (mFragmentFlag == 1) {
-                    MyInfoFragment mf = (MyInfoFragment) getSupportFragmentManager().findFragmentById(R.id.frame_main);
-                    mf.scrollToTop();
-                } else if (mFragmentFlag == 2) {
                     HomeFragment hf = (HomeFragment) getSupportFragmentManager().findFragmentById(R.id.frame_main);
                     hf.scrollToTop();
+                } else if (mFragmentFlag == 2) {
+                    MyInfoFragment mf = (MyInfoFragment) getSupportFragmentManager().findFragmentById(R.id.frame_main);
+                    mf.scrollToTop();
                 } else {
                     LookFragment lf = (LookFragment) getSupportFragmentManager().findFragmentById(R.id.frame_main);
                     lf.scrollToTop();
@@ -237,7 +256,6 @@ public class MainActivity extends BaseActivity {
                 Log.d(Tag, "로고 클릭");
                 break;
             case R.id.iv_main_setting:
-//                mLoginDialog.show();
                 mLoginDialog.show();
                 Window window = mLoginDialog.getWindow();
                 try {

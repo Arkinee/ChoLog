@@ -39,4 +39,9 @@ MakeUs_Project_Team_ChoLog
    - 둘러보기 fragment ( 카테고리를 제외한 layout 적용 완료)
    - Fragment 전환 시 AppBar부분 보다 Fragment 교체를 먼저 적용 시키기
 
+# 10.22
+ 전체적인 UI Color 변경
+ ServiceAddActivity 내용 수정 및 UI 변경
+ HomeFragment Item 구성 변경
+
  

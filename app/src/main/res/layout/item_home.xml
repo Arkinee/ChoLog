@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="190dp"
+    android:layout_height="178dp"
     android:background="@drawable/src_item_home"
     android:orientation="vertical"
     android:paddingTop="16dp">
@@ -55,8 +55,8 @@
 
         <ImageView
             android:id="@+id/iv_item_home_image"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:scaleType="fitXY"
             android:src="@drawable/ic_melon" />
 
@@ -72,7 +72,9 @@
                 android:layout_height="wrap_content"
                 android:maxLength="15"
                 android:maxLines="1"
+                android:ellipsize="end"
                 android:text="@string/tv_item_home_category"
+                android:letterSpacing="-0.04"
                 android:textColor="@color/colorTextHomeItemCategory"
                 android:textSize="14sp" />
 
@@ -82,17 +84,9 @@
                 android:layout_height="wrap_content"
                 android:maxLength="15"
                 android:maxLines="1"
+                android:ellipsize="end"
+                android:letterSpacing="-0.04"
                 android:text="@string/tv_item_home_brand"
-                android:textColor="@color/colorTextHomeItemBrandAndWhile"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tv_item_home_while"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxLength="20"
-                android:maxLines="1"
-                android:text="@string/tv_item_home_while"
                 android:textColor="@color/colorTextHomeItemBrandAndWhile"
                 android:textSize="14sp" />
 
@@ -102,6 +96,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1" />
+
+        <View
+            android:layout_width="60dp"
+            android:layout_height="0dp" />
 
         <TextView
             android:id="@+id/tv_item_home_price"

@@ -23,6 +23,16 @@ public class LookPopularAdapter extends RecyclerView.Adapter<LookPopularAdapter.
     Context mContext;
     private ArrayList<LookItem> mPopularList;
 
+    public interface OnItemClickListener{
+        void onItemClick(View V, int pos);
+    }
+
+    private OnItemClickListener mListener = null;
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.mListener = listener;
+    }
+
     // 아이템 뷰를 저장하는 뷰홀더 클래스.
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -31,13 +41,25 @@ public class LookPopularAdapter extends RecyclerView.Adapter<LookPopularAdapter.
         TextView tvLookPrice;
         ImageView ivLookImage;
 
-        ViewHolder(View itemView) {
+        ViewHolder(final View itemView) {
             super(itemView);
             // 뷰 객체에 대한 참조. (hold strong reference)
             tvLookService = itemView.findViewById(R.id.tv_item_look_service_name);
             tvLookPrice = itemView.findViewById(R.id.tv_item_look_service_fee);
             tvLookCategory = itemView.findViewById(R.id.tv_item_look_category);
             ivLookImage = itemView.findViewById(R.id.iv_item_look_image);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int pos = getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        if(mListener != null){
+                            mListener.onItemClick(itemView, pos);
+                        }
+                    }
+                }
+            });
 
         }
     }

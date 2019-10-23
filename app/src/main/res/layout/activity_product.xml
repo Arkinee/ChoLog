@@ -11,7 +11,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="61dp">
+        android:layout_height="56dp">
 
         <TextView
             android:id="@+id/tv_product_input"
@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="@string/tv_product_top"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorText"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -32,12 +32,6 @@
             android:layout_marginEnd="24dp"
             android:onClick="onClick"
             android:src="@android:drawable/ic_menu_close_clear_cancel" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/src_drop_shadow" />
 
     </RelativeLayout>
 
@@ -56,9 +50,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="30dp"
                 android:text="@string/tv_product_service_name"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorTextServiceText"
                 android:textSize="14sp" />
 
             <EditText
@@ -76,7 +70,7 @@
             <TextView
                 android:id="@+id/tv_product_service_name_under"
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
+                android:layout_height="2dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/src_service_add_under_bar" />
 
@@ -95,7 +89,7 @@
             <TextView
                 android:id="@+id/tv_product_membership_under"
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
+                android:layout_height="2dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/src_service_add_under_bar" />
 
@@ -106,11 +100,11 @@
         android:id="@+id/tv_product_complete"
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:background="@color/colorTextServiceAdd"
+        android:background="@color/colorConceptPrimary"
         android:gravity="center"
         android:onClick="onClick"
         android:text="@string/tv_product_complete"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorText"
         android:textSize="18sp"
         android:textStyle="bold" />
 

@@ -29,8 +29,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_look_popular"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp" />
+                android:textColor="@color/colorTextLookService"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="0dp"
@@ -56,8 +57,7 @@
             android:paddingStart="32dp"
             android:paddingTop="20dp"
             android:paddingEnd="32dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_look_around" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,8 +70,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_look_recommend"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp" />
+                android:textColor="@color/colorTextLookService"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="0dp"
@@ -97,8 +98,7 @@
             android:paddingStart="32dp"
             android:paddingTop="20dp"
             android:paddingEnd="32dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_look_around" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -111,8 +111,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_look_online"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp" />
+                android:textColor="@color/colorTextLookService"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="0dp"
@@ -138,8 +139,7 @@
             android:paddingStart="32dp"
             android:paddingTop="20dp"
             android:paddingEnd="32dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_look_around" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -152,8 +152,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_look_offline"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp" />
+                android:textColor="@color/colorTextLookService"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="0dp"
@@ -175,13 +176,12 @@
             android:id="@+id/rv_look_offline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="false"
             android:layout_marginBottom="42dp"
+            android:nestedScrollingEnabled="false"
             android:paddingStart="32dp"
             android:paddingTop="20dp"
             android:paddingEnd="32dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_look_around" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

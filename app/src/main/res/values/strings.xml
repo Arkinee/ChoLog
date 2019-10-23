@@ -7,12 +7,12 @@
     <string name="tv_main_home_service_fee">12,400</string>
     <string name="tv_main_home_service_fee_won">원</string>
     <string name="tv_main_d_day">D-</string>
-    <string name="tv_main_my_info_fee">이용료</string>
+    <string name="tv_main_won">원</string>
     <string name="tv_main_my_info_month">10월 2019</string>
     <string name="tv_main_my_info_service_fee">0</string>
 
     <!-- Home -->
-    <string name="tv_item_home_service_add">서비스 추가하기</string>
+    <string name="tv_item_home_service_add">구독 서비스 추가하기</string>
     <string name="tv_item_home_date">10월3일</string>
     <string name="tv_item_home_dday">D-2</string>
     <string name="tv_item_home_category">영상 스트리밍</string>
@@ -25,6 +25,8 @@
 
     <!-- Service -->
     <string name="tv_service_top">서비스 추가</string>
+    <string name="tv_service_essential_info">필수 정보</string>
+    <string name="tv_service_extra_info">추가 정보</string>
     <string name="tv_service_product_name">구독 서비스명</string>
     <string name="tv_service_product_name_hint">상품명을 입력해 주세요</string>
     <string name="tv_service_search">찾기</string>
@@ -32,9 +34,9 @@
     <string name="tv_service_price_hint">0</string>
     <string name="tv_service_last">마지막 결제일</string>
     <string name="tv_service_last_hint">2019.10.10</string>
-    <string name="tv_service_while">결제 주기</string>
-    <string name="tv_service_while_tool">0</string>
-    <string name="tv_service_while_month">개월</string>
+    <string name="tv_service_duration">결제 주기</string>
+    <string name="tv_service_duration_tool">0</string>
+    <string name="tv_service_duration_month">개월</string>
     <string name="tv_service_add_image">이미지 추가</string>
     <string name="tv_service_add_image_btn">추가하기</string>
     <string name="tv_service_alarm">알림 설정</string>
@@ -44,8 +46,10 @@
     <string name="tv_service_extra_hint">없음</string>
     <string name="tv_service_change_plan">플랜 변경 링크</string>
     <string name="tv_service_change_plan_hint">URL</string>
-    <string name="tv_service_cancel_plan">구독 해지 링크</string>
+    <string name="tv_service_cancel_plan_link">구독 해지 링크</string>
+    <string name="tv_service_cancel_plan_phone">구독 해지 번호</string>
     <string name="tv_service_cancel_plan_hint">URL</string>
+    <string name="tv_service_cancel_plan_phone_hint">000-0000-0000</string>
     <string name="tv_service_remove">서비스 삭제</string>
     <string name="tv_service_add">서비스 추가하기</string>
     <string name="tv_service_change">서비스 수정완료</string>
@@ -90,5 +94,20 @@
     <string name="category_music">음악 스트리밍</string>
     <string name="category_video">영상 스트리밍</string>
     <string name="category_design">디자인</string>
+
+    <!-- Detail -->
+    <string name="tv_detail_top">상세보기</string>
+    <string name="tv_detail_detail">상세</string>
+    <string name="tv_detail_service">서비스 명</string>
+    <string name="tv_detail_fee">서비스 가격</string>
+    <string name="tv_detail_category">카테고리</string>
+    <string name="tv_detail_duration">구독 기간</string>
+    <string name="tv_detail_year">년</string>
+    <string name="tv_detail_month">월</string>
+    <string name="tv_detail_day">일</string>
+
+    <!-- Date Picker -->
+    <string name="tv_picker_start">2000</string>
+    <string name="tv_picker_end">2020</string>
 
 </resources>

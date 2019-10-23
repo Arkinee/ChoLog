@@ -8,12 +8,14 @@ public class LookItem {
     private String mBrand;
     private String mCategory;
     private int mPrice;
+    private int mDuration;
 
-    public LookItem(String mImageUrl, String mBrand, String mCategory, int mPrice) {
+    public LookItem(String mImageUrl, String mBrand, String mCategory, int mPrice, int mDuration) {
         this.mImageUrl = mImageUrl;
         this.mCategory = mCategory;
         this.mBrand = mBrand;
         this.mPrice = mPrice;
+        this.mDuration = mDuration;
     }
 
     public String getmImageUrl() {
@@ -46,5 +48,13 @@ public class LookItem {
 
     public void setmPrice(int mPrice) {
         this.mPrice = mPrice;
+    }
+
+    public int getmDuration() {
+        return mDuration;
+    }
+
+    public void setmDuration(int mDuration) {
+        this.mDuration = mDuration;
     }
 }

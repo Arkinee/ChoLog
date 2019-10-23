@@ -23,6 +23,16 @@ public class LookOfflineAdapter extends RecyclerView.Adapter<LookOfflineAdapter.
     Context mContext;
     private ArrayList<LookItem> mPopularList;
 
+    public interface OnItemClickListener{
+        void onItemClick(View V, int pos);
+    }
+
+    private LookPopularAdapter.OnItemClickListener mListener = null;
+
+    public void setOnItemClickListener(LookPopularAdapter.OnItemClickListener listener){
+        this.mListener = listener;
+    }
+
     // 아이템 뷰를 저장하는 뷰홀더 클래스.
     public class ViewHolder extends RecyclerView.ViewHolder {
 

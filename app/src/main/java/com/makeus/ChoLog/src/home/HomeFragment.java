@@ -45,13 +45,18 @@ public class HomeFragment extends Fragment {
         mRvHome.setAdapter(mHomeAdapter);
         mRvHome.addItemDecoration(new RecyclerViewDecoration(50));
 
-        mUrl = "https://52.79.123.156";
-        mHomeItemList.add(new HomeItem("10월 3일", 2, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 12000, true, mUrl, mUrl));
-        mHomeItemList.add(new HomeItem("10월 3일", 3, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 10000, true, mUrl, mUrl));
-        mHomeItemList.add(new HomeItem("10월 3일", 5, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 13200, true, mUrl, mUrl));
-        mHomeItemList.add(new HomeItem("10월 3일", 4, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 25100, true, mUrl, mUrl));
+//        mUrl = "https://52.79.123.156";
+//        mHomeItemList.add(new HomeItem("10월 3일", 2, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 12000, true, mUrl, mUrl));
+//        mHomeItemList.add(new HomeItem("10월 3일", 3, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 10000, true, mUrl, mUrl));
+//        mHomeItemList.add(new HomeItem("10월 3일", 5, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 13200, true, mUrl, mUrl));
+//        mHomeItemList.add(new HomeItem("10월 3일", 4, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 25100, true, mUrl, mUrl));
 
         return view;
+    }
+
+    public void addItem(HomeItem item){
+        mHomeItemList.add(item);
+        mHomeAdapter.notifyDataSetChanged();
     }
 
     public void scrollToTop() {

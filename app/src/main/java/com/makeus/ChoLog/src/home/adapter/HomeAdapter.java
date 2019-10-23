@@ -35,7 +35,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         ImageView ivHomeImage;
         TextView tvHomeCategory;
         TextView tvHomeBrand;
-        TextView tvHomeWhile;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -47,7 +46,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             ivHomeImage = itemView.findViewById(R.id.iv_item_home_image);
             tvHomeCategory = itemView.findViewById(R.id.tv_item_home_category);
             tvHomeBrand = itemView.findViewById(R.id.tv_item_home_brand);
-            tvHomeWhile = itemView.findViewById(R.id.tv_item_home_while);
 
         }
     }
@@ -75,12 +73,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final HomeItem homeItem = mHomeList.get(position);
         holder.tvHomeDate.setText(homeItem.getmDate());
-        holder.tvHomeDDay.setText("D-".concat(String.valueOf(homeItem.getmDDay())));
-        holder.tvHomePrice.setText(myFormatter.format(homeItem.getmPrice()).concat("원"));
+        holder.tvHomeDDay.setText(mContext.getResources().getString(R.string.tv_main_d_day).concat(String.valueOf(homeItem.getmDDay())));
+        holder.tvHomePrice.setText(myFormatter.format(homeItem.getmPrice()).concat(mContext.getResources().getString(R.string.tv_main_won)));
         Glide.with(mContext).load(homeItem.getmImageUrl()).placeholder(R.drawable.ic_melon).override(200, 200).into(holder.ivHomeImage);
         holder.tvHomeCategory.setText(homeItem.getmCategory());
         holder.tvHomeBrand.setText(homeItem.getmBrand());
-        holder.tvHomeWhile.setText(String.valueOf(homeItem.getmWhile()).concat("개월째 구독중"));
 
     }
 
