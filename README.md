@@ -2,46 +2,47 @@
 MakeUs_Project_Team_ChoLog
 
 # 10.17 
- Splash Activity : Logo Àû¿ë ÇÊ¿ä, ·Î±×ÀÎ »ý±æ ½Ã ÀÚµ¿ ·Î±×ÀÎ ¼­ºñ½º Àû¿ë ÇÊ¿ä
+ Splash Activity : Logo ì ìš© í•„ìš”, ë¡œê·¸ì¸ ìƒê¸¸ ì‹œ ìžë™ ë¡œê·¸ì¸ ì„œë¹„ìŠ¤ ì ìš© í•„ìš”
  
  Main Activity 
-   - My Info : ¾ÆÀÌÅÛ (o),
-   - Home : ¾ÆÀÌÅÛ(¹Ì¿Ï¼º), RecyclerView Item °£°Ý Á¶Á¤ Å¬·¡½º Á¤ÀÇÇÔ
+   - My Info : ì•„ì´í…œ (o),
+   - Home : ì•„ì´í…œ(ë¯¸ì™„ì„±), RecyclerView Item ê°„ê²© ì¡°ì • í´ëž˜ìŠ¤ ì •ì˜í•¨
 
 # 10.18
  Main Activity
-   - CollapsingToolBarLayout Àû¿ë (o), ScrollBar UI Àû¿ë
-   - Fragment ´Ù Àû¿ë(µÑ·¯º¸±â Å¬¸¯ ½Ã ToolBarÀÇ ±Ý¾×ºÎºÐ ¾Èº¸ÀÌ°Ô Á¶Á¤ ÇÊ¿ä)
-   - My Info : ToolBar ¼Ó ´Ù¸¥ TextView Àû¿ë ÇÊ¿ä
-   - Logo Å¬¸¯ ÀÌº¥Æ® ¹Þ´Â°Å È®ÀÎ, Å¬¸¯½Ã fragment¼Ó scroll »ó´ÜÀ¸·Î ÀÌµ¿ ÇÊ¿ä
+   - CollapsingToolBarLayout ì ìš© (o), ScrollBar UI ì ìš©
+   - Fragment ë‹¤ ì ìš©(ë‘˜ëŸ¬ë³´ê¸° í´ë¦­ ì‹œ ToolBarì˜ ê¸ˆì•¡ë¶€ë¶„ ì•ˆë³´ì´ê²Œ ì¡°ì • í•„ìš”)
+   - My Info : ToolBar ì† ë‹¤ë¥¸ TextView ì ìš© í•„ìš”
+   - Logo í´ë¦­ ì´ë²¤íŠ¸ ë°›ëŠ”ê±° í™•ì¸, í´ë¦­ì‹œ fragmentì† scroll ìƒë‹¨ìœ¼ë¡œ ì´ë™ í•„ìš”
 
  ServiceAddActivity
-   - layout ¿Ï·á
+   - layout ì™„ë£Œ
    
 # 10.19
  ServiceAddActivity
-   - Product Activity ¿¬°á(Ã£±â ¹öÆ°)
-   - ¸¶Áö¸· °áÁ¦ÀÏ ºÎºÐ Spinner Àû¿ë ÇÊ¿ä
-   - »èÁ¦ ¹öÆ° ½Ã ÇÏ´Ü ¹Ù º¯°æ ok
+   - Product Activity ì—°ê²°(ì°¾ê¸° ë²„íŠ¼)
+   - ë§ˆì§€ë§‰ ê²°ì œì¼ ë¶€ë¶„ Spinner ì ìš© í•„ìš”
+   - ì‚­ì œ ë²„íŠ¼ ì‹œ í•˜ë‹¨ ë°” ë³€ê²½ ok
 
  MainActivity
-   - »ó´Ü ¿ù,¿ùÀÌ¿ë·á ºÎºÐ '³»Á¤º¸', 'È¨', 'µÑ·¯º¸±â'¿¡ µû¶ó ´Ù¸£°Ô ±¸ºÐ ¿Ï·á
-   - ·Î±×ÀÎ Dialog ºñÀ² ¼öÁ¤ ÇÊ¿ä
-   - fragment ¹Ù²ð½Ã µô·¹ÀÌ ºÎºÐ¿¡ ´ëÇØ Ã£¾Æº¸±â
+   - ìƒë‹¨ ì›”,ì›”ì´ìš©ë£Œ ë¶€ë¶„ 'ë‚´ì •ë³´', 'í™ˆ', 'ë‘˜ëŸ¬ë³´ê¸°'ì— ë”°ë¼ ë‹¤ë¥´ê²Œ êµ¬ë¶„ ì™„ë£Œ
+   - ë¡œê·¸ì¸ Dialog ë¹„ìœ¨ ìˆ˜ì • í•„ìš”
+   - fragment ë°”ë€”ì‹œ ë”œë ˆì´ ë¶€ë¶„ì— ëŒ€í•´ ì°¾ì•„ë³´ê¸°
 
 # 10.20
  ServiceAddActivity
-  - DatePicker Spinner Dialog·Î ¸¸µé¾î¼­ Àû¿ëÇÏ±â
-  - »óÇ°¸í Ã£±â Activity·Î ³Ñ¾î°¡¼­ ÀÚµ¿ ¿Ï¼º ´ÙÀÌ¾ó·Î±× ÃßÈÄ¿¡ Àû¿ëÇÏ±â
+  - DatePicker Spinner Dialogë¡œ ë§Œë“¤ì–´ì„œ ì ìš©í•˜ê¸°
+  - ìƒí’ˆëª… ì°¾ê¸° Activityë¡œ ë„˜ì–´ê°€ì„œ ìžë™ ì™„ì„± ë‹¤ì´ì–¼ë¡œê·¸ ì¶”í›„ì— ì ìš©í•˜ê¸°
   
  MainActivity
-   - Dialog height´Â Àû¿ë, weight match_parent»óÅÂÀÎµ¥ ºñÀ² 95Á¤µµ·Î ¼öÁ¤ ÇÊ¿ä
-   - µÑ·¯º¸±â fragment ( Ä«Å×°í¸®¸¦ Á¦¿ÜÇÑ layout Àû¿ë ¿Ï·á)
-   - Fragment ÀüÈ¯ ½Ã AppBarºÎºÐ º¸´Ù Fragment ±³Ã¼¸¦ ¸ÕÀú Àû¿ë ½ÃÅ°±â
+   - Dialog heightëŠ” ì ìš©, weight match_parentìƒíƒœì¸ë° ë¹„ìœ¨ 95ì •ë„ë¡œ ìˆ˜ì • í•„ìš”
+   - ë‘˜ëŸ¬ë³´ê¸° fragment ( ì¹´í…Œê³ ë¦¬ë¥¼ ì œì™¸í•œ layout ì ìš© ì™„ë£Œ)
+   - Fragment ì „í™˜ ì‹œ AppBarë¶€ë¶„ ë³´ë‹¤ Fragment êµì²´ë¥¼ ë¨¼ì € ì ìš© ì‹œí‚¤ê¸°
 
 # 10.22
- ÀüÃ¼ÀûÀÎ UI Color º¯°æ
- ServiceAddActivity ³»¿ë ¼öÁ¤ ¹× UI º¯°æ
- HomeFragment Item ±¸¼º º¯°æ
+ ì „ì²´ì ì¸ UI Color ë³€ê²½
+ ServiceAddActivity ë‚´ìš© ìˆ˜ì • ë° UI ë³€ê²½
+ HomeFragment Item êµ¬ì„± ë³€ê²½
 
  
+ í…ŒìŠ¤íŠ¸
