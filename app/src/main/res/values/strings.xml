@@ -32,7 +32,7 @@
     <string name="tv_service_search">찾기</string>
     <string name="tv_service_price">금액</string>
     <string name="tv_service_price_hint">￦</string>
-    <string name="tv_service_remove_cancel">취소</string>
+    <string name="tv_service_price_won">화폐단위 〉</string>
     <string name="tv_service_last">마지막 결제일</string>
     <string name="tv_service_last_hint">2019.10.10</string>
     <string name="tv_service_duration">결제 주기</string>
