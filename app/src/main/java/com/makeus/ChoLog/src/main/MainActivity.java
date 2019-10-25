@@ -2,16 +2,17 @@ package com.makeus.ChoLog.src.main;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -152,8 +153,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == RESULT_OK){
-            switch (requestCode){
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
                 case 1000:
                     String mUrl = "https://52.79.123.156";
                     HomeItem item = new HomeItem("10월 3일", 4, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 25100, true, mUrl, mUrl);
@@ -258,12 +259,16 @@ public class MainActivity extends BaseActivity {
             case R.id.iv_main_setting:
                 mLoginDialog.show();
                 Window window = mLoginDialog.getWindow();
-                try {
-                    window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                } catch (Exception e) {
-                    break;
-                }
+                window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 window.setAttributes(mWm);
+
+                Display display = getWindowManager().getDefaultDisplay();
+                Point size = new Point();
+                display.getSize(size);
+                Window window2 = mLoginDialog.getWindow();
+                int x = (int) (size.x * 0.9f);
+                int y = (int) (size.y * 0.3f);
+                window2.setLayout(x, y);
                 break;
         }
     }

@@ -20,7 +20,7 @@
             android:gravity="center"
             android:text="@string/tv_service_top"
             android:textColor="@color/colorTextServiceTop"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <ImageView
@@ -51,19 +51,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="38dp"
+                android:layout_marginTop="37dp"
                 android:focusable="true"
                 android:focusableInTouchMode="false"
                 android:text="@string/tv_service_essential_info"
                 android:textColor="@color/colorTextServiceText"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/src_service_add_back"
                 android:orientation="vertical">
@@ -94,23 +94,12 @@
                         android:maxLines="1"
                         android:textColor="@color/colorTextServiceTextHint"
                         android:textColorHint="@color/colorTextServiceNotPut"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1" />
-
-                    <TextView
-                        android:id="@+id/tv_service_search"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="16dp"
-                        android:onClick="onClick"
-                        android:text="@string/tv_service_search"
-                        android:textColor="@color/colorTextServiceBtn"
-                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -121,34 +110,42 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/src_service_add_under_bar" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="30dp"
-                    android:text="@string/tv_service_price"
-                    android:textColor="@color/colorTextServiceText"
-                    android:textSize="14sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="16dp">
+                    android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/edt_service_add_price"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:hint="@string/tv_service_price_hint"
-                        android:inputType="text"
-                        android:maxLength="13"
-                        android:maxLines="1"
-                        android:textColor="@color/colorTextServiceText"
-                        android:textColorHint="@color/colorTextServiceNotPut"
-                        android:textSize="20sp" />
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginEnd="19dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tv_service_price"
+                            android:textColor="@color/colorTextServiceText"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/edt_service_add_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:background="@null"
+                            android:hint="@string/tv_service_price_hint"
+                            android:inputType="text"
+                            android:maxLength="13"
+                            android:maxLines="1"
+                            android:textColor="@color/colorTextServiceText"
+                            android:textColorHint="@color/colorTextServiceNotPut"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
 
                     <View
                         android:layout_width="0dp"
@@ -156,11 +153,11 @@
                         android:layout_weight="1" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="70dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/tv_main_home_service_fee_won"
-                        android:textColor="@color/colorTextServiceBtn"
-                        android:textSize="16sp" />
+                        android:textSize="14sp"
+                        android:textColor="@color/colorText"
+                        android:text=""/>
 
                 </LinearLayout>
 
@@ -520,7 +517,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="32dp"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="48dp"
                 android:gravity="end"
                 android:onClick="onClick"
                 android:text="@string/tv_service_remove"
@@ -546,40 +543,6 @@
             android:textColor="@color/colorTextServiceText"
             android:textSize="18sp"
             android:textStyle="bold" />
-
-
-        <LinearLayout
-            android:id="@+id/linear_service_add_remove"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            android:weightSum="7">
-
-            <TextView
-                android:id="@+id/tv_service_add_btn_cancel"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:background="@color/colorTextServiceRemoveCancelBack"
-                android:gravity="center"
-                android:onClick="onClick"
-                android:text="@string/tv_service_remove_cancel"
-                android:textColor="@color/colorTextServiceRemoveCancel"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tv_service_add_btn_remove"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="4"
-                android:background="@color/colorTextServiceRemoveRemoveBack"
-                android:gravity="center"
-                android:onClick="onClick"
-                android:text="@string/tv_service_remove_remove"
-                android:textColor="@color/colorTextServiceRemoveRemove"
-                android:textSize="18sp" />
-
-        </LinearLayout>
 
     </FrameLayout>
 </LinearLayout>

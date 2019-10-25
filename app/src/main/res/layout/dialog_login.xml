@@ -22,13 +22,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_dialog_login"
-                android:textColor="@color/colorConcept"
+                android:textColor="@color/colorText"
                 android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="12dp"
                 android:maxLines="2"
                 android:text="@string/tv_dialog_login_please"
                 android:textAlignment="center"
@@ -53,7 +53,8 @@
                 android:onClick="onClick"
                 android:text="@string/tv_dialog_login_later"
                 android:textColor="@color/colorTextDialogLoginPlease"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_dialog_login_now"
@@ -64,8 +65,9 @@
                 android:gravity="center"
                 android:onClick="onClick"
                 android:text="@string/tv_dialog_login_now"
-                android:textColor="@color/colorWhite"
-                android:textSize="16sp" />
+                android:textColor="@color/colorText"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

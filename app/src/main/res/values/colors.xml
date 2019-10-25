@@ -40,16 +40,17 @@
     <color name="colorTextServiceTop">#080417</color>
     <color name="colorTextServiceUnderBarBefore">#f3f4f9</color>
     <color name="colorTextServiceUnderBarAfter">#ffca17</color>
-    <color name="colorTextServiceRemove">#ff6b6b</color>
+    <color name="colorTextServiceRemove">#ff174c</color>
     <color name="colorTextServiceAdd">#4a90e2</color>
-    <color name="colorTextServiceRemoveCancel">#8d8d8d</color>
-    <color name="colorTextServiceRemoveCancelBack">#e0e0e0</color>
-    <color name="colorTextServiceRemoveRemove">#ffffff</color>
-    <color name="colorTextServiceRemoveRemoveBack">#ff6b6b</color>
+    <color name="colorTextServiceRemoveCancel">#a6a6a7</color>
+    <color name="colorTextServiceRemoveCancelBack">#f3f4f9</color>
+    <color name="colorTextServiceRemoveRemove">#ff3160</color>
+    <color name="colorTextServiceRemoveRemoveBack">#ff3160</color>
+    <color name="colorTextServiceRemoveBackground">#59444445</color>
 
     <!-- Dialog -->
     <color name="colorTextDialogLoginPlease">#8d8d92</color>
-    <color name="colorTextDialogLoginLater">#ededed</color>
+    <color name="colorTextDialogLoginLater">#f3f4f9</color>
 
     <!-- My Info -->
     <color name="colorTextMyInfoServiceMonth">#444445</color>
@@ -66,8 +67,10 @@
     <color name="colorTextLookAll">#92a3b6</color>
     <color name="colorTextLookFee">#080417</color>
 
-    <!-- Look -->
+    <!-- Detail -->
     <color name="colorTextDetail">#080417</color>
 
+    <!-- Product -->
+    <color name="colorTextProduct">#787585</color>
 
 </resources>

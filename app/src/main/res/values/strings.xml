@@ -28,10 +28,11 @@
     <string name="tv_service_essential_info">필수 정보</string>
     <string name="tv_service_extra_info">추가 정보</string>
     <string name="tv_service_product_name">구독 서비스명</string>
-    <string name="tv_service_product_name_hint">상품명을 입력해 주세요</string>
+    <string name="tv_service_product_name_hint">서비스명 입력</string>
     <string name="tv_service_search">찾기</string>
     <string name="tv_service_price">금액</string>
-    <string name="tv_service_price_hint">0</string>
+    <string name="tv_service_price_hint">￦</string>
+    <string name="tv_service_remove_cancel">취소</string>
     <string name="tv_service_last">마지막 결제일</string>
     <string name="tv_service_last_hint">2019.10.10</string>
     <string name="tv_service_duration">결제 주기</string>
@@ -49,7 +50,7 @@
     <string name="tv_service_cancel_plan_link">구독 해지 링크</string>
     <string name="tv_service_cancel_plan_phone">구독 해지 번호</string>
     <string name="tv_service_cancel_plan_hint">URL</string>
-    <string name="tv_service_cancel_plan_phone_hint">000-0000-0000</string>
+    <string name="tv_service_cancel_plan_phone_hint">010-1234-5678</string>
     <string name="tv_service_remove">서비스 삭제</string>
     <string name="tv_service_add">서비스 추가하기</string>
     <string name="tv_service_change">서비스 수정완료</string>
@@ -59,7 +60,7 @@
     <!-- Product -->
     <string name="tv_product_top">상품명 입력</string>
     <string name="tv_product_service_name">구독 서비스명</string>
-    <string name="tv_product_service_name_hint">상품명을 입력해 주세요</string>
+    <string name="tv_product_service_name_hint">서비스명 입력</string>
     <string name="tv_product_membership_hint">멤버십 종류</string>
     <string name="tv_product_complete">입력완료</string>
 

@@ -74,25 +74,37 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/src_service_add_under_bar" />
 
-            <EditText
-                android:id="@+id/edt_product_membership"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="@null"
-                android:hint="@string/tv_product_membership_hint"
-                android:inputType="text"
-                android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorTextServiceNotPut"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/tv_product_membership_under"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_product"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/src_service_add_under_bar" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
 
+            <LinearLayout
+                android:id="@+id/linear_product"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/edt_product_membership"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:background="@null"
+                    android:hint="@string/tv_product_membership_hint"
+                    android:inputType="text"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorTextServiceNotPut"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_product_membership_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
