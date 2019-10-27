@@ -1,6 +1,7 @@
 package com.makeus.ChoLog.src.home.adapter;
 
 import android.content.Context;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private OnItemClickListener mListener = null;
 
     public interface OnItemClickListener {
-        void onItemClick(View v, int pos);
+        public void onChangeClick(View v, int pos);
+        public void onCancelClick(View v, int pos);
+        public void onSettingClick(View v, int pos);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -45,6 +48,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         TextView tvHomeCategory;
         TextView tvHomeBrand;
 
+        TextView tvHomeChange;
+        TextView tvHomeCancel;
+        TextView tvHomeSetting;
+
         ViewHolder(View itemView) {
             super(itemView);
             // 뷰 객체에 대한 참조. (hold strong reference)
@@ -56,25 +63,30 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             tvHomeCategory = itemView.findViewById(R.id.tv_item_home_category);
             tvHomeBrand = itemView.findViewById(R.id.tv_item_home_brand);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int pos = getAdapterPosition();
-                    if (pos != RecyclerView.NO_POSITION) {
-                        if (mListener != null) {
-                            mListener.onItemClick(view, pos);
-                        }
-                    }
-                }
-            });
+            tvHomeChange = itemView.findViewById(R.id.tv_item_home_change);
+            tvHomeCancel = itemView.findViewById(R.id.tv_item_home_cancel);
+            tvHomeSetting = itemView.findViewById(R.id.tv_item_home_setting);
+
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    int pos = getAdapterPosition();
+//                    if (pos != RecyclerView.NO_POSITION) {
+//                        if (mListener != null) {
+//                            mListener.onItemClick(view, pos);
+//                        }
+//                    }
+//                }
+//            });
 
         }
     }
 
     // 생성자에서 데이터 리스트 객체를 전달받음.
-    public HomeAdapter(Context mContext, ArrayList<HomeItem> mHomeList) {
+    public HomeAdapter(Context mContext, ArrayList<HomeItem> mHomeList, OnItemClickListener listener) {
         this.mContext = mContext;
         this.mHomeList = mHomeList;
+        this.mListener = listener;
     }
 
     // onCreateViewHolder() - 아이템 뷰를 위한 뷰홀더 객체 생성하여 리턴.
@@ -93,12 +105,33 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final HomeItem homeItem = mHomeList.get(position);
-        holder.tvHomeDate.setText(homeItem.getmDate());
+//        holder.tvHomeDate.setText(homeItem.getmDate());
         holder.tvHomeDDay.setText(mContext.getResources().getString(R.string.tv_main_d_day).concat(String.valueOf(homeItem.getmDDay())));
         holder.tvHomePrice.setText(myFormatter.format(homeItem.getmPrice()).concat(mContext.getResources().getString(R.string.tv_main_won)));
         Glide.with(mContext).load(homeItem.getmImageUrl()).placeholder(R.drawable.ic_melon).override(200, 200).into(holder.ivHomeImage);
         holder.tvHomeCategory.setText(homeItem.getmCategory());
         holder.tvHomeBrand.setText(homeItem.getmBrand());
+
+        holder.tvHomeChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onChangeClick(view, position);
+            }
+        });
+
+        holder.tvHomeCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onCancelClick(view, position);
+            }
+        });
+
+        holder.tvHomeSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onSettingClick(view, position);
+            }
+        });
 
     }
 

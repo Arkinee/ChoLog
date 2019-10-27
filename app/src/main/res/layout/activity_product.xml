@@ -55,56 +55,85 @@
                 android:textColor="@color/colorTextServiceText"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/edt_product_service_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@null"
-                android:hint="@string/tv_product_service_name_hint"
-                android:inputType="text"
-                android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorTextServiceNotPut"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/tv_product_service_name_under"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/src_service_add_under_bar" />
+                android:layout_height="wrap_content">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_product"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp" />
+                <AutoCompleteTextView
+                    android:id="@+id/auto_product_service"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:completionThreshold="1"
+                    android:hint="@string/tv_product_service_name_hint"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingBottom="25dp"
+                    android:textColor="@color/colorText"
+                    android:textColorHint="@color/colorTextServiceNotPut"
+                    android:textSize="20sp"
+                    app:elevation="0dp" />
+
+                <TextView
+                    android:id="@+id/tv_product_service_name_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="46dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+                <LinearLayout
+                    android:id="@+id/linear_product_membership"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="68dp"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/edt_product_membership"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/tv_product_membership_hint"
+                        android:inputType="text"
+                        android:textColor="@color/colorText"
+                        android:textColorHint="@color/colorTextServiceNotPut"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/tv_product_membership_under"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/src_service_add_under_bar" />
+                </LinearLayout>
+            </FrameLayout>
 
             <LinearLayout
-                android:id="@+id/linear_product"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/edt_product_membership"
+                    android:id="@+id/edt_product_category"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
                     android:background="@null"
-                    android:hint="@string/tv_product_membership_hint"
+                    android:hint="@string/tv_product_category_hint"
                     android:inputType="text"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorText"
                     android:textColorHint="@color/colorTextServiceNotPut"
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/tv_product_membership_under"
+                    android:id="@+id/tv_product_category_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/src_service_add_under_bar" />
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 

@@ -25,6 +25,7 @@
         android:maxLines="1"
         android:textColor="@color/colorTextProduct"
         android:textSize="16sp"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
         tools:text="@string/tv_look_tool_adobe" />
 
 </LinearLayout>

@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
@@ -28,6 +29,7 @@ import com.makeus.ChoLog.src.dialog.loginDialog.LoginDialog;
 import com.makeus.ChoLog.src.dialog.loginDialog.loginListener;
 import com.makeus.ChoLog.src.home.HomeFragment;
 import com.makeus.ChoLog.src.home.models.HomeItem;
+import com.makeus.ChoLog.src.login.LoginActivity;
 import com.makeus.ChoLog.src.lookAround.LookFragment;
 import com.makeus.ChoLog.src.myInfo.MyInfoFragment;
 import com.makeus.ChoLog.src.serviceAdd.ServiceAddActivity;
@@ -69,6 +71,8 @@ public class MainActivity extends BaseActivity {
     private int mHeight;
     String Tag = "로그";
 
+    private Context mContext;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +85,8 @@ public class MainActivity extends BaseActivity {
     }
 
     void initialize() {
+
+        mContext = this;
 
         mToolbar = findViewById(R.id.toolbar_main);
         mAppBar = findViewById(R.id.appbar_main);
@@ -123,15 +129,9 @@ public class MainActivity extends BaseActivity {
 
         mLoginDialog = new LoginDialog(this);
 
-        DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
-        mWidth = dm.widthPixels;
-        mHeight = dm.heightPixels;
-
         mWm = new WindowManager.LayoutParams();
         mWm.copyFrom(mLoginDialog.getWindow().getAttributes());
-//        mWm.width =  WindowManager.LayoutParams.MATCH_PARENT;
 
-        mWm.height = mHeight / 3;
         mWm.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
         mWm.dimAmount = 0.8f;
 
@@ -145,6 +145,9 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onNowClicked() {
                 mLoginDialog.dismiss();
+                Intent loginIntent = new Intent(mContext, LoginActivity.class);
+                startActivityForResult(loginIntent, 3000);
+
             }
         });
 
@@ -157,9 +160,9 @@ public class MainActivity extends BaseActivity {
             switch (requestCode) {
                 case 1000:
                     String mUrl = "https://52.79.123.156";
-                    HomeItem item = new HomeItem("10월 3일", 4, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 25100, true, mUrl, mUrl,"010-1111-2222", 1);
+//                    HomeItem item = new HomeItem("10월 3일", 4, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 25100, true, mUrl, mUrl, "010-1111-2222", 1);
                     HomeFragment hf = (HomeFragment) getSupportFragmentManager().findFragmentById(R.id.frame_main);
-                    hf.addItem(item);
+//                    hf.addItem(item);
                     break;
             }
         }

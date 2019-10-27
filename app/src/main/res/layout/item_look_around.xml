@@ -3,89 +3,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="65dp"
-    android:background="@color/colorConcept"
-    android:orientation="vertical">
+    android:background="@color/colorTextLookItemBack"
+    android:gravity="center_vertical"
+    android:paddingStart="32dp"
+    android:paddingEnd="32dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/iv_item_look_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="fitXY"
+        tools:src="@drawable/ic_adobe_cloud" />
+
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/iv_item_look_image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+        <TextView
+            android:id="@+id/tv_item_look_service_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="10dp"
-            android:scaleType="fitXY"
-            tools:src="@drawable/ic_adobe_cloud" />
+            android:letterSpacing="-0.04"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/colorTextLookService"
+            android:textSize="16sp"
+            tools:text="@string/tv_look_tool_adobe" />
 
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_item_look_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_item_look_service_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="10dp"
-                android:letterSpacing="-0.04"
-                android:maxLines="1"
-                android:textColor="@color/colorTextLookService"
-                android:textSize="16sp"
-                tools:text="@string/tv_look_tool_adobe" />
-
-            <TextView
-                android:id="@+id/tv_item_look_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:textColor="@color/colorTextLookCategory"
-                android:textSize="14sp"
-                tools:text="@string/category_cloud" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_item_look_service_fee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:letterSpacing="-0.04"
-                android:textColor="@color/colorTextLookFee"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                tools:text="@string/tv_look_tool_fee" />
-
-            <TextView
-                android:id="@+id/tv_item_look_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:textColor="@color/colorTextLookCategory"
-                android:textSize="12sp"
-                android:text="@string/tv_look_detail" />
-
-        </LinearLayout>
+            android:layout_marginStart="12dp"
+            android:textColor="@color/colorTextLookCategory"
+            android:textSize="14sp"
+            tools:text="@string/category_cloud" />
 
     </LinearLayout>
 
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/src_service_add_under_bar" />
+        android:id="@+id/tv_item_look_service_fee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_gravity="center"
+        android:textColor="@color/colorTextLookFee"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="@string/tv_look_tool_fee" />
+
 
 </LinearLayout>

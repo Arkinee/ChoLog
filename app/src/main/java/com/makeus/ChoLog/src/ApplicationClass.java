@@ -8,6 +8,8 @@ import com.makeus.ChoLog.config.XAccessTokenInterceptor;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
@@ -50,6 +52,16 @@ public class ApplicationClass extends Application {
             sSharedPreferences = getApplicationContext().getSharedPreferences(TAG, Context.MODE_PRIVATE);
         }
     }
+
+    public static String addDate(String dt, int d) throws Exception {
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+        Calendar calendar = Calendar.getInstance();
+        Date date = format.parse(dt);
+        calendar.add(Calendar.DATE, d);
+        return format.format(calendar.getTime());
+
+    }
+
 
     public static Retrofit getRetrofit() {
         if (retrofit == null) {

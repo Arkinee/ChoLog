@@ -174,7 +174,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/btn_look_around"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorText"
             android:textSize="22sp"
             android:textStyle="bold"
             android:visibility="gone" />

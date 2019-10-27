@@ -65,7 +65,7 @@
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/src_login_naver"
                 android:gravity="center"
-                android:onClick="onClicka"
+                android:onClick="onClick"
                 android:paddingTop="13dp"
                 android:paddingBottom="13dp"
                 android:text="@string/tv_login_naver"

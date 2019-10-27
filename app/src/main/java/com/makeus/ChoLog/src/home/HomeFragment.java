@@ -2,7 +2,6 @@ package com.makeus.ChoLog.src.home;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +32,8 @@ public class HomeFragment extends Fragment {
     private String mUrl;
     NestedScrollView mScrollHome;
 
+    private final int SETTING = 5000;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,31 +42,47 @@ public class HomeFragment extends Fragment {
         mHomeItemList = new ArrayList<>();
         mRvHome = view.findViewById(R.id.rv_home);
         mLinearServiceAdd = view.findViewById(R.id.linear_home_service_add);
-        mHomeAdapter = new HomeAdapter(getActivity(), mHomeItemList);
+        mHomeAdapter = new HomeAdapter(getActivity(), mHomeItemList, new HomeAdapter.OnItemClickListener() {
+            @Override
+            public void onChangeClick(View v, int pos) {
+
+
+            }
+
+            @Override
+            public void onCancelClick(View v, int pos) {
+
+
+            }
+
+            @Override
+            public void onSettingClick(View v, int pos) {
+
+                Intent settingIntent = new Intent(getActivity(), ServiceAddActivity.class);
+                settingIntent.putExtra("type", 2);
+                settingIntent.putExtra("brand", mHomeItemList.get(pos).getmBrand());
+                settingIntent.putExtra("price", mHomeItemList.get(pos).getmPrice());
+                settingIntent.putExtra("dday", mHomeItemList.get(pos).getmDDay());
+                settingIntent.putExtra("duration", mHomeItemList.get(pos).getmDuration());
+                settingIntent.putExtra("alarm", mHomeItemList.get(pos).getmAlarm());
+                settingIntent.putExtra("currency", mHomeItemList.get(pos).getmCurrency());
+                settingIntent.putExtra("change", mHomeItemList.get(pos).getmChangeUrl());
+                settingIntent.putExtra("cancel", mHomeItemList.get(pos).getmCancelUrl());
+                settingIntent.putExtra("phone", mHomeItemList.get(pos).getmPhone());
+                settingIntent.putExtra("isCheck", mHomeItemList.get(pos).isChecked());
+                startActivityForResult(settingIntent,SETTING);
+            }
+        });
+
         mScrollHome = view.findViewById(R.id.scroll_home);
 
         mRvHome.setAdapter(mHomeAdapter);
         mRvHome.addItemDecoration(new RecyclerViewDecoration(50));
 
-//        mUrl = "https://52.79.123.156";
-//        mHomeItemList.add(new HomeItem("10월 3일", 2, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 12000, true, mUrl, mUrl));
-//        mHomeItemList.add(new HomeItem("10월 3일", 3, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 10000, true, mUrl, mUrl));
-//        mHomeItemList.add(new HomeItem("10월 3일", 5, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 13200, true, mUrl, mUrl));
-//        mHomeItemList.add(new HomeItem("10월 3일", 4, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 25100, true, mUrl, mUrl));
-
-        mHomeAdapter.setOnItemClickListener(new HomeAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View v, int pos) {
-                Intent modify = new Intent(getActivity(), ServiceAddActivity.class);
-
-
-            }
-        });
-
         return view;
     }
 
-    public void addItem(HomeItem item){
+    public void addItem(HomeItem item) {
         mHomeItemList.add(item);
         mHomeAdapter.notifyDataSetChanged();
     }

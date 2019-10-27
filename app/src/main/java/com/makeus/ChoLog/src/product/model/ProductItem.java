@@ -10,9 +10,13 @@ public class ProductItem {
     @SerializedName("ImageUrl")
     private String mImageUrl;
 
-    public ProductItem(String mImageUrl, String mBrand) {
+    @SerializedName("Category")
+    private String mCategory;
+
+    public ProductItem(String mBrand, String mImageUrl, String Category) {
         this.mImageUrl = mImageUrl;
         this.mBrand = mBrand;
+        this.mCategory = Category;
     }
 
     public String getmBrand() {
@@ -29,5 +33,13 @@ public class ProductItem {
 
     public void setmImageUrl(String mImageUrl) {
         this.mImageUrl = mImageUrl;
+    }
+
+    public String getmCategory() {
+        return mCategory;
+    }
+
+    public void setmCategory(String mCategory) {
+        this.mCategory = mCategory;
     }
 }

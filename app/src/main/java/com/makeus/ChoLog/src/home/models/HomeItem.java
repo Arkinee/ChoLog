@@ -2,32 +2,34 @@ package com.makeus.ChoLog.src.home.models;
 
 public class HomeItem {
 
-    private String mDate;
+    private String mBrand;      //서비스명
+    private String mCategory;   //카테고리
     private int mDDay;
-    private String mImageUrl;
-    private String mCategory;
-    private String mBrand;
-    private int mWhile;
-    private int mPrice;
-    private boolean isChecked;
-    private String mPlanUrl;
-    private String mCancelUrl;
-    private String mPhone;
-    private int mCurrency;
+    private int mPrice;         //가격
+    private String mImageUrl;   //이미지 주소
+    private int mDuration;      //주기
+    private int mAlarm;         //알람 몇 일 전
+    private String mExtra;      //추가설명
+    private String mChangeUrl;    //변경 url
+    private String mCancelUrl;  //해지 url
+    private String mPhone;      //해지 전화번호
+    private int mCurrency;      //화폐 단위
+    private boolean isChecked;  //알림 체크 되었는지
 
-    public HomeItem(String mDate, int mDDay, String mImageUrl, String mCategory, String mBrand, int mWhile, int mPrice, boolean isChecked, String mPlanUrl, String mCancelUrl, String mPhone, int mCurrency) {
-        this.mDate = mDate;
-        this.mDDay = mDDay;
-        this.mImageUrl = mImageUrl;
-        this.mCategory = mCategory;
+    public HomeItem(String mBrand, String mCategory, int mDDay, int mPrice, String mImageUrl, int duration, int alarm, String extra, String mChangeUrl, String mCancelUrl, String mPhone, int mCurrency, boolean isChecked) {
         this.mBrand = mBrand;
-        this.mWhile = mWhile;
+        this.mCategory = mCategory;
+        this.mDDay = mDDay;
         this.mPrice = mPrice;
-        this.isChecked = isChecked;
-        this.mPlanUrl = mPlanUrl;
+        this.mImageUrl = mImageUrl;
+        this.mDuration = duration;
+        this.mAlarm = alarm;
+        this.mExtra = extra;
+        this.mChangeUrl = mChangeUrl;
         this.mCancelUrl = mCancelUrl;
         this.mPhone = mPhone;
         this.mCurrency = mCurrency;
+        this.isChecked = isChecked;
     }
 
     public String getmImageUrl() {
@@ -36,22 +38,6 @@ public class HomeItem {
 
     public void setmImageUrl(String mImageUrl) {
         this.mImageUrl = mImageUrl;
-    }
-
-    public String getmDate() {
-        return mDate;
-    }
-
-    public void setmDate(String mDate) {
-        this.mDate = mDate;
-    }
-
-    public int getmDDay() {
-        return mDDay;
-    }
-
-    public void setmDDay(int mDDay) {
-        this.mDDay = mDDay;
     }
 
     public String getmCategory() {
@@ -70,14 +56,6 @@ public class HomeItem {
         this.mBrand = mBrand;
     }
 
-    public int getmWhile() {
-        return mWhile;
-    }
-
-    public void setmWhile(int mWhile) {
-        this.mWhile = mWhile;
-    }
-
     public int getmPrice() {
         return mPrice;
     }
@@ -92,14 +70,6 @@ public class HomeItem {
 
     public void setChecked(boolean checked) {
         isChecked = checked;
-    }
-
-    public String getmPlanUrl() {
-        return mPlanUrl;
-    }
-
-    public void setmPlanUrl(String mPlanUrl) {
-        this.mPlanUrl = mPlanUrl;
     }
 
     public String getmCancelUrl() {
@@ -124,5 +94,45 @@ public class HomeItem {
 
     public void setmCurrency(int mCurrency) {
         this.mCurrency = mCurrency;
+    }
+
+    public int getmDuration() {
+        return mDuration;
+    }
+
+    public void setmDuration(int mDuration) {
+        this.mDuration = mDuration;
+    }
+
+    public int getmAlarm() {
+        return mAlarm;
+    }
+
+    public void setmAlarm(int mAlarm) {
+        this.mAlarm = mAlarm;
+    }
+
+    public String getmExtra() {
+        return mExtra;
+    }
+
+    public void setmExtra(String mExtra) {
+        this.mExtra = mExtra;
+    }
+
+    public String getmChangeUrl() {
+        return mChangeUrl;
+    }
+
+    public void setmChangeUrl(String mChangeUrl) {
+        this.mChangeUrl = mChangeUrl;
+    }
+
+    public int getmDDay() {
+        return mDDay;
+    }
+
+    public void setmDDay(int mDDay) {
+        this.mDDay = mDDay;
     }
 }

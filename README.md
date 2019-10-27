@@ -40,11 +40,20 @@ MakeUs_Project_Team_ChoLog
    - Fragment 전환 시 AppBar부분 보다 Fragment 교체를 먼저 적용 시키기
 
 # 10.22
- 전체적인 UI Color 변경
- ServiceAddActivity 내용 수정 및 UI 변경
- HomeFragment Item 구성 변경
+ - 전체적인 UI Color 변경
+ - ServiceAddActivity 내용 수정 및 UI 변경
+ - HomeFragment Item 구성 변경
 
  # 10.25
- 삭제 Dialog, Login Dialog 비율 수정
- DetailActivity 삭제
- CurrencyActivity 추가 (화폐 단위 결정 화면)
+ - 삭제 Dialog, Login Dialog 비율 수정
+ - DetailActivity 삭제
+ - CurrencyActivity 추가 (화폐 단위 결정 화면)
+
+# 10.27
+ - RemoveDialog 비율 다시 수정해야함
+ - ServiceAddActivity 
+	- ProductActivity 생성(o)
+	- 마지막 결제일, 알람, 주기 Dialog 생성해야함 
+	- ProductActivity에서 Brand 부분 AutocompleteTextView 적용(o), Shadow 없애야함
+ - HomeItem 내용 수정, 실제 적용 해야함 (날짜 계산 필요)
+ - 둘러보기 부분 모두보기는 모두 Fragment로 생성해야함...

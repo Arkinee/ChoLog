@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.makeus.ChoLog.R;
+import com.makeus.ChoLog.src.RecyclerViewDecoration;
 import com.makeus.ChoLog.src.currency.CurrencyActivity;
 import com.makeus.ChoLog.src.lookAround.adapters.LookOfflineAdapter;
 import com.makeus.ChoLog.src.lookAround.adapters.LookOnlineAdapter;
@@ -67,11 +68,16 @@ public class LookFragment extends Fragment {
         mOnlineAdapter = new LookOnlineAdapter(getActivity(), mLookOnlineList);
         mOfflineAdapter = new LookOfflineAdapter(getActivity(), mLookOfflineList);
 
-        //mRvHome.setAdapter(mMyInfoAdapter);
         mRvLookPopular.setAdapter(mPopularAdapter);
         mRvLookRecommend.setAdapter(mRecommendAdapter);
         mRvLookOnline.setAdapter(mOnlineAdapter);
         mRvLookOffline.setAdapter(mOfflineAdapter);
+
+        //RecyclerView 간격 조정
+        mRvLookPopular.addItemDecoration(new RecyclerViewDecoration(10));
+        mRvLookRecommend.addItemDecoration(new RecyclerViewDecoration(10));
+        mRvLookOnline.addItemDecoration(new RecyclerViewDecoration(10));
+        mRvLookOffline.addItemDecoration(new RecyclerViewDecoration(10));
 
         /*더미 데이터들*/
         LookItem adobe = new LookItem("https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "어도비 클라우드", "저장 클라우드", 12000, 30);

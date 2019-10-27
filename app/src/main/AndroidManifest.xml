@@ -22,6 +22,9 @@
             android:name=".src.main.MainActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".src.login.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".src.serviceAdd.ServiceAddActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />

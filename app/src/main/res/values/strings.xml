@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">ChoLog</string>
 
+    <!-- Common -->
+    <string name="tv_won">원</string>
+    <string name="tv_right_arrow"> 〉</string>
+
     <!-- Main -->
     <string name="tv_serviceFee">월 구독 서비스 이용료</string>
     <string name="tv_serviceFee_tool">10월 구독 서비스 이용료</string>
@@ -63,6 +67,7 @@
     <string name="tv_product_service_name_hint">서비스명 입력</string>
     <string name="tv_product_membership_hint">멤버십 종류</string>
     <string name="tv_product_complete">입력완료</string>
+    <string name="tv_product_category_hint">카테고리 분류  ></string>
 
     <!-- Dialog -->
     <string name="tv_dialog_login">로그인을 하시겠습니까?</string>
@@ -85,7 +90,7 @@
     <string name="tv_look_detail">상세보기</string>
     <string name="tv_look_all">모두보기</string>
     <string name="tv_look_popular">인기 구독</string>
-    <string name="tv_look_recommend">추천</string>
+    <string name="tv_look_recommend">추천 순위</string>
     <string name="tv_look_category">카테고리</string>
     <string name="tv_look_online">온라인 구독</string>
     <string name="tv_look_offline">오프라인 구독</string>

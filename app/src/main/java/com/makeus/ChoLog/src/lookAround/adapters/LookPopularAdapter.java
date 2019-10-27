@@ -23,13 +23,13 @@ public class LookPopularAdapter extends RecyclerView.Adapter<LookPopularAdapter.
     Context mContext;
     private ArrayList<LookItem> mPopularList;
 
-    public interface OnItemClickListener{
+    public interface OnItemClickListener {
         void onItemClick(View V, int pos);
     }
 
     private OnItemClickListener mListener = null;
 
-    public void setOnItemClickListener(OnItemClickListener listener){
+    public void setOnItemClickListener(OnItemClickListener listener) {
         this.mListener = listener;
     }
 
@@ -54,7 +54,7 @@ public class LookPopularAdapter extends RecyclerView.Adapter<LookPopularAdapter.
                 public void onClick(View view) {
                     int pos = getAdapterPosition();
                     if (pos != RecyclerView.NO_POSITION) {
-                        if(mListener != null){
+                        if (mListener != null) {
                             mListener.onItemClick(itemView, pos);
                         }
                     }
@@ -88,7 +88,9 @@ public class LookPopularAdapter extends RecyclerView.Adapter<LookPopularAdapter.
         final LookItem lookItem = mPopularList.get(position);
         holder.tvLookService.setText(lookItem.getmBrand());
         holder.tvLookCategory.setText(lookItem.getmCategory());
-        holder.tvLookPrice.setText(myFormatter.format(lookItem.getmPrice()).concat("원"));
+        holder.tvLookPrice.setText(myFormatter.format(lookItem.getmPrice())
+                .concat(mContext.getResources().getString(R.string.tv_won))
+                .concat(mContext.getResources().getString(R.string.tv_right_arrow)));
         Glide.with(mContext).load(lookItem.getmImageUrl()).placeholder(R.drawable.ic_adobe_cloud).override(200, 200).into(holder.ivLookImage);
 
     }

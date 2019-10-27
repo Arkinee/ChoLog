@@ -62,6 +62,7 @@
     <color name="colorProgressBarForeground">#ffca17</color>
 
     <!-- Look -->
+    <color name="colorTextLookItemBack">#f9f9fb</color>
     <color name="colorTextLookService">#53515c</color>
     <color name="colorTextLookCategory">#b9b9bb</color>
     <color name="colorTextLookAll">#92a3b6</color>

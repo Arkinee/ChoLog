@@ -1,8 +1,6 @@
 package com.makeus.ChoLog.src.serviceAdd;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
@@ -22,11 +20,13 @@ import com.makeus.ChoLog.src.BaseActivity;
 import com.makeus.ChoLog.src.currency.CurrencyActivity;
 import com.makeus.ChoLog.src.dialog.removeDialog.RemoveDialog;
 import com.makeus.ChoLog.src.dialog.removeDialog.removeListener;
+import com.makeus.ChoLog.src.product.ProductActivity;
+
 import static com.makeus.ChoLog.src.ApplicationClass.sSharedPreferences;
 
 public class ServiceAddActivity extends BaseActivity {
 
-    private EditText mEdtProduct;
+    private TextView mTvProduct;
     private EditText mEdtPrice;
     private TextView mTvLast;
     private TextView mTvDuration;
@@ -46,8 +46,7 @@ public class ServiceAddActivity extends BaseActivity {
     private TextView mTvCancelUnder;
     private TextView mTvCancelPhoneUnder;
 
-//    private LinearLayout mLinearRemove;
-//    private TextView mTvAdd;
+    private String mCategory;
 
     private RemoveDialog mRemoveDialog;
     private WindowManager.LayoutParams mWm;
@@ -60,6 +59,10 @@ public class ServiceAddActivity extends BaseActivity {
     // 1 : add , 2 : modify
     private int mType;
 
+    //requestCode
+    private final int CURRENCY = 2000;
+    private final int PRODUCT = 3000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,10 +71,11 @@ public class ServiceAddActivity extends BaseActivity {
         this.setEdtListener();
         this.setmRemoveDialog();
 
+
     }
 
     void initialize() {
-        mEdtProduct = findViewById(R.id.edt_service_add_product);
+        mTvProduct = findViewById(R.id.tv_service_add_product);
         mEdtPrice = findViewById(R.id.edt_service_add_price);
         mTvLast = findViewById(R.id.tv_service_add_last);
         mTvDuration = findViewById(R.id.tv_service_add_duration);
@@ -91,33 +95,28 @@ public class ServiceAddActivity extends BaseActivity {
         mTvCancelUnder = findViewById(R.id.tv_service_cancel_plan_under);
         mTvCancelPhoneUnder = findViewById(R.id.tv_service_cancel_phone_under);
 
-//        mLinearRemove = findViewById(R.id.linear_service_add_remove);
-
-        TextView tvEssential = findViewById(R.id.tv_service_add_essential);
-        tvEssential.requestFocus();
-
         mType = getIntent().getExtras().getInt("type");
 
-        if(mType == 1) {
+        //type 1 : add , 2 : modify
+        if (mType == 1) {
+
+        } else if (mType == 2) {
+
+        }
+
+        if (mType == 1) {
             mCurrency = 1;
-        }else{
+        } else {
             mCurrency = getIntent().getExtras().getInt("currency");
         }
 
     }
 
-    public void setEdtListener() {
+    public void setAccordingToType() {
 
-        mEdtProduct.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (hasFocus) {
-                    mTvProductUnder.setBackgroundColor(getResources().getColor(R.color.colorConceptPrimary));
-                } else {
-                    mTvProductUnder.setBackgroundColor(getResources().getColor(R.color.colorTextServiceUnderBarBefore));
-                }
-            }
-        });
+    }
+
+    public void setEdtListener() {
 
         mEdtPrice.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -180,13 +179,20 @@ public class ServiceAddActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            if(requestCode == 2000){
-                mCurrency = data.getExtras().getInt("index");
-                if(mCurrency == 1){
-                    mEdtPrice.setHint(R.string.tv_currency_kor_won);
-                }else if(mCurrency == 2){
-                    mEdtPrice.setHint(R.string.tv_currency_us_dollar);
-                }
+            switch (requestCode) {
+                case CURRENCY:
+                    mCurrency = data.getExtras().getInt("index");
+                    if (mCurrency == 1) {
+                        mEdtPrice.setHint(R.string.tv_currency_kor_won);
+                    } else if (mCurrency == 2) {
+                        mEdtPrice.setHint(R.string.tv_currency_us_dollar);
+                    }
+                    break;
+                case PRODUCT:
+                    String product = data.getExtras().getString("product");
+                    mCategory = data.getExtras().getString("category");
+                    mTvProduct.setText(product);
+                    break;
             }
         }
     }
@@ -234,21 +240,23 @@ public class ServiceAddActivity extends BaseActivity {
                 window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 window.setAttributes(mWm);
 
-//                Display display = getWindowManager().getDefaultDisplay();
-//                Point size = new Point();
-//                display.getSize(size);
-//                Window window2 = mRemoveDialog.getWindow();
-//                window2.setLayout(x, y);
+                Display display = getWindowManager().getDefaultDisplay();
+                Point size = new Point();
+                display.getSize(size);
+                int x = (int) (size.x * 1.0f);
+                int y = (int) (size.y * 1.0f);
+                Window window2 = mRemoveDialog.getWindow();
+                window2.setLayout(x, y);
 
                 break;
             case R.id.tv_service_add_won_dollar:
                 Intent currencyIntent = new Intent(this, CurrencyActivity.class);
                 currencyIntent.putExtra("index", mCurrency);
-                startActivityForResult(currencyIntent, 2000);
+                startActivityForResult(currencyIntent, CURRENCY);
                 break;
             case R.id.tv_service_add_btn:
                 Intent resultIntent = new Intent();
-                resultIntent.putExtra("name", mEdtProduct.getText().toString());
+                resultIntent.putExtra("name", mTvProduct.getText().toString());
                 resultIntent.putExtra("price", mEdtPrice.getText().toString());
                 resultIntent.putExtra("last", mTvLast.getText().toString());
                 resultIntent.putExtra("duration", mTvDuration.getText().toString());
@@ -258,6 +266,10 @@ public class ServiceAddActivity extends BaseActivity {
                 resultIntent.putExtra("extra", mEdtExtra.getText().toString());
                 setResult(RESULT_OK, resultIntent);
                 finish();
+                break;
+            case R.id.tv_service_add_product:
+                Intent productIntent = new Intent(this, ProductActivity.class);
+                startActivityForResult(productIntent, PRODUCT);
                 break;
         }
     }
