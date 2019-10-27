@@ -1,4 +1,4 @@
-# ChoLog
+﻿# ChoLog
 MakeUs_Project_Team_ChoLog
 
 # 10.17 
@@ -44,5 +44,7 @@ MakeUs_Project_Team_ChoLog
  ServiceAddActivity 내용 수정 및 UI 변경
  HomeFragment Item 구성 변경
 
- 
- 테스트234
+ # 10.25
+ 삭제 Dialog, Login Dialog 비율 수정
+ DetailActivity 삭제
+ CurrencyActivity 추가 (화폐 단위 결정 화면)

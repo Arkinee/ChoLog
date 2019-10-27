@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.makeus.ChoLog.R;
+import com.makeus.ChoLog.src.RecyclerViewDecoration;
 import com.makeus.ChoLog.src.myInfo.adapter.MyInfoAdapter;
 import com.makeus.ChoLog.src.myInfo.models.MyInfoItem;
 
@@ -34,11 +35,8 @@ public class MyInfoFragment extends Fragment {
         mMyInfoAdapter = new MyInfoAdapter(getActivity(), mMyInfoList, this);
 
         mRvMyInfo.setAdapter(mMyInfoAdapter);
+        mRvMyInfo.addItemDecoration(new RecyclerViewDecoration(10));
 
-        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
-        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
-        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
-        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
         mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
         mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
         mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));

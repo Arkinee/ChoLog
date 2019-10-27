@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".src.ApplicationClass"
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
@@ -29,7 +30,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".src.detail.DetailActivity"
+            android:name=".src.currency.CurrencyActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".src.splash.splash"

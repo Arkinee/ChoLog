@@ -1,5 +1,6 @@
 package com.makeus.ChoLog.src.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -19,6 +20,7 @@ import com.makeus.ChoLog.R;
 import com.makeus.ChoLog.src.RecyclerViewDecoration;
 import com.makeus.ChoLog.src.home.adapter.HomeAdapter;
 import com.makeus.ChoLog.src.home.models.HomeItem;
+import com.makeus.ChoLog.src.serviceAdd.ServiceAddActivity;
 
 import java.util.ArrayList;
 
@@ -50,6 +52,15 @@ public class HomeFragment extends Fragment {
 //        mHomeItemList.add(new HomeItem("10월 3일", 3, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 10000, true, mUrl, mUrl));
 //        mHomeItemList.add(new HomeItem("10월 3일", 5, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 13200, true, mUrl, mUrl));
 //        mHomeItemList.add(new HomeItem("10월 3일", 4, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 25100, true, mUrl, mUrl));
+
+        mHomeAdapter.setOnItemClickListener(new HomeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int pos) {
+                Intent modify = new Intent(getActivity(), ServiceAddActivity.class);
+
+
+            }
+        });
 
         return view;
     }

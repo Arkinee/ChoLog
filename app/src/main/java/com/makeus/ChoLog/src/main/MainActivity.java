@@ -157,7 +157,7 @@ public class MainActivity extends BaseActivity {
             switch (requestCode) {
                 case 1000:
                     String mUrl = "https://52.79.123.156";
-                    HomeItem item = new HomeItem("10월 3일", 4, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 25100, true, mUrl, mUrl);
+                    HomeItem item = new HomeItem("10월 3일", 4, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 25100, true, mUrl, mUrl,"010-1111-2222", 1);
                     HomeFragment hf = (HomeFragment) getSupportFragmentManager().findFragmentById(R.id.frame_main);
                     hf.addItem(item);
                     break;
@@ -240,6 +240,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.linear_home_service_add:
                 Intent intent = new Intent(this, ServiceAddActivity.class);
+                //type 1 은 새로운 서비스 추가
+                intent.putExtra("type", 1);
+                intent.putExtra("currency", 1);
                 startActivityForResult(intent, 1000);
                 break;
             case R.id.iv_main_logo:

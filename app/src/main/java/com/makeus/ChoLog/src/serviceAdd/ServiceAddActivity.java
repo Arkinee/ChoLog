@@ -2,31 +2,27 @@ package com.makeus.ChoLog.src.serviceAdd;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import com.makeus.ChoLog.R;
 import com.makeus.ChoLog.src.BaseActivity;
+import com.makeus.ChoLog.src.currency.CurrencyActivity;
 import com.makeus.ChoLog.src.dialog.removeDialog.RemoveDialog;
 import com.makeus.ChoLog.src.dialog.removeDialog.removeListener;
-import com.makeus.ChoLog.src.main.MainActivity;
-import com.makeus.ChoLog.src.product.ProductActivity;
-import com.makeus.ChoLog.src.splash.interfaces.SplashActivityView;
-
-import org.json.JSONObject;
-import org.w3c.dom.Text;
+import static com.makeus.ChoLog.src.ApplicationClass.sSharedPreferences;
 
 public class ServiceAddActivity extends BaseActivity {
 
@@ -38,6 +34,7 @@ public class ServiceAddActivity extends BaseActivity {
     private EditText mEdtExtra;
     private EditText mEdtChange;
     private EditText mEdtCancel;
+    private EditText mEdtCancelPhone;
 
     private TextView mTvProductUnder;
     private TextView mTvPriceUnder;
@@ -47,6 +44,7 @@ public class ServiceAddActivity extends BaseActivity {
     private TextView mTvExtraUnder;
     private TextView mTvChangeUnder;
     private TextView mTvCancelUnder;
+    private TextView mTvCancelPhoneUnder;
 
 //    private LinearLayout mLinearRemove;
 //    private TextView mTvAdd;
@@ -56,6 +54,11 @@ public class ServiceAddActivity extends BaseActivity {
 
     private int mWidth;
     private int mHeight;
+
+    // 1 : won , 2 : dollar
+    private int mCurrency;
+    // 1 : add , 2 : modify
+    private int mType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +79,7 @@ public class ServiceAddActivity extends BaseActivity {
         mEdtExtra = findViewById(R.id.edt_service_add_extra);
         mEdtChange = findViewById(R.id.edt_service_add_change_plan);
         mEdtCancel = findViewById(R.id.edt_service_add_cancel_plan);
+        mEdtCancelPhone = findViewById(R.id.edt_service_add_cancel_phone);
 
         mTvProductUnder = findViewById(R.id.tv_service_product_under);
         mTvPriceUnder = findViewById(R.id.tv_service_price_under);
@@ -85,11 +89,20 @@ public class ServiceAddActivity extends BaseActivity {
         mTvExtraUnder = findViewById(R.id.tv_service_extra_under);
         mTvChangeUnder = findViewById(R.id.tv_service_change_plan_under);
         mTvCancelUnder = findViewById(R.id.tv_service_cancel_plan_under);
+        mTvCancelPhoneUnder = findViewById(R.id.tv_service_cancel_phone_under);
 
 //        mLinearRemove = findViewById(R.id.linear_service_add_remove);
 
         TextView tvEssential = findViewById(R.id.tv_service_add_essential);
         tvEssential.requestFocus();
+
+        mType = getIntent().getExtras().getInt("type");
+
+        if(mType == 1) {
+            mCurrency = 1;
+        }else{
+            mCurrency = getIntent().getExtras().getInt("currency");
+        }
 
     }
 
@@ -150,10 +163,35 @@ public class ServiceAddActivity extends BaseActivity {
             }
         });
 
+        mEdtCancelPhone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus) {
+                    mTvCancelPhoneUnder.setBackgroundColor(getResources().getColor(R.color.colorConceptPrimary));
+                } else {
+                    mTvCancelPhoneUnder.setBackgroundColor(getResources().getColor(R.color.colorTextServiceUnderBarBefore));
+                }
+            }
+        });
 
     }
 
-    public void setmRemoveDialog(){
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if(requestCode == 2000){
+                mCurrency = data.getExtras().getInt("index");
+                if(mCurrency == 1){
+                    mEdtPrice.setHint(R.string.tv_currency_kor_won);
+                }else if(mCurrency == 2){
+                    mEdtPrice.setHint(R.string.tv_currency_us_dollar);
+                }
+            }
+        }
+    }
+
+    public void setmRemoveDialog() {
 
         mRemoveDialog = new RemoveDialog(this);
 
@@ -203,16 +241,10 @@ public class ServiceAddActivity extends BaseActivity {
 //                window2.setLayout(x, y);
 
                 break;
-//            case R.id.tv_service_add_btn_cancel:
-//                mLinearRemove.setVisibility(View.GONE);
-//                break;
-//            case R.id.tv_service_add_btn_remove:
-//                mLinearRemove.setVisibility(View.GONE);
-//                this.finish();
-//                break;
-            case R.id.tv_service_search:
-                Intent intent = new Intent(this, ProductActivity.class);
-                startActivity(intent);
+            case R.id.tv_service_add_won_dollar:
+                Intent currencyIntent = new Intent(this, CurrencyActivity.class);
+                currencyIntent.putExtra("index", mCurrency);
+                startActivityForResult(currencyIntent, 2000);
                 break;
             case R.id.tv_service_add_btn:
                 Intent resultIntent = new Intent();

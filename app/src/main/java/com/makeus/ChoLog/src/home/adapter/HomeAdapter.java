@@ -24,6 +24,15 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     Context mContext;
     private ArrayList<HomeItem> mHomeList;
     private HomeFragment mHomeFragment;
+    private OnItemClickListener mListener = null;
+
+    public interface OnItemClickListener {
+        void onItemClick(View v, int pos);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.mListener = listener;
+    }
 
     // 아이템 뷰를 저장하는 뷰홀더 클래스.
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -46,6 +55,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             ivHomeImage = itemView.findViewById(R.id.iv_item_home_image);
             tvHomeCategory = itemView.findViewById(R.id.tv_item_home_category);
             tvHomeBrand = itemView.findViewById(R.id.tv_item_home_brand);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int pos = getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        if (mListener != null) {
+                            mListener.onItemClick(view, pos);
+                        }
+                    }
+                }
+            });
 
         }
     }

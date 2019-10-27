@@ -12,8 +12,10 @@ public class HomeItem {
     private boolean isChecked;
     private String mPlanUrl;
     private String mCancelUrl;
+    private String mPhone;
+    private int mCurrency;
 
-    public HomeItem(String mDate, int mDDay, String mImageUrl, String mCategory, String mBrand, int mWhile, int mPrice, boolean isChecked, String mPlanUrl, String mCancelUrl) {
+    public HomeItem(String mDate, int mDDay, String mImageUrl, String mCategory, String mBrand, int mWhile, int mPrice, boolean isChecked, String mPlanUrl, String mCancelUrl, String mPhone, int mCurrency) {
         this.mDate = mDate;
         this.mDDay = mDDay;
         this.mImageUrl = mImageUrl;
@@ -24,6 +26,8 @@ public class HomeItem {
         this.isChecked = isChecked;
         this.mPlanUrl = mPlanUrl;
         this.mCancelUrl = mCancelUrl;
+        this.mPhone = mPhone;
+        this.mCurrency = mCurrency;
     }
 
     public String getmImageUrl() {
@@ -104,5 +108,21 @@ public class HomeItem {
 
     public void setmCancelUrl(String mCancelUrl) {
         this.mCancelUrl = mCancelUrl;
+    }
+
+    public String getmPhone() {
+        return mPhone;
+    }
+
+    public void setmPhone(String mPhone) {
+        this.mPhone = mPhone;
+    }
+
+    public int getmCurrency() {
+        return mCurrency;
+    }
+
+    public void setmCurrency(int mCurrency) {
+        this.mCurrency = mCurrency;
     }
 }

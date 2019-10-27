@@ -1,9 +1,7 @@
 package com.makeus.ChoLog.src.lookAround;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +16,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.makeus.ChoLog.R;
-import com.makeus.ChoLog.src.detail.DetailActivity;
+import com.makeus.ChoLog.src.currency.CurrencyActivity;
 import com.makeus.ChoLog.src.lookAround.adapters.LookOfflineAdapter;
 import com.makeus.ChoLog.src.lookAround.adapters.LookOnlineAdapter;
 import com.makeus.ChoLog.src.lookAround.adapters.LookPopularAdapter;
 import com.makeus.ChoLog.src.lookAround.adapters.LookRecommendAdapter;
 import com.makeus.ChoLog.src.lookAround.models.LookItem;
-import com.makeus.ChoLog.src.myInfo.adapter.MyInfoAdapter;
 
 import java.util.ArrayList;
 
@@ -76,7 +73,6 @@ public class LookFragment extends Fragment {
         mRvLookOnline.setAdapter(mOnlineAdapter);
         mRvLookOffline.setAdapter(mOfflineAdapter);
 
-
         /*더미 데이터들*/
         LookItem adobe = new LookItem("https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "어도비 클라우드", "저장 클라우드", 12000, 30);
         LookItem netflix = new LookItem("https://lh3.googleusercontent.com/TBRwjS_qfJCSj1m7zZB93FnpJM5fSpMA_wUlFDLxWAb45T9RmwBvQd5cWR5viJJOhkI", "넷플릭스", "영상 스트리밍", 9900, 30);
@@ -110,7 +106,7 @@ public class LookFragment extends Fragment {
         mPopularAdapter.setOnItemClickListener(new LookPopularAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View V, int pos) {
-                Intent intent = new Intent(getActivity(), DetailActivity.class);
+                Intent intent = new Intent(getActivity(), CurrencyActivity.class);
                 LookItem temp = mLookPopularList.get(pos);
                 intent.putExtra("name", temp.getmBrand());
                 intent.putExtra("category", temp.getmCategory());

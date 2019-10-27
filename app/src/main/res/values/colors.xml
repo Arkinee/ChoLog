@@ -67,10 +67,15 @@
     <color name="colorTextLookAll">#92a3b6</color>
     <color name="colorTextLookFee">#080417</color>
 
-    <!-- Detail -->
-    <color name="colorTextDetail">#080417</color>
+    <!-- Currency -->
+    <color name="colorTextCurrency">#f9f9f9</color>
+    <color name="colorTextCurrencyBack">#f9f9fb</color>
 
     <!-- Product -->
     <color name="colorTextProduct">#787585</color>
+
+    <!-- Login -->
+    <color name="colorNaver">#3ec729</color>
+    <color name="colorKakao">#feea0e</color>
 
 </resources>

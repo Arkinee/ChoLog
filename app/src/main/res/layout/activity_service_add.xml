@@ -153,11 +153,18 @@
                         android:layout_weight="1" />
 
                     <TextView
-                        android:layout_width="70dp"
+                        android:id="@+id/tv_service_add_won_dollar"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="14sp"
+                        android:layout_gravity="bottom"
+                        android:onClick="onClick"
+                        android:paddingStart="8dp"
+                        android:paddingTop="17dp"
+                        android:paddingEnd="9dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/tv_service_price_won"
                         android:textColor="@color/colorText"
-                        android:text=""/>
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
@@ -178,19 +185,20 @@
                     android:textSize="14sp" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="16dp">
 
                     <TextView
                         android:id="@+id/tv_service_add_last"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
                         android:hint="@string/tv_service_last_hint"
                         android:onClick="onClick"
+                        android:paddingTop="9dp"
+                        android:paddingBottom="10dp"
                         android:textColor="@color/colorWhite"
                         android:textColorHint="@color/colorTextServiceNotPut"
                         android:textSize="20sp" />
@@ -201,7 +209,6 @@
                     android:id="@+id/tv_service_last_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
                     android:background="@drawable/src_service_add_under_bar" />
 
                 <TextView
@@ -363,6 +370,13 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/tv_service_image_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -502,7 +516,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/tv_service_cancel_plan__phone_under"
+                    android:id="@+id/tv_service_cancel_phone_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:layout_marginTop="10dp"
