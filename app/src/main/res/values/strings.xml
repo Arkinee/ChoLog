@@ -60,6 +60,12 @@
     <string name="tv_service_change">서비스 수정완료</string>
     <string name="tv_service_remove_cancel">취소</string>
     <string name="tv_service_remove_remove">삭제하기</string>
+    <string name="tv_service_toast_product">서비스명을 입력하세요.</string>
+    <string name="tv_service_toast_price">금액을 입력하세요</string>
+    <string name="tv_service_toast_last">마지막 결제일을 넣어주세요.</string>
+    <string name="tv_service_toast_duration">결제 주기를 입력하세요.</string>
+    <string name="tv_service_toast_alarm">알림을 설정해주세요.</string>
+    <string name="tv_service_dialog_last">완료</string>
 
     <!-- Product -->
     <string name="tv_product_top">상품명 입력</string>
@@ -68,6 +74,9 @@
     <string name="tv_product_membership_hint">멤버십 종류</string>
     <string name="tv_product_complete">입력완료</string>
     <string name="tv_product_category_hint">카테고리 분류  ></string>
+    <string name="tv_product_service_not">서비스명을 입력해 주세요.</string>
+    <string name="tv_product_category_not">카테고리를 입력해 주세요.</string>
+    <string name="middleDot_product">&#160;·&#160;</string>
 
     <!-- Dialog -->
     <string name="tv_dialog_login">로그인을 하시겠습니까?</string>

@@ -33,7 +33,7 @@ public class RemoveDialog extends Dialog {
         mTvCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (view.getId() == R.id.tv_dialog_login_later) {
+                if (view.getId() == R.id.tv_dialog_remove_cancel) {
                     mListener.onCancelClicked();
                 }
             }
@@ -42,7 +42,7 @@ public class RemoveDialog extends Dialog {
         mTvRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (view.getId() == R.id.tv_dialog_login_now) {
+                if (view.getId() == R.id.tv_dialog_remove_remove) {
                     mListener.onRemoveClicked();
                 }
             }

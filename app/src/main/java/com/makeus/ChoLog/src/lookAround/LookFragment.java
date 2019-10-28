@@ -109,19 +109,19 @@ public class LookFragment extends Fragment {
 
     void setListener() {
 
-        mPopularAdapter.setOnItemClickListener(new LookPopularAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View V, int pos) {
-                Intent intent = new Intent(getActivity(), CurrencyActivity.class);
-                LookItem temp = mLookPopularList.get(pos);
-                intent.putExtra("name", temp.getmBrand());
-                intent.putExtra("category", temp.getmCategory());
-                intent.putExtra("url", temp.getmImageUrl());
-                intent.putExtra("price", temp.getmPrice());
-                intent.putExtra("duration", temp.getmDuration());
-                startActivity(intent);
-            }
-        });
+//        mPopularAdapter.setOnItemClickListener(new LookPopularAdapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(View V, int pos) {
+//                Intent intent = new Intent(getActivity(), CurrencyActivity.class);
+//                LookItem temp = mLookPopularList.get(pos);
+//                intent.putExtra("name", temp.getmBrand());
+//                intent.putExtra("category", temp.getmCategory());
+//                intent.putExtra("url", temp.getmImageUrl());
+//                intent.putExtra("price", temp.getmPrice());
+//                intent.putExtra("duration", temp.getmDuration());
+//                startActivity(intent);
+//            }
+//        });
 
     }
 

@@ -57,3 +57,8 @@ MakeUs_Project_Team_ChoLog
 	- ProductActivity에서 Brand 부분 AutocompleteTextView 적용(o), Shadow 없애야함
  - HomeItem 내용 수정, 실제 적용 해야함 (날짜 계산 필요)
  - 둘러보기 부분 모두보기는 모두 Fragment로 생성해야함...
+
+# 10.28
+ - RemoveDialog 비율 수정 완료, 처음에 넘겨받은 index를 이용해서 onResult 에서 삭제하기
+ - ServiceAddActivity
+	- 마지막 결제일, 주기, 알람 Dialog layout 작성중 (DatePicker Spinner Mode 사용)

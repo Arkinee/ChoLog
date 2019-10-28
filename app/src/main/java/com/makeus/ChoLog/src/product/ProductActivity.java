@@ -54,24 +54,29 @@ public class ProductActivity extends BaseActivity implements TextWatcher {
         mTvProductComplete = findViewById(R.id.tv_product_complete);
 
         mProductList = new ArrayList<>();
+
         //dummy data
-        ProductItem dummy = new ProductItem("adobe", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드");
+        ProductItem dummy = new ProductItem("adobe", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(adobe)");
         mProductList.add(dummy);
-        mProductList.add(new ProductItem("어도비", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드"));
-        mProductList.add(new ProductItem("adobe2", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드"));
-        mProductList.add(new ProductItem("어도비2", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드"));
-        mProductList.add(new ProductItem("도비", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드"));
+        mProductList.add(new ProductItem("어도비", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(어도비)"));
+        mProductList.add(new ProductItem("adobe2", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(adobe2)"));
+        mProductList.add(new ProductItem("어도비2", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(어도비2)"));
+        mProductList.add(new ProductItem("도비", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(도비)"));
+        //--------------------
 
         mAdapter = new ProductAdapter(this, R.layout.item_product, mProductList);
         mAdapter.notifyDataSetChanged();
         mAutoService.setThreshold(1);
+//        mAutoService.setDropDownBackgroundResource();
+        mAutoService.setElevation(0);
         mAutoService.setAdapter(mAdapter);
         mAutoService.addTextChangedListener(this);
         mAutoService.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 mEdtMembership.requestFocus();
-                mEdtCategory.setText(mProductList.get(i).getmCategory());
+                ProductItem temp = (ProductItem) adapterView.getAdapter().getItem(position);
+                mEdtCategory.setText(temp.getmCategory());
             }
         });
 
@@ -131,10 +136,26 @@ public class ProductActivity extends BaseActivity implements TextWatcher {
                 break;
             case R.id.tv_product_complete:
 
+                if(mAutoService.getText().toString().equals("")){
+                    showCustomToast(getResources().getString(R.string.tv_product_service_not));
+                    break;
+                }
+
+                if(mEdtCategory.getText().toString().equals("")){
+                    showCustomToast(getResources().getString(R.string.tv_product_category_not));
+                    break;
+                }
+
                 Intent intent = new Intent();
-                String name = mAutoService.getText().toString()
-                        .concat(getResources().getString(R.string.middleDot))
-                        .concat(mEdtMembership.getText().toString());
+                String name;
+                //멤버십 적었으면 미들닷으로 구분, 안적었으면 서비스명만 기입
+                if(!mEdtMembership.getText().toString().equals("")) {
+                    name = mAutoService.getText().toString()
+                            .concat(getResources().getString(R.string.middleDot))
+                            .concat(mEdtMembership.getText().toString());
+                }else{
+                    name = mAutoService.getText().toString();
+                }
                 intent.putExtra("product", name);
                 intent.putExtra("category", mEdtCategory.getText().toString());
                 setResult(RESULT_OK, intent);

@@ -271,10 +271,10 @@ public class MainActivity extends BaseActivity {
                 Display display = getWindowManager().getDefaultDisplay();
                 Point size = new Point();
                 display.getSize(size);
-                Window window2 = mLoginDialog.getWindow();
+//                Window window2 = mLoginDialog.getWindow();
                 int x = (int) (size.x * 0.9f);
                 int y = (int) (size.y * 0.3f);
-                window2.setLayout(x, y);
+                window.setLayout(x, y);
                 break;
         }
     }

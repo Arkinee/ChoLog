@@ -2,15 +2,10 @@ package com.makeus.ChoLog.src.dialog.loginDialog;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AlertDialog;
 
 import com.makeus.ChoLog.R;
 

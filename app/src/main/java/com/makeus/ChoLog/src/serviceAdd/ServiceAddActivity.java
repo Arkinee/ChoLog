@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.View;
 import android.view.Window;
@@ -18,11 +17,11 @@ import androidx.annotation.Nullable;
 import com.makeus.ChoLog.R;
 import com.makeus.ChoLog.src.BaseActivity;
 import com.makeus.ChoLog.src.currency.CurrencyActivity;
+import com.makeus.ChoLog.src.dialog.lastDialog.LastDialog;
+import com.makeus.ChoLog.src.dialog.lastDialog.lastListener;
 import com.makeus.ChoLog.src.dialog.removeDialog.RemoveDialog;
 import com.makeus.ChoLog.src.dialog.removeDialog.removeListener;
 import com.makeus.ChoLog.src.product.ProductActivity;
-
-import static com.makeus.ChoLog.src.ApplicationClass.sSharedPreferences;
 
 public class ServiceAddActivity extends BaseActivity {
 
@@ -47,17 +46,13 @@ public class ServiceAddActivity extends BaseActivity {
     private TextView mTvCancelPhoneUnder;
 
     private String mCategory;
+    private int mIndex;
 
+    private LastDialog mLastDialog;
     private RemoveDialog mRemoveDialog;
-    private WindowManager.LayoutParams mWm;
-
-    private int mWidth;
-    private int mHeight;
 
     // 1 : won , 2 : dollar
     private int mCurrency;
-    // 1 : add , 2 : modify
-    private int mType;
 
     //requestCode
     private final int CURRENCY = 2000;
@@ -69,12 +64,13 @@ public class ServiceAddActivity extends BaseActivity {
         setContentView(R.layout.activity_service_add);
         this.initialize();
         this.setEdtListener();
-        this.setmRemoveDialog();
-
+        this.setRemoveDialog();
+        this.setLastDialog();
 
     }
 
     void initialize() {
+
         mTvProduct = findViewById(R.id.tv_service_add_product);
         mEdtPrice = findViewById(R.id.edt_service_add_price);
         mTvLast = findViewById(R.id.tv_service_add_last);
@@ -95,16 +91,17 @@ public class ServiceAddActivity extends BaseActivity {
         mTvCancelUnder = findViewById(R.id.tv_service_cancel_plan_under);
         mTvCancelPhoneUnder = findViewById(R.id.tv_service_cancel_phone_under);
 
-        mType = getIntent().getExtras().getInt("type");
+        int type = getIntent().getExtras().getInt("type");
+        mIndex = getIntent().getExtras().getInt("index");
 
         //type 1 : add , 2 : modify
-        if (mType == 1) {
+        if (type == 1) {
 
-        } else if (mType == 2) {
+        } else if (type == 2) {
 
         }
 
-        if (mType == 1) {
+        if (type == 1) {
             mCurrency = 1;
         } else {
             mCurrency = getIntent().getExtras().getInt("currency");
@@ -116,6 +113,7 @@ public class ServiceAddActivity extends BaseActivity {
 
     }
 
+    //EditText Listener setting
     public void setEdtListener() {
 
         mEdtPrice.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -197,22 +195,22 @@ public class ServiceAddActivity extends BaseActivity {
         }
     }
 
-    public void setmRemoveDialog() {
 
+    //Dialog setting
+    public void setRemoveDialog() {
+
+        WindowManager.LayoutParams wm;
         mRemoveDialog = new RemoveDialog(this);
 
-        DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
-        mWidth = dm.widthPixels;
-        mHeight = dm.heightPixels;
+        wm = new WindowManager.LayoutParams();
+        wm.copyFrom(mRemoveDialog.getWindow().getAttributes());
 
-        mWm = new WindowManager.LayoutParams();
-        mWm.copyFrom(mRemoveDialog.getWindow().getAttributes());
+        wm.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        wm.dimAmount = 0.7f;
 
-        mWm.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        mWm.dimAmount = 0.8f;
-
-        mWm.height = mHeight;
-        mWm.width = mWidth;
+        Window window = mRemoveDialog.getWindow();
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        window.setAttributes(wm);
 
         mRemoveDialog.setCancelable(true);
         mRemoveDialog.setDialogListener(new removeListener() {
@@ -224,6 +222,33 @@ public class ServiceAddActivity extends BaseActivity {
             @Override
             public void onRemoveClicked() {
                 mRemoveDialog.dismiss();
+                removeService();
+            }
+        });
+
+    }
+
+    public void setLastDialog() {
+
+
+        mLastDialog = new LastDialog(this);
+
+        WindowManager.LayoutParams wm = new WindowManager.LayoutParams();
+        wm.copyFrom(mLastDialog.getWindow().getAttributes());
+        wm = new WindowManager.LayoutParams();
+        wm.copyFrom(mRemoveDialog.getWindow().getAttributes());
+        wm.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        wm.dimAmount = 0f;
+
+        Window window = mLastDialog.getWindow();
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//        window.setAttributes(wm);
+
+        mLastDialog.setCancelable(true);
+        mLastDialog.setDialogListener(new lastListener() {
+            @Override
+            public void onComplete() {
+                mLastDialog.dismiss();
             }
         });
 
@@ -235,18 +260,15 @@ public class ServiceAddActivity extends BaseActivity {
                 this.finish();
                 break;
             case R.id.tv_service_add_remove:
+
                 mRemoveDialog.show();
                 Window window = mRemoveDialog.getWindow();
-                window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                window.setAttributes(mWm);
-
                 Display display = getWindowManager().getDefaultDisplay();
                 Point size = new Point();
                 display.getSize(size);
-                int x = (int) (size.x * 1.0f);
-                int y = (int) (size.y * 1.0f);
-                Window window2 = mRemoveDialog.getWindow();
-                window2.setLayout(x, y);
+                int x = (int) (size.x * 1f);
+                int y = (int) (size.y * 0.96f);
+                window.setLayout(x, y);
 
                 break;
             case R.id.tv_service_add_won_dollar:
@@ -255,6 +277,16 @@ public class ServiceAddActivity extends BaseActivity {
                 startActivityForResult(currencyIntent, CURRENCY);
                 break;
             case R.id.tv_service_add_btn:
+
+                if (mTvProduct.getText().toString().equals("")) {
+                    showCustomToast(getResources().getString(R.string.tv_service_toast_product));
+                }
+
+                if (mEdtPrice.getText().toString().equals("")) {
+                    showCustomToast(getResources().getString(R.string.tv_service_toast_product));
+                }
+
+
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra("name", mTvProduct.getText().toString());
                 resultIntent.putExtra("price", mEdtPrice.getText().toString());
@@ -271,7 +303,24 @@ public class ServiceAddActivity extends BaseActivity {
                 Intent productIntent = new Intent(this, ProductActivity.class);
                 startActivityForResult(productIntent, PRODUCT);
                 break;
+            case R.id.tv_service_add_last:
+                mLastDialog.show();
+                Window lastWindow = mLastDialog.getWindow();
+                Display lastDisplay = getWindowManager().getDefaultDisplay();
+                Point lastSize = new Point();
+                lastDisplay.getSize(lastSize);
+                int lastX = (int) (lastSize.x * 1f);
+                int lastY = (int) (lastSize.y * 0.96f);
+                lastWindow.setLayout(lastX, lastY);
+                break;
         }
+    }
+
+    public void removeService() {
+        Intent remove = new Intent();
+        remove.putExtra("index", mIndex);
+        setResult(RESULT_OK, remove);
+        this.finish();
     }
 
 }
