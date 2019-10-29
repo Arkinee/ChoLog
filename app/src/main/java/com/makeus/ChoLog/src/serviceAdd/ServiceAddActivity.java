@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Display;
 import android.view.View;
 import android.view.Window;
@@ -44,6 +46,8 @@ public class ServiceAddActivity extends BaseActivity {
     private TextView mTvChangeUnder;
     private TextView mTvCancelUnder;
     private TextView mTvCancelPhoneUnder;
+
+    private TextView mTvCurrency;
 
     private String mCategory;
     private int mIndex;
@@ -91,6 +95,8 @@ public class ServiceAddActivity extends BaseActivity {
         mTvCancelUnder = findViewById(R.id.tv_service_cancel_plan_under);
         mTvCancelPhoneUnder = findViewById(R.id.tv_service_cancel_phone_under);
 
+        mTvCurrency = findViewById(R.id.tv_service_add_currency_put);
+
         int type = getIntent().getExtras().getInt("type");
         mIndex = getIntent().getExtras().getInt("index");
 
@@ -101,10 +107,15 @@ public class ServiceAddActivity extends BaseActivity {
 
         }
 
+        //화폐 단위 선정
         if (type == 1) {
             mCurrency = 1;
+            mTvCurrency.setText(getString(R.string.tv_currency_kor_won));
         } else {
             mCurrency = getIntent().getExtras().getInt("currency");
+            if (mCurrency == 1)
+                mTvCurrency.setText(getString(R.string.tv_currency_kor_won));
+            else mTvCurrency.setText(getString(R.string.tv_currency_us_dollar));
         }
 
     }
@@ -124,6 +135,28 @@ public class ServiceAddActivity extends BaseActivity {
                 } else {
                     mTvPriceUnder.setBackgroundColor(getResources().getColor(R.color.colorTextServiceUnderBarBefore));
                 }
+            }
+        });
+
+        mEdtPrice.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int count, int after) {
+                if (mEdtPrice.getText().length() == 0) {
+                    mTvCurrency.setVisibility(View.GONE);
+                } else {
+                    mTvCurrency.setVisibility(View.VISIBLE);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
 
@@ -237,8 +270,6 @@ public class ServiceAddActivity extends BaseActivity {
         wm.copyFrom(mLastDialog.getWindow().getAttributes());
         wm = new WindowManager.LayoutParams();
         wm.copyFrom(mRemoveDialog.getWindow().getAttributes());
-        wm.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        wm.dimAmount = 0f;
 
         Window window = mLastDialog.getWindow();
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
