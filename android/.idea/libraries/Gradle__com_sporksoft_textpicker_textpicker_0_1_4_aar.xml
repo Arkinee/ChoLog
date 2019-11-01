@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.sporksoft.textpicker:textpicker:0.1.4@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3c17aeff54a76e7721d50d98722ac633/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3c17aeff54a76e7721d50d98722ac633/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sporksoft.textpicker/textpicker/0.1.4/385efa51c131bd021b2879495a8dabd3432587b5/textpicker-0.1.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

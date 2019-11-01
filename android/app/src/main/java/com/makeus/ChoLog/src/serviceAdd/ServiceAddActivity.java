@@ -19,6 +19,8 @@ import androidx.annotation.Nullable;
 import com.makeus.ChoLog.R;
 import com.makeus.ChoLog.src.BaseActivity;
 import com.makeus.ChoLog.src.currency.CurrencyActivity;
+import com.makeus.ChoLog.src.dialog.durationDialog.DurationDialog;
+import com.makeus.ChoLog.src.dialog.durationDialog.durationListener;
 import com.makeus.ChoLog.src.dialog.lastDialog.LastDialog;
 import com.makeus.ChoLog.src.dialog.lastDialog.lastListener;
 import com.makeus.ChoLog.src.dialog.removeDialog.RemoveDialog;
@@ -54,6 +56,7 @@ public class ServiceAddActivity extends BaseActivity {
 
     private LastDialog mLastDialog;
     private RemoveDialog mRemoveDialog;
+    private DurationDialog mDurationDialog;
 
     // 1 : won , 2 : dollar
     private int mCurrency;
@@ -67,9 +70,6 @@ public class ServiceAddActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_add);
         this.initialize();
-        this.setEdtListener();
-        this.setRemoveDialog();
-        this.setLastDialog();
 
     }
 
@@ -117,6 +117,13 @@ public class ServiceAddActivity extends BaseActivity {
                 mTvCurrency.setText(getString(R.string.tv_currency_kor_won));
             else mTvCurrency.setText(getString(R.string.tv_currency_us_dollar));
         }
+
+
+        //Components들 setting
+        this.setEdtListener();
+        this.setRemoveDialog();
+        this.setLastDialog();
+        this.setDurationDialog();
 
     }
 
@@ -263,7 +270,6 @@ public class ServiceAddActivity extends BaseActivity {
 
     public void setLastDialog() {
 
-
         mLastDialog = new LastDialog(this);
 
         WindowManager.LayoutParams wm = new WindowManager.LayoutParams();
@@ -280,6 +286,29 @@ public class ServiceAddActivity extends BaseActivity {
             @Override
             public void onComplete() {
                 mLastDialog.dismiss();
+            }
+        });
+
+    }
+
+    public void setDurationDialog() {
+
+        mDurationDialog = new DurationDialog(this);
+
+        WindowManager.LayoutParams wm = new WindowManager.LayoutParams();
+        wm.copyFrom(mLastDialog.getWindow().getAttributes());
+        wm = new WindowManager.LayoutParams();
+        wm.copyFrom(mDurationDialog.getWindow().getAttributes());
+
+        Window window = mDurationDialog.getWindow();
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//        window.setAttributes(wm);
+
+        mDurationDialog.setCancelable(true);
+        mDurationDialog.setDialogListener(new durationListener() {
+            @Override
+            public void onComplete() {
+                mDurationDialog.dismiss();
             }
         });
 
@@ -344,6 +373,9 @@ public class ServiceAddActivity extends BaseActivity {
                 int lastY = (int) (lastSize.y * 0.96f);
                 lastWindow.setLayout(lastX, lastY);
                 break;
+            case R.id.tv_service_add_duration:
+
+
         }
     }
 

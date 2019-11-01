@@ -66,6 +66,10 @@
     <string name="tv_service_toast_duration">결제 주기를 입력하세요.</string>
     <string name="tv_service_toast_alarm">알림을 설정해주세요.</string>
     <string name="tv_service_dialog_last">완료</string>
+    <string name="tv_service_dialog_duration_day">일</string>
+    <string name="tv_service_dialog_duration_week">주</string>
+    <string name="tv_service_dialog_duration_month">일</string>
+    <string name="tv_service_dialog_duration_year">일</string>
 
     <!-- Product -->
     <string name="tv_product_top">서비스명 입력</string>
