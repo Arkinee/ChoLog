@@ -1,0 +1,131 @@
+<resources>
+    <string name="app_name">ChoLog</string>
+
+    <!-- Common -->
+    <string name="tv_won">원</string>
+    <string name="tv_right_arrow"> 〉</string>
+
+    <!-- Main -->
+    <string name="tv_serviceFee">월 구독 서비스 이용료</string>
+    <string name="tv_serviceFee_tool">10월 구독 서비스 이용료</string>
+    <string name="tv_main_home_service_fee">12,400</string>
+    <string name="tv_main_home_service_fee_won">원</string>
+    <string name="tv_main_d_day">D-</string>
+    <string name="tv_main_won">원</string>
+    <string name="tv_main_my_info_month">10월 2019</string>
+    <string name="tv_main_my_info_service_fee">0</string>
+
+    <!-- Home -->
+    <string name="tv_item_home_service_add">구독 서비스 추가하기</string>
+    <string name="tv_item_home_date">10월3일</string>
+    <string name="tv_item_home_dday">D-2</string>
+    <string name="tv_item_home_category">영상 스트리밍</string>
+    <string name="tv_item_home_brand">멜론 · Hi-Fi 스트리밍</string>
+    <string name="tv_item_home_while">1개월째 구독중</string>
+    <string name="tv_item_home_price">12,000원</string>
+    <string name="tv_item_home_change_plan">플랜변경</string>
+    <string name="tv_item_home_cancel_plan">구독취소</string>
+    <string name="tv_item_home_setting_plan">관리</string>
+
+    <!-- Service -->
+    <string name="tv_service_top">서비스 추가</string>
+    <string name="tv_service_essential_info">필수 정보</string>
+    <string name="tv_service_extra_info">추가 정보</string>
+    <string name="tv_service_product_name">구독 서비스명</string>
+    <string name="tv_service_product_name_hint">서비스명 입력</string>
+    <string name="tv_service_search">찾기</string>
+    <string name="tv_service_price">금액</string>
+    <string name="tv_service_price_hint">￦</string>
+    <string name="tv_service_price_won">화폐단위 〉</string>
+    <string name="tv_service_last">마지막 결제일</string>
+    <string name="tv_service_last_hint">결제일 입력</string>
+    <string name="tv_service_duration">결제 주기</string>
+    <string name="tv_service_duration_tool">0</string>
+    <string name="tv_service_duration_month">마다</string>
+    <string name="tv_service_add_image">이미지 추가</string>
+    <string name="tv_service_add_image_btn">추가하기</string>
+    <string name="tv_service_alarm">알림 설정</string>
+    <string name="tv_service_alarm_hint">다음 결제일로부터</string>
+    <string name="tv_service_alarm_day">전</string>
+    <string name="tv_service_extra">추가 설명</string>
+    <string name="tv_service_extra_hint">없음</string>
+    <string name="tv_service_change_plan">플랜 변경 링크</string>
+    <string name="tv_service_change_plan_hint">URL</string>
+    <string name="tv_service_cancel_plan_link">구독 해지 링크</string>
+    <string name="tv_service_cancel_plan_phone">구독 해지 번호</string>
+    <string name="tv_service_cancel_plan_hint">URL</string>
+    <string name="tv_service_cancel_plan_phone_hint">010-1234-5678</string>
+    <string name="tv_service_remove">서비스 삭제</string>
+    <string name="tv_service_add">서비스 추가하기</string>
+    <string name="tv_service_change">서비스 수정완료</string>
+    <string name="tv_service_remove_cancel">취소</string>
+    <string name="tv_service_remove_remove">삭제하기</string>
+    <string name="tv_service_toast_product">서비스명을 입력하세요.</string>
+    <string name="tv_service_toast_price">금액을 입력하세요</string>
+    <string name="tv_service_toast_last">마지막 결제일을 넣어주세요.</string>
+    <string name="tv_service_toast_duration">결제 주기를 입력하세요.</string>
+    <string name="tv_service_toast_alarm">알림을 설정해주세요.</string>
+    <string name="tv_service_dialog_last">완료</string>
+
+    <!-- Product -->
+    <string name="tv_product_top">서비스명 입력</string>
+    <string name="tv_product_service_name">구독 서비스명</string>
+    <string name="tv_product_service_name_hint">서비스명 입력</string>
+    <string name="tv_product_membership_hint">멤버십 종류</string>
+    <string name="tv_product_complete">입력완료</string>
+    <string name="tv_product_category_hint">카테고리 분류  ></string>
+    <string name="tv_product_service_not">서비스명을 입력해 주세요.</string>
+    <string name="tv_product_category_not">카테고리를 입력해 주세요.</string>
+    <string name="middleDot_product">&#160;·&#160;</string>
+
+    <!-- Dialog -->
+    <string name="tv_dialog_login">로그인을 하시겠습니까?</string>
+    <string name="tv_dialog_login_please">로그인을 하지 않으면\n기록한 정보가 삭제될 수 있습니다.</string>
+    <string name="tv_dialog_login_later">나중에</string>
+    <string name="tv_dialog_login_now">로그인 하기</string>
+
+    <string name="btn_add_service">서비스 추가하기</string>
+    <string name="btn_myInfo">내정보</string>
+    <string name="btn_home">홈</string>
+    <string name="btn_look_around">둘러보기</string>
+
+    <string name="loading">Loading&#8230;</string>
+    <string name="network_failure">연결 실패</string>
+    <string name="middleDot">·</string>
+
+    <!-- Look -->
+    <string name="tv_look_tool_adobe">어도비 클라우드</string>
+    <string name="tv_look_tool_fee">12,000원</string>
+    <string name="tv_look_detail">상세보기</string>
+    <string name="tv_look_all">모두보기</string>
+    <string name="tv_look_popular">인기 구독</string>
+    <string name="tv_look_recommend">추천 순위</string>
+    <string name="tv_look_category">카테고리</string>
+    <string name="tv_look_online">온라인 구독</string>
+    <string name="tv_look_offline">오프라인 구독</string>
+
+    <!-- Category -->
+    <string name="category_cloud">저장 클라우드</string>
+    <string name="category_music">음악 스트리밍</string>
+    <string name="category_video">영상 스트리밍</string>
+    <string name="category_design">디자인</string>
+
+    <!-- Currency -->
+    <string name="tv_currency_top">화폐 단위</string>
+    <string name="tv_currency_kor">대한민국 KRW</string>
+    <string name="tv_currency_us">미국 USD</string>
+    <string name="tv_currency_kor_won">￦</string>
+    <string name="tv_currency_us_dollar">＄</string>
+
+    <!-- Login -->
+    <string name="tv_login_top">로그인</string>
+    <string name="tv_login_info">간편 로그인을 통해 정보를\n쉽고 빠르게 저장하세요.</string>
+    <string name="tv_login_naver">네이버 로그인</string>
+    <string name="tv_login_kakao">카카오 로그인</string>
+
+
+    <!-- Date Picker -->
+    <string name="tv_picker_start">2000</string>
+    <string name="tv_picker_end">2020</string>
+
+</resources>

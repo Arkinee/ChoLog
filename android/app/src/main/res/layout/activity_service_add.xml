@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorConcept"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <TextView
+            android:id="@+id/tv_service_add"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/tv_service_top"
+            android:textColor="@color/colorTextServiceTop"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_service_add_back"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="12dp"
+            android:onClick="onClick"
+            android:paddingStart="12dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="12dp"
+            android:src="@drawable/ic_back_arrow" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_service_add_essential"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="37dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="@string/tv_service_essential_info"
+                android:textColor="@color/colorTextServiceText"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/src_service_add_back"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/tv_service_product_name"
+                    android:textColor="@color/colorTextServiceText"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_service_add_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@null"
+                    android:ellipsize="end"
+                    android:hint="@string/tv_service_product_name_hint"
+                    android:maxLines="1"
+                    android:onClick="onClick"
+                    android:textColor="@color/colorTextServiceTextHint"
+                    android:textColorHint="@color/colorTextServiceNotPut"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_service_product_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginEnd="19dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tv_service_price"
+                            android:textColor="@color/colorTextServiceText"
+                            android:textSize="14sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/edt_service_add_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="9dp"
+                                android:background="@null"
+                                android:hint="@string/tv_service_price_hint"
+                                android:inputType="number"
+                                android:maxLength="13"
+                                android:maxLines="1"
+                                android:textColor="@color/colorTextServiceText"
+                                android:textColorHint="@color/colorTextServiceNotPut"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/tv_service_add_currency_put"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="9dp"
+                                android:textColor="@color/colorTextServiceText"
+                                android:textSize="18sp"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/tv_service_add_won_dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:onClick="onClick"
+                        android:paddingStart="8dp"
+                        android:paddingTop="17dp"
+                        android:paddingEnd="9dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/tv_service_price_won"
+                        android:textColor="@color/colorText"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_service_price_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/tv_service_last"
+                    android:textColor="@color/colorTextServiceText"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_service_add_last"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/tv_service_last_hint"
+                        android:onClick="onClick"
+                        android:paddingTop="9dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorWhite"
+                        android:textColorHint="@color/colorTextServiceNotPut"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_service_last_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/tv_service_duration"
+                    android:textColor="@color/colorTextServiceText"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:id="@+id/linear_service_add_duration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    android:onClick="onClick">
+
+                    <TextView
+                        android:id="@+id/tv_service_add_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/tv_service_duration_tool"
+                        android:maxLines="1"
+                        android:textColor="@color/colorTextServiceText"
+                        android:textColorHint="@color/colorTextServiceNotPut"
+                        android:textSize="18sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_service_duration_month"
+                        android:textColor="@color/colorTextServiceBtn"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_service_duration_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/tv_service_alarm"
+                    android:textColor="@color/colorTextServiceText"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:id="@+id/linear_service_add_alarm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    android:onClick="onClick">
+
+                    <TextView
+                        android:id="@+id/tv_service_add_alarm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/tv_service_alarm_hint"
+                        android:maxLength="13"
+                        android:maxLines="1"
+                        android:textColor="@color/colorTextServiceText"
+                        android:textColorHint="@color/colorTextServiceNotPut"
+                        android:textSize="18sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_service_alarm_day"
+                        android:textColor="@color/colorTextServiceText"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_service_alarm_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="38dp"
+                android:text="@string/tv_service_extra_info"
+                android:textColor="@color/colorTextServiceText"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/src_service_add_back"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/tv_service_add_image"
+                    android:textColor="@color/colorTextServiceText"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="16dp">
+
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/src_service_add_image"
+                        android:onClick="onClick"
+                        android:src="@android:drawable/ic_input_add" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="12dp"
+                        android:onClick="onClick"
+                        android:text="@string/tv_service_add_image_btn"
+                        android:textColor="@color/colorTextServiceNotPut"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_service_image_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/tv_service_extra"
+                    android:textColor="@color/colorTextServiceText"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp">
+
+                    <EditText
+                        android:id="@+id/edt_service_add_extra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/tv_service_extra_hint"
+                        android:inputType="text"
+                        android:maxLength="15"
+                        android:maxLines="2"
+                        android:textColor="@color/colorTextServiceText"
+                        android:textColorHint="@color/colorTextServiceNotPut"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_service_extra_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/tv_service_change_plan"
+                    android:textColor="@color/colorTextServiceText"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp">
+
+                    <EditText
+                        android:id="@+id/edt_service_add_change_plan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/tv_service_change_plan_hint"
+                        android:inputType="text"
+                        android:textColor="@color/colorTextServiceText"
+                        android:textColorHint="@color/colorTextServiceNotPut"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_service_change_plan_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/tv_service_cancel_plan_link"
+                    android:textColor="@color/colorTextServiceText"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp">
+
+                    <EditText
+                        android:id="@+id/edt_service_add_cancel_plan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/tv_service_cancel_plan_hint"
+                        android:inputType="text"
+                        android:textColor="@color/colorTextServiceText"
+                        android:textColorHint="@color/colorTextServiceNotPut"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_service_cancel_plan_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/tv_service_cancel_plan_phone"
+                    android:textColor="@color/colorTextServiceText"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp">
+
+                    <EditText
+                        android:id="@+id/edt_service_add_cancel_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/tv_service_cancel_plan_phone_hint"
+                        android:inputType="phone"
+                        android:textColor="@color/colorTextServiceText"
+                        android:textColorHint="@color/colorTextServiceNotPut"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_service_cancel_phone_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_service_add_remove"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="48dp"
+                android:gravity="end"
+                android:onClick="onClick"
+                android:text="@string/tv_service_remove"
+                android:textColor="@color/colorTextServiceRemove"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp">
+
+        <TextView
+            android:id="@+id/tv_service_add_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorConceptPrimary"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="@string/tv_service_add"
+            android:textColor="@color/colorTextServiceText"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+</LinearLayout>
