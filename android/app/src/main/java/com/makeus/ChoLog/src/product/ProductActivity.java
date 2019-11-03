@@ -56,12 +56,15 @@ public class ProductActivity extends BaseActivity implements TextWatcher {
         mProductList = new ArrayList<>();
 
         //dummy data
-        ProductItem dummy = new ProductItem("adobe", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(adobe)");
-        mProductList.add(dummy);
         mProductList.add(new ProductItem("어도비", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(어도비)"));
-        mProductList.add(new ProductItem("adobe2", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(adobe2)"));
-        mProductList.add(new ProductItem("어도비2", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(어도비2)"));
-        mProductList.add(new ProductItem("도비", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(도비)"));
+        mProductList.add(new ProductItem("어도비", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(어도비)"));
+        mProductList.add(new ProductItem("어도비", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(어도비)"));
+        mProductList.add(new ProductItem("어도비", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(어도비)"));
+        mProductList.add(new ProductItem("멜론", "https://cdnimg.melon.co.kr/resource/mobile40/cds/common/image/mobile_apple_180x180.png", "음악 스트리밍"));
+        mProductList.add(new ProductItem("멜론", "https://cdnimg.melon.co.kr/resource/mobile40/cds/common/image/mobile_apple_180x180.png", "음악 스트리밍"));
+        mProductList.add(new ProductItem("멜론", "https://cdnimg.melon.co.kr/resource/mobile40/cds/common/image/mobile_apple_180x180.png", "음악 스트리밍"));
+        mProductList.add(new ProductItem("멜론", "https://cdnimg.melon.co.kr/resource/mobile40/cds/common/image/mobile_apple_180x180.png", "음악 스트리밍"));
+
         //--------------------
 
         mAdapter = new ProductAdapter(this, R.layout.item_product, mProductList);

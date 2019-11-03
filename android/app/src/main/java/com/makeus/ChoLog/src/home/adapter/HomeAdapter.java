@@ -105,10 +105,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final HomeItem homeItem = mHomeList.get(position);
-//        holder.tvHomeDate.setText(homeItem.getmDate());
+        holder.tvHomeDate.setText("12월4일");
         holder.tvHomeDDay.setText(mContext.getResources().getString(R.string.tv_main_d_day).concat(String.valueOf(homeItem.getmDDay())));
-        holder.tvHomePrice.setText(myFormatter.format(homeItem.getmPrice()).concat(mContext.getResources().getString(R.string.tv_main_won)));
-        Glide.with(mContext).load(homeItem.getmImageUrl()).placeholder(R.drawable.ic_melon).override(200, 200).into(holder.ivHomeImage);
+        if(homeItem.getmCurrency() == 1) {
+            holder.tvHomePrice.setText(myFormatter.format(homeItem.getmPrice()).concat(mContext.getResources().getString(R.string.tv_main_won)));
+        }else if(homeItem.getmCurrency() == 2){
+            holder.tvHomePrice.setText(myFormatter.format(homeItem.getmPrice()).concat(mContext.getResources().getString(R.string.tv_main_dollar)));
+        }
+        Glide.with(mContext).load(homeItem.getmImageUrl()).placeholder(R.drawable.ic_melon).override(150, 150).into(holder.ivHomeImage);
         holder.tvHomeCategory.setText(homeItem.getmCategory());
         holder.tvHomeBrand.setText(homeItem.getmBrand());
 

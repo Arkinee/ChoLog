@@ -12,6 +12,7 @@
     <string name="tv_main_home_service_fee_won">원</string>
     <string name="tv_main_d_day">D-</string>
     <string name="tv_main_won">원</string>
+    <string name="tv_main_dollar">USD</string>
     <string name="tv_main_my_info_month">10월 2019</string>
     <string name="tv_main_my_info_service_fee">0</string>
 
@@ -36,7 +37,7 @@
     <string name="tv_service_search">찾기</string>
     <string name="tv_service_price">금액</string>
     <string name="tv_service_price_hint">￦</string>
-    <string name="tv_service_price_won">화폐단위 〉</string>
+    <string name="tv_service_price_currency">화폐단위</string>
     <string name="tv_service_last">마지막 결제일</string>
     <string name="tv_service_last_hint">결제일 입력</string>
     <string name="tv_service_duration">결제 주기</string>
@@ -57,7 +58,7 @@
     <string name="tv_service_cancel_plan_phone_hint">010-1234-5678</string>
     <string name="tv_service_remove">서비스 삭제</string>
     <string name="tv_service_add">서비스 추가하기</string>
-    <string name="tv_service_change">서비스 수정완료</string>
+    <string name="tv_service_modify">서비스 수정완료</string>
     <string name="tv_service_remove_cancel">취소</string>
     <string name="tv_service_remove_remove">삭제하기</string>
     <string name="tv_service_toast_product">서비스명을 입력하세요.</string>
@@ -65,11 +66,53 @@
     <string name="tv_service_toast_last">마지막 결제일을 넣어주세요.</string>
     <string name="tv_service_toast_duration">결제 주기를 입력하세요.</string>
     <string name="tv_service_toast_alarm">알림을 설정해주세요.</string>
-    <string name="tv_service_dialog_last">완료</string>
-    <string name="tv_service_dialog_duration_day">일</string>
-    <string name="tv_service_dialog_duration_week">주</string>
-    <string name="tv_service_dialog_duration_month">일</string>
-    <string name="tv_service_dialog_duration_year">일</string>
+
+    <!-- Dialog -->
+    <string name="tv_service_add_dialog">완료</string>
+    <string name="tv_service_add_dialog_alarm_none">없음</string>
+    <string name="tv_service_add_dialog_alarm_d_day">당일</string>
+    <string-array name="day_week_month_year">
+        <item>일</item>
+        <item>주</item>
+        <item>달</item>
+        <item>년</item>
+    </string-array>
+
+    <string-array name="alarm_num">
+        <item>없음</item>
+        <item>당일</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+    </string-array>
 
     <!-- Product -->
     <string name="tv_product_top">서비스명 입력</string>
@@ -89,7 +132,7 @@
     <string name="tv_dialog_login_now">로그인 하기</string>
 
     <string name="btn_add_service">서비스 추가하기</string>
-    <string name="btn_myInfo">내정보</string>
+    <string name="btn_myInfo">소비</string>
     <string name="btn_home">홈</string>
     <string name="btn_look_around">둘러보기</string>
 
@@ -127,9 +170,12 @@
     <string name="tv_login_naver">네이버 로그인</string>
     <string name="tv_login_kakao">카카오 로그인</string>
 
+    <!-- Image Add -->
+    <string name="tv_image_add_top">이미지 추가</string>
 
     <!-- Date Picker -->
     <string name="tv_picker_start">2000</string>
     <string name="tv_picker_end">2020</string>
+
 
 </resources>

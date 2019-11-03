@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tv_dialog_duration_complete"
+        android:id="@+id/tv_dialog_alarm_complete"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:background="@color/colorConceptPrimary"
@@ -25,17 +25,19 @@
         android:orientation="horizontal">
 
         <NumberPicker
-            android:id="@+id/picker_duration_number"
+            android:id="@+id/picker_alarm_number"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginEnd="18dp"
-            android:descendantFocusability="blocksDescendants" />
+            android:descendantFocusability="blocksDescendants"
+            app:divider="@drawable/src_dialog_divider" />
 
         <NumberPicker
-            android:id="@+id/picker_duration_per"
+            android:id="@+id/picker_alarm_per"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:descendantFocusability="blocksDescendants" />
+            android:descendantFocusability="blocksDescendants"
+            app:divider="@drawable/src_dialog_divider" />
 
     </LinearLayout>
 

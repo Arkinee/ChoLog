@@ -79,4 +79,7 @@
     <color name="colorNaver">#3ec729</color>
     <color name="colorKakao">#feea0e</color>
 
+    <!-- Image Add -->
+    <color name="colorImageAdd">#f9f9fb</color>
+
 </resources>

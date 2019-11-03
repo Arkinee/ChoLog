@@ -8,7 +8,9 @@ public class HomeItem {
     private int mPrice;         //가격
     private String mImageUrl;   //이미지 주소
     private int mDuration;      //주기
+    private int mDurationPer;
     private int mAlarm;         //알람 몇 일 전
+    private int mAlarmPer;
     private String mExtra;      //추가설명
     private String mChangeUrl;    //변경 url
     private String mCancelUrl;  //해지 url
@@ -16,14 +18,16 @@ public class HomeItem {
     private int mCurrency;      //화폐 단위
     private boolean isChecked;  //알림 체크 되었는지
 
-    public HomeItem(String mBrand, String mCategory, int mDDay, int mPrice, String mImageUrl, int duration, int alarm, String extra, String mChangeUrl, String mCancelUrl, String mPhone, int mCurrency, boolean isChecked) {
+    public HomeItem(String mBrand, String mCategory, int mDDay, int mPrice, int mCurrency, String mImageUrl, int duration,int durationPer, int alarm, int alarmPer, String extra, String mChangeUrl, String mCancelUrl, String mPhone, boolean isChecked) {
         this.mBrand = mBrand;
         this.mCategory = mCategory;
         this.mDDay = mDDay;
         this.mPrice = mPrice;
         this.mImageUrl = mImageUrl;
         this.mDuration = duration;
+        this.mDurationPer = durationPer;
         this.mAlarm = alarm;
+        this.mAlarmPer = alarmPer;
         this.mExtra = extra;
         this.mChangeUrl = mChangeUrl;
         this.mCancelUrl = mCancelUrl;
@@ -134,5 +138,21 @@ public class HomeItem {
 
     public void setmDDay(int mDDay) {
         this.mDDay = mDDay;
+    }
+
+    public int getmDurationPer() {
+        return mDurationPer;
+    }
+
+    public void setmDurationPer(int mDurationPer) {
+        this.mDurationPer = mDurationPer;
+    }
+
+    public int getmAlarmPer() {
+        return mAlarmPer;
+    }
+
+    public void setmAlarmPer(int mAlarmPer) {
+        this.mAlarmPer = mAlarmPer;
     }
 }

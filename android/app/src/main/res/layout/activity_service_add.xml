@@ -25,21 +25,22 @@
 
         <ImageView
             android:id="@+id/iv_service_add_back"
-            android:layout_width="35dp"
+            android:layout_width="44dp"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_centerInParent="true"
             android:layout_marginStart="12dp"
             android:onClick="onClick"
-            android:paddingStart="12dp"
+            android:paddingStart="17dp"
             android:paddingTop="12dp"
-            android:paddingEnd="12dp"
+            android:paddingEnd="17dp"
             android:paddingBottom="12dp"
             android:src="@drawable/ic_back_arrow" />
 
     </RelativeLayout>
 
     <ScrollView
+        android:id="@+id/scroll_service_add"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
@@ -101,9 +102,18 @@
                     android:id="@+id/tv_service_product_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/src_service_add_under_bar" />
 
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/tv_service_price"
+                    android:textColor="@color/colorTextServiceText"
+                    android:textSize="14sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -111,71 +121,72 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:id="@+id/linear_service_add_price"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginEnd="19dp"
-                        android:orientation="vertical">
+                        android:layout_weight="1"
+                        android:onClick="onClick"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edt_service_add_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@null"
+                            android:digits="0123456789."
+                            android:hint="@string/tv_service_price_hint"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:maxLength="13"
+                            android:maxLines="1"
+                            android:textColor="@color/colorTextServiceText"
+                            android:textColorHint="@color/colorTextServiceNotPut"
+                            android:textSize="18sp" />
 
                         <TextView
+                            android:id="@+id/tv_service_add_currency_put"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/tv_service_price"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="9dp"
                             android:textColor="@color/colorTextServiceText"
-                            android:textSize="14sp" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <EditText
-                                android:id="@+id/edt_service_add_price"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="9dp"
-                                android:background="@null"
-                                android:hint="@string/tv_service_price_hint"
-                                android:inputType="number"
-                                android:maxLength="13"
-                                android:maxLines="1"
-                                android:textColor="@color/colorTextServiceText"
-                                android:textColorHint="@color/colorTextServiceNotPut"
-                                android:textSize="18sp" />
-
-                            <TextView
-                                android:id="@+id/tv_service_add_currency_put"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="9dp"
-                                android:textColor="@color/colorTextServiceText"
-                                android:textSize="18sp"
-                                android:visibility="gone" />
-
-                        </LinearLayout>
+                            android:textSize="18sp"
+                            android:visibility="gone" />
 
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
-
-                    <TextView
-                        android:id="@+id/tv_service_add_won_dollar"
+                    <LinearLayout
+                        android:id="@+id/linear_service_add_won_dollar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
+                        android:gravity="bottom"
                         android:onClick="onClick"
                         android:paddingStart="8dp"
                         android:paddingTop="17dp"
                         android:paddingEnd="9dp"
-                        android:paddingBottom="5dp"
-                        android:text="@string/tv_service_price_won"
-                        android:textColor="@color/colorText"
-                        android:textSize="14sp" />
+                        android:paddingBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_service_add_won_dollar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:text="@string/tv_service_price_currency"
+                            android:textColor="@color/colorText"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:paddingBottom="4dp"
+                            android:src="@drawable/ic_right_arrow" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -183,7 +194,6 @@
                     android:id="@+id/tv_service_price_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
                     android:background="@drawable/src_service_add_under_bar" />
 
                 <TextView
@@ -209,8 +219,8 @@
                         android:hint="@string/tv_service_last_hint"
                         android:onClick="onClick"
                         android:paddingTop="9dp"
-                        android:paddingBottom="10dp"
-                        android:textColor="@color/colorWhite"
+                        android:paddingBottom="12dp"
+                        android:textColor="@color/colorText"
                         android:textColorHint="@color/colorTextServiceNotPut"
                         android:textSize="18sp" />
 
@@ -269,7 +279,7 @@
                     android:id="@+id/tv_service_duration_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/src_service_add_under_bar" />
 
                 <TextView
@@ -320,7 +330,7 @@
                     android:id="@+id/tv_service_alarm_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginBottom="30dp"
                     android:background="@drawable/src_service_add_under_bar" />
 
@@ -422,7 +432,7 @@
                     android:id="@+id/tv_service_extra_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/src_service_add_under_bar" />
 
                 <TextView
@@ -458,7 +468,7 @@
                     android:id="@+id/tv_service_change_plan_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/src_service_add_under_bar" />
 
                 <TextView
@@ -494,7 +504,7 @@
                     android:id="@+id/tv_service_cancel_plan_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/src_service_add_under_bar" />
 
                 <TextView
@@ -530,7 +540,7 @@
                     android:id="@+id/tv_service_cancel_phone_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginBottom="30dp"
                     android:background="@drawable/src_service_add_under_bar" />
 

@@ -54,4 +54,9 @@ public class RemoveDialog extends Dialog {
         this.mListener = listener;
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
+
 }

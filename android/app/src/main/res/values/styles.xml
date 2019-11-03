@@ -24,4 +24,13 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
+    <style name="AnimationDialogPopUp">
+        <item name="android:windowEnterAnimation">@anim/dialog_up</item>
+        <item name="android:windowExitAnimation">@anim/dialog_down</item>
+    </style>
+
+    <style name="picker_divider" parent="@android:style/Widget.DeviceDefault.DatePicker">
+        <item name="android:divider">@color/colorConceptPrimary</item>
+    </style>
+
 </resources>

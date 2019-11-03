@@ -159,10 +159,24 @@ public class MainActivity extends BaseActivity {
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case 1000:
-                    String mUrl = "https://52.79.123.156";
-//                    HomeItem item = new HomeItem("10월 3일", 4, "", "영상 스트리밍", "멜론 Hi-Fi스트리밍", 1, 25100, true, mUrl, mUrl, "010-1111-2222", 1);
+                    Intent homeIntent = data;
+                    String name = homeIntent.getExtras().getString("name");
+                    String category = homeIntent.getExtras().getString("category");
+                    int price = homeIntent.getExtras().getInt("price");
+                    int currency = homeIntent.getExtras().getInt("currency");
+                    int duration = homeIntent.getExtras().getInt("duration");
+                    int durationPer = homeIntent.getExtras().getInt("durationPer");
+                    int alarm = homeIntent.getExtras().getInt("alarm");
+                    int alarmPer = homeIntent.getExtras().getInt("alarmPer");
+                    String extra = homeIntent.getExtras().getString("extra");
+                    String changeUrl = homeIntent.getExtras().getString("change");
+                    String cancelUrl = homeIntent.getExtras().getString("cancel");
+                    String phone = homeIntent.getExtras().getString("phone");
+
+                    String melon = "https://cdnimg.melon.co.kr/resource/mobile40/cds/common/image/mobile_apple_180x180.png";
+                    HomeItem item = new HomeItem(name, category, 4, price, currency, melon, duration, durationPer, alarm, alarmPer, extra, changeUrl, cancelUrl, phone, true);
                     HomeFragment hf = (HomeFragment) getSupportFragmentManager().findFragmentById(R.id.frame_main);
-//                    hf.addItem(item);
+                    hf.addItem(item);
                     break;
             }
         }

@@ -9,11 +9,10 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.makeus.ChoLog.R;
-import com.makeus.ChoLog.src.dialog.lastDialog.lastListener;
 
 public class DurationDialog extends Dialog {
 
-    private durationListener mListener;
+    private DurationListener mListener;
     private Context mContext;
 
     public DurationDialog(Context context) {
@@ -28,27 +27,18 @@ public class DurationDialog extends Dialog {
         setContentView(R.layout.dialog_duration);
 
         TextView TvDurationComplete;
-        NumberPicker PickerNumber;
-        NumberPicker PickerPer;
+        final NumberPicker PickerNumber;
+        final NumberPicker PickerPer;
 
         TvDurationComplete = findViewById(R.id.tv_dialog_duration_complete);
         PickerNumber = findViewById(R.id.picker_duration_number);
         PickerPer = findViewById(R.id.picker_duration_per);
 
-        TvDurationComplete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (view.getId() == R.id.tv_dialog_duration_complete) {
-                    mListener.onComplete();
-                }
-            }
-        });
-
         //Number Picker Value 설정
         PickerNumber.setMinValue(1);
         PickerNumber.setMaxValue(30);
 
-        String[] arrayString = new String[]{"일", "주", "달", "년"};
+        String[] arrayString = mContext.getResources().getStringArray(R.array.day_week_month_year);
         PickerPer.setMinValue(0);
         PickerPer.setMaxValue(arrayString.length - 1);
 //        mPickerPer.setFormatter(new NumberPicker.Formatter() {
@@ -59,11 +49,24 @@ public class DurationDialog extends Dialog {
 //        });
         PickerPer.setDisplayedValues(arrayString);
 
+        TvDurationComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view.getId() == R.id.tv_dialog_duration_complete) {
+                    mListener.onDurationComplete(PickerNumber.getValue(), PickerPer.getValue());
+                }
+            }
+        });
 
     }
 
-    public void setDialogListener(durationListener listener) {
+    public void setDialogListener(DurationListener listener) {
         this.mListener = listener;
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 
 }
