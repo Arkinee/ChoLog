@@ -67,7 +67,7 @@ MakeUs_Project_Team_ChoLog_Android
  - ServiceAddActivity
 	- 마지막 결제일, 주기, 알람 Dialog Layout 작성 완료 (비율 맞추기)
 
-#11.03
+# 11.03
  - ServiceAddActivity
 	- 다이얼로그들 애니메이션 추가
  - HomeFragment
