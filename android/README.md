@@ -73,8 +73,10 @@ MakeUs_Project_Team_ChoLog_Android
  - HomeFragment
 	- Home Recyclerview의 item의 멤버변수들 조율
 	- HomeAdapter 조율, 받은 날짜와 주기로 다음 결제일 계산 해야함
+
 # 11.06
  - ServiceAddActivity
 	- 자동 환율 적용
  	- 서비스 관리 적용시 아이템 값 넘겨 받아서 field 채우기 적용
 	- 홈 아이템 SharedPreference에 저장
+
