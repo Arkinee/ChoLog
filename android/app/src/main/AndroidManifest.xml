@@ -4,6 +4,7 @@
     package="com.makeus.ChoLog">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name=".src.ApplicationClass"

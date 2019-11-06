@@ -24,12 +24,10 @@ public class ApplicationClass extends Application {
 
     //서버 주소
     public static String BASE_URL = "http://13.209.41.173";
-
+    //currency 주소
+    public static String CURRENCY_URL = "http://quotation-api-cdn.dunamu.com";
     //공용 sharedpreference
     public static SharedPreferences sSharedPreferences = null;
-
-    //FirebaseStorage
-    //public static FirebaseStorage sStorage = FirebaseStorage.getInstance('gs://project-oda-5b989.appspot.com');
 
     public static DecimalFormat myFormatter = new DecimalFormat("###,###");
     // SharedPreferences 키 값
@@ -39,8 +37,9 @@ public class ApplicationClass extends Application {
     public static final String X_ACCESS_TOKEN = "X-ACCESS-TOKEN";
 
     //날짜 형식
-    public static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy/MM/dd", Locale.KOREA);
-
+    public static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA);
+    public static SimpleDateFormat HOME_MONTH = new SimpleDateFormat("MM", Locale.KOREA);
+    public static SimpleDateFormat HOME_DAY = new SimpleDateFormat("dd", Locale.KOREA);
     // Retrofit 인스턴스
     public static Retrofit retrofit;
 
@@ -73,6 +72,24 @@ public class ApplicationClass extends Application {
 
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
+                    .client(client)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+
+        return retrofit;
+    }
+
+    public static Retrofit getCurrencyRetrofit() {
+        if (retrofit == null) {
+            OkHttpClient client = new OkHttpClient.Builder()
+                    .readTimeout(5000, TimeUnit.MILLISECONDS)
+                    .connectTimeout(5000, TimeUnit.MILLISECONDS)
+                    .addNetworkInterceptor(new XAccessTokenInterceptor()) // JWT 자동 헤더 전송
+                    .build();
+
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(CURRENCY_URL)
                     .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();

@@ -19,6 +19,9 @@
     <!-- Home -->
     <string name="tv_item_home_service_add">구독 서비스 추가하기</string>
     <string name="tv_item_home_date">10월3일</string>
+    <string name="tv_item_home_month">월</string>
+    <string name="tv_item_home_day">일</string>
+    <string name="tv_item_home_hyphen">-</string>
     <string name="tv_item_home_dday">D-2</string>
     <string name="tv_item_home_category">영상 스트리밍</string>
     <string name="tv_item_home_brand">멜론 · Hi-Fi 스트리밍</string>

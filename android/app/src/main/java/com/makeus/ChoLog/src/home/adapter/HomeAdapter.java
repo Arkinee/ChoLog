@@ -15,9 +15,16 @@ import com.makeus.ChoLog.R;
 import com.makeus.ChoLog.src.home.HomeFragment;
 import com.makeus.ChoLog.src.home.models.HomeItem;
 
+import static com.makeus.ChoLog.src.ApplicationClass.DATE_FORMAT;
+import static com.makeus.ChoLog.src.ApplicationClass.HOME_DAY;
+import static com.makeus.ChoLog.src.ApplicationClass.HOME_MONTH;
 import static com.makeus.ChoLog.src.ApplicationClass.myFormatter;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
@@ -105,13 +112,45 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final HomeItem homeItem = mHomeList.get(position);
-        holder.tvHomeDate.setText("12월4일");
-        holder.tvHomeDDay.setText(mContext.getResources().getString(R.string.tv_main_d_day).concat(String.valueOf(homeItem.getmDDay())));
-        if(homeItem.getmCurrency() == 1) {
-            holder.tvHomePrice.setText(myFormatter.format(homeItem.getmPrice()).concat(mContext.getResources().getString(R.string.tv_main_won)));
-        }else if(homeItem.getmCurrency() == 2){
-            holder.tvHomePrice.setText(myFormatter.format(homeItem.getmPrice()).concat(mContext.getResources().getString(R.string.tv_main_dollar)));
+        //다음 결제일, DDay 계산
+        String last = homeItem.getmLast();
+        String next = homeItem.getmLast();
+        Calendar cal = Calendar.getInstance();
+        Date lastDate;
+        Date nextDate;
+
+
+        try{
+            lastDate = DATE_FORMAT.parse(last);
+            nextDate = DATE_FORMAT.parse(next);
+            cal.setTime(nextDate);
+            if(homeItem.getmDurationPer() == 0) {
+                cal.add(Calendar.DAY_OF_MONTH, homeItem.getmDuration());
+            }else if(homeItem.getmDurationPer() == 1) {
+                cal.add(Calendar.WEEK_OF_MONTH, homeItem.getmDuration());
+            }else if(homeItem.getmDurationPer() == 2) {
+                cal.add(Calendar.MONTH, homeItem.getmDuration());
+            }else if(homeItem.getmDurationPer() == 3) {
+                cal.add(Calendar.YEAR, homeItem.getmDuration());
+            }
+            nextDate = new Date(cal.getTimeInMillis());
+            long calDate = nextDate.getTime() - lastDate.getTime();
+            long calDateDays = calDate / (24 * 60 * 60 * 1000);
+            calDateDays = Math.abs(calDateDays);
+            if(calDateDays < 8){
+                holder.tvHomeDDay.setTextColor(mContext.getResources().getColor(R.color.colorTextHomeItemDDayRed));
+            }else{
+                holder.tvHomeDDay.setTextColor(mContext.getResources().getColor(R.color.colorTextHomeItemDDayBlack));
+            }
+            holder.tvHomeDDay.setText(mContext.getResources().getString(R.string.tv_main_d_day).concat(String.valueOf(calDateDays)));
+        }catch (ParseException e){
+
         }
+
+        String month = HOME_MONTH.format(cal.getTime());
+        String day = HOME_DAY.format(cal.getTime());
+        holder.tvHomeDate.setText(month.concat(mContext.getString(R.string.tv_item_home_month)).concat(day).concat(mContext.getString(R.string.tv_item_home_day)));
+        holder.tvHomePrice.setText(myFormatter.format(homeItem.getmPrice()).concat(mContext.getResources().getString(R.string.tv_main_won)));
         Glide.with(mContext).load(homeItem.getmImageUrl()).placeholder(R.drawable.ic_melon).override(150, 150).into(holder.ivHomeImage);
         holder.tvHomeCategory.setText(homeItem.getmCategory());
         holder.tvHomeBrand.setText(homeItem.getmBrand());

@@ -23,8 +23,8 @@
     <color name="colorTextHomeItemServiceAdd">#b9b9bb</color>
     <color name="colorLinearHomeItemServiceAdd">#f9f9fb</color>
     <color name="colorTextHomeItemDate">#424242</color>
-    <color name="colorTextHomeItemDDayRed">#ff6b6b</color>
-    <color name="colorTextHomeItemDDayBlack">#424242</color>
+    <color name="colorTextHomeItemDDayRed">#ff174c</color>
+    <color name="colorTextHomeItemDDayBlack">#787585</color>
     <color name="colorTextHomeItemCategory">#53515c</color>
     <color name="colorTextHomeItemBrandAndWhile">#8d8d8d</color>
     <color name="colorTextHomeItemPrice">#424242</color>

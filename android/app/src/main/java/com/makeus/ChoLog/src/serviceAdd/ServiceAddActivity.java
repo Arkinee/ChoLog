@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
@@ -35,8 +36,9 @@ import com.makeus.ChoLog.src.dialog.lastDialog.LastListener;
 import com.makeus.ChoLog.src.dialog.removeDialog.RemoveDialog;
 import com.makeus.ChoLog.src.dialog.removeDialog.removeListener;
 import com.makeus.ChoLog.src.product.ProductActivity;
+import com.makeus.ChoLog.src.serviceAdd.interfaces.ServiceAddActivityView;
 
-public class ServiceAddActivity extends BaseActivity {
+public class ServiceAddActivity extends BaseActivity implements ServiceAddActivityView {
 
     private TextView mTvProduct;
     private EditText mEdtPrice;
@@ -89,6 +91,10 @@ public class ServiceAddActivity extends BaseActivity {
     private final int CURRENCY = 2000;
     private final int PRODUCT = 3000;
 
+    //currency krw to usd
+    private double mKRWtoUSD;
+    private int mPrice;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,10 +136,9 @@ public class ServiceAddActivity extends BaseActivity {
         //type 1 : add , 2 : modify
         if (type == 1) {
             mTvServiceAddBtn.setText(getResources().getString(R.string.tv_service_add));
-
         } else if (type == 2) {
             mTvServiceAddBtn.setText(getResources().getString(R.string.tv_service_modify));
-
+            this.setField();
         }
 
         //화폐 단위 선정
@@ -283,6 +288,8 @@ public class ServiceAddActivity extends BaseActivity {
                     } else if (mCurrency == 2) {
                         mEdtPrice.setHint(R.string.tv_currency_us_dollar);
                         mTvCurrency.setText(R.string.tv_currency_us_dollar);
+                        final ServiceAddService serviceAddService = new ServiceAddService(this);
+                        serviceAddService.getCurrency();
                     }
                     break;
                 case PRODUCT:
@@ -492,11 +499,18 @@ public class ServiceAddActivity extends BaseActivity {
                 //필수정보
                 resultIntent.putExtra("name", mTvProduct.getText().toString());
                 resultIntent.putExtra("category", mCategory);
-                resultIntent.putExtra("price", mEdtPrice.getText().toString());
+                if (mCurrency == 1) {
+                    mPrice = Integer.parseInt(mEdtPrice.getText().toString());
+                } else if (mCurrency == 2) {
+                    mPrice = (int) (Double.parseDouble(mEdtPrice.getText().toString()) * mKRWtoUSD);
+                }
+
+                resultIntent.putExtra("price", mPrice);
                 resultIntent.putExtra("currency", mCurrency);
                 resultIntent.putExtra("year", mYear);
                 resultIntent.putExtra("month", mMonth);
                 resultIntent.putExtra("day", mDay);
+                Log.d("로그", "service day:" + mDay);
                 resultIntent.putExtra("duration", mDurationNum);
                 resultIntent.putExtra("durationPer", mDurationPer);
                 resultIntent.putExtra("alarm", mAlarmNum);
@@ -517,6 +531,7 @@ public class ServiceAddActivity extends BaseActivity {
                 break;
             case R.id.tv_service_add_last:
                 this.showLastDialog();
+                mEdtPrice.clearFocus();
                 break;
             case R.id.linear_service_add_duration:
                 this.showDurationDialog();
@@ -553,4 +568,15 @@ public class ServiceAddActivity extends BaseActivity {
         this.finish();
     }
 
+    @Override
+    public void getCurrencySuccess(double basePrice) {
+        mKRWtoUSD = basePrice;
+        hideProgressDialog();
+    }
+
+    @Override
+    public void getCurrencyFailure(String msg) {
+        hideProgressDialog();
+        showCustomToast(msg);
+    }
 }

@@ -1,12 +1,14 @@
 package com.makeus.ChoLog.src.home.models;
 
-public class HomeItem {
+import java.io.Serializable;
+
+public class HomeItem implements Serializable {
 
     private String mBrand;      //서비스명
     private String mCategory;   //카테고리
-    private int mDDay;
     private int mPrice;         //가격
     private String mImageUrl;   //이미지 주소
+    private String mLast;
     private int mDuration;      //주기
     private int mDurationPer;
     private int mAlarm;         //알람 몇 일 전
@@ -18,12 +20,12 @@ public class HomeItem {
     private int mCurrency;      //화폐 단위
     private boolean isChecked;  //알림 체크 되었는지
 
-    public HomeItem(String mBrand, String mCategory, int mDDay, int mPrice, int mCurrency, String mImageUrl, int duration,int durationPer, int alarm, int alarmPer, String extra, String mChangeUrl, String mCancelUrl, String mPhone, boolean isChecked) {
+    public HomeItem(String mBrand, String mCategory, int mPrice, int mCurrency, String mImageUrl, String mLast, int duration, int durationPer, int alarm, int alarmPer, String extra, String mChangeUrl, String mCancelUrl, String mPhone, boolean isChecked) {
         this.mBrand = mBrand;
         this.mCategory = mCategory;
-        this.mDDay = mDDay;
-        this.mPrice = mPrice;
         this.mImageUrl = mImageUrl;
+        this.mPrice = mPrice;
+        this.mLast = mLast;
         this.mDuration = duration;
         this.mDurationPer = durationPer;
         this.mAlarm = alarm;
@@ -132,14 +134,6 @@ public class HomeItem {
         this.mChangeUrl = mChangeUrl;
     }
 
-    public int getmDDay() {
-        return mDDay;
-    }
-
-    public void setmDDay(int mDDay) {
-        this.mDDay = mDDay;
-    }
-
     public int getmDurationPer() {
         return mDurationPer;
     }
@@ -154,5 +148,13 @@ public class HomeItem {
 
     public void setmAlarmPer(int mAlarmPer) {
         this.mAlarmPer = mAlarmPer;
+    }
+
+    public String getmLast() {
+        return mLast;
+    }
+
+    public void setmLast(String mLast) {
+        this.mLast = mLast;
     }
 }

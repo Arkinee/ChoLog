@@ -67,9 +67,14 @@ MakeUs_Project_Team_ChoLog_Android
  - ServiceAddActivity
 	- 마지막 결제일, 주기, 알람 Dialog Layout 작성 완료 (비율 맞추기)
 
-#11.03
+# 11.03
  - ServiceAddActivity
 	- 다이얼로그들 애니메이션 추가
  - HomeFragment
 	- Home Recyclerview의 item의 멤버변수들 조율
 	- HomeAdapter 조율, 받은 날짜와 주기로 다음 결제일 계산 해야함
+# 11.06
+ - ServiceAddActivity
+	- 자동 환율 적용
+ 	- 서비스 관리 적용시 아이템 값 넘겨 받아서 field 채우기 적용
+	- 홈 아이템 SharedPreference에 저장

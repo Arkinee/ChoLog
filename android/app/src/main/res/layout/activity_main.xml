@@ -58,7 +58,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="@string/tv_main_home_service_fee"
                     android:textColor="@color/colorTextMainServicePrice"
                     android:textSize="32sp"
                     android:textStyle="bold"

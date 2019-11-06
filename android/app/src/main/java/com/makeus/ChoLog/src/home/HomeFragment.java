@@ -1,6 +1,7 @@
 package com.makeus.ChoLog.src.home;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,13 +16,19 @@ import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.makeus.ChoLog.R;
 import com.makeus.ChoLog.src.RecyclerViewDecoration;
 import com.makeus.ChoLog.src.home.adapter.HomeAdapter;
 import com.makeus.ChoLog.src.home.models.HomeItem;
 import com.makeus.ChoLog.src.serviceAdd.ServiceAddActivity;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+
+import static com.makeus.ChoLog.src.ApplicationClass.sSharedPreferences;
 
 public class HomeFragment extends Fragment {
 
@@ -34,12 +41,24 @@ public class HomeFragment extends Fragment {
 
     private final int SETTING = 5000;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mHomeItemList = new ArrayList<>();
+        String homeList = sSharedPreferences.getString("homeList", "");
+        Type listType = new TypeToken<ArrayList<HomeItem>>() {
+        }.getType();
+        Gson gson = new GsonBuilder().create();
+        if (gson.fromJson(homeList, listType) != null) {
+            mHomeItemList = gson.fromJson(homeList, listType);
+        }
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        mHomeItemList = new ArrayList<>();
         mRvHome = view.findViewById(R.id.rv_home);
         mLinearServiceAdd = view.findViewById(R.id.linear_home_service_add);
         mHomeAdapter = new HomeAdapter(getActivity(), mHomeItemList, new HomeAdapter.OnItemClickListener() {
@@ -60,17 +79,10 @@ public class HomeFragment extends Fragment {
 
                 Intent settingIntent = new Intent(getActivity(), ServiceAddActivity.class);
                 settingIntent.putExtra("type", 2);
-                settingIntent.putExtra("brand", mHomeItemList.get(pos).getmBrand());
-                settingIntent.putExtra("price", mHomeItemList.get(pos).getmPrice());
-                settingIntent.putExtra("dday", mHomeItemList.get(pos).getmDDay());
-                settingIntent.putExtra("duration", mHomeItemList.get(pos).getmDuration());
-                settingIntent.putExtra("alarm", mHomeItemList.get(pos).getmAlarm());
-                settingIntent.putExtra("currency", mHomeItemList.get(pos).getmCurrency());
-                settingIntent.putExtra("change", mHomeItemList.get(pos).getmChangeUrl());
-                settingIntent.putExtra("cancel", mHomeItemList.get(pos).getmCancelUrl());
-                settingIntent.putExtra("phone", mHomeItemList.get(pos).getmPhone());
-                settingIntent.putExtra("isCheck", mHomeItemList.get(pos).isChecked());
-                startActivityForResult(settingIntent,SETTING);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("item", mHomeItemList.get(pos));
+                settingIntent.putExtras(bundle);
+                startActivityForResult(settingIntent, SETTING);
             }
         });
 
@@ -90,5 +102,18 @@ public class HomeFragment extends Fragment {
     public void scrollToTop() {
         Log.d("로그", "맨 위로");
         mScrollHome.fullScroll(ScrollView.FOCUS_UP);
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Gson gson = new GsonBuilder().create();
+        Type listType = new TypeToken<ArrayList<HomeItem>>() {
+        }.getType();
+        String json = gson.toJson(mHomeItemList, listType);
+        SharedPreferences.Editor editor = sSharedPreferences.edit();
+        editor.putString("homeList", json);
+        editor.apply();
     }
 }

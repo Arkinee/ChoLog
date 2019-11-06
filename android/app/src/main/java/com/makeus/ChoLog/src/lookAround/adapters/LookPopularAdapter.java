@@ -89,8 +89,7 @@ public class LookPopularAdapter extends RecyclerView.Adapter<LookPopularAdapter.
         holder.tvLookService.setText(lookItem.getmBrand());
         holder.tvLookCategory.setText(lookItem.getmCategory());
         holder.tvLookPrice.setText(myFormatter.format(lookItem.getmPrice())
-                .concat(mContext.getResources().getString(R.string.tv_won))
-                .concat(mContext.getResources().getString(R.string.tv_right_arrow)));
+                .concat(mContext.getResources().getString(R.string.tv_won)));
         Glide.with(mContext).load(lookItem.getmImageUrl()).placeholder(R.drawable.ic_adobe_cloud).override(200, 200).into(holder.ivLookImage);
 
     }

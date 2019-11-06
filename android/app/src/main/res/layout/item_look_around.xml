@@ -62,5 +62,13 @@
         android:textStyle="bold"
         tools:text="@string/tv_look_tool_fee" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="5dp"
+        android:paddingBottom="4dp"
+        android:src="@drawable/ic_right_arrow" />
+
 
 </LinearLayout>

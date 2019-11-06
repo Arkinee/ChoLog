@@ -7,11 +7,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
@@ -31,10 +31,14 @@ import com.makeus.ChoLog.src.home.HomeFragment;
 import com.makeus.ChoLog.src.home.models.HomeItem;
 import com.makeus.ChoLog.src.login.LoginActivity;
 import com.makeus.ChoLog.src.lookAround.LookFragment;
+import com.makeus.ChoLog.src.main.interfaces.MainActivityView;
 import com.makeus.ChoLog.src.myInfo.MyInfoFragment;
 import com.makeus.ChoLog.src.serviceAdd.ServiceAddActivity;
 
-public class MainActivity extends BaseActivity {
+import static com.makeus.ChoLog.src.ApplicationClass.myFormatter;
+import static com.makeus.ChoLog.src.ApplicationClass.sSharedPreferences;
+
+public class MainActivity extends BaseActivity implements MainActivityView {
 
     private FragmentManager mFragmentManager;
     private FragmentTransaction mTransaction;
@@ -67,12 +71,14 @@ public class MainActivity extends BaseActivity {
     private LoginDialog mLoginDialog;
     private WindowManager.LayoutParams mWm;
     private int mFragmentFlag;
-    private int mWidth;
-    private int mHeight;
-    String Tag = "로그";
-
+    private String TAG = "로그";
     private Context mContext;
+    private int mPrice;
+    private double mDollar;
 
+    private final int SERVICE = 1000;
+
+    private int mHomeFee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +93,7 @@ public class MainActivity extends BaseActivity {
     void initialize() {
 
         mContext = this;
+        mHomeFee = sSharedPreferences.getInt("homeFee", 0);
 
         mToolbar = findViewById(R.id.toolbar_main);
         mAppBar = findViewById(R.id.appbar_main);
@@ -112,6 +119,8 @@ public class MainActivity extends BaseActivity {
         mRelativeMainMyInfo = findViewById(R.id.relative_main_my_info);
 
         mFragmentFlag = 1;
+        //Home 화면 최상단 가격
+        mTvMainHomeServiceFee.setText(myFormatter.format(mHomeFee));
 
     }
 
@@ -158,13 +167,26 @@ public class MainActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
-                case 1000:
+                case SERVICE:
                     Intent homeIntent = data;
                     String name = homeIntent.getExtras().getString("name");
                     String category = homeIntent.getExtras().getString("category");
-                    int price = homeIntent.getExtras().getInt("price");
                     int currency = homeIntent.getExtras().getInt("currency");
+                    int price = homeIntent.getExtras().getInt("price");
                     int duration = homeIntent.getExtras().getInt("duration");
+
+                    String year = String.valueOf(homeIntent.getExtras().getInt("year"));
+                    String month = String.valueOf(homeIntent.getExtras().getInt("month") + 1);
+                    int day_int = homeIntent.getExtras().getInt("day");
+                    String day;
+                    if (day_int < 10) {
+                        day = "0".concat(String.valueOf(day_int));
+                    } else {
+                        day = String.valueOf(day_int);
+                    }
+                    Log.d("로그", "main day:" + day);
+                    String hyphen = this.getString(R.string.tv_item_home_hyphen);
+                    String last = year.concat(hyphen).concat(month).concat(hyphen).concat(day);
                     int durationPer = homeIntent.getExtras().getInt("durationPer");
                     int alarm = homeIntent.getExtras().getInt("alarm");
                     int alarmPer = homeIntent.getExtras().getInt("alarmPer");
@@ -173,8 +195,11 @@ public class MainActivity extends BaseActivity {
                     String cancelUrl = homeIntent.getExtras().getString("cancel");
                     String phone = homeIntent.getExtras().getString("phone");
 
+                    mHomeFee += price;
+                    setHomeFee(mHomeFee);
+
                     String melon = "https://cdnimg.melon.co.kr/resource/mobile40/cds/common/image/mobile_apple_180x180.png";
-                    HomeItem item = new HomeItem(name, category, 4, price, currency, melon, duration, durationPer, alarm, alarmPer, extra, changeUrl, cancelUrl, phone, true);
+                    HomeItem item = new HomeItem(name, category, price, currency, melon, last, duration, durationPer, alarm, alarmPer, extra, changeUrl, cancelUrl, phone, true);
                     HomeFragment hf = (HomeFragment) getSupportFragmentManager().findFragmentById(R.id.frame_main);
                     hf.addItem(item);
                     break;
@@ -260,7 +285,7 @@ public class MainActivity extends BaseActivity {
                 //type 1 은 새로운 서비스 추가
                 intent.putExtra("type", 1);
                 intent.putExtra("currency", 1);
-                startActivityForResult(intent, 1000);
+                startActivityForResult(intent, SERVICE);
                 break;
             case R.id.iv_main_logo:
                 if (mFragmentFlag == 1) {
@@ -274,7 +299,6 @@ public class MainActivity extends BaseActivity {
                     lf.scrollToTop();
                 }
                 mAppBar.setExpanded(true);
-                Log.d(Tag, "로고 클릭");
                 break;
             case R.id.iv_main_setting:
                 mLoginDialog.show();
@@ -293,4 +317,16 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    public void setHomeFee(int fee) {
+        mTvMainHomeServiceFee.setText(myFormatter.format(fee));
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        SharedPreferences.Editor editor = sSharedPreferences.edit();
+        editor.putInt("homeFee", mHomeFee);
+        editor.apply();
+    }
 }
