@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ChoLog</string>
+    <string name="app_name">ChoLogBin</string>
 
     <!-- Common -->
     <string name="tv_won">원</string>
