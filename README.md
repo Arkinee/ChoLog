@@ -1,2 +1,2 @@
-﻿# ChoLog
-MakeUs_Project_Team_ChoLog
+﻿# ChoLogBin
+MakeUs_Project_Team_ChoLogBin

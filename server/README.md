@@ -1,4 +1,4 @@
-﻿# ChoLog
-MakeUs_Project_Team_ChoLog_Server
+﻿# ChoLogBin
+MakeUs_Project_Team_ChoLogBin_Server
 
 
