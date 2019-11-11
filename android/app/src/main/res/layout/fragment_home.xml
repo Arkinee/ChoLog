@@ -44,8 +44,8 @@
 
             <ImageView
                 android:id="@+id/iv_home_service_add"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:src="@drawable/ic_btn_add" />
 
             <TextView
@@ -57,6 +57,18 @@
                 android:textSize="16sp" />
 
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_home_service_add_after"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="54dp"
+            android:layout_marginBottom="60dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_btn_add"
+            android:onClick="onClick"
+            android:visibility="gone"
+            />
 
     </LinearLayout>
 

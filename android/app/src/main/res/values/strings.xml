@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ChoLogBin</string>
+    <string name="app_name">Modu</string>
 
     <!-- Common -->
     <string name="tv_won">원</string>
@@ -12,6 +12,7 @@
     <string name="tv_main_home_service_fee_won">원</string>
     <string name="tv_main_d_day">D-</string>
     <string name="tv_main_won">원</string>
+    <string name="tv_main_description">Main</string>
     <string name="tv_main_dollar">USD</string>
     <string name="tv_main_my_info_month">10월 2019</string>
     <string name="tv_main_my_info_service_fee">0</string>
@@ -22,6 +23,7 @@
     <string name="tv_item_home_month">월</string>
     <string name="tv_item_home_day">일</string>
     <string name="tv_item_home_hyphen">-</string>
+    <string name="tv_item_home_dot">.</string>
     <string name="tv_item_home_dday">D-2</string>
     <string name="tv_item_home_category">영상 스트리밍</string>
     <string name="tv_item_home_brand">멜론 · Hi-Fi 스트리밍</string>
@@ -80,6 +82,45 @@
         <item>달</item>
         <item>년</item>
     </string-array>
+    <string name="day">일</string>
+    <string name="week">주</string>
+    <string name="month">달</string>
+    <string name="year">년</string>
+
+    <string-array name="duration_num">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>60</item>
+        <item>90</item>
+    </string-array>
 
     <string-array name="alarm_num">
         <item>없음</item>
@@ -134,6 +175,10 @@
     <string name="tv_dialog_login_later">나중에</string>
     <string name="tv_dialog_login_now">로그인 하기</string>
 
+    <string name="tv_dialog_sign_up">등록되지 않은 계정입니다.\n회원가입을 해주세요.</string>
+    <string name="tv_dialog_sign_up_cancel">취소</string>
+    <string name="tv_dialog_sign_up_ok">확인</string>
+
     <string name="btn_add_service">서비스 추가하기</string>
     <string name="btn_myInfo">소비</string>
     <string name="btn_home">홈</string>
@@ -169,9 +214,12 @@
 
     <!-- Login -->
     <string name="tv_login_top">로그인</string>
-    <string name="tv_login_info">간편 로그인을 통해 정보를\n쉽고 빠르게 저장하세요.</string>
+    <string name="tv_login_info">간편 로그인을 통해\n정보를 쉽고 빠르게 저장하세요.</string>
     <string name="tv_login_naver">네이버 로그인</string>
     <string name="tv_login_kakao">카카오 로그인</string>
+    <string name="tv_login_google">구글로 시작</string>
+    <string name="tv_login_sign_up">회원가입 시 서비스 이용약관 및 개인정보 보호정책에 동의하게 됩니다.</string>
+    <string name="tv_login_content_description">log_in</string>
 
     <!-- Image Add -->
     <string name="tv_image_add_top">이미지 추가</string>
@@ -180,5 +228,13 @@
     <string name="tv_picker_start">2000</string>
     <string name="tv_picker_end">2020</string>
 
+    <!-- Sign Up -->
+    <string name="tv_sign_up_bottom">회원가입</string>
+    <string name="tv_sign_up_top">회원정보</string>
+    <string name="tv_sign_up_name_hint">이름 또는 닉네임</string>
+    <string name="tv_sign_up_id_hint">아이디 입력</string>
+    <string name="tv_sign_up_password_hint">비밀번호 입력</string>
+    <string name="tv_sign_up_password_verify_hint">비밀번호 확인</string>
+    <string name="tv_sign_up_content_description">sign_up</string>
 
 </resources>

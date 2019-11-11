@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorConcept"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <TextView
+            android:id="@+id/tv_sign_up_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/tv_sign_up_top"
+            android:textColor="@color/colorTextServiceTop"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_sign_up_close"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="12dp"
+            android:contentDescription="@string/tv_sign_up_content_description"
+            android:onClick="onClick"
+            android:paddingStart="12sp"
+            android:paddingTop="12dp"
+            android:paddingEnd="12sp"
+            android:paddingBottom="12dp"
+            android:src="@drawable/ic_close" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_service_add"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="37dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/src_service_add_back"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/edt_sign_up_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@null"
+                    android:ellipsize="end"
+                    android:hint="@string/tv_sign_up_name_hint"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:onClick="onClick"
+                    android:paddingStart="8dp"
+                    android:paddingTop="9dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="12dp"
+                    android:textColor="@color/colorTextServiceTextHint"
+                    android:textColorHint="@color/colorTextServiceNotPut"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_sign_up_name_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+                <EditText
+                    android:id="@+id/edt_sign_up_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@null"
+                    android:ellipsize="end"
+                    android:hint="@string/tv_sign_up_id_hint"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:onClick="onClick"
+                    android:paddingStart="8dp"
+                    android:paddingTop="9dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="12dp"
+                    android:textColor="@color/colorTextServiceTextHint"
+                    android:textColorHint="@color/colorTextServiceNotPut"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_sign_up_id_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+                <EditText
+                    android:id="@+id/edt_sign_up_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@null"
+                    android:ellipsize="end"
+                    android:hint="@string/tv_sign_up_password_hint"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:onClick="onClick"
+                    android:paddingStart="8dp"
+                    android:paddingTop="9dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="12dp"
+                    android:textColor="@color/colorTextServiceTextHint"
+                    android:textColorHint="@color/colorTextServiceNotPut"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_sign_up_password_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+                <EditText
+                    android:id="@+id/edt_sign_up_password_verify"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@null"
+                    android:ellipsize="end"
+                    android:hint="@string/tv_sign_up_password_verify_hint"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:onClick="onClick"
+                    android:paddingStart="8dp"
+                    android:paddingTop="9dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="12dp"
+                    android:textColor="@color/colorTextServiceTextHint"
+                    android:textColorHint="@color/colorTextServiceNotPut"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_sign_up_password_verify_under"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="31dp"
+                    android:background="@drawable/src_service_add_under_bar" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp">
+
+        <TextView
+            android:id="@+id/tv_sign_up_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorConceptPrimary"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="@string/tv_sign_up_bottom"
+            android:textColor="@color/colorTextServiceText"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+</LinearLayout>

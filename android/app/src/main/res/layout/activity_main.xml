@@ -26,7 +26,7 @@
                 android:id="@+id/toolbar_main"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="44dp"
                 app:layout_collapseMode="pin"
                 app:title="" />
 
@@ -84,6 +84,7 @@
                 android:layout_height="44dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="66dp"
+                android:contentDescription="@string/tv_main_description"
                 android:paddingStart="15dp"
                 android:paddingTop="12dp"
                 android:paddingEnd="15dp"
@@ -110,6 +111,7 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="66dp"
                 android:layout_marginEnd="12dp"
+                android:contentDescription="@string/tv_main_description"
                 android:paddingStart="15dp"
                 android:paddingTop="12dp"
                 android:paddingEnd="15dp"
@@ -158,18 +160,23 @@
     <!-- 맨 위 상단 -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="44dp"
         android:layout_gravity="top"
         android:background="@drawable/src_main_top">
 
         <ImageView
             android:id="@+id/iv_main_logo"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="@string/tv_main_description"
             android:onClick="onClick"
-            android:src="@mipmap/ic_launcher_round" />
+            android:paddingStart="12dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="12dp"
+            android:src="@drawable/ic_modu" />
 
         <View
             android:layout_width="0dp"
@@ -194,12 +201,16 @@
 
         <ImageView
             android:id="@+id/iv_main_setting"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="22dp"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="12dp"
+            android:contentDescription="@string/tv_main_description"
             android:onClick="onClick"
-            android:src="@mipmap/ic_launcher_round" />
+            android:paddingStart="13dp"
+            android:paddingTop="11.7dp"
+            android:paddingEnd="13dp"
+            android:paddingBottom="11.2dp"
+            android:src="@drawable/ic_login_false" />
 
     </LinearLayout>
 
@@ -216,6 +227,7 @@
         android:layout_height="58dp"
         android:layout_gravity="bottom"
         android:background="@color/colorConcept"
+        android:baselineAligned="false"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -228,11 +240,12 @@
 
             <ImageView
                 android:id="@+id/iv_main_home"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="7dp"
-                android:src="@mipmap/ic_launcher" />
+                android:contentDescription="@string/tv_main_description"
+                android:src="@drawable/ic_home_clicked" />
 
             <TextView
                 android:id="@+id/tv_main_home"
@@ -240,7 +253,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/btn_home"
-                android:textColor="@color/colorTextMainNavigationClicked" />
+                android:textColor="@color/colorTextMainNavigationClicked"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -254,11 +268,12 @@
 
             <ImageView
                 android:id="@+id/iv_main_my_info"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="7dp"
-                android:src="@mipmap/ic_launcher" />
+                android:contentDescription="@string/tv_main_description"
+                android:src="@drawable/ic_consumption_normal" />
 
             <TextView
                 android:id="@+id/tv_main_my_info"
@@ -266,7 +281,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/btn_myInfo"
-                android:textColor="@color/colorTextMainNavigationNotClicked" />
+                android:textColor="@color/colorTextMainNavigationNotClicked"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -280,11 +296,12 @@
 
             <ImageView
                 android:id="@+id/iv_main_look_around"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="7dp"
-                android:src="@mipmap/ic_launcher" />
+                android:contentDescription="@string/tv_main_description"
+                android:src="@drawable/ic_look_around_normal" />
 
             <TextView
                 android:id="@+id/tv_main_look_around"
@@ -292,7 +309,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/btn_look_around"
-                android:textColor="@color/colorTextMainNavigationNotClicked" />
+                android:textColor="@color/colorTextMainNavigationNotClicked"
+                android:textSize="14sp" />
 
         </LinearLayout>
 

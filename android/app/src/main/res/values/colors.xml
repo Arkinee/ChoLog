@@ -78,6 +78,9 @@
     <!-- Login -->
     <color name="colorNaver">#3ec729</color>
     <color name="colorKakao">#feea0e</color>
+    <color name="colorGoogle">#ffffff</color>
+    <color name="colorGoogleBorder">#e4e6ec</color>
+    <color name="colorSignUpInfo">#b9b9bb</color>
 
     <!-- Image Add -->
     <color name="colorImageAdd">#f9f9fb</color>
