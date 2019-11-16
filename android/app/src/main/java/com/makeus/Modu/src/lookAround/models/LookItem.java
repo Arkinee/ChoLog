@@ -5,15 +5,15 @@ public class LookItem {
     private String mImageUrl;
     private String mBrand;
     private String mCategory;
+    private String mServiceName;
     private int mPrice;
-    private int mDuration;
 
-    public LookItem(String mImageUrl, String mBrand, String mCategory, int mPrice, int mDuration) {
+    public LookItem(String mImageUrl, String mBrand, String mServiceName, String mCategory, int mPrice) {
         this.mImageUrl = mImageUrl;
         this.mCategory = mCategory;
         this.mBrand = mBrand;
+        this.mServiceName = mServiceName;
         this.mPrice = mPrice;
-        this.mDuration = mDuration;
     }
 
     public String getmImageUrl() {
@@ -48,11 +48,11 @@ public class LookItem {
         this.mPrice = mPrice;
     }
 
-    public int getmDuration() {
-        return mDuration;
+    public String getmServiceName() {
+        return mServiceName;
     }
 
-    public void setmDuration(int mDuration) {
-        this.mDuration = mDuration;
+    public void setmServiceName(String mServiceName) {
+        this.mServiceName = mServiceName;
     }
 }

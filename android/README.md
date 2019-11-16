@@ -80,3 +80,15 @@ MakeUs_Project_Team_ChoLogBin_Android
  	- 서비스 관리 적용시 아이템 값 넘겨 받아서 field 채우기 적용
 	- 홈 아이템 SharedPreference에 저장
 
+# 11.11
+ -ServiceAddActivity
+	- 상품명 검색에서 넘어온 이미지 보여주기
+	- 홈 아이템 관리를 이용한 아이템 삭제 적용
+
+# 11.14
+ - LookFragment
+	- 둘러보기 탭에서 각 항목 별 모두 보기 fragment 구현
+	
+# 11.16
+ - 서버 API에 맞춘 상품 가져오기 서비스 작성  
+ - 앱 종료 마지막 날짜 기억 후 앱 재시작 날짜 비교한 뒤 각 아이템 D-day와 마지막 결제일 Sync 작성 (테스트 못해봄, 하루가 지나야 가능)

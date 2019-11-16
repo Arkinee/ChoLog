@@ -18,12 +18,14 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.makeus.Modu.R;
 import com.makeus.Modu.src.BaseActivity;
 import com.makeus.Modu.src.currency.CurrencyActivity;
@@ -38,6 +40,11 @@ import com.makeus.Modu.src.dialog.removeDialog.removeListener;
 import com.makeus.Modu.src.home.models.HomeItem;
 import com.makeus.Modu.src.product.ProductActivity;
 import com.makeus.Modu.src.serviceAdd.interfaces.ServiceAddActivityView;
+
+import java.text.DecimalFormat;
+import java.util.Objects;
+
+import static com.makeus.Modu.src.ApplicationClass.sSharedPreferences;
 
 public class ServiceAddActivity extends BaseActivity implements ServiceAddActivityView {
 
@@ -60,6 +67,8 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
     private TextView mTvChangeUnder;
     private TextView mTvCancelUnder;
     private TextView mTvCancelPhoneUnder;
+
+    private ImageView mIvImageAdd;
 
     private TextView mTvServiceAddBtn;
 
@@ -95,6 +104,9 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
     //currency krw to usd
     private double mKRWtoUSD;
     private int mPrice;
+    private int mType;
+    private int mCompare;
+    private String mImageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +117,9 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
     }
 
     void initialize() {
+
+        mKRWtoUSD = Double.parseDouble(sSharedPreferences.getString("KRWtoUSD", "0"));
+        mImageUrl = "";
 
         mTvProduct = findViewById(R.id.tv_service_add_product);
         mEdtPrice = findViewById(R.id.edt_service_add_price);
@@ -127,24 +142,19 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
         mTvCancelUnder = findViewById(R.id.tv_service_cancel_plan_under);
         mTvCancelPhoneUnder = findViewById(R.id.tv_service_cancel_phone_under);
 
+        mIvImageAdd = findViewById(R.id.iv_service_image_add);
+
         mIM = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         mScrollServiceAdd = findViewById(R.id.scroll_service_add);
         mTvCurrency = findViewById(R.id.tv_service_add_currency_put);
 
-        int type = getIntent().getExtras().getInt("type");
+        mType = Objects.requireNonNull(getIntent().getExtras()).getInt("type");
         mIndex = getIntent().getExtras().getInt("index");
 
-        //type 1 : add , 2 : modify
-        if (type == 1) {
-            mTvServiceAddBtn.setText(getResources().getString(R.string.tv_service_add));
-        } else if (type == 2) {
-            mTvServiceAddBtn.setText(getResources().getString(R.string.tv_service_modify));
-            HomeItem item = (HomeItem) getIntent().getExtras().get("item");
-            //this.setField(item);
-        }
+        Log.d("로그", "type: " + mType + " ," + "index: " + mIndex);
 
         //화폐 단위 선정
-        if (type == 1) {
+        if (mType == 1) {
             mCurrency = 1;
             mTvCurrency.setText(getString(R.string.tv_currency_kor_won));
         } else {
@@ -158,6 +168,16 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
             }
         }
 
+        //type 1 : add , 2 : modify
+        if (mType == 1) {
+            mTvServiceAddBtn.setText(getResources().getString(R.string.tv_service_add));
+        } else if (mType == 2) {
+            mTvServiceAddBtn.setText(getResources().getString(R.string.tv_service_modify));
+            HomeItem item = (HomeItem) getIntent().getExtras().get("item");
+            mCompare = Objects.requireNonNull(item).getmPrice();
+            this.setField(item);
+        }
+
         //edt listener
         this.setEdtListener();
 
@@ -169,12 +189,23 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
         //필수 정보 채우기
         mTvProduct.setText(item.getmBrand());
         mCategory = item.getmCategory();
-        mEdtPrice.setText(item.getmPrice());
+//        Log.d("로그", "price: " + item.getmPrice());
+//        Log.d("로그", "currency: " + mCurrency);
+
+        if (mCurrency == 1) {
+            mEdtPrice.setText(String.valueOf(item.getmPrice()));
+        } else if (mCurrency == 2) {
+            double temp = item.getmPrice() / mKRWtoUSD;
+            mEdtPrice.setText(new DecimalFormat("##.##").format(temp));
+        }
+
+        mTvCurrency.setVisibility(View.VISIBLE);
         String[] num = item.getmLast().split("-");
         int[] parse = new int[num.length];
         for (int i = 0; i < num.length; i++) {
             parse[i] = Integer.valueOf(num[i]);
         }
+
         mTvLast.setText(item.getmLast().replaceAll("-", "."));
         mYear = parse[0];
         mMonth = parse[1];
@@ -193,6 +224,29 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
             mTvDuration.setText(String.valueOf(mDurationNum).concat(getResources().getString(R.string.year)));
         }
 
+        //추후 알림 업데이트 시에 알림 채우는 양식 필요
+        mAlarmNum = item.getmAlarm();
+        mAlarmPer = item.getmAlarmPer();
+
+        String alarmNum = String.valueOf(mAlarmNum);
+        String alarmPer = "";
+
+        if (mDurationPer == 0) {
+            alarmPer = getResources().getString(R.string.day);
+        } else if (mDurationPer == 1) {
+            alarmPer = getResources().getString(R.string.week);
+        } else if (mDurationPer == 2) {
+            alarmPer = getResources().getString(R.string.month);
+        } else if (mDurationPer == 3) {
+            alarmPer = getResources().getString(R.string.year);
+        }
+
+        if (mAlarmNum == -1) {
+            mTvAlarm.setText(getResources().getString(R.string.tv_service_add_dialog_alarm_none));
+        } else {
+            mTvAlarm.setText(String.valueOf(mAlarmNum).concat(alarmPer));
+        }
+
         //추가 정보 채우기
         if (item.getmExtra() != null && !item.getmExtra().equals("")) {
             mEdtExtra.setText(item.getmExtra());
@@ -206,9 +260,12 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
             mEdtCancel.setText(item.getmChangeUrl());
         }
 
-        if(item.getmPhone() != null && !item.getmPhone().equals("")){
+        if (item.getmPhone() != null && !item.getmPhone().equals("")) {
             mEdtCancelPhone.setText(item.getmPhone());
         }
+
+        mImageUrl = item.getmImageUrl();
+        Glide.with(this).load(mImageUrl).placeholder(R.drawable.ic_adobe_cloud).override(50, 50).into(mIvImageAdd);
 
     }
 
@@ -233,10 +290,10 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
                     LinearLayout linear = (LinearLayout) mTvLast.getParent();
                     int x = linear.getLeft();
                     int y = linear.getTop();
-                    mScrollServiceAdd.smoothScrollTo(x, y);
                     mEdtPrice.clearFocus();
                     mIM.hideSoftInputFromWindow(mEdtPrice.getWindowToken(), 0);
                     showLastDialog();
+                    mScrollServiceAdd.smoothScrollTo(x, y);
                     return true;
                 }
                 return false;
@@ -327,29 +384,205 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case CURRENCY:
-                    mCurrency = data.getExtras().getInt("index");
+                    mCurrency = data.getExtras().getInt("cur");
                     if (mCurrency == 1) {
                         mEdtPrice.setHint(R.string.tv_currency_kor_won);
                         mTvCurrency.setText(R.string.tv_currency_kor_won);
                     } else if (mCurrency == 2) {
                         mEdtPrice.setHint(R.string.tv_currency_us_dollar);
                         mTvCurrency.setText(R.string.tv_currency_us_dollar);
-                        final ServiceAddService serviceAddService = new ServiceAddService(this);
-                        serviceAddService.getCurrency();
                     }
                     break;
                 case PRODUCT:
                     String product = data.getExtras().getString("product");
                     mCategory = data.getExtras().getString("category");
+                    mImageUrl = data.getExtras().getString("imageUrl");
+
+                    if (mImageUrl != null) {
+                        mImageUrl = mImageUrl.replace("drive.google.com/open", "docs.google.com/uc");
+                    }
+                    Glide.with(this).load(mImageUrl).placeholder(R.drawable.ic_adobe_cloud).override(100, 100).into(mIvImageAdd);
                     mTvProduct.setText(product);
                     break;
             }
         }
     }
 
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.iv_service_add_back:
+                this.finish();
+                break;
+            case R.id.linear_service_add_price:
+                mEdtPrice.requestFocus();
+                mIM.showSoftInput(mEdtPrice, 0);
+                break;
+            case R.id.linear_service_add_won_dollar:
+                Intent currencyIntent = new Intent(this, CurrencyActivity.class);
+                currencyIntent.putExtra("cur", mCurrency);
+                startActivityForResult(currencyIntent, CURRENCY);
+                break;
+            case R.id.tv_service_add_btn:
+
+                if (mTvProduct.getText().toString().equals("")) {
+                    showCustomToast(getResources().getString(R.string.tv_service_toast_product));
+                    break;
+                }
+
+                if (mEdtPrice.getText().toString().equals("")) {
+                    showCustomToast(getResources().getString(R.string.tv_service_toast_price));
+                    break;
+                }
+
+                if (mCurrency == 1 && !isStringInt(mEdtPrice.getText().toString())) {
+                    showCustomToast(getResources().getString(R.string.tv_service_toast_price_not_int));
+                    break;
+                }
+
+                if (mTvLast.getText().toString().equals("")) {
+                    showCustomToast(getResources().getString(R.string.tv_service_toast_last));
+                    break;
+                }
+
+                if (mTvDuration.getText().toString().equals("")) {
+                    showCustomToast(getResources().getString(R.string.tv_service_toast_duration));
+                    break;
+                }
+
+                if (mTvAlarm.getText().toString().equals("")) {
+                    showCustomToast(getResources().getString(R.string.tv_service_toast_alarm));
+                    break;
+                }
+
+                Intent resultIntent = new Intent();
+                //필수정보
+                resultIntent.putExtra("name", mTvProduct.getText().toString());
+                resultIntent.putExtra("category", mCategory);
+                if (mCurrency == 1) {
+                    mPrice = Integer.parseInt(mEdtPrice.getText().toString());
+                } else if (mCurrency == 2) {
+                    mPrice = (int) (Double.parseDouble(mEdtPrice.getText().toString()) * mKRWtoUSD);
+                }
+
+                //필수정보
+                Log.d("로그", "service add activity price: " + mPrice);
+                resultIntent.putExtra("price", mPrice);
+                resultIntent.putExtra("currency", mCurrency);
+                resultIntent.putExtra("year", mYear);
+                resultIntent.putExtra("month", mMonth);
+                resultIntent.putExtra("day", mDay);
+                Log.d("로그", "service day:" + mDay);
+                resultIntent.putExtra("duration", mDurationNum);
+                resultIntent.putExtra("durationPer", mDurationPer);
+                resultIntent.putExtra("alarm", mAlarmNum);
+                resultIntent.putExtra("alarmPer", mAlarmPer);
+
+                //추가정보
+                resultIntent.putExtra("imageUrl", mImageUrl);
+                resultIntent.putExtra("extra", mEdtExtra.getText().toString());
+                resultIntent.putExtra("change", mEdtChange.getText().toString());
+                resultIntent.putExtra("cancel", mEdtCancel.getText().toString());
+                resultIntent.putExtra("phone", mEdtCancelPhone.getText().toString());
+
+                if (mType == 2) {
+                    mCompare = mPrice - mCompare;
+                    resultIntent.putExtra("compare", mCompare);
+                }
+
+                resultIntent.putExtra("type", mType);
+                Log.d("로그", "타입: " + mType);
+                resultIntent.putExtra("index", mIndex);
+
+                setResult(RESULT_OK, resultIntent);
+                finish();
+                break;
+            case R.id.tv_service_add_product:
+                Intent productIntent = new Intent(this, ProductActivity.class);
+                startActivityForResult(productIntent, PRODUCT);
+                break;
+            case R.id.tv_service_add_last:
+                this.showLastDialog();
+                mEdtPrice.clearFocus();
+                break;
+            case R.id.linear_service_add_duration:
+                this.showDurationDialog();
+                break;
+            case R.id.linear_service_add_alarm:
+                this.showAlarmDialog();
+                break;
+            case R.id.tv_service_add_remove:
+                if(mType == 1){
+                    showCustomToast(getString(R.string.tv_service_toast_remove));
+                    break;
+                }
+                this.showRemoveDialog();
+                break;
+        }
+    }
+
+    public void setDialogWindow(Dialog dialog) {
+        WindowManager.LayoutParams wm;
+        wm = new WindowManager.LayoutParams();
+
+        Window window = dialog.getWindow();
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        wm.windowAnimations = R.style.AnimationDialogPopUp;
+        window.setAttributes(wm);
+
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int x = (int) (size.x * 1f);
+        int y = (int) (size.y * 1f);
+        window.setLayout(x, y);
+    }
+
+    public void setRemoveWindow(Dialog dialog) {
+
+        WindowManager.LayoutParams wm;
+        wm = new WindowManager.LayoutParams();
+//        wm.copyFrom(dialog.getWindow().getAttributes());
+        Window window = dialog.getWindow();
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        wm.windowAnimations = R.style.AnimationDialogPopUp;
+        wm.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        wm.dimAmount = 0.5f;
+
+        window.setAttributes(wm);
+
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int x = (int) (size.x * 1f);
+        int y = (int) (size.y * 0.97f);
+        window.setLayout(x, y);
+
+    }
+
+    public void removeService() {
+
+        if (mEdtPrice.getText().toString().equals("")) {
+            showCustomToast(getResources().getString(R.string.tv_service_toast_price));
+        }
+
+        Intent remove = new Intent();
+        remove.putExtra("type", 3);
+        remove.putExtra("index", mIndex);
+        remove.putExtra("currency", mCurrency);
+
+        if (mCurrency == 1) {
+            remove.putExtra("price", Integer.parseInt(mEdtPrice.getText().toString()));
+        } else if (mCurrency == 2) {
+            remove.putExtra("price", (int) (Double.parseDouble(mEdtPrice.getText().toString()) * mKRWtoUSD));
+        }
+
+        setResult(RESULT_OK, remove);
+        this.finish();
+    }
+
 
     //Dialog setting
-    public void setRemoveDialog() {
+    public void showRemoveDialog() {
 
         mRemoveDialog = new RemoveDialog(this);
         mRemoveDialog.setCancelable(true);
@@ -361,26 +594,13 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
 
             @Override
             public void onRemoveClicked() {
-                mRemoveDialog.dismiss();
                 removeService();
+                mRemoveDialog.dismiss();
             }
         });
         mRemoveDialog.show();
+        this.setRemoveWindow(mRemoveDialog);
 
-        WindowManager.LayoutParams wm;
-        wm = new WindowManager.LayoutParams();
-
-        Window window = mRemoveDialog.getWindow();
-        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-        window.setAttributes(wm);
-
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        int x = (int) (size.x * 1f);
-        int y = (int) (size.y * 0.96f);
-        window.setLayout(x, y);
     }
 
     public void showLastDialog() {
@@ -398,6 +618,14 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
                 mTvLast.setText(last);
                 mLastDialog.dismiss();
                 mTvLastUnder.setBackgroundColor(getResources().getColor(R.color.colorTextServiceUnderBarBefore));
+
+                LinearLayout linear = (LinearLayout) mTvDuration.getParent();
+                int x = linear.getLeft();
+                int y = linear.getTop();
+//                mScrollServiceAdd.smoothScrollTo(x, y);
+                showDurationDialog();
+                mScrollServiceAdd.smoothScrollTo(x, y);
+
             }
         });
         mLastDialog.show();
@@ -440,6 +668,14 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
                 mTvDuration.setText(String.valueOf(number).concat(strPer));
                 mDurationDialog.dismiss();
                 mTvDurationUnder.setBackgroundColor(getResources().getColor(R.color.colorTextServiceUnderBarBefore));
+
+                LinearLayout linear = (LinearLayout) mTvAlarm.getParent();
+                int x = linear.getLeft();
+                int y = linear.getTop();
+//                mScrollServiceAdd.smoothScrollTo(x, y);
+                showAlarmDialog();
+                mScrollServiceAdd.smoothScrollTo(x, y);
+
             }
         });
 
@@ -497,132 +733,13 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
 
     }
 
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.iv_service_add_back:
-                this.finish();
-                break;
-            case R.id.tv_service_add_remove:
-                this.setRemoveDialog();
-                break;
-            case R.id.linear_service_add_price:
-                mEdtPrice.requestFocus();
-                mIM.showSoftInput(mEdtPrice, 0);
-                break;
-            case R.id.linear_service_add_won_dollar:
-                Intent currencyIntent = new Intent(this, CurrencyActivity.class);
-                currencyIntent.putExtra("index", mCurrency);
-                startActivityForResult(currencyIntent, CURRENCY);
-                break;
-            case R.id.tv_service_add_btn:
-
-                if (mTvProduct.getText().toString().equals("")) {
-                    showCustomToast(getResources().getString(R.string.tv_service_toast_product));
-                    break;
-                }
-
-                if (mEdtPrice.getText().toString().equals("")) {
-                    showCustomToast(getResources().getString(R.string.tv_service_toast_price));
-                    break;
-                }
-
-                if (mTvLast.getText().toString().equals("")) {
-                    showCustomToast(getResources().getString(R.string.tv_service_toast_last));
-                    break;
-                }
-
-                if (mTvDuration.getText().toString().equals("")) {
-                    showCustomToast(getResources().getString(R.string.tv_service_toast_duration));
-                    break;
-                }
-
-                if (mTvAlarm.getText().toString().equals("")) {
-                    showCustomToast(getResources().getString(R.string.tv_service_toast_alarm));
-                    break;
-                }
-
-                Intent resultIntent = new Intent();
-                //필수정보
-                resultIntent.putExtra("name", mTvProduct.getText().toString());
-                resultIntent.putExtra("category", mCategory);
-                if (mCurrency == 1) {
-                    mPrice = Integer.parseInt(mEdtPrice.getText().toString());
-                } else if (mCurrency == 2) {
-                    mPrice = (int) (Double.parseDouble(mEdtPrice.getText().toString()) * mKRWtoUSD);
-                }
-
-                resultIntent.putExtra("price", mPrice);
-                resultIntent.putExtra("currency", mCurrency);
-                resultIntent.putExtra("year", mYear);
-                resultIntent.putExtra("month", mMonth);
-                resultIntent.putExtra("day", mDay);
-                Log.d("로그", "service day:" + mDay);
-                resultIntent.putExtra("duration", mDurationNum);
-                resultIntent.putExtra("durationPer", mDurationPer);
-                resultIntent.putExtra("alarm", mAlarmNum);
-                resultIntent.putExtra("alarmPer", mAlarmPer);
-
-                //추가정보
-                resultIntent.putExtra("extra", mEdtExtra.getText().toString());
-                resultIntent.putExtra("change", mEdtChange.getText().toString());
-                resultIntent.putExtra("cancel", mEdtCancel.getText().toString());
-                resultIntent.putExtra("phone", mEdtCancelPhone.getText().toString());
-
-                setResult(RESULT_OK, resultIntent);
-                finish();
-                break;
-            case R.id.tv_service_add_product:
-                Intent productIntent = new Intent(this, ProductActivity.class);
-                startActivityForResult(productIntent, PRODUCT);
-                break;
-            case R.id.tv_service_add_last:
-                this.showLastDialog();
-                mEdtPrice.clearFocus();
-                break;
-            case R.id.linear_service_add_duration:
-                this.showDurationDialog();
-                break;
-            case R.id.linear_service_add_alarm:
-                this.showAlarmDialog();
-                break;
+    public boolean isStringInt(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 
-    public void setDialogWindow(Dialog dialog) {
-
-        WindowManager.LayoutParams wm;
-        wm = new WindowManager.LayoutParams();
-
-        Window window = dialog.getWindow();
-        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        wm.windowAnimations = R.style.AnimationDialogPopUp;
-        window.setAttributes(wm);
-
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        int x = (int) (size.x * 1f);
-        int y = (int) (size.y * 0.96f);
-        window.setLayout(x, y);
-
-    }
-
-    public void removeService() {
-        Intent remove = new Intent();
-        remove.putExtra("index", mIndex);
-        setResult(RESULT_OK, remove);
-        this.finish();
-    }
-
-    @Override
-    public void getCurrencySuccess(double basePrice) {
-        mKRWtoUSD = basePrice;
-        hideProgressDialog();
-    }
-
-    @Override
-    public void getCurrencyFailure(String msg) {
-        hideProgressDialog();
-        showCustomToast(msg);
-    }
 }

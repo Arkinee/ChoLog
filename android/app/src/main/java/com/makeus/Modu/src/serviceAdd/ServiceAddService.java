@@ -26,32 +26,32 @@ class ServiceAddService {
         this.mServiceAddActivityView = mServiceAddActivityView;
     }
 
-    //장바구니 담기
-    void getCurrency() {
-        final ServiceAddRetrofitInterface serviceAddRetrofitInterface = getCurrencyRetrofit().create(ServiceAddRetrofitInterface.class);
-        serviceAddRetrofitInterface.getCurrency(mCode).enqueue(new Callback<List<CurrencyResponse>>() {
-            @Override
-            public void onResponse(@NonNull Call<List<CurrencyResponse>> call, @NonNull Response<List<CurrencyResponse>> response) {
-
-                final @NonNull List<CurrencyResponse> currencyResponses = response.body();
-                if (currencyResponses == null) {
-                    mServiceAddActivityView.getCurrencyFailure("응답 없음");
-                    //Log.d(TAG, "응답 없음");
-                    return;
-                }
-                double currency = currencyResponses.get(0).getBasePrice();
-                Log.d("로그", "response basePrice: " + currency);
-                //담기 성공
-                mServiceAddActivityView.getCurrencySuccess(currency);
-
-            }
-
-            @Override
-            public void onFailure(Call<List<CurrencyResponse>> call, Throwable t) {
-                mServiceAddActivityView.getCurrencyFailure("서버 연결 실패");
-                Log.d("로그", "Failure: " + t.getMessage());
-            }
-        });
-    }
+//    //환율 가져오기
+//    void getCurrency() {
+//        final ServiceAddRetrofitInterface serviceAddRetrofitInterface = getCurrencyRetrofit().create(ServiceAddRetrofitInterface.class);
+//        serviceAddRetrofitInterface.getCurrency(mCode).enqueue(new Callback<List<CurrencyResponse>>() {
+//            @Override
+//            public void onResponse(@NonNull Call<List<CurrencyResponse>> call, @NonNull Response<List<CurrencyResponse>> response) {
+//
+//                final @NonNull List<CurrencyResponse> currencyResponses = response.body();
+//                if (currencyResponses == null) {
+//                    mServiceAddActivityView.getCurrencyFailure("응답 없음");
+//                    //Log.d(TAG, "응답 없음");
+//                    return;
+//                }
+//                double currency = currencyResponses.get(0).getBasePrice();
+//                Log.d("로그", "response basePrice: " + currency);
+//                //담기 성공
+//                mServiceAddActivityView.getCurrencySuccess(currency);
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<CurrencyResponse>> call, Throwable t) {
+//                mServiceAddActivityView.getCurrencyFailure("서버 연결 실패");
+//                Log.d("로그", "Failure: " + t.getMessage());
+//            }
+//        });
+//    }
 
 }

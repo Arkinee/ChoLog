@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -12,12 +13,19 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.makeus.Modu.R;
 import com.makeus.Modu.src.BaseActivity;
+import com.makeus.Modu.src.main.models.Items;
 import com.makeus.Modu.src.product.adapter.ProductAdapter;
 import com.makeus.Modu.src.product.model.ProductItem;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+
+import static com.makeus.Modu.src.ApplicationClass.sSharedPreferences;
 
 public class ProductActivity extends BaseActivity implements TextWatcher {
 
@@ -32,6 +40,7 @@ public class ProductActivity extends BaseActivity implements TextWatcher {
 
     private ArrayList<ProductItem> mProductList;
     private ProductAdapter mAdapter;
+    private String mImageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +53,24 @@ public class ProductActivity extends BaseActivity implements TextWatcher {
 
     void initialize() {
 
+        ArrayList<Items> items = new ArrayList<>();
+        mProductList = new ArrayList<>();
+        mImageUrl = "";
+
+        String itemList = sSharedPreferences.getString("items", "");
+        Type listType = new TypeToken<ArrayList<Items>>() {
+        }.getType();
+
+        Gson gson = new GsonBuilder().create();
+        if (gson.fromJson(itemList, listType) != null) {
+            items = gson.fromJson(itemList, listType);
+        }
+
+        for (int i = 0; i < items.size(); i++) {
+            Items temp = items.get(i);
+            mProductList.add(new ProductItem(temp.getCompanyName(), temp.getLogo(), temp.getCategory()));
+        }
+
         mAutoService = findViewById(R.id.auto_product_service);
         mEdtMembership = findViewById(R.id.edt_product_membership);
         mEdtCategory = findViewById(R.id.edt_product_category);
@@ -52,19 +79,8 @@ public class ProductActivity extends BaseActivity implements TextWatcher {
         mTvCategoryUnder = findViewById(R.id.tv_product_category_under);
         mTvProductComplete = findViewById(R.id.tv_product_complete);
 
-        mProductList = new ArrayList<>();
-
         //dummy data
-        mProductList.add(new ProductItem("어도비", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(어도비)"));
-        mProductList.add(new ProductItem("어도비", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(어도비)"));
-        mProductList.add(new ProductItem("어도비", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(어도비)"));
-        mProductList.add(new ProductItem("어도비", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(어도비)"));
-        mProductList.add(new ProductItem("멜론", "https://cdnimg.melon.co.kr/resource/mobile40/cds/common/image/mobile_apple_180x180.png", "음악 스트리밍"));
-        mProductList.add(new ProductItem("멜론", "https://cdnimg.melon.co.kr/resource/mobile40/cds/common/image/mobile_apple_180x180.png", "음악 스트리밍"));
-        mProductList.add(new ProductItem("멜론", "https://cdnimg.melon.co.kr/resource/mobile40/cds/common/image/mobile_apple_180x180.png", "음악 스트리밍"));
-        mProductList.add(new ProductItem("멜론", "https://cdnimg.melon.co.kr/resource/mobile40/cds/common/image/mobile_apple_180x180.png", "음악 스트리밍"));
-
-        //--------------------
+//        mProductList.add(new ProductItem("어도비", "https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "저장 클라우드(어도비)"));
 
         mAdapter = new ProductAdapter(this, R.layout.item_product, mProductList);
         mAdapter.notifyDataSetChanged();
@@ -79,6 +95,7 @@ public class ProductActivity extends BaseActivity implements TextWatcher {
                 mEdtMembership.requestFocus();
                 ProductItem temp = (ProductItem) adapterView.getAdapter().getItem(position);
                 mEdtCategory.setText(temp.getmCategory());
+                mImageUrl = temp.getmImageUrl();
             }
         });
 
@@ -160,6 +177,7 @@ public class ProductActivity extends BaseActivity implements TextWatcher {
                 }
                 intent.putExtra("product", name);
                 intent.putExtra("category", mEdtCategory.getText().toString());
+                intent.putExtra("imageUrl", mImageUrl);
                 setResult(RESULT_OK, intent);
                 this.finish();
                 break;

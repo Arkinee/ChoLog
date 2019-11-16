@@ -10,6 +10,8 @@ import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.bumptech.glide.Glide;
 import com.makeus.Modu.R;
 import com.makeus.Modu.src.product.model.ProductItem;
@@ -20,11 +22,11 @@ import java.util.List;
 
 public class ProductAdapter extends ArrayAdapter<ProductItem> {
 
-    Context mContext;
+    private Context mContext;
     private List<ProductItem> mProductList;
     private List<ProductItem> mProductAll;
     private int mResourceId;
-    private LayoutInflater mInflater;
+//    private LayoutInflater mInflater;
 
 
     public ProductAdapter(Context context, int resource, List<ProductItem> departments) {
@@ -47,26 +49,31 @@ public class ProductAdapter extends ArrayAdapter<ProductItem> {
         return position;
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         try {
             if (convertView == null) {
                 LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
                 convertView = inflater.inflate(mResourceId, parent, false);
             }
             ProductItem productItem = getItem(position);
-            TextView textView = (TextView) convertView.findViewById(R.id.tv_item_product_service_name);
-            ImageView imageView = (ImageView) convertView.findViewById(R.id.iv_item_product_image);
+            TextView textView = convertView.findViewById(R.id.tv_item_product_service_name);
+            ImageView imageView = convertView.findViewById(R.id.iv_item_product_image);
 
+            assert productItem != null;
             textView.setText(productItem.getmBrand());
-            Glide.with(mContext).load(productItem.getmImageUrl()).placeholder(R.drawable.ic_adobe_cloud).override(200, 200).into(imageView);
+//            Log.d("로그", "adapter: " + productItem.getmImageUrl());
 
+            String imageUrl = productItem.getmImageUrl().replace("drive.google.com/open", "docs.google.com/uc");
+            Glide.with(mContext).load(imageUrl).placeholder(R.drawable.ic_adobe_cloud).override(200, 200).into(imageView);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return convertView;
     }
 
+    @NonNull
     @Override
     public Filter getFilter() {
         return new Filter() {

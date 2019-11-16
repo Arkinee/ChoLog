@@ -36,17 +36,17 @@ public class MyInfoFragment extends Fragment {
         mRvMyInfo.setAdapter(mMyInfoAdapter);
         mRvMyInfo.addItemDecoration(new RecyclerViewDecoration(10));
 
-        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
-        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
-        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
-        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
-        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
-        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 90));
-        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 10));
-        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 5));
-        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 90));
-        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 60));
-        mMyInfoList.add(new MyInfoItem("음악 스트리밍", 9000, 80));
+//        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
+//        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
+//        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
+//        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
+//        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
+//        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 90));
+//        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 10));
+//        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 5));
+//        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 90));
+//        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 60));
+//        mMyInfoList.add(new MyInfoItem("음악 스트리밍", 9000, 80));
 
         return view;
     }
@@ -54,6 +54,16 @@ public class MyInfoFragment extends Fragment {
     public void scrollToTop() {
         Log.d("로그", "맨 위로");
         mRvMyInfo.smoothScrollToPosition(0);
+    }
+
+    public void addItem(MyInfoItem infoItem){
+        mMyInfoList.add(infoItem);
+        mMyInfoAdapter.notifyDataSetChanged();
+    }
+
+    public void removeItem(int index){
+        mMyInfoList.remove(index);
+        mMyInfoAdapter.notifyDataSetChanged();
     }
 
 }

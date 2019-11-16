@@ -40,6 +40,9 @@ public class LoginActivity extends BaseActivity {
             case R.id.tv_login_kakao:
                 this.finish();
                 break;
+            case R.id.tv_login_google:
+                this.finish();
+                break;
 
         }
     }

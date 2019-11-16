@@ -14,6 +14,10 @@ public class HomeItem implements Serializable {
     private int mPrice;         //가격
     @SerializedName("imageUrl")
     private String mImageUrl;   //이미지 주소
+    @SerializedName("dday")
+    private int mDDay;
+    @SerializedName("ddayFix")
+    private int mDDayFix;
     @SerializedName("Last")
     private String mLast;
     @SerializedName("duration")
@@ -37,11 +41,13 @@ public class HomeItem implements Serializable {
     @SerializedName("isChecked")
     private boolean isChecked;  //알림 체크 되었는지
 
-    public HomeItem(String mBrand, String mCategory, int mPrice, int mCurrency, String mImageUrl, String mLast, int duration, int durationPer, int alarm, int alarmPer, String extra, String mChangeUrl, String mCancelUrl, String mPhone, boolean isChecked) {
+    public HomeItem(String mBrand, String mCategory, int mPrice, int mCurrency, String mImageUrl, int mDDay, int mDDayFix, String mLast, int duration, int durationPer, int alarm, int alarmPer, String extra, String mChangeUrl, String mCancelUrl, String mPhone, boolean isChecked) {
         this.mBrand = mBrand;
         this.mCategory = mCategory;
         this.mImageUrl = mImageUrl;
         this.mPrice = mPrice;
+        this.mDDay = mDDay;
+        this.mDDayFix = mDDayFix;
         this.mLast = mLast;
         this.mDuration = duration;
         this.mDurationPer = durationPer;
@@ -173,5 +179,21 @@ public class HomeItem implements Serializable {
 
     public void setmLast(String mLast) {
         this.mLast = mLast;
+    }
+
+    public int getmDDay() {
+        return mDDay;
+    }
+
+    public void setmDDay(int mDDay) {
+        this.mDDay = mDDay;
+    }
+
+    public int getmDDayFix() {
+        return mDDayFix;
+    }
+
+    public void setmDDayFix(int mDDayFix) {
+        this.mDDayFix = mDDayFix;
     }
 }

@@ -10,7 +10,4 @@ import retrofit2.http.Query;
 
 public interface ServiceAddRetrofitInterface {
 
-    @GET("/v1/forex/recent")
-    Call<List<CurrencyResponse>>getCurrency(@Query("codes") String codes);
-
 }

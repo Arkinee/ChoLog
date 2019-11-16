@@ -23,7 +23,7 @@ public class ApplicationClass extends Application {
     public static MediaType MEDIA_TYPE_JPEG = MediaType.parse("image/jpeg");
 
     //서버 주소
-    public static String BASE_URL = "http://13.209.41.173";
+    public static String BASE_URL = "http://52.79.202.195";
     //currency 주소
     public static String CURRENCY_URL = "http://quotation-api-cdn.dunamu.com";
     //공용 sharedpreference
@@ -42,6 +42,7 @@ public class ApplicationClass extends Application {
     public static SimpleDateFormat HOME_DAY = new SimpleDateFormat("dd", Locale.KOREA);
     // Retrofit 인스턴스
     public static Retrofit retrofit;
+    public static Retrofit currencyRetrofit;
 
     @Override
     public void onCreate() {
@@ -81,20 +82,20 @@ public class ApplicationClass extends Application {
     }
 
     public static Retrofit getCurrencyRetrofit() {
-        if (retrofit == null) {
+        if (currencyRetrofit == null) {
             OkHttpClient client = new OkHttpClient.Builder()
                     .readTimeout(5000, TimeUnit.MILLISECONDS)
                     .connectTimeout(5000, TimeUnit.MILLISECONDS)
                     .addNetworkInterceptor(new XAccessTokenInterceptor()) // JWT 자동 헤더 전송
                     .build();
 
-            retrofit = new Retrofit.Builder()
+            currencyRetrofit = new Retrofit.Builder()
                     .baseUrl(CURRENCY_URL)
                     .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
 
-        return retrofit;
+        return currencyRetrofit;
     }
 }

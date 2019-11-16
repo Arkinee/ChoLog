@@ -61,9 +61,5 @@ public class LastDialog extends Dialog {
         this.mListener = listener;
     }
 
-    @Override
-    public void onBackPressed() {
-
-    }
 
 }

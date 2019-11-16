@@ -62,9 +62,5 @@ public class AlarmDialog extends Dialog {
         this.mListener = listener;
     }
 
-    @Override
-    public void onBackPressed() {
-
-    }
 
 }

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,6 +28,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerInParent="true"
             android:layout_marginStart="12dp"
+            android:contentDescription="@string/tv_service_add_description"
             android:onClick="onClick"
             android:paddingStart="17dp"
             android:paddingTop="12dp"
@@ -86,14 +85,18 @@
                     android:id="@+id/tv_service_add_product"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@null"
                     android:ellipsize="end"
                     android:hint="@string/tv_service_product_name_hint"
                     android:maxLines="1"
                     android:onClick="onClick"
+                    android:paddingStart="8dp"
+                    android:paddingTop="9dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="12dp"
                     android:textColor="@color/colorTextServiceTextHint"
                     android:textColorHint="@color/colorTextServiceNotPut"
                     android:textSize="18sp" />
@@ -102,7 +105,6 @@
                     android:id="@+id/tv_service_product_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="12dp"
                     android:background="@drawable/src_service_add_under_bar" />
 
 
@@ -118,16 +120,29 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:baselineAligned="false"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:id="@+id/linear_service_add_price"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="8dp"
                         android:layout_weight="1"
                         android:onClick="onClick"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp">
+
+                        <TextView
+                            android:id="@+id/tv_service_add_currency_put"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:layout_marginEnd="8dp"
+                            android:textColor="@color/colorTextServiceText"
+                            android:textSize="18sp"
+                            android:visibility="gone" />
 
                         <EditText
                             android:id="@+id/edt_service_add_price"
@@ -145,16 +160,6 @@
                             android:textColor="@color/colorTextServiceText"
                             android:textColorHint="@color/colorTextServiceNotPut"
                             android:textSize="18sp" />
-
-                        <TextView
-                            android:id="@+id/tv_service_add_currency_put"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="9dp"
-                            android:textColor="@color/colorTextServiceText"
-                            android:textSize="18sp"
-                            android:visibility="gone" />
 
                     </LinearLayout>
 
@@ -183,6 +188,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
+                            android:contentDescription="@string/tv_service_add_description"
                             android:paddingBottom="4dp"
                             android:src="@drawable/ic_right_arrow" />
 
@@ -208,8 +214,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp">
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp">
 
                     <TextView
                         android:id="@+id/tv_service_add_last"
@@ -245,10 +253,13 @@
                     android:id="@+id/linear_service_add_duration"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="16dp"
-                    android:onClick="onClick">
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:onClick="onClick"
+                    android:paddingStart="8dp"
+                    android:paddingTop="9dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="12dp">
 
                     <TextView
                         android:id="@+id/tv_service_add_duration"
@@ -271,7 +282,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/tv_service_duration_month"
                         android:textColor="@color/colorTextServiceBtn"
-                        android:textSize="16sp" />
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
@@ -279,7 +290,6 @@
                     android:id="@+id/tv_service_duration_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="12dp"
                     android:background="@drawable/src_service_add_under_bar" />
 
                 <TextView
@@ -295,10 +305,13 @@
                     android:id="@+id/linear_service_add_alarm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="16dp"
-                    android:onClick="onClick">
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:onClick="onClick"
+                    android:paddingStart="8dp"
+                    android:paddingTop="9dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="12dp">
 
                     <TextView
                         android:id="@+id/tv_service_add_alarm"
@@ -322,7 +335,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/tv_service_alarm_day"
                         android:textColor="@color/colorTextServiceText"
-                        android:textSize="16sp" />
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
@@ -330,7 +343,6 @@
                     android:id="@+id/tv_service_alarm_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="12dp"
                     android:layout_marginBottom="30dp"
                     android:background="@drawable/src_service_add_under_bar" />
 
@@ -372,11 +384,13 @@
                     android:layout_marginEnd="16dp">
 
                     <ImageView
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
+                        android:id="@+id/iv_service_image_add"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
                         android:background="@drawable/src_service_add_image"
+                        android:contentDescription="@string/tv_service_add_description"
                         android:onClick="onClick"
-                        android:src="@android:drawable/ic_input_add" />
+                        android:src="@drawable/ic_btn_image_add" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -409,9 +423,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="16dp">
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="8dp">
 
                     <EditText
                         android:id="@+id/edt_service_add_extra"
@@ -422,9 +436,13 @@
                         android:inputType="text"
                         android:maxLength="15"
                         android:maxLines="2"
+                        android:paddingStart="8dp"
+                        android:paddingTop="9dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="12dp"
                         android:textColor="@color/colorTextServiceText"
                         android:textColorHint="@color/colorTextServiceNotPut"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -432,7 +450,6 @@
                     android:id="@+id/tv_service_extra_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="12dp"
                     android:background="@drawable/src_service_add_under_bar" />
 
                 <TextView
@@ -447,20 +464,26 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="16dp">
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="8dp">
 
                     <EditText
                         android:id="@+id/edt_service_add_change_plan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@null"
+                        android:ellipsize="end"
                         android:hint="@string/tv_service_change_plan_hint"
                         android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingStart="8dp"
+                        android:paddingTop="9dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="12dp"
                         android:textColor="@color/colorTextServiceText"
                         android:textColorHint="@color/colorTextServiceNotPut"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -468,7 +491,6 @@
                     android:id="@+id/tv_service_change_plan_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="12dp"
                     android:background="@drawable/src_service_add_under_bar" />
 
                 <TextView
@@ -483,17 +505,23 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="16dp">
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="8dp">
 
                     <EditText
                         android:id="@+id/edt_service_add_cancel_plan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@null"
+                        android:ellipsize="end"
                         android:hint="@string/tv_service_cancel_plan_hint"
                         android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingStart="8dp"
+                        android:paddingTop="9dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="12dp"
                         android:textColor="@color/colorTextServiceText"
                         android:textColorHint="@color/colorTextServiceNotPut"
                         android:textSize="20sp" />
@@ -504,7 +532,6 @@
                     android:id="@+id/tv_service_cancel_plan_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="12dp"
                     android:background="@drawable/src_service_add_under_bar" />
 
                 <TextView
@@ -519,9 +546,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="16dp">
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="8dp">
 
                     <EditText
                         android:id="@+id/edt_service_add_cancel_phone"
@@ -530,9 +557,13 @@
                         android:background="@null"
                         android:hint="@string/tv_service_cancel_plan_phone_hint"
                         android:inputType="phone"
+                        android:paddingStart="8dp"
+                        android:paddingTop="9dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="12dp"
                         android:textColor="@color/colorTextServiceText"
                         android:textColorHint="@color/colorTextServiceNotPut"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 

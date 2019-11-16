@@ -10,6 +10,7 @@
     android:orientation="horizontal">
 
     <ImageView
+        android:contentDescription="@string/tv_look_description"
         android:id="@+id/iv_item_look_image"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -37,9 +38,11 @@
 
         <TextView
             android:id="@+id/tv_item_look_category"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:textColor="@color/colorTextLookCategory"
             android:textSize="14sp"
             tools:text="@string/category_cloud" />
@@ -55,17 +58,18 @@
         android:id="@+id/tv_item_look_service_fee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_gravity="center"
+        android:layout_gravity="center|end"
         android:textColor="@color/colorTextLookFee"
         android:textSize="16sp"
         android:textStyle="bold"
         tools:text="@string/tv_look_tool_fee" />
 
     <ImageView
+        android:contentDescription="@string/tv_look_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center|end"
+        android:paddingTop="3dp"
         android:layout_marginStart="5dp"
         android:paddingBottom="4dp"
         android:src="@drawable/ic_right_arrow" />

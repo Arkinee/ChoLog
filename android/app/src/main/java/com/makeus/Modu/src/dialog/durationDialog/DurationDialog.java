@@ -65,9 +65,4 @@ public class DurationDialog extends Dialog {
         this.mListener = listener;
     }
 
-    @Override
-    public void onBackPressed() {
-
-    }
-
 }

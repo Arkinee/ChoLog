@@ -26,7 +26,7 @@ public class CurrencyActivity extends BaseActivity {
         mLinearDollar = findViewById(R.id.linear_currency_us);
 
         Intent now = getIntent();
-        int currencySet = now.getExtras().getInt("index");
+        int currencySet = now.getExtras().getInt("cur");
 
         if (currencySet == 1) {
             mLinearWon.setBackgroundResource(R.drawable.src_currency_clicked);
@@ -45,7 +45,7 @@ public class CurrencyActivity extends BaseActivity {
                 mLinearWon.setBackgroundResource(R.drawable.src_currency_clicked);
                 mLinearDollar.setBackgroundResource(R.drawable.src_currency);
                 Intent won = new Intent();
-                won.putExtra("index", 1);
+                won.putExtra("cur", 1);
                 setResult(RESULT_OK, won);
                 finish();
                 break;
@@ -53,7 +53,7 @@ public class CurrencyActivity extends BaseActivity {
                 mLinearWon.setBackgroundResource(R.drawable.src_currency);
                 mLinearDollar.setBackgroundResource(R.drawable.src_currency_clicked);
                 Intent dollar = new Intent();
-                dollar.putExtra("index", 2);
+                dollar.putExtra("cur", 2);
                 setResult(RESULT_OK, dollar);
                 finish();
                 break;

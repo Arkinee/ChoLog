@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -97,11 +98,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
     // onCreateViewHolder() - 아이템 뷰를 위한 뷰홀더 객체 생성하여 리턴.
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
+        assert inflater != null;
         View view = inflater.inflate(R.layout.item_home, parent, false);
         ViewHolder vh = new ViewHolder(view);
 
@@ -110,7 +113,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     // onBindViewHolder() - position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
     @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         final HomeItem homeItem = mHomeList.get(position);
         //다음 결제일, DDay 계산
         String last = homeItem.getmLast();
@@ -137,21 +140,23 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             long calDate = nextDate.getTime() - lastDate.getTime();
             long calDateDays = calDate / (24 * 60 * 60 * 1000);
             calDateDays = Math.abs(calDateDays);
-            if(calDateDays < 8){
-                holder.tvHomeDDay.setTextColor(mContext.getResources().getColor(R.color.colorTextHomeItemDDayRed));
-            }else{
-                holder.tvHomeDDay.setTextColor(mContext.getResources().getColor(R.color.colorTextHomeItemDDayBlack));
-            }
-            holder.tvHomeDDay.setText(mContext.getResources().getString(R.string.tv_main_d_day).concat(String.valueOf(calDateDays)));
         }catch (ParseException e){
 
         }
 
+        if(homeItem.getmDDay() < 8){
+            holder.tvHomeDDay.setTextColor(mContext.getResources().getColor(R.color.colorTextHomeItemDDayRed));
+        }else{
+            holder.tvHomeDDay.setTextColor(mContext.getResources().getColor(R.color.colorTextHomeItemDDayBlack));
+        }
+
+        holder.tvHomeDDay.setText(mContext.getResources().getString(R.string.tv_main_d_day).concat(String.valueOf(homeItem.getmDDay())));
         String month = HOME_MONTH.format(cal.getTime());
         String day = HOME_DAY.format(cal.getTime());
         holder.tvHomeDate.setText(month.concat(mContext.getString(R.string.tv_item_home_month)).concat(day).concat(mContext.getString(R.string.tv_item_home_day)));
         holder.tvHomePrice.setText(myFormatter.format(homeItem.getmPrice()).concat(mContext.getResources().getString(R.string.tv_main_won)));
-        Glide.with(mContext).load(homeItem.getmImageUrl()).placeholder(R.drawable.ic_melon).override(150, 150).into(holder.ivHomeImage);
+        Glide.with(mContext).load(homeItem.getmImageUrl()).placeholder(R.drawable.ic_melon).override(100, 100).into(holder.ivHomeImage);
+        holder.ivHomeImage.setBackgroundResource(R.color.colorTextHomeItemBack);
         holder.tvHomeCategory.setText(homeItem.getmCategory());
         holder.tvHomeBrand.setText(homeItem.getmBrand());
 
@@ -176,10 +181,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             }
         });
 
-        if(!homeItem.isChecked()){
-            holder.ivHomeAlarm.setBackgroundResource(R.drawable.ic_alarm_true);
+        if(homeItem.isChecked()){
+            holder.ivHomeAlarm.setImageDrawable(mContext.getDrawable(R.drawable.ic_alarm_true));
         }else{
-            holder.ivHomeAlarm.setBackgroundResource(R.drawable.ic_alarm_false);
+            holder.ivHomeAlarm.setImageDrawable(mContext.getDrawable(R.drawable.ic_alarm_false));
         }
 
         holder.ivHomeAlarm.setOnClickListener(new View.OnClickListener() {
