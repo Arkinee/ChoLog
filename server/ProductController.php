@@ -29,6 +29,16 @@
 //				$res->offlineList = offline();
 				echo json_encode($res, JSON_NUMERIC_CHECK);
 				break;
+
+			case "everything" :
+				http_response_code(200);
+				$res->isSuccess = true;
+				$res->code = 400;
+				$res->message = "모든 상품 목록 출력";
+				$res->everyProduct = everyProduct();
+				echo json_encode($res, JSON_NUMERIC_CHECK);
+				break;
+
 		}
 	} catch (\Exception $e) {
 		return getSQLErrorException($errorLogs, $e, $req);

@@ -21,7 +21,7 @@
 	function popular()
 	{
 		$pdo = pdoSqlConnect();
-		$query = "select CompanyInfo.companyName, productName, price, CompanyInfo.category, CompanyInfo.logo
+		$query = "select CompanyInfo.companyName, productName, price, CompanyInfo.category, CompanyInfo.logo,ProductInfo.exchangeRate
 					from ProductInfo
          			join CompanyInfo on ProductInfo.companyName = CompanyInfo.companyName
 					order by rand() limit 5;";
@@ -39,7 +39,7 @@
 	function recommend()
 	{
 		$pdo = pdoSqlConnect();
-		$query = "select CompanyInfo.companyName, productName, price, CompanyInfo.category, CompanyInfo.logo
+		$query = "select CompanyInfo.companyName, productName, price, CompanyInfo.category, CompanyInfo.logo,ProductInfo.exchangeRate
 					from ProductInfo
          			join CompanyInfo on ProductInfo.companyName = CompanyInfo.companyName
 					order by rand() limit 5;";
@@ -57,11 +57,28 @@
 	function online()
 	{
 		$pdo = pdoSqlConnect();
-		$query = "select CompanyInfo.companyName, productName, price, CompanyInfo.category, CompanyInfo.logo
+		$query = "select CompanyInfo.companyName, productName, price, CompanyInfo.category, CompanyInfo.logo,ProductInfo.exchangeRate
 						from ProductInfo
 				         join CompanyInfo on ProductInfo.companyName = CompanyInfo.companyName
 					where  CompanyInfo.type = '온라인'
 					order by rand();";
+		$st = $pdo->prepare($query);
+		//    $st->execute([$param,$param]);
+		$st->execute();
+		$st->setFetchMode(PDO::FETCH_ASSOC);
+		$res = $st->fetchAll();
+
+		$st = null;
+		$pdo = null;
+		return $res;
+	}
+
+	function everyProduct()
+	{
+		$pdo = pdoSqlConnect();
+		$query = "select CompanyInfo.companyName, productName, price, CompanyInfo.category, CompanyInfo.logo,CompanyInfo.type,ProductInfo.exchangeRate
+					from ProductInfo
+         			join CompanyInfo on ProductInfo.companyName = CompanyInfo.companyName;";
 		$st = $pdo->prepare($query);
 		//    $st->execute([$param,$param]);
 		$st->execute();
