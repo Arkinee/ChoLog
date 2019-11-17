@@ -40,7 +40,7 @@ public class signUpDialog extends Dialog {
         mTvSignUpOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (view.getId() == R.id.tv_dialog_login_now) {
+                if (view.getId() == R.id.tv_dialog_sign_up_ok) {
                     mListener.onOkClicked();
                 }
             }

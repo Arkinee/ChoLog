@@ -265,7 +265,7 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
         }
 
         mImageUrl = item.getmImageUrl();
-        Glide.with(this).load(mImageUrl).placeholder(R.drawable.ic_adobe_cloud).override(50, 50).into(mIvImageAdd);
+        Glide.with(this).load(mImageUrl).placeholder(R.drawable.ic_default).override(50, 50).into(mIvImageAdd);
 
     }
 
@@ -398,10 +398,18 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
                     mCategory = data.getExtras().getString("category");
                     mImageUrl = data.getExtras().getString("imageUrl");
 
+                    if(data.getExtras().getString("currency").equals("원")){
+                        mCurrency = 1;
+                        mEdtPrice.setText(String.valueOf((int)(data.getExtras().getDouble("price"))));
+                    }else{
+                        mCurrency = 2;
+                        mEdtPrice.setText(String.valueOf(data.getExtras().getDouble("price")));
+                    }
+
                     if (mImageUrl != null) {
                         mImageUrl = mImageUrl.replace("drive.google.com/open", "docs.google.com/uc");
                     }
-                    Glide.with(this).load(mImageUrl).placeholder(R.drawable.ic_adobe_cloud).override(100, 100).into(mIvImageAdd);
+                    Glide.with(this).load(mImageUrl).placeholder(R.drawable.ic_default).override(100, 100).into(mIvImageAdd);
                     mTvProduct.setText(product);
                     break;
             }
@@ -501,6 +509,11 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
                 startActivityForResult(productIntent, PRODUCT);
                 break;
             case R.id.tv_service_add_last:
+                LinearLayout linear = (LinearLayout) mTvLast.getParent();
+                int x = linear.getLeft();
+                int y = linear.getTop();
+                mScrollServiceAdd.smoothScrollTo(x, y);
+
                 this.showLastDialog();
                 mEdtPrice.clearFocus();
                 break;
@@ -569,6 +582,7 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
         remove.putExtra("type", 3);
         remove.putExtra("index", mIndex);
         remove.putExtra("currency", mCurrency);
+        remove.putExtra("category", mCategory);
 
         if (mCurrency == 1) {
             remove.putExtra("price", Integer.parseInt(mEdtPrice.getText().toString()));

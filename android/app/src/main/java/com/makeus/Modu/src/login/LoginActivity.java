@@ -32,16 +32,11 @@ public class LoginActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_login_back:
-                this.finish();
-                break;
             case R.id.tv_login_naver:
-                this.finish();
-                break;
             case R.id.tv_login_kakao:
-                this.finish();
-                break;
             case R.id.tv_login_google:
                 this.finish();
+                showCustomToast("추후 업데이트 예정입니다.");
                 break;
 
         }

@@ -155,7 +155,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         String day = HOME_DAY.format(cal.getTime());
         holder.tvHomeDate.setText(month.concat(mContext.getString(R.string.tv_item_home_month)).concat(day).concat(mContext.getString(R.string.tv_item_home_day)));
         holder.tvHomePrice.setText(myFormatter.format(homeItem.getmPrice()).concat(mContext.getResources().getString(R.string.tv_main_won)));
-        Glide.with(mContext).load(homeItem.getmImageUrl()).placeholder(R.drawable.ic_melon).override(100, 100).into(holder.ivHomeImage);
+        Glide.with(mContext).load(homeItem.getmImageUrl()).fitCenter().placeholder(R.drawable.ic_default).override(200, 200).into(holder.ivHomeImage);
         holder.ivHomeImage.setBackgroundResource(R.color.colorTextHomeItemBack);
         holder.tvHomeCategory.setText(homeItem.getmCategory());
         holder.tvHomeBrand.setText(homeItem.getmBrand());
@@ -180,6 +180,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
                 mListener.onSettingClick(view, position);
             }
         });
+
+        if(homeItem.getmChangeUrl().equals("")){
+            holder.tvHomeChange.setTextColor(mContext.getResources().getColor(R.color.colorTextHomeItemNoUrl));
+        }else{
+            holder.tvHomeChange.setTextColor(mContext.getResources().getColor(R.color.colorTextHomeItemBottom));
+        }
+
+        if(homeItem.getmCancelUrl().equals("")){
+            holder.tvHomeCancel.setTextColor(mContext.getResources().getColor(R.color.colorTextHomeItemNoUrl));
+        }else{
+            holder.tvHomeCancel.setTextColor(mContext.getResources().getColor(R.color.colorTextHomeItemBottom));
+        }
 
         if(homeItem.isChecked()){
             holder.ivHomeAlarm.setImageDrawable(mContext.getDrawable(R.drawable.ic_alarm_true));

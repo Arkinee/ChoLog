@@ -41,6 +41,8 @@ public class ProductActivity extends BaseActivity implements TextWatcher {
     private ArrayList<ProductItem> mProductList;
     private ProductAdapter mAdapter;
     private String mImageUrl;
+    private double mPrice;
+    private String mCurrency;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +70,7 @@ public class ProductActivity extends BaseActivity implements TextWatcher {
 
         for (int i = 0; i < items.size(); i++) {
             Items temp = items.get(i);
-            mProductList.add(new ProductItem(temp.getCompanyName(), temp.getLogo(), temp.getCategory()));
+            mProductList.add(new ProductItem(temp.getCompanyName(), temp.getProductName(), temp.getLogo(), temp.getCategory(), temp.getPrice(), temp.getCurrency()));
         }
 
         mAutoService = findViewById(R.id.auto_product_service);
@@ -95,7 +97,10 @@ public class ProductActivity extends BaseActivity implements TextWatcher {
                 mEdtMembership.requestFocus();
                 ProductItem temp = (ProductItem) adapterView.getAdapter().getItem(position);
                 mEdtCategory.setText(temp.getmCategory());
+                mEdtMembership.setText(temp.getmProductName());
                 mImageUrl = temp.getmImageUrl();
+                mPrice = temp.getmPrice();
+                mCurrency = temp.getmCurrency();
             }
         });
 
@@ -178,6 +183,8 @@ public class ProductActivity extends BaseActivity implements TextWatcher {
                 intent.putExtra("product", name);
                 intent.putExtra("category", mEdtCategory.getText().toString());
                 intent.putExtra("imageUrl", mImageUrl);
+                intent.putExtra("price", mPrice);
+                intent.putExtra("currency", mCurrency);
                 setResult(RESULT_OK, intent);
                 this.finish();
                 break;

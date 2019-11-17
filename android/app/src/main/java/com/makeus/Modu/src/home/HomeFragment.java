@@ -2,11 +2,13 @@ package com.makeus.Modu.src.home;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.URLUtil;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -78,12 +80,30 @@ public class HomeFragment extends Fragment {
         mHomeAdapter = new HomeAdapter(getActivity(), mHomeItemList, new HomeAdapter.OnItemClickListener() {
             @Override
             public void onChangeClick(View v, int pos) {
-
+                if (!mHomeItemList.get(pos).getmChangeUrl().equals("")) {
+                    if (URLUtil.isValidUrl(mHomeItemList.get(pos).getmChangeUrl())) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(mHomeItemList.get(pos).getmChangeUrl()));
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getActivity(), getString(R.string.tv_item_home_no_valid_url), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getActivity(), getActivity().getString(R.string.tv_item_home_empty_url), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
             public void onCancelClick(View v, int pos) {
-
+                if (!mHomeItemList.get(pos).getmCancelUrl().equals("")) {
+                    if (URLUtil.isValidUrl(mHomeItemList.get(pos).getmCancelUrl())) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(mHomeItemList.get(pos).getmCancelUrl()));
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getActivity(), getString(R.string.tv_item_home_no_valid_url), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getActivity(), getActivity().getString(R.string.tv_item_home_empty_url), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -195,6 +215,9 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    public void getAuthority(){
+
+    }
 
     @Override
     public void onResume() {
@@ -231,15 +254,14 @@ public class HomeFragment extends Fragment {
         editor.putString("homeList", json);
         editor.apply();
 
-//        for (int i = 0; i < mHomeItemList.size(); i++) {
-//            Log.d("로그", i + "개 아이템");
-//        }
+//        print();
+
     }
 
-//    public void print() {
-//        for (int i = 0; i < mHomeItemList.size(); i++) {
-//            Log.d("로그", "아이템: " + mHomeItemList.get(i).getmBrand());
-//        }
-//    }
+    public void print() {
+        for (int i = 0; i < mHomeItemList.size(); i++) {
+            Log.d("로그", "아이템: " + mHomeItemList.get(i).getmDDayFix());
+        }
+    }
 
 }

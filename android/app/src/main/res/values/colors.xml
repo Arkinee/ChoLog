@@ -28,8 +28,9 @@
     <color name="colorTextHomeItemCategory">#53515c</color>
     <color name="colorTextHomeItemBrandAndWhile">#8d8d8d</color>
     <color name="colorTextHomeItemPrice">#424242</color>
-    <color name="colorTextHomeItemBottom">#b9b9bb</color>
+    <color name="colorTextHomeItemBottom">#787585</color>
     <color name="colorTextHomeItemBottomBorder">#e1e1e1</color>
+    <color name="colorTextHomeItemNoUrl">#d2d2db</color>
 
     <!-- Service Add -->
     <color name="colorTextServiceNotPut">#b9b9bb</color>

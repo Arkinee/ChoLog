@@ -13,10 +13,22 @@ public class ProductItem {
     @SerializedName("Category")
     private String mCategory;
 
-    public ProductItem(String mBrand, String mImageUrl, String Category) {
+    @SerializedName("ProductName")
+    private String mProductName;
+
+    @SerializedName("price")
+    private double mPrice;
+
+    @SerializedName("currency")
+    private String mCurrency;
+
+    public ProductItem(String mBrand, String mProductName, String mImageUrl, String Category, double price, String currency) {
         this.mImageUrl = mImageUrl;
+        this.mProductName = mProductName;
         this.mBrand = mBrand;
         this.mCategory = Category;
+        this.mPrice = price;
+        this.mCurrency = currency;
     }
 
     public String getmBrand() {
@@ -41,5 +53,29 @@ public class ProductItem {
 
     public void setmCategory(String mCategory) {
         this.mCategory = mCategory;
+    }
+
+    public String getmProductName() {
+        return mProductName;
+    }
+
+    public void setmProductName(String mProductName) {
+        this.mProductName = mProductName;
+    }
+
+    public double getmPrice() {
+        return mPrice;
+    }
+
+    public void setmPrice(double mPrice) {
+        this.mPrice = mPrice;
+    }
+
+    public String getmCurrency() {
+        return mCurrency;
+    }
+
+    public void setmCurrency(String mCurrency) {
+        this.mCurrency = mCurrency;
     }
 }

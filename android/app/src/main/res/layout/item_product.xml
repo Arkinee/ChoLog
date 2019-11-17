@@ -13,7 +13,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:scaleType="fitXY"
-        tools:src="@drawable/ic_adobe_cloud" />
+        tools:src="@drawable/ic_default" />
 
     <TextView
         android:id="@+id/tv_item_product_service_name"
@@ -23,9 +23,19 @@
         android:layout_marginTop="10dp"
         android:letterSpacing="-0.04"
         android:maxLines="1"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
         android:textColor="@color/colorTextProduct"
         android:textSize="16sp"
-        android:textAppearance="?android:attr/textAppearanceListItemSmall"
         tools:text="@string/tv_look_tool_adobe" />
+
+    <TextView
+        android:id="@+id/tv_item_product_product_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:textColor="@color/colorTextProduct"
+        android:textSize="14sp" />
 
 </LinearLayout>

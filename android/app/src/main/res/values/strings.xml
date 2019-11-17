@@ -5,6 +5,9 @@
     <string name="tv_won">원</string>
     <string name="tv_right_arrow"> 〉</string>
 
+    <!-- Splash -->
+    <string name="splash_description"> 〉</string>
+
     <!-- Main -->
     <string name="tv_serviceFee">월 구독 서비스 이용료</string>
     <string name="tv_serviceFee_tool">10월 구독 서비스 이용료</string>
@@ -33,7 +36,9 @@
     <string name="tv_item_home_change_plan">플랜변경</string>
     <string name="tv_item_home_cancel_plan">구독취소</string>
     <string name="tv_item_home_setting_plan">관리</string>
+    <string name="tv_item_home_empty_url">URL이 비어 있습니다.</string>
     <string name="tv_item_home_alarm_not">알람 기능은 추후에 업데이트 예정입니다.</string>
+    <string name="tv_item_home_no_valid_url">유효하지 않은 URL입니다.</string>
 
     <!-- Service -->
     <string name="tv_service_add_description">Service_Add</string>

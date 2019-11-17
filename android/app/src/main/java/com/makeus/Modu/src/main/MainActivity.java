@@ -42,6 +42,7 @@ import com.makeus.Modu.src.lookAround.models.LookListItem;
 import com.makeus.Modu.src.main.interfaces.MainActivityView;
 import com.makeus.Modu.src.main.models.Items;
 import com.makeus.Modu.src.myInfo.MyInfoFragment;
+import com.makeus.Modu.src.myInfo.models.MyInfoItem;
 import com.makeus.Modu.src.serviceAdd.ServiceAddActivity;
 
 import java.lang.reflect.Type;
@@ -49,6 +50,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -102,10 +106,13 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     private int mPrice;
     private double mDollar;
 
+    ArrayList<MyInfoItem> mMainMyInfoList;
+
     private final int SERVICE = 1000;
     private final int LOGIN = 2000;
 
     private int mHomeFee;
+    private int mMyInfoFee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,6 +135,9 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
         mContext = this;
         mHomeFee = sSharedPreferences.getInt("homeFee", 0);
+        mMyInfoFee = sSharedPreferences.getInt("myInfoFee", 0);
+
+        mMainMyInfoList = new ArrayList<>();
 
         mToolbar = findViewById(R.id.toolbar_main);
         mAppBar = findViewById(R.id.appbar_main);
@@ -165,6 +175,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         //Home 화면 최상단 가격
         mTvMainHomeServiceFee.setText(myFormatter.format(mHomeFee));
         mTvMainMyInfoServiceMonth.setText(month.concat(getString(R.string.tv_main_my_info_month)).concat(" ").concat(year));
+        mTvMainMyInfoServiceFee.setText(myFormatter.format(mMyInfoFee));
 
         boolean isLogin = sSharedPreferences.getBoolean("isLogin", false);
 
@@ -236,26 +247,34 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                     Log.d("로그", "Type: " + type);
                     Log.d("로그", "index: " + homeIntent.getExtras().getInt("index"));
 
+                    String category = homeIntent.getExtras().getString("category");
                     int price = homeIntent.getExtras().getInt("price");
                     Log.d("로그", "price: " + price);
 
                     if (type == 1) {
                         mHomeFee += price;
+                        mMyInfoFee += price;
                         setHomeFee(mHomeFee);
+                        setMyInfoFee(mMyInfoFee);
                     } else if (type == 2) {
                         mHomeFee += homeIntent.getExtras().getInt("compare");
+                        mMyInfoFee += homeIntent.getExtras().getInt("compare");
                         setHomeFee(mHomeFee);
+                        setMyInfoFee(mMyInfoFee);
                     } else if (type == 3) {
                         assert hf != null;
                         hf.removeItem(homeIntent.getExtras().getInt("index"));
                         mHomeFee -= price;
+                        mMyInfoFee -= price;
                         setHomeFee(mHomeFee);
+                        setMyInfoFee(mMyInfoFee);
+                        this.removeMyInfoItem(category, price, mMyInfoFee);
+                        this.saveMyInfoList();
                         Log.d("로그", "HomeFee: " + mHomeFee);
                         break;
                     }
 
                     String name = homeIntent.getExtras().getString("name");
-                    String category = homeIntent.getExtras().getString("category");
                     int currency = homeIntent.getExtras().getInt("currency");
                     int duration = homeIntent.getExtras().getInt("duration");
                     String month;
@@ -285,12 +304,14 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                     String phone = homeIntent.getExtras().getString("phone");
 
                     Calendar cal = Calendar.getInstance();
-                    Date lastDate;
+                    SimpleDateFormat now_format = new SimpleDateFormat("yyyy-MM-dd");
+                    Date todayDate = new Date();
+                    String today = now_format.format(todayDate);
                     Date nextDate;
                     int calDateDays = 0;
 
                     try {
-                        lastDate = DATE_FORMAT.parse(last);
+                        todayDate = DATE_FORMAT.parse(today);
                         nextDate = DATE_FORMAT.parse(last);
                         cal.setTime(nextDate);
                         if (durationPer == 0) {
@@ -304,7 +325,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         }
 
                         nextDate = new Date(cal.getTimeInMillis());
-                        long calDate = nextDate.getTime() - lastDate.getTime();
+                        long calDate = nextDate.getTime() - todayDate.getTime();
                         calDateDays = (int) (calDate / (24 * 60 * 60 * 1000));
                         calDateDays = Math.abs(calDateDays);
                     } catch (ParseException e) {
@@ -319,12 +340,15 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                     if (type == 1) {
                         assert hf != null;
                         hf.addItem(item);
+                        this.addMyInfoItem(category, price, mMyInfoFee);
+
+                        this.saveMyInfoList();
+
                     } else if (type == 2) {
 //                        Log.d("로그", "set");
                         assert hf != null;
                         hf.setItem(homeIntent.getExtras().getInt("index"), item);
                     }
-
 
                     break;
                 case LOGIN:
@@ -374,8 +398,9 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                 mRelativeMainHome.setVisibility(View.GONE);
                 mRelativeMainMyInfo.setVisibility(View.VISIBLE);
                 mTvMainMyInfoServiceMonth.setVisibility(View.VISIBLE);
-                mIvMainMyInfoPrevious.setVisibility(View.VISIBLE);
-                mIvMainMyInfoNext.setVisibility(View.VISIBLE);
+
+                mIvMainMyInfoPrevious.setVisibility(View.GONE);
+                mIvMainMyInfoNext.setVisibility(View.GONE);
                 mTvMainLookTop.setVisibility(View.GONE);
 
                 mAppBar.setExpanded(true);
@@ -496,6 +521,62 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         mTvMainHomeServiceFee.setText(myFormatter.format(fee));
     }
 
+    public void setMyInfoFee(int fee) {
+        mTvMainMyInfoServiceFee.setText(myFormatter.format(fee));
+    }
+
+    public void saveMyInfoList() {
+
+        Gson gson = new GsonBuilder().create();
+        Type listType = new TypeToken<ArrayList<HomeItem>>() {
+        }.getType();
+        String json = gson.toJson(mMainMyInfoList, listType);
+        SharedPreferences.Editor editor = sSharedPreferences.edit();
+        editor.putString("myInfoList", json);
+        editor.apply();
+    }
+
+    public void addMyInfoItem(String category, int price, int total) {
+
+        boolean flag = false;
+        for (int i = 0; i < mMainMyInfoList.size(); i++) {
+            MyInfoItem item = mMainMyInfoList.get(i);
+            if (item.getmCategory().equals(category)) {
+                item.setmPrice(item.getmPrice() + price);
+                double percent = (double) item.getmPrice() / total * 100;
+                item.setmPercent((int) Math.round(percent));
+                flag = true;
+            } else {
+                double percent = (double) item.getmPrice() / total * 100;
+                item.setmPercent((int) Math.round(percent));
+            }
+        }
+
+        if (!flag) {
+            double percent = (double) price / total * 100;
+            Log.d("로그", "total: " + total + "price: " + price + "percent : " + (int) percent);
+            mMainMyInfoList.add(new MyInfoItem(category, price, (int) Math.round(percent)));
+        }
+    }
+
+    public void removeMyInfoItem(String category, int price, int total) {
+
+        for (int i = 0; i < mMainMyInfoList.size(); i++) {
+            MyInfoItem item = mMainMyInfoList.get(i);
+            //같은 이름의 카테고리가 존재 할 수 밖에 없음
+            if (item.getmCategory().equals(category)) {
+                item.setmPrice(item.getmPrice() - price);
+                if (item.getmPrice() == 0) {
+                    mMainMyInfoList.remove(i);
+                }
+                double percent = (double) item.getmPrice() / total * 100;
+                item.setmPercent((int) Math.round(percent));
+            } else {
+                double percent = (double) item.getmPrice() / total * 100;
+                item.setmPercent((int) Math.round(percent));
+            }
+        }
+    }
 
     @Override
     protected void onStart() {
@@ -531,6 +612,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         Log.d("로그", "last date: " + last_date);
         editor.putInt("homeFee", mHomeFee);
         editor.putString("lastTime", last_date);
+        editor.putInt("myInfoFee", mMyInfoFee);
         editor.apply();
     }
 

@@ -429,7 +429,7 @@
 
                     <EditText
                         android:id="@+id/edt_service_add_extra"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
                         android:hint="@string/tv_service_extra_hint"
@@ -470,7 +470,7 @@
 
                     <EditText
                         android:id="@+id/edt_service_add_change_plan"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
                         android:ellipsize="end"
@@ -511,7 +511,7 @@
 
                     <EditText
                         android:id="@+id/edt_service_add_cancel_plan"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
                         android:ellipsize="end"
@@ -552,7 +552,7 @@
 
                     <EditText
                         android:id="@+id/edt_service_add_cancel_phone"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
                         android:hint="@string/tv_service_cancel_plan_phone_hint"
@@ -571,7 +571,6 @@
                     android:id="@+id/tv_service_cancel_phone_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="12dp"
                     android:layout_marginBottom="30dp"
                     android:background="@drawable/src_service_add_under_bar" />
 

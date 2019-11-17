@@ -59,14 +59,16 @@ public class ProductAdapter extends ArrayAdapter<ProductItem> {
             }
             ProductItem productItem = getItem(position);
             TextView textView = convertView.findViewById(R.id.tv_item_product_service_name);
+            TextView productName = convertView.findViewById(R.id.tv_item_product_product_name);
             ImageView imageView = convertView.findViewById(R.id.iv_item_product_image);
 
             assert productItem != null;
             textView.setText(productItem.getmBrand());
+            productName.setText(productItem.getmProductName());
 //            Log.d("로그", "adapter: " + productItem.getmImageUrl());
 
             String imageUrl = productItem.getmImageUrl().replace("drive.google.com/open", "docs.google.com/uc");
-            Glide.with(mContext).load(imageUrl).placeholder(R.drawable.ic_adobe_cloud).override(200, 200).into(imageView);
+            Glide.with(mContext).load(imageUrl).placeholder(R.drawable.ic_default).override(50, 50).into(imageView);
         } catch (Exception e) {
             e.printStackTrace();
         }

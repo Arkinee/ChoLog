@@ -91,7 +91,7 @@ public class ImageAddAdapter extends RecyclerView.Adapter<ImageAddAdapter.ViewHo
         holder.tvLookPrice.setText(myFormatter.format(lookItem.getmPrice())
                 .concat(mContext.getResources().getString(R.string.tv_won))
                 .concat(mContext.getResources().getString(R.string.tv_right_arrow)));
-        Glide.with(mContext).load(lookItem.getmImageUrl()).placeholder(R.drawable.ic_adobe_cloud).override(200, 200).into(holder.ivLookImage);
+        Glide.with(mContext).load(lookItem.getmImageUrl()).placeholder(R.drawable.ic_default).override(200, 200).into(holder.ivLookImage);
 
     }
 

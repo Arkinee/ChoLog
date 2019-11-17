@@ -117,7 +117,6 @@ public class LookFragment extends Fragment {
     }
 
     public void scrollToTop() {
-        Log.d("로그", "맨 위로");
         mScrollLook.fullScroll(ScrollView.FOCUS_UP);
     }
 

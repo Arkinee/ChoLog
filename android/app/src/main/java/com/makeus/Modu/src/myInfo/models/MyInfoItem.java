@@ -1,6 +1,8 @@
 package com.makeus.Modu.src.myInfo.models;
 
-public class MyInfoItem {
+import java.util.Comparator;
+
+public class MyInfoItem implements Comparable<MyInfoItem> {
 
     private String mCategory;
     private int mPercent;
@@ -34,5 +36,11 @@ public class MyInfoItem {
 
     public void setmPrice(int mPrice) {
         this.mPrice = mPrice;
+    }
+
+
+    @Override
+    public int compareTo(MyInfoItem infoItem) {
+        return String.valueOf(this.getmPercent()).compareTo(String.valueOf(infoItem.getmPercent()));
     }
 }
