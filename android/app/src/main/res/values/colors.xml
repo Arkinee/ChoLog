@@ -34,6 +34,7 @@
 
     <!-- Service Add -->
     <color name="colorTextServiceNotPut">#b9b9bb</color>
+    <color name="colorTextServiceImageAdd">#ffffff</color>
     <color name="colorTextServicePut">#ffffff</color>
     <color name="colorTextServiceText">#444445</color>
     <color name="colorTextServiceTextHint">#080417</color>

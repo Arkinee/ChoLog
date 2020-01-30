@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "452318694111",
+    "firebase_url": "https://softsquared-modu.firebaseio.com",
+    "project_id": "softsquared-modu",
+    "storage_bucket": "softsquared-modu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:452318694111:android:537f38d8d360baa756776a",
+        "android_client_info": {
+          "package_name": "com.softsquared.Modu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "452318694111-f5tn7a995tdjtt619a2onb0unsifl60u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFOySh73utr-viCjEnIwQBwlAPt_pztB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "452318694111-f5tn7a995tdjtt619a2onb0unsifl60u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -9,12 +9,13 @@
     <string name="splash_description"> 〉</string>
 
     <!-- Main -->
-    <string name="tv_serviceFee">월 구독 서비스 이용료</string>
+    <string name="tv_serviceFee">구독 서비스 이용료</string>
     <string name="tv_serviceFee_tool">10월 구독 서비스 이용료</string>
     <string name="tv_main_home_service_fee">12,400</string>
     <string name="tv_main_home_service_fee_won">원</string>
     <string name="tv_main_d_day">D-</string>
     <string name="tv_main_won">원</string>
+    <string name="tv_service_my_pattern">나의 소비내역</string>
     <string name="tv_main_description">Main</string>
     <string name="tv_main_dollar">USD</string>
     <string name="tv_main_my_info_month">월</string>
@@ -66,7 +67,7 @@
     <string name="tv_service_change_plan">플랜 변경 링크</string>
     <string name="tv_service_change_plan_hint">URL</string>
     <string name="tv_service_cancel_plan_link">구독 해지 링크</string>
-    <string name="tv_service_cancel_plan_phone">구독 해지 번호</string>
+    <string name="tv_service_cancel_plan_phone">구독 해지 번호 (추후 업데이트)</string>
     <string name="tv_service_cancel_plan_hint">URL</string>
     <string name="tv_service_cancel_plan_phone_hint">010-1234-5678</string>
     <string name="tv_service_remove">서비스 삭제</string>
@@ -185,6 +186,10 @@
     <string name="tv_dialog_login_later">나중에</string>
     <string name="tv_dialog_login_now">로그인 하기</string>
 
+    <string name="tv_dialog_exit">모두를 나가실건가요?</string>
+    <string name="tv_dialog_exit_negative">아니요</string>
+    <string name="tv_dialog_exit_positive">예</string>
+
     <string name="tv_dialog_sign_up">등록되지 않은 계정입니다.\n회원가입을 해주세요.</string>
     <string name="tv_dialog_sign_up_cancel">취소</string>
     <string name="tv_dialog_sign_up_ok">확인</string>
@@ -203,6 +208,7 @@
     <string name="tv_look_tool_adobe">어도비 클라우드</string>
     <string name="tv_look_tool_fee">12,000원</string>
     <string name="tv_look_offline_service">오프라인</string>
+    <string name="tv_look_itme_ready">상품 준비 중</string>
     <string name="tv_look_detail">상세보기</string>
     <string name="tv_look_all">모두보기</string>
     <string name="tv_look_popular">인기 구독</string>
@@ -210,6 +216,7 @@
     <string name="tv_look_category">카테고리</string>
     <string name="tv_look_online">온라인 구독</string>
     <string name="tv_look_offline">오프라인 구독</string>
+    <string name="tv_look_cost_different">상품가격은 실제와 상이할 수 있습니다.</string>
 
     <!-- Category -->
     <string name="category_cloud">저장 클라우드</string>

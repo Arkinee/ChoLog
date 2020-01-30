@@ -321,6 +321,7 @@
                         android:hint="@string/tv_service_alarm_hint"
                         android:maxLength="13"
                         android:maxLines="1"
+                        android:text="@string/tv_service_add_dialog_alarm_none"
                         android:textColor="@color/colorTextServiceText"
                         android:textColorHint="@color/colorTextServiceNotPut"
                         android:textSize="18sp" />
@@ -390,7 +391,7 @@
                         android:background="@drawable/src_service_add_image"
                         android:contentDescription="@string/tv_service_add_description"
                         android:onClick="onClick"
-                        android:src="@drawable/ic_btn_image_add" />
+                        />
 
                     <TextView
                         android:layout_width="wrap_content"

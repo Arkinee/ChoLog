@@ -43,6 +43,7 @@
             android:orientation="vertical">
 
             <ImageView
+                android:contentDescription="@string/tv_item_home_description"
                 android:id="@+id/iv_home_service_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,6 +60,7 @@
         </LinearLayout>
 
         <ImageView
+            android:contentDescription="@string/tv_item_home_description"
             android:id="@+id/iv_home_service_add_after"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
