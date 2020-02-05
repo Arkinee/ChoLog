@@ -721,7 +721,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     @Override
     public void getItemsFailure(String msg) {
         hideProgressDialog();
-        showCustomToast(msg);
+        Log.d(TAG, msg);
     }
 
     @Override
@@ -746,7 +746,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     @Override
     public void getLookItemsFailure(String msg) {
         hideProgressDialog();
-        showCustomToast(msg);
+        Log.d(TAG, msg);
     }
 
     @Override

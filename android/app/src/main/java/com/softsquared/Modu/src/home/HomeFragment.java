@@ -1,5 +1,7 @@
 package com.softsquared.Modu.src.home;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -25,6 +27,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.softsquared.Modu.R;
 import com.softsquared.Modu.src.RecyclerViewDecoration;
+import com.softsquared.Modu.src.alarm.AlarmReceiver;
 import com.softsquared.Modu.src.home.adapter.HomeAdapter;
 import com.softsquared.Modu.src.home.models.HomeItem;
 import com.softsquared.Modu.src.serviceAdd.ServiceAddActivity;
@@ -37,6 +40,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
+import static android.content.Context.ALARM_SERVICE;
 import static com.softsquared.Modu.src.ApplicationClass.DATE_FORMAT;
 import static com.softsquared.Modu.src.ApplicationClass.sSharedPreferences;
 
@@ -48,6 +52,10 @@ public class HomeFragment extends Fragment {
     private HomeAdapter mHomeAdapter;
     private ImageView mIvServiceAddAfter;
     private NestedScrollView mScrollHome;
+
+    AlarmManager mAlarmManager;
+    PendingIntent mPendingIntent;
+
     private boolean mOnceFlag;  // 아이템 하단 탭 더블클릭 방지 변수
     private final int SERVICE = 1000;
 
@@ -139,11 +147,39 @@ public class HomeFragment extends Fragment {
             @Override
             public void onAlarmClick(View v, int pos) {
                 HomeItem item = mHomeItemList.get(pos);
-                if (item.isChecked()) {
+
+                final Intent alarmIntent = new Intent(getContext(), AlarmReceiver.class);
+                mAlarmManager = (AlarmManager) getActivity().getSystemService(ALARM_SERVICE);
+                mPendingIntent = PendingIntent.getBroadcast(getContext(), 0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                if (item.isChecked()) { // 알람 체크 되어있을 시
                     item.setChecked(false);
-                } else {
-//                    item.setChecked(true);
-                    Toast.makeText(getContext(), getString(R.string.tv_item_home_alarm_not), Toast.LENGTH_SHORT).show();
+
+                    //알림 끄기
+                    mAlarmManager.cancel(mPendingIntent);
+                    alarmIntent.putExtra("index", pos);
+                    alarmIntent.putExtra("state", "off");
+                    Toast.makeText(getContext(), "알람 해제", Toast.LENGTH_SHORT).show();
+//                    getActivity().sendBroadcast(alarmIntent);
+
+                } else { // 알람 체크 안되어 있을 시
+                    item.setChecked(true);
+//                    Toast.makeText(getContext(), getString(R.string.tv_item_home_alarm_not), Toast.LENGTH_SHORT).show();
+
+
+
+                    //알림 켜기
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTimeInMillis(System.currentTimeMillis());
+                    calendar.add(Calendar.SECOND, 10);
+
+
+                    alarmIntent.putExtra("state", "on");
+                    alarmIntent.putExtra("index", pos);
+                    alarmIntent.putExtra("title", item.getmBrand());
+                    alarmIntent.putExtra("before", item.getmAlarm());
+                    mAlarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mPendingIntent);
+//                    getActivity().sendBroadcast(alarmIntent);
 
                 }
                 mHomeAdapter.notifyDataSetChanged();

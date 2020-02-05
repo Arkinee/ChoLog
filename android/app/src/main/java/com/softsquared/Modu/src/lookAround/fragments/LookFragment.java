@@ -103,6 +103,10 @@ public class LookFragment extends Fragment {
 
         double krwToUsd = Double.parseDouble(sSharedPreferences.getString("KRWtoUSD", "0"));
 
+        if(items.size() == 0) {
+            return;
+        }
+
         for (int i = 0; i < 3; i++) {
             LookListItem item = items.get(i);
             if (item.getExchangeRate().equals("원")) {

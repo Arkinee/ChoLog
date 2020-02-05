@@ -2,6 +2,7 @@ package com.softsquared.Modu.src.serviceAdd;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
@@ -95,7 +96,7 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
     private int mDurationPer;   // 0 : 일  1 : 주  2 : 달  3 : 년
 
     private int mAlarmNum;
-    private int mAlarmPer;  // 0 : 일  1 : 주
+    private int mAlarmPer;  // 0 : 일  1 : 주 2: 달 3 : 년
 
     //requestCode
     private final int CURRENCY = 2000;
@@ -225,8 +226,8 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
         }
 
         //추후 알림 업데이트 시에 알림 채우는 양식 필요
-        mAlarmNum = item.getmAlarm();
-        mAlarmPer = item.getmAlarmPer();
+        mAlarmNum = item.getmAlarm() - 1;
+        mAlarmPer = item.getmAlarmPer() - 1;
 
         String alarmNum = String.valueOf(mAlarmNum);
         String alarmPer = "";
@@ -553,6 +554,8 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
         Window window = dialog.getWindow();
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         wm.windowAnimations = R.style.AnimationDialogPopUp;
+
+        wm.copyFrom(dialog.getWindow().getAttributes());
         window.setAttributes(wm);
 
         Display display = getWindowManager().getDefaultDisplay();
@@ -574,6 +577,7 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
         wm.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
         wm.dimAmount = 0.5f;
 
+        wm.copyFrom(dialog.getWindow().getAttributes());
         window.setAttributes(wm);
 
         Display display = getWindowManager().getDefaultDisplay();
@@ -612,7 +616,7 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
     public void showRemoveDialog() {
 
         mRemoveDialog = new RemoveDialog(this);
-        mRemoveDialog.setCancelable(true);
+        mRemoveDialog.setCancelable(false);
         mRemoveDialog.setDialogListener(new removeListener() {
             @Override
             public void onCancelClicked() {
@@ -635,6 +639,12 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
         mTvLastUnder.setBackgroundColor(getResources().getColor(R.color.colorConceptPrimary));
         mLastDialog = new LastDialog(this);
         mLastDialog.setCancelable(true);
+        mLastDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                mTvLastUnder.setBackgroundColor(getResources().getColor(R.color.colorTextServiceUnderBarBefore));
+            }
+        });
         mLastDialog.setDialogListener(new LastListener() {
             @Override
             public void onLastComplete(int year, int month, int day) {
@@ -655,6 +665,7 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
 
             }
         });
+
         mLastDialog.show();
         this.setDialogWindow(mLastDialog);
     }
@@ -664,6 +675,12 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
         mTvDurationUnder.setBackgroundColor(getResources().getColor(R.color.colorConceptPrimary));
         mDurationDialog = new DurationDialog(this);
         mDurationDialog.setCancelable(true);
+        mDurationDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                mTvDurationUnder.setBackgroundColor(getResources().getColor(R.color.colorTextServiceUnderBarBefore));
+            }
+        });
         mDurationDialog.setDialogListener(new DurationListener() {
             @Override
             public void onDurationComplete(int number, int per) {
@@ -706,6 +723,7 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
             }
         });
 
+        this.setDialogWindow(mDurationDialog);
         mDurationDialog.show();
         this.setDialogWindow(mDurationDialog);
     }
@@ -715,6 +733,13 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
         mTvAlarmUnder.setBackgroundColor(getResources().getColor(R.color.colorConceptPrimary));
         mAlarmDialog = new AlarmDialog(this);
         mAlarmDialog.setCancelable(true);
+        mAlarmDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                mTvAlarmUnder.setBackgroundColor(getResources().getColor(R.color.colorTextServiceUnderBarBefore));
+            }
+        });
+
         mAlarmDialog.setDialogListener(new AlarmListener() {
             @Override
             public void onAlarmComplete(int number, int per) {
@@ -755,6 +780,7 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
             }
         });
 
+        this.setDialogWindow(mAlarmDialog);
         mAlarmDialog.show();
         this.setDialogWindow(mAlarmDialog);
 

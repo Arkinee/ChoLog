@@ -6,209 +6,37 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="로그" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da160842-ae57-4e26-8898-dedb12e5d479" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_legacy_legacy_support_v4_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_media_media_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_crashlytics_sdk_android_answers_1_4_3_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_crashlytics_sdk_android_beta_1_2_10_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_crashlytics_sdk_android_crashlytics_2_9_5_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_crashlytics_sdk_android_crashlytics_core_2_6_4_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_gms_play_services_ads_identifier_17_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_gms_play_services_base_16_0_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_gms_play_services_base_17_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_gms_play_services_basement_16_0_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_gms_play_services_basement_17_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_17_2_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_api_17_2_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_base_17_2_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_impl_17_2_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_sdk_17_2_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_sdk_api_17_2_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_gms_play_services_stats_17_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_gms_play_services_tasks_16_0_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_gms_play_services_tasks_17_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_auto_value_auto_value_annotations_1_6_5_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_firebase_firebase_analytics_17_2_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_firebase_firebase_analytics_impl_16_2_2_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_firebase_firebase_common_16_0_4_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_firebase_firebase_common_19_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_firebase_firebase_core_16_0_4_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_firebase_firebase_database_16_0_5_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_firebase_firebase_database_collection_16_0_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_firebase_firebase_iid_19_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_firebase_firebase_iid_interop_17_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_firebase_firebase_measurement_connector_18_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_firebase_firebase_measurement_connector_impl_17_0_2_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__io_fabric_sdk_android_fabric_1_4_4_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/HangulUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/exitDialog/ExitDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/exitDialog/exitListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_exit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_modu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/AlarmReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/DeviceBootReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/MyRemoteViewsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/WidgetProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/model/WidgetItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/src_widget_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_widget.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/widget_modu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-v14/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/widget_provider.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_resources_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_resources_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cardview_cardview_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cardview_cardview_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_1_1_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_1_1_3_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_coordinatorlayout_coordinatorlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_coordinatorlayout_coordinatorlayout_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cursoradapter_cursoradapter_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cursoradapter_cursoradapter_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_customview_customview_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_customview_customview_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_documentfile_documentfile_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_documentfile_documentfile_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_drawerlayout_drawerlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_drawerlayout_drawerlayout_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_interpolator_interpolator_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_interpolator_interpolator_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_ui_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_ui_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_utils_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_utils_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_2_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_2_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_2_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_2_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_2_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_2_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_loader_loader_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_loader_loader_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_localbroadcastmanager_localbroadcastmanager_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_localbroadcastmanager_localbroadcastmanager_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_print_print_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_print_print_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_recyclerview_recyclerview_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_recyclerview_recyclerview_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_savedstate_savedstate_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_savedstate_savedstate_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_core_3_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_core_3_2_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_idling_resource_3_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_idling_resource_3_2_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_monitor_1_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_monitor_1_2_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_runner_1_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_runner_1_2_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_transition_transition_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_transition_transition_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_viewpager_viewpager_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_viewpager_viewpager_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_9_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_9_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_glide_4_9_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_glide_4_9_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_material_material_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_material_material_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_activity_activity_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_activity_activity_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_appcompat_appcompat_resources_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_appcompat_appcompat_resources_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_cardview_cardview_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_cardview_cardview_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_1_1_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_1_1_3_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_coordinatorlayout_coordinatorlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_coordinatorlayout_coordinatorlayout_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_core_core_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_core_core_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_cursoradapter_cursoradapter_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_cursoradapter_cursoradapter_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_customview_customview_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_customview_customview_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_documentfile_documentfile_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_documentfile_documentfile_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_drawerlayout_drawerlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_drawerlayout_drawerlayout_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_fragment_fragment_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_fragment_fragment_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_interpolator_interpolator_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_interpolator_interpolator_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_ui_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_ui_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_utils_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_utils_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_2_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_2_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_2_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_2_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_2_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_2_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_loader_loader_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_loader_loader_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_localbroadcastmanager_localbroadcastmanager_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_localbroadcastmanager_localbroadcastmanager_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_print_print_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_print_print_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_recyclerview_recyclerview_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_recyclerview_recyclerview_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_savedstate_savedstate_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_savedstate_savedstate_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_espresso_espresso_core_3_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_espresso_espresso_core_3_2_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_espresso_espresso_idling_resource_3_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_espresso_espresso_idling_resource_3_2_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_monitor_1_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_monitor_1_2_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_runner_1_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_runner_1_2_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_transition_transition_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_transition_transition_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_viewpager_viewpager_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_viewpager_viewpager_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_9_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_9_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_bumptech_glide_glide_4_9_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_bumptech_glide_glide_4_9_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_material_material_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_material_material_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/config/XAccessTokenInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/config/XAccessTokenInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/ApplicationClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/ApplicationClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/BaseActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/BaseActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/RecyclerViewDecoration.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/RecyclerViewDecoration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/SquareFrameLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/SquareFrameLayout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/currency/CurrencyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/currency/CurrencyActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/dialog/alarmDialog/AlarmDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/alarmDialog/AlarmDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/dialog/alarmDialog/AlarmListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/alarmDialog/AlarmListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/dialog/durationDialog/DurationDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/durationDialog/DurationDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/dialog/durationDialog/DurationListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/durationDialog/DurationListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/dialog/lastDialog/LastDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/lastDialog/LastDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/dialog/lastDialog/LastListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/lastDialog/LastListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/dialog/loginDialog/LoginDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/loginDialog/LoginDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/dialog/loginDialog/loginListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/loginDialog/loginListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/dialog/removeDialog/RemoveDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/removeDialog/RemoveDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/dialog/removeDialog/removeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/removeDialog/removeListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/dialog/signUpDialog/signUpDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/signUpDialog/signUpDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/dialog/signUpDialog/signUpListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/signUpDialog/signUpListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/home/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/home/adapter/HomeAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/adapter/HomeAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/home/models/HomeItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/models/HomeItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/imageAdd/ImageAddActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/imageAdd/ImageAddActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/imageAdd/adapter/ImageAddAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/imageAdd/adapter/ImageAddAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/login/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/login/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/lookAround/adapters/LookAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/adapters/LookAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/lookAround/fragments/LookFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/lookAround/fragments/LookOfflineFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookOfflineFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/lookAround/fragments/LookOnlineFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookOnlineFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/lookAround/fragments/LookPopularFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookPopularFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/lookAround/fragments/LookRecommendFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookRecommendFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/lookAround/models/LookItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/models/LookItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/lookAround/models/LookListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/models/LookListItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/lookAround/models/LookListResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/models/LookListResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/main/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/main/MainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/main/interfaces/MainActivityView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/interfaces/MainActivityView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/main/interfaces/MainRetrofitInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/interfaces/MainRetrofitInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/main/models/CurrencyResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/models/CurrencyResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/main/models/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/models/Items.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/main/models/ItemsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/models/ItemsResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/myInfo/MyInfoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/myInfo/MyInfoFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/myInfo/adapter/MyInfoAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/myInfo/adapter/MyInfoAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/myInfo/models/MyInfoItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/myInfo/models/MyInfoItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/product/ProductActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/product/ProductActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/product/adapter/ProductAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/product/adapter/ProductAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/product/model/ProductItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/product/model/ProductItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/serviceAdd/ServiceAddActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/ServiceAddActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/serviceAdd/ServiceAddService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/ServiceAddService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/serviceAdd/interfaces/ServiceAddActivityView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/interfaces/ServiceAddActivityView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/serviceAdd/interfaces/ServiceAddRetrofitInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/interfaces/ServiceAddRetrofitInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/serviceAdd/models/CurrencyResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/models/CurrencyResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/signUp/interfaces/SignUpActivityView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/signUp/interfaces/SignUpActivityView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/signUp/interfaces/SignUpRetrofitInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/signUp/interfaces/SignUpRetrofitInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/signUp/models/SignUpResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/signUp/models/SignUpResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/signUp/signUpActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/signUp/signUpActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/signUp/signUpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/signUp/signUpService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/splash/Splash.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/splash/Splash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/splash/SplashService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/splash/SplashService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/splash/interfaces/SplashActivityView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/splash/interfaces/SplashActivityView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/splash/interfaces/SplashRetrofitInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/splash/interfaces/SplashRetrofitInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/splash/model/SplashResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/splash/model/SplashResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_korea.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_net.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/src_service_add_image.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/src_service_add_image.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_service_add.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_service_add.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_look.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_look.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_look_around.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_look_around.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/HomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/adapter/HomeAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/adapter/HomeAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/ServiceAddActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/ServiceAddActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_last.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_last.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -220,16 +48,37 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="10.1_WXGA_Tablet_API_28" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="S10_API_29" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="android" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="android" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="android" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="android" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="install" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -241,21 +90,62 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-manifest" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/adapter/HomeAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="938">
+              <caret line="157" column="150" selection-start-line="157" selection-start-column="8" selection-end-line="157" selection-end-column="150" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/AlarmReceiver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="741">
+              <caret line="39" column="71" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="71" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider editor-type-id="android-manifest" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/ServiceAddActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+            <state relative-caret-position="102">
+              <caret line="473" column="63" lean-forward="true" selection-start-line="473" selection-start-column="63" selection-end-line="473" selection-end-column="63" />
+              <folding>
+                <element signature="e#25150#25418#0" expanded="true" />
+                <element signature="e#25417#25418#0" expanded="true" />
+                <element signature="e#26383#26655#0" expanded="true" />
+                <element signature="e#26654#26655#0" expanded="true" />
+                <element signature="e#28488#28757#0" expanded="true" />
+                <element signature="e#28756#28757#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="valueResourceFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -278,6 +168,11 @@
       <find>iv_main_setting</find>
       <find>removeSer</find>
       <find>remove</find>
+      <find>아이템 응답</find>
+      <find>setItems</find>
+      <find>widget</find>
+      <find>OnAlarm</find>
+      <find>dialog</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -286,30 +181,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/lookAround/adapters/LookOfflineAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/lookAround/adapters/LookOnlineAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/lookAround/adapters/LookPopularAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/lookAround/adapters/LookRecommendAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/config/XAccessTokenInterceptor.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/ApplicationClass.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/imageAdd/ImageAddActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/splash/splashService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/src_currency_clicked.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/src_currency.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/src_dialog_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/src_dialog_login_bottom_left.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/src_dialog_login_bottom_right.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/src_home_service_add.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/src_item_home.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/src_item_home_bottom_left.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/src_item_home_bottom_right.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/src_login_google.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_sign_up.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/dialog/signUpDialog/signUpListener.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/dialog/signUpDialog/signUpDialog.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/product/ProductActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/signUp/models/SignUpResponse.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/signUp/interfaces/SignUpActivityView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/signUp/interfaces/SignUpRetrofitInterface.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/signUp/signUpService.java" />
@@ -328,22 +199,46 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/splash/Splash.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/splash/SplashService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/home/adapter/HomeAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/currency/CurrencyActivity.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_service_add.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/serviceAdd/ServiceAddActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/home/HomeFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/main/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/xml/global_tracker.xml" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/ApplicationClass.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/src_widget_background.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/RemoteViewesFactory.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/RemoteViewsFactory.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/RemoteViewsService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/MyRemoteViewsFactory.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/WidgetProvider.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/widget_modu.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_widget.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values-v14/dimens.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/model/WidgetItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/MyRemoteViewsService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/xml/widget_provider.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/adapter/HomeAdapter.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/DeviceBootReceiver.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/AlarmReceiver.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/HomeFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_last.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/ServiceAddActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-10" />
-    <option name="width" value="1890" />
-    <option name="height" value="1040" />
+    <option name="x" value="-7" />
+    <option name="width" value="1432" />
+    <option name="height" value="1407" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -353,6 +248,94 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="alarm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="adapter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="serviceAdd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="android" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -378,58 +361,47 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="android" type="b2602c69:ProjectViewProjectNode" />
+              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="android" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="ce04160482a9281303" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2019-11-12T07:32:28.995Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="S10_API_29" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-02-05T19:35:51.823Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="ce04160482a9281303" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/values-v14" />
+    <property name="project.structure.last.edited" value="Dependencies" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.softsquared.Modu.src.alarm" />
       <recent name="com.makeus.ChoLogBin.src.signUp.models" />
       <recent name="com.makeus.ChoLogBin.src.signUp.interfaces" />
       <recent name="com.makeus.ChoLogBin.src.signUp" />
       <recent name="com.makeus.ChoLogBin.src.dialog.signUpDialog" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Android\Modu\ChoLog\android\app\src\main\res\values-v14" />
+      <recent name="C:\Users\user\Desktop\Android\Modu\ChoLog\android\app\src\main\res\drawable" />
+      <recent name="C:\Users\user\Desktop\Android\Modu\ChoLog\android\app\src\main\res\layout" />
+      <recent name="C:\Users\user\Desktop\Android\Modu\ChoLog\android\app\src\main\res\xml" />
       <recent name="C:\Users\user\Desktop\Git\ChoLog\android\app\src\main\res\layout" />
-      <recent name="C:\Users\user\Desktop\Git\ChoLog\android\app\src\main\res\drawable" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -444,7 +416,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Android App.app">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -505,6 +477,30 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="C:/Users/user/Desktop/Android/Modu/ChoLog/android/app [uninstallAll]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="uninstallAll" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.C:/Users/user/Desktop/Android/Modu/ChoLog/android/app [uninstallAll]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -529,11 +525,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1512" height="832" extended-state="0" />
+    <frame x="-7" y="0" width="1432" height="1407" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.17355372" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.16763848" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -541,131 +537,26 @@
       <window_info id="Designer" order="6" />
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Capture Tool" order="8" />
-      <window_info anchor="bottom" id="Run" order="0" weight="0.32808024" />
-      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.4993113" weight="0.41260746" />
+      <window_info anchor="bottom" id="Run" order="0" weight="0.32683307" />
+      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.4993113" weight="0.30636293" />
       <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.4993113" weight="0.3295129" />
       <window_info anchor="bottom" id="Debug" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.3295129" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.3291536" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50068873" side_tool="true" weight="0.3295129" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3295129" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.32857144" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" weight="0.3295129" />
-      <window_info anchor="bottom" id="Find" order="9" weight="0.32904148" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.2309505" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" weight="0.3295129" />
+      <window_info anchor="bottom" id="Find" order="9" weight="0.3283582" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Gradle" order="2" weight="0.3298898" />
+      <window_info anchor="right" id="Gradle" order="2" weight="0.21269841" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Preview" order="4" weight="0.29683197" />
+      <window_info anchor="right" id="Preview" order="4" weight="0.33527696" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Assistant" order="6" weight="0.3298898" />
+      <window_info anchor="right" id="Assistant" order="6" weight="0.3341289" />
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/dialog/signUpDialog/signUpDialog.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/src_service_add_under_bar.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/dialog/signUpDialog/signUpListener.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/product/ProductActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/signUp/models/SignUpResponse.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/signUp/interfaces/SignUpActivityView.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/signUp/interfaces/SignUpRetrofitInterface.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/signUp/signUpService.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/signUp/signUpActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="984">
-          <caret line="171" column="23" lean-forward="true" selection-start-line="171" selection-start-column="23" selection-end-line="171" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/dialog/durationDialog/DurationDialog.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_home_offline.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1558">
-          <caret line="82" column="42" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="144" column="36" selection-start-line="144" selection-start-column="36" selection-end-line="144" selection-end-column="36" />
-          <folding>
-            <element signature="e#397#435#0" expanded="true" />
-            <element signature="e#2581#2619#0" expanded="true" />
-            <element signature="e#3901#3939#0" expanded="true" />
-            <element signature="e#5220#5258#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/login/LoginActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_login.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_melon.png" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/home/models/HomeItem.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/main/MainActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_alarm_false.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_alarm_true.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/home/HomeFragment.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/ApplicationClass.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/splash/SplashService.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/splash/Splash.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/home/adapter/HomeAdapter.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/ChoLogBin/src/serviceAdd/ServiceAddActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/makeus/Modu/BuildConfig.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/currency/CurrencyActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/ApplicationClass.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/BaseActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="251" column="43" selection-start-line="251" selection-start-column="43" selection-end-line="251" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_service_add.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="381" column="59" lean-forward="true" selection-start-line="381" selection-start-column="59" selection-end-line="381" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/dialog/removeDialog/RemoveDialog.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/dialog/lastDialog/LastDialog.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_remove.xml">
       <provider editor-type-id="android-designer2" />
@@ -689,26 +580,285 @@
     <entry file="file://$PROJECT_DIR$/local.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/main/MainActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/makeus/Modu/src/home/HomeFragment.java" />
     <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/global_tracker.xml" />
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        <state relative-caret-position="114">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3895">
+          <caret line="205" column="43" selection-start-line="205" selection-start-column="43" selection-end-line="205" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/signUp/signUpService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1539">
+          <caret line="105" column="31" selection-start-line="105" selection-start-column="31" selection-end-line="105" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="984">
+          <caret line="171" column="23" selection-start-line="171" selection-start-column="23" selection-end-line="171" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-29/data/res/values/attrs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="282" column="20" selection-start-line="282" selection-start-column="20" selection-end-line="282" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/src_service_add_back.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/src_widget_background.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="57" lean-forward="true" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/interfaces/MainActivityView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/interfaces/MainRetrofitInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="15" column="58" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/fabric/res/debug/values/com_crashlytics_build_id.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/res/google-services/debug/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/MyRemoteViewsFactory.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/WidgetProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="68" column="54" selection-start-line="68" selection-start-column="54" selection-end-line="68" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#831#832#0" expanded="true" />
+            <element signature="e#872#873#0" expanded="true" />
+            <element signature="e#931#932#0" expanded="true" />
+            <element signature="e#971#972#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/MyRemoteViewsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="35" column="24" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/widget_modu.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_widget.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/model/WidgetItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/models/HomeItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/ApplicationClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="50" column="41" lean-forward="true" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_modu.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/DeviceBootReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/widget_provider.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/adapter/HomeAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="938">
+          <caret line="157" column="150" selection-start-line="157" selection-start-column="8" selection-end-line="157" selection-end-column="150" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/HomeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="160" column="57" selection-start-line="160" selection-start-column="57" selection-end-line="160" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_exit.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/exitDialog/ExitDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13281">
+          <caret line="766" column="24" selection-start-line="766" selection-start-column="15" selection-end-line="766" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/AlarmReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="39" column="71" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_duration.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_last.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4838">
+          <caret line="264" column="40" selection-start-line="264" selection-start-column="40" selection-end-line="264" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-v14/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/ServiceAddActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="473" column="63" lean-forward="true" selection-start-line="473" selection-start-column="63" selection-end-line="473" selection-end-column="63" />
+          <folding>
+            <element signature="e#25150#25418#0" expanded="true" />
+            <element signature="e#25417#25418#0" expanded="true" />
+            <element signature="e#26383#26655#0" expanded="true" />
+            <element signature="e#26654#26655#0" expanded="true" />
+            <element signature="e#28488#28757#0" expanded="true" />
+            <element signature="e#28756#28757#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

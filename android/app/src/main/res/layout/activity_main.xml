@@ -210,7 +210,8 @@
             android:paddingTop="11.7dp"
             android:paddingEnd="13dp"
             android:paddingBottom="11.2dp"
-            android:src="@drawable/ic_login_false" />
+            android:src="@drawable/ic_login_false"
+            android:visibility="gone" />
 
     </LinearLayout>
 

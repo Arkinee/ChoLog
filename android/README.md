@@ -1,6 +1,9 @@
 ﻿# ChoLogBin
 MakeUs_Project_Team_ChoLogBin_Android
 
+
+[Version 1.0.1]
+
 # 10.17 
  Splash Activity : Logo 적용 필요, 로그인 생길 시 자동 로그인 서비스 적용 필요
  
@@ -95,3 +98,13 @@ MakeUs_Project_Team_ChoLogBin_Android
 
 # 11.17
  - 서비스 추가시 해당 월 소비탭에 카테고리별 가격 추가, 삭제 홈 아이템과 연동
+
+
+[Version 1.2.0]
+
+# 1.31 ~ 2.06
+	-Widget에 ListView 구현 잘 안됨
+	-Notification 기능은 구현, but 알람 시간에 맞춰서 울리기, reboot시 다시 알람세팅, 알람 울린 후 다음 알람 세팅 필요
+	-Android 10(Q)에서 다이얼로그 뒤 검은 배경 문제 해결
+
+

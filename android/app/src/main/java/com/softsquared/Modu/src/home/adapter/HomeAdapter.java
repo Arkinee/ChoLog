@@ -110,7 +110,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         return vh;
     }
 
-    // onBindViewHolder() - position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
+    // onBindViewHolder() - position 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         final HomeItem homeItem = mHomeList.get(position);
