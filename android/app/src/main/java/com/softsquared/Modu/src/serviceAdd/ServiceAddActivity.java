@@ -226,7 +226,7 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
         }
 
         //추후 알림 업데이트 시에 알림 채우는 양식 필요
-        mAlarmNum = item.getmAlarm() - 1;
+        mAlarmNum = item.getmAlarm();
         mAlarmPer = item.getmAlarmPer() - 1;
 
         String alarmNum = String.valueOf(mAlarmNum);

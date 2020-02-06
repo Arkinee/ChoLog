@@ -163,22 +163,22 @@ public class HomeFragment extends Fragment {
 //                    getActivity().sendBroadcast(alarmIntent);
 
                 } else { // 알람 체크 안되어 있을 시
-                    item.setChecked(true);
-//                    Toast.makeText(getContext(), getString(R.string.tv_item_home_alarm_not), Toast.LENGTH_SHORT).show();
+//                    item.setChecked(true);
+                    Toast.makeText(getContext(), getString(R.string.tv_item_home_alarm_not), Toast.LENGTH_SHORT).show();
 
 
 
                     //알림 켜기
-                    Calendar calendar = Calendar.getInstance();
-                    calendar.setTimeInMillis(System.currentTimeMillis());
-                    calendar.add(Calendar.SECOND, 10);
-
-
-                    alarmIntent.putExtra("state", "on");
-                    alarmIntent.putExtra("index", pos);
-                    alarmIntent.putExtra("title", item.getmBrand());
-                    alarmIntent.putExtra("before", item.getmAlarm());
-                    mAlarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mPendingIntent);
+//                    Calendar calendar = Calendar.getInstance();
+//                    calendar.setTimeInMillis(System.currentTimeMillis());
+//                    calendar.add(Calendar.SECOND, 10);
+//
+//
+//                    alarmIntent.putExtra("state", "on");
+//                    alarmIntent.putExtra("index", pos);
+//                    alarmIntent.putExtra("title", item.getmBrand());
+//                    alarmIntent.putExtra("before", item.getmAlarm());
+//                    mAlarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mPendingIntent);
 //                    getActivity().sendBroadcast(alarmIntent);
 
                 }
