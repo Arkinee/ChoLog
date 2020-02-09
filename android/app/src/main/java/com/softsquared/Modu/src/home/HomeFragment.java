@@ -1,5 +1,6 @@
 package com.softsquared.Modu.src.home;
 
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -22,6 +23,7 @@ import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -370,6 +372,11 @@ public class HomeFragment extends Fragment {
     public void onResume() {
         super.onResume();
 //        Log.d("로그", "home resume");
+
+        Activity activity = getActivity();
+        if(activity != null){
+            FirebaseAnalytics.getInstance(activity).setCurrentScreen(getActivity(), getClass().getSimpleName(), "HomeFragment");
+        }
 
         mOnceFlag = false;
 

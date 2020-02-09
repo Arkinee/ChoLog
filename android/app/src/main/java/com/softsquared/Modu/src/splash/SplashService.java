@@ -28,25 +28,25 @@ class SplashService {
         this.mContext = mContext;
     }
 
-    void postAutoLogin() {
+    void tryPostToken() {
 
         final SplashRetrofitInterface splashRetrofitInterface = getRetrofit().create(SplashRetrofitInterface.class);
-        splashRetrofitInterface.postAutoLogin(RequestBody.create(MEDIA_TYPE_JSON, mParams.toString())).enqueue(new Callback<SplashResponse>() {
+        splashRetrofitInterface.postToken(RequestBody.create(MEDIA_TYPE_JSON, mParams.toString())).enqueue(new Callback<SplashResponse>() {
             @Override
             public void onResponse(Call<SplashResponse> call, Response<SplashResponse> response) {
 
                 final SplashResponse splashResponse = response.body();
                 if (splashResponse == null) {
-                    mSplashActivityView.postAutoLoginFailure(mContext.getString(R.string.network_failure));
+                    mSplashActivityView.postTokenFailure(mContext.getString(R.string.network_failure));
                     return;
                 }
 
-                mSplashActivityView.postAutoLoginSuccess(splashResponse.getCode());
+                mSplashActivityView.postTokenSuccess(splashResponse.getMessage());
             }
 
             @Override
             public void onFailure(Call<SplashResponse> call, Throwable t) {
-                mSplashActivityView.postAutoLoginFailure(mContext.getString(R.string.network_failure));
+                mSplashActivityView.postTokenFailure(mContext.getString(R.string.network_failure));
             }
         });
     }

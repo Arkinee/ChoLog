@@ -11,13 +11,14 @@ import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
 
-import com.bumptech.glide.request.target.NotificationTarget;
 import com.softsquared.Modu.R;
 import com.softsquared.Modu.src.main.MainActivity;
 
 public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
+
+        int index = intent.getIntExtra("index", 0);
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         Intent notificationIntent = new Intent(context, MainActivity.class);
@@ -31,7 +32,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         builder.setSmallIcon(R.mipmap.ic_modu)
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.mipmap.ic_modu))
                 .setContentTitle(intent.getStringExtra("title"))
-                .setContentText("정기 구독 결제 알림!")
+                .setContentText(String.valueOf(index).concat("번째의 정기 구독 결제 알림!"))
                 .setAutoCancel(false)
                 .setContentIntent(pendingIntent);   // 푸쉬 클릭 시 메인으로
 

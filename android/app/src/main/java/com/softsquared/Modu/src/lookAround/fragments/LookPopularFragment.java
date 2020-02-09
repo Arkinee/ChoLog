@@ -1,5 +1,7 @@
 package com.softsquared.Modu.src.lookAround.fragments;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,8 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -21,13 +25,14 @@ import com.softsquared.Modu.src.RecyclerViewDecoration;
 import com.softsquared.Modu.src.lookAround.adapters.LookAdapter;
 import com.softsquared.Modu.src.lookAround.models.LookItem;
 import com.softsquared.Modu.src.lookAround.models.LookListItem;
+import com.softsquared.Modu.src.main.MainActivity;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import static com.softsquared.Modu.src.ApplicationClass.sSharedPreferences;
 
-public class LookPopularFragment extends Fragment {
+public class LookPopularFragment extends Fragment implements MainActivity.OnBackPressedListener {
 
     private NestedScrollView mScrollLookPopular;
     private ArrayList<LookItem> mLookPopularAllList;
@@ -48,9 +53,6 @@ public class LookPopularFragment extends Fragment {
         mRvLookPopularAll.setAdapter(mPopularAllAdapter);
         //RecyclerView 간격 조정
         mRvLookPopularAll.addItemDecoration(new RecyclerViewDecoration(10));
-
-        /*더미 데이터들*/
-//        LookItem adobe = new LookItem("https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "어도비 클라우드", "저장 클라우드", 12000);
 
         return view;
     }
@@ -86,4 +88,23 @@ public class LookPopularFragment extends Fragment {
         mScrollLookPopular.fullScroll(ScrollView.FOCUS_UP);
     }
 
+    @Override
+    public void onBack(LookFragment lookFragment) {
+        MainActivity activity = (MainActivity) getActivity();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.addToBackStack(null);
+        transaction.replace(R.id.frame_main, lookFragment).commitAllowingStateLoss();
+        activity.setOnBackPressedListener(null);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((MainActivity)getActivity()).setOnBackPressedListener(this);
+
+        Activity activity = getActivity();
+        if(activity != null){
+            FirebaseAnalytics.getInstance(activity).setCurrentScreen(getActivity(), getClass().getSimpleName(), "LookPopularFragment");
+        }
+    }
 }

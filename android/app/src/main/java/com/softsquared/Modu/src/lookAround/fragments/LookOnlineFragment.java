@@ -1,5 +1,6 @@
 package com.softsquared.Modu.src.lookAround.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,8 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -21,13 +24,14 @@ import com.softsquared.Modu.src.RecyclerViewDecoration;
 import com.softsquared.Modu.src.lookAround.adapters.LookAdapter;
 import com.softsquared.Modu.src.lookAround.models.LookItem;
 import com.softsquared.Modu.src.lookAround.models.LookListItem;
+import com.softsquared.Modu.src.main.MainActivity;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import static com.softsquared.Modu.src.ApplicationClass.sSharedPreferences;
 
-public class LookOnlineFragment extends Fragment {
+public class LookOnlineFragment extends Fragment implements MainActivity.OnBackPressedListener {
 
     private NestedScrollView mScrollLookOnline;
     private ArrayList<LookItem> mLookOnlineAllList;
@@ -83,6 +87,26 @@ public class LookOnlineFragment extends Fragment {
     public void scrollToTop() {
         Log.d("로그", "맨 위로");
         mScrollLookOnline.fullScroll(ScrollView.FOCUS_UP);
+    }
+
+    @Override
+    public void onBack(LookFragment lookFragment) {
+        MainActivity activity = (MainActivity) getActivity();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.addToBackStack(null);
+        transaction.replace(R.id.frame_main, lookFragment).commitAllowingStateLoss();
+        activity.setOnBackPressedListener(null);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((MainActivity)getActivity()).setOnBackPressedListener(this);
+
+        Activity activity = getActivity();
+        if(activity != null){
+            FirebaseAnalytics.getInstance(activity).setCurrentScreen(getActivity(), getClass().getSimpleName(), "LookOnlineFragment");
+        }
     }
 
 }

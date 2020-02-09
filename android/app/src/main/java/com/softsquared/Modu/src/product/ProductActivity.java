@@ -185,12 +185,14 @@ public class ProductActivity extends BaseActivity implements TextWatcher {
                 } else {
                     name = mAutoService.getText().toString();
                 }
-                intent.putExtra("product", name);
-                intent.putExtra("category", mEdtCategory.getText().toString());
-                intent.putExtra("imageUrl", mImageUrl);
-                intent.putExtra("price", mPrice);
-                intent.putExtra("changeUrl", mChangeUrl);
-                intent.putExtra("cancelUrl", mCancelUrl);
+                intent.putExtra("product", name);   // 브랜드 + 상품
+                intent.putExtra("brand", mAutoService.getText().toString());    // 브랜드
+                intent.putExtra("membership", mEdtMembership.getText().toString()); // 상품
+                intent.putExtra("category", mEdtCategory.getText().toString()); // 카테고리
+                intent.putExtra("imageUrl", mImageUrl); //이미지 URL
+                intent.putExtra("price", mPrice);   //가격
+                intent.putExtra("changeUrl", mChangeUrl);   //플랜 변경 URL
+                intent.putExtra("cancelUrl", mCancelUrl);   // 플랜 취소 URL
 
                 if (mCurrency == null) {
                     intent.putExtra("currency", "원");

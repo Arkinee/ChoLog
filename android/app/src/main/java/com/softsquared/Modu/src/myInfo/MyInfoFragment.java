@@ -1,5 +1,6 @@
 package com.softsquared.Modu.src.myInfo;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -60,8 +62,6 @@ public class MyInfoFragment extends Fragment {
         mRvMyInfo.setAdapter(mMyInfoAdapter);
         mRvMyInfo.addItemDecoration(new RecyclerViewDecoration(10));
 
-//        mMyInfoList.add(new MyInfoItem("영상 스트리밍", 12000, 100));
-
         return view;
     }
 
@@ -74,6 +74,12 @@ public class MyInfoFragment extends Fragment {
     public void onResume() {
         super.onResume();
         Log.d("로그", "consumption resume");
+
+        Activity activity = getActivity();
+        if(activity != null){
+            FirebaseAnalytics.getInstance(activity).setCurrentScreen(getActivity(), getClass().getSimpleName(), "MyInfoFragment");
+        }
+
         for (int i = 0; i < mMyInfoList.size(); i++) {
             Log.d("로그", "category: " + mMyInfoList.get(i).getmCategory());
         }

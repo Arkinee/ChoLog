@@ -1,36 +1,54 @@
 package com.softsquared.Modu.src.main;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 
+import com.softsquared.Modu.R;
 import com.softsquared.Modu.src.lookAround.models.LookListResponse;
 import com.softsquared.Modu.src.main.interfaces.MainActivityView;
 import com.softsquared.Modu.src.main.interfaces.MainRetrofitInterface;
 import com.softsquared.Modu.src.main.models.CurrencyResponse;
 import com.softsquared.Modu.src.main.models.ItemsResponse;
+import com.softsquared.Modu.src.main.models.UpLoadResponse;
+
+import org.json.JSONObject;
 
 import java.util.List;
 
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.softsquared.Modu.src.ApplicationClass.MEDIA_TYPE_JSON;
 import static com.softsquared.Modu.src.ApplicationClass.getCurrencyRetrofit;
 import static com.softsquared.Modu.src.ApplicationClass.getRetrofit;
 
 class MainService {
 
     private MainActivityView mMainActivityView;
-    private String mCode = "FRX.KRWUSD";
+    private JSONObject mParams;
+    private Context mContext;
 
     //환율 생성자
-    MainService(final MainActivityView mMainActivityView) {
+    MainService(MainActivityView mMainActivityView) {
         this.mMainActivityView = mMainActivityView;
+    }
+
+    MainService(MainActivityView mainActivityView, Context context, JSONObject param){
+        this.mMainActivityView = mainActivityView;
+        this.mContext = context;
+        this.mParams = param;
     }
 
     //환율 가져오기
     void getCurrency() {
+
+        String code = "FRX.KRWUSD";
+
         final MainRetrofitInterface mainRetrofitInterface = getCurrencyRetrofit().create(MainRetrofitInterface.class);
-        mainRetrofitInterface.getCurrency(mCode).enqueue(new Callback<List<CurrencyResponse>>() {
+        mainRetrofitInterface.getCurrency(code).enqueue(new Callback<List<CurrencyResponse>>() {
             @Override
             public void onResponse(@NonNull Call<List<CurrencyResponse>> call, @NonNull Response<List<CurrencyResponse>> response) {
 
@@ -52,6 +70,7 @@ class MainService {
         });
     }
 
+    //아이템 가져오기
     void getItems() {
         final MainRetrofitInterface mainRetrofitInterface = getRetrofit().create(MainRetrofitInterface.class);
         mainRetrofitInterface.getItems().enqueue(new Callback<ItemsResponse>() {
@@ -74,6 +93,7 @@ class MainService {
         });
     }
 
+    //둘러보기 아이템 가져오기
     void getLookList() {
         final MainRetrofitInterface mainRetrofitInterface = getRetrofit().create(MainRetrofitInterface.class);
         mainRetrofitInterface.getLookList().enqueue(new Callback<LookListResponse>() {
@@ -94,5 +114,29 @@ class MainService {
             }
         });
     }
+
+    //아이템 업로드
+    void tryPostUpload() {
+        final MainRetrofitInterface mainRetrofitInterface = getRetrofit().create(MainRetrofitInterface.class);
+        mainRetrofitInterface.postUpload(RequestBody.create(MEDIA_TYPE_JSON, mParams.toString())).enqueue(new Callback<UpLoadResponse>() {
+            @Override
+            public void onResponse(Call<UpLoadResponse> call, Response<UpLoadResponse> response) {
+
+                final UpLoadResponse upLoadResponse = response.body();
+                if (upLoadResponse == null) {
+                    mMainActivityView.postUploadFailure(mContext.getString(R.string.network_failure));
+                    return;
+                }
+
+                mMainActivityView.postUploadSuccess(upLoadResponse.getMessage());
+            }
+
+            @Override
+            public void onFailure(Call<UpLoadResponse> call, Throwable t) {
+                mMainActivityView.postUploadFailure(mContext.getString(R.string.network_failure));
+            }
+        });
+    }
+
 
 }

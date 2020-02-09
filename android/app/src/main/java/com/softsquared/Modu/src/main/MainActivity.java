@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
@@ -23,6 +24,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -46,6 +48,8 @@ import com.softsquared.Modu.src.main.models.Items;
 import com.softsquared.Modu.src.myInfo.MyInfoFragment;
 import com.softsquared.Modu.src.myInfo.models.MyInfoItem;
 import com.softsquared.Modu.src.serviceAdd.ServiceAddActivity;
+
+import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.text.ParseException;
@@ -107,6 +111,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     private double mDollar;
 
     ArrayList<MyInfoItem> mMainMyInfoList;
+    private OnBackPressedListener mBackListener;
 
     private final int SERVICE = 1000;
     private final int LOGIN = 2000;
@@ -381,6 +386,21 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         hf.addItem(item);
                         this.addMyInfoItem(category, price, mMyInfoFee);
                         this.saveMyInfoList();
+
+
+                        JSONObject params = new JSONObject();
+                        String uuid = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+                        try {
+                            params.put("company", homeIntent.getStringExtra("brand"));
+                            params.put("productName", homeIntent.getStringExtra("membership"));
+                            params.put("UUID", uuid);
+                        }catch (Exception e){
+                            Log.d("로그", e.toString());
+                        }
+
+                        final MainService upload = new MainService(this, this, params);
+                        upload.tryPostUpload();
+
                     } else if (type == 2) {
                         assert hf != null;
                         hf.setItem(homeIntent.getExtras().getInt("index"), item);
@@ -541,7 +561,9 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                 break;
             case R.id.tv_look_popular_all:
                 mFragmentFlag = 4;
-                mTransaction.replace(R.id.frame_main, mLookPoPularFragment).commitAllowingStateLoss();
+                mTransaction.replace(R.id.frame_main, mLookPoPularFragment);
+                mTransaction.addToBackStack(null);
+                mTransaction.commitAllowingStateLoss();
                 break;
             case R.id.tv_look_recommend_all:
                 mFragmentFlag = 5;
@@ -691,6 +713,12 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        FirebaseAnalytics.getInstance(this).setCurrentScreen(this, getClass().getSimpleName(), getClass().getSimpleName());
+    }
+
+    @Override
     public void getCurrencySuccess(double basePrice) {
         SharedPreferences.Editor editor = sSharedPreferences.edit();
         editor.putString("KRWtoUSD", String.valueOf(basePrice));
@@ -750,20 +778,50 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     }
 
     @Override
-    public void onBackPressed() {
-        //나갈지 물어보는 다이얼로그
-        mExitDialog.show();
-        Window window = mExitDialog.getWindow();
-        assert window != null;
-        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        window.setAttributes(mWm);
-
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-//                Window window2 = mLoginDialog.getWindow();
-        int x = (int) (size.x * 0.9f);
-        int y = (int) (size.y * 0.3f);
-        window.setLayout(x, y);
+    public void postUploadSuccess(String msg) {
+        Log.d("로그", msg);
     }
+
+    @Override
+    public void postUploadFailure(String msg) {
+        Log.d("로그", msg);
+    }
+    @Override
+    public void onBackPressed() {
+
+        // 다른 Fragment 에서 리스너를 설정했을 때 처리됩니다.
+        if (mBackListener != null) {
+            mBackListener.onBack(mLookFragment);
+            Log.e("!!!", "Listener is not null");
+            // 리스너가 설정되지 않은 상태(예를들어 메인Fragment)라면
+            // 뒤로가기 버튼을 연속적으로 두번 눌렀을 때 앱이 종료됩니다.
+        } else {
+            //나갈지 물어보는 다이얼로그
+            mExitDialog.show();
+            Window window = mExitDialog.getWindow();
+            assert window != null;
+            WindowManager.LayoutParams wm = new WindowManager.LayoutParams();
+            window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            wm.copyFrom(window.getAttributes());
+            window.setAttributes(wm);
+
+            Display display = getWindowManager().getDefaultDisplay();
+            Point size = new Point();
+            display.getSize(size);
+//                Window window2 = mLoginDialog.getWindow();
+            int x = (int) (size.x * 0.9f);
+            int y = (int) (size.y * 0.3f);
+            window.setLayout(x, y);
+        }
+    }
+
+    public interface OnBackPressedListener {
+        void onBack(LookFragment lookFragment);
+    }
+
+    // 리스너 설정 메소드
+    public void setOnBackPressedListener(OnBackPressedListener listener) {
+        mBackListener = listener;
+    }
+
 }

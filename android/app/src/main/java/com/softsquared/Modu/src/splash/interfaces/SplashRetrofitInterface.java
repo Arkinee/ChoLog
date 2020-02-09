@@ -10,8 +10,8 @@ import retrofit2.http.POST;
 
 public interface SplashRetrofitInterface {
 
-    //token 필요로 하는 api에 전송
-    @POST("/user/token")
-    Call<SplashResponse> postAutoLogin(@Body RequestBody params);
+    //uuid와 fcm token 서버에 보내기
+    @POST("/user")
+    Call<SplashResponse> postToken(@Body RequestBody params);
 
 }

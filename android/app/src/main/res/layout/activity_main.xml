@@ -158,7 +158,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <!-- 맨 위 상단 -->
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:layout_gravity="top"
@@ -178,32 +178,25 @@
             android:paddingBottom="12dp"
             android:src="@drawable/ic_modu" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
         <TextView
             android:id="@+id/tv_main_look_top"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:gravity="center"
             android:text="@string/btn_look_around"
             android:textColor="@color/colorText"
             android:textSize="18sp"
             android:textStyle="bold"
             android:visibility="gone" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/iv_main_setting"
             android:layout_width="44dp"
             android:layout_height="44dp"
             android:layout_marginEnd="12dp"
+            android:layout_gravity="end"
             android:contentDescription="@string/tv_main_description"
             android:onClick="onClick"
             android:paddingStart="13dp"
@@ -213,7 +206,7 @@
             android:src="@drawable/ic_login_false"
             android:visibility="gone" />
 
-    </LinearLayout>
+    </FrameLayout>
 
     <!-- Frame 부분 -->
     <FrameLayout

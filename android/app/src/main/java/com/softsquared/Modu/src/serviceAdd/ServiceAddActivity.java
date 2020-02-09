@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -41,6 +42,8 @@ import com.softsquared.Modu.src.dialog.removeDialog.removeListener;
 import com.softsquared.Modu.src.home.models.HomeItem;
 import com.softsquared.Modu.src.product.ProductActivity;
 import com.softsquared.Modu.src.serviceAdd.interfaces.ServiceAddActivityView;
+
+import org.json.JSONObject;
 
 import java.text.DecimalFormat;
 import java.util.Objects;
@@ -77,6 +80,8 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
     private TextView mTvCurrency;
 
     private String mCategory;
+    private String mMembership;
+    private String mBrand;
     private int mIndex;
 
     private LastDialog mLastDialog;
@@ -151,6 +156,8 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
 
         mType = Objects.requireNonNull(getIntent().getExtras()).getInt("type");
         mIndex = getIntent().getExtras().getInt("index");
+        mMembership = "";
+        mBrand = "";
 
         Log.d("로그", "type: " + mType + " ," + "index: " + mIndex);
 
@@ -398,6 +405,8 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
                     String product = data.getExtras().getString("product");
                     mCategory = data.getExtras().getString("category");
                     mImageUrl = data.getExtras().getString("imageUrl");
+                    mMembership = data.getStringExtra("membership");
+                    mBrand = data.getStringExtra("brand");
                     String change = data.getExtras().getString("changeUrl");
                     String cancel = data.getExtras().getString("cancelUrl");
 
@@ -514,6 +523,9 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
                 resultIntent.putExtra("type", mType);
                 Log.d("로그", "타입: " + mType);
                 resultIntent.putExtra("index", mIndex);
+
+                resultIntent.putExtra("brand", mBrand);
+                resultIntent.putExtra("membership", mMembership);
 
                 setResult(RESULT_OK, resultIntent);
                 finish();

@@ -87,4 +87,9 @@
     <!-- Image Add -->
     <color name="colorImageAdd">#f9f9fb</color>
 
+    <!-- widget -->
+    <color name="colorWidgetUntilNext">#53515c</color>
+    <color name="colorWidgetDay">#ff174c</color>
+    <color name="colorWidgetBackground">#e6ffffff</color>
+
 </resources>

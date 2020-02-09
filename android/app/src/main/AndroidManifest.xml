@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:name=".src.ApplicationClass"
@@ -21,6 +22,16 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
+
+        <receiver android:name=".src.widget.NewAppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider" />
+        </receiver>
 
         <activity
             android:name=".src.main.MainActivity"
@@ -54,33 +65,26 @@
             </intent-filter>
         </activity>
 
-        <!-- widget -->
-        <receiver android:name=".src.widget.WidgetProvider">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/widget_provider" />
-        </receiver>
-
-
-        <receiver android:name=".src.alarm.AlarmReceiver"
+        <!-- Alarm -->
+        <receiver
+            android:name=".src.alarm.AlarmReceiver"
             android:enabled="true"
-            android:exported="true" />
-
-        <receiver android:name=".src.alarm.DeviceBootReceiver"
+            android:exported="false" />
+        <receiver
+            android:name=".src.alarm.DeviceBootReceiver"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
-        </receiver>
-
+        </receiver> <!-- Event Notification -->
         <service
-            android:name=".src.widget.MyRemoteViewsService"
-            android:permission="android:permission.BIND_REMOTEVIEWS"
-            android:exported="false"/>
+            android:name=".src.fcm.MyFireBaseMessagingService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

@@ -210,7 +210,7 @@
     <string name="tv_look_tool_adobe">어도비 클라우드</string>
     <string name="tv_look_tool_fee">12,000원</string>
     <string name="tv_look_offline_service">오프라인</string>
-    <string name="tv_look_itme_ready">상품 준비 중</string>
+    <string name="tv_look_itme_ready">준비 중</string>
     <string name="tv_look_detail">상세보기</string>
     <string name="tv_look_all">모두보기</string>
     <string name="tv_look_popular">인기 구독</string>
@@ -263,5 +263,6 @@
     <!-- widget -->
     <string name="tv_widget_item_tools">15</string>
     <string name="tv_widget_empty">Empty</string>
+    <string name="tv_widget_until_next">다음 결제일까지</string>
 
 </resources>

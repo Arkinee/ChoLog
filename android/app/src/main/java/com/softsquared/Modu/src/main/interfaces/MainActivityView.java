@@ -16,4 +16,7 @@ public interface MainActivityView {
     void getLookItemsSuccess(List<LookListItem> popular, List<LookListItem> recommend, List<LookListItem> online, List<LookListItem> offline);
     void getLookItemsFailure(String msg);
 
+    void postUploadSuccess(String msg);
+    void postUploadFailure(String msg);
+
 }

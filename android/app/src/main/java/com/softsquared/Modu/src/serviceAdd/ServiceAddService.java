@@ -1,43 +1,21 @@
 package com.softsquared.Modu.src.serviceAdd;
 
+import android.content.Context;
+
 import com.softsquared.Modu.src.serviceAdd.interfaces.ServiceAddActivityView;
+
+import org.json.JSONObject;
 
 class ServiceAddService {
 
     private ServiceAddActivityView mServiceAddActivityView;
-    private String mCode = "FRX.KRWUSD";
+    private JSONObject mParams;
+    private Context mContext;
 
-    //환율 생성자
-    ServiceAddService(final ServiceAddActivityView mServiceAddActivityView) {
+    ServiceAddService(final ServiceAddActivityView mServiceAddActivityView, Context context, JSONObject params) {
         this.mServiceAddActivityView = mServiceAddActivityView;
+        this.mParams = params;
+        this.mContext = context;
     }
-
-//    //환율 가져오기
-//    void getCurrency() {
-//        final ServiceAddRetrofitInterface serviceAddRetrofitInterface = getCurrencyRetrofit().create(ServiceAddRetrofitInterface.class);
-//        serviceAddRetrofitInterface.getCurrency(mCode).enqueue(new Callback<List<CurrencyResponse>>() {
-//            @Override
-//            public void onResponse(@NonNull Call<List<CurrencyResponse>> call, @NonNull Response<List<CurrencyResponse>> response) {
-//
-//                final @NonNull List<CurrencyResponse> currencyResponses = response.body();
-//                if (currencyResponses == null) {
-//                    mServiceAddActivityView.getCurrencyFailure("응답 없음");
-//                    //Log.d(TAG, "응답 없음");
-//                    return;
-//                }
-//                double currency = currencyResponses.get(0).getBasePrice();
-//                Log.d("로그", "response basePrice: " + currency);
-//                //담기 성공
-//                mServiceAddActivityView.getCurrencySuccess(currency);
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<CurrencyResponse>> call, Throwable t) {
-//                mServiceAddActivityView.getCurrencyFailure("서버 연결 실패");
-//                Log.d("로그", "Failure: " + t.getMessage());
-//            }
-//        });
-//    }
 
 }

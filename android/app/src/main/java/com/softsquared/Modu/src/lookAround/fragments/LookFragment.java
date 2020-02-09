@@ -1,5 +1,7 @@
 package com.softsquared.Modu.src.lookAround.fragments;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -28,6 +31,7 @@ import static com.softsquared.Modu.src.ApplicationClass.sSharedPreferences;
 
 public class LookFragment extends Fragment {
 
+    private FirebaseAnalytics mFirebaseAnalytics;
     private NestedScrollView mScrollLook;
 
     private ArrayList<LookItem> mLookPopularList;
@@ -78,9 +82,6 @@ public class LookFragment extends Fragment {
         mRvLookOnline.addItemDecoration(new RecyclerViewDecoration(10));
         mRvLookOffline.addItemDecoration(new RecyclerViewDecoration(10));
 
-        /*더미 데이터*/
-        //LookItem adobe = new LookItem("https://wkdk.me/images/f/f1/Adobe_Creative_Cloud_%EC%95%84%EC%9D%B4%EC%BD%98.png", "어도비 클라우드", "저장 클라우드", 12000);
-
         this.setItems("popularList", mLookPopularList);
         this.setItems("recommendList", mLookRecommendList);
         this.setItems("onlineList", mLookOnlineList);
@@ -122,4 +123,12 @@ public class LookFragment extends Fragment {
         mScrollLook.fullScroll(ScrollView.FOCUS_UP);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Activity activity = getActivity();
+        if(activity != null){
+            FirebaseAnalytics.getInstance(activity).setCurrentScreen(getActivity(), getClass().getSimpleName(), "LookFragment");
+        }
+    }
 }

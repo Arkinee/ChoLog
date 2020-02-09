@@ -3,11 +3,15 @@ package com.softsquared.Modu.src;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaDrm;
+import android.media.UnsupportedSchemeException;
+import android.provider.Settings;
 
 import com.softsquared.Modu.config.XAccessTokenInterceptor;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -31,7 +35,7 @@ public class ApplicationClass extends Application {
 
     public static DecimalFormat myFormatter = new DecimalFormat("###,###");
     // SharedPreferences 키 값
-    public static String TAG = "CHOLOG";
+    public static String TAG = "Modu";
 
     // JWT Token 값
     public static final String X_ACCESS_TOKEN = "X-ACCESS-TOKEN";
@@ -43,6 +47,8 @@ public class ApplicationClass extends Application {
     // Retrofit 인스턴스
     public static Retrofit retrofit;
     public static Retrofit currencyRetrofit;
+
+    public static String DEVICE_UUID;
 
     @Override
     public void onCreate() {
@@ -61,7 +67,6 @@ public class ApplicationClass extends Application {
         return format.format(calendar.getTime());
 
     }
-
 
     public static Retrofit getRetrofit() {
         if (retrofit == null) {
@@ -98,4 +103,6 @@ public class ApplicationClass extends Application {
 
         return currencyRetrofit;
     }
+
+
 }
