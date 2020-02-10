@@ -23,16 +23,6 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
 
-        <receiver android:name=".src.widget.NewAppWidget">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/widget_provider" />
-        </receiver>
-
         <activity
             android:name=".src.main.MainActivity"
             android:screenOrientation="portrait" />
@@ -65,6 +55,17 @@
             </intent-filter>
         </activity>
 
+        <!-- Widget -->
+        <receiver android:name=".src.widget.NewAppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider" />
+        </receiver>
+
         <!-- Alarm -->
         <receiver
             android:name=".src.alarm.AlarmReceiver"
@@ -76,7 +77,9 @@
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
-        </receiver> <!-- Event Notification -->
+        </receiver>
+
+        <!-- Event Notification -->
         <service
             android:name=".src.fcm.MyFireBaseMessagingService"
             android:enabled="true"
@@ -85,7 +88,10 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+        
+        <!-- Schedule-->
 
+        <!-- Facebook SDK -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />

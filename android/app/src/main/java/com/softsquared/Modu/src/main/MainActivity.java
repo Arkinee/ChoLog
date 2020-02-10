@@ -1,5 +1,7 @@
 package com.softsquared.Modu.src.main;
 
+import android.app.AlarmManager;
+import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,6 +23,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkManager;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -47,7 +52,9 @@ import com.softsquared.Modu.src.main.interfaces.MainActivityView;
 import com.softsquared.Modu.src.main.models.Items;
 import com.softsquared.Modu.src.myInfo.MyInfoFragment;
 import com.softsquared.Modu.src.myInfo.models.MyInfoItem;
+import com.softsquared.Modu.src.schedule.DailyWorker;
 import com.softsquared.Modu.src.serviceAdd.ServiceAddActivity;
+import com.softsquared.Modu.src.widget.NewAppWidget;
 
 import org.json.JSONObject;
 
@@ -66,6 +73,8 @@ import static com.softsquared.Modu.src.ApplicationClass.myFormatter;
 import static com.softsquared.Modu.src.ApplicationClass.sSharedPreferences;
 
 public class MainActivity extends BaseActivity implements MainActivityView {
+
+    public static final String MESSAGE_STATUS = "message_status";
 
     private FragmentManager mFragmentManager;
     private FragmentTransaction mTransaction;
@@ -123,6 +132,9 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        this.setDailyWork();
+
         this.initialize();
         this.setFragment();
         this.setLoginDialog();
@@ -310,7 +322,8 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         break;
                     }
 
-                    String name = homeIntent.getExtras().getString("name");
+                    String brand = homeIntent.getExtras().getString("brand");
+                    String product = homeIntent.getExtras().getString("membership");
                     int currency = homeIntent.getExtras().getInt("currency");
                     int duration = homeIntent.getExtras().getInt("duration");
                     int month_int = homeIntent.getExtras().getInt("month");
@@ -342,11 +355,12 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                     String last = year.concat(hyphen).concat(month).concat(hyphen).concat(day);
                     int durationPer = homeIntent.getExtras().getInt("durationPer");
                     int alarm = homeIntent.getExtras().getInt("alarm");
-                    int alarmPer = homeIntent.getExtras().getInt("alarmPer");
+                    Log.d("로그", "알람 일: " + alarm);
                     String extra = homeIntent.getExtras().getString("extra");
                     String changeUrl = homeIntent.getExtras().getString("change");
                     String cancelUrl = homeIntent.getExtras().getString("cancel");
                     String phone = homeIntent.getExtras().getString("phone");
+                    boolean check = homeIntent.getExtras().getBoolean("check");
 
                     Calendar cal = Calendar.getInstance();
                     SimpleDateFormat now_format = new SimpleDateFormat("yyyy-MM-dd");
@@ -379,7 +393,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
 //                    Log.d("로그", "main dday: " + calDateDays);
                     String url = homeIntent.getStringExtra("imageUrl");
-                    HomeItem item = new HomeItem(name, category, price, currency, url, calDateDays, last, duration, durationPer, alarm, alarmPer, extra, changeUrl, cancelUrl, phone, false);
+                    HomeItem item = new HomeItem(brand, product, category, price, currency, url, calDateDays, last, duration, durationPer, alarm, extra, changeUrl, cancelUrl, phone, false);
 
                     if (type == 1) {
                         assert hf != null;
@@ -402,6 +416,9 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         upload.tryPostUpload();
 
                     } else if (type == 2) {
+
+                        if(check) item.setChecked(true);
+
                         assert hf != null;
                         hf.setItem(homeIntent.getExtras().getInt("index"), item);
                         int compare = homeIntent.getExtras().getInt("compare");
@@ -409,6 +426,10 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         this.fixMyInfoItem(category, compare, mMyInfoFee);
                         this.saveMyInfoList();
                     }
+
+                    Intent widgetIntent = new Intent(MainActivity.this, NewAppWidget.class);
+                    widgetIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+                    MainActivity.this.sendBroadcast(widgetIntent);
 
                     break;
                 case LOGIN:
@@ -792,7 +813,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         // 다른 Fragment 에서 리스너를 설정했을 때 처리됩니다.
         if (mBackListener != null) {
             mBackListener.onBack(mLookFragment);
-            Log.e("!!!", "Listener is not null");
+//            Log.e("!!!", "Listener is not null");
             // 리스너가 설정되지 않은 상태(예를들어 메인Fragment)라면
             // 뒤로가기 버튼을 연속적으로 두번 눌렀을 때 앱이 종료됩니다.
         } else {
@@ -822,6 +843,17 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     // 리스너 설정 메소드
     public void setOnBackPressedListener(OnBackPressedListener listener) {
         mBackListener = listener;
+    }
+
+    private void setDailyWork(){
+
+//        AlarmManager dayoff = AlarmManager
+//
+//        WorkManager workManager = WorkManager.getInstance();
+//        PeriodicWorkRequest request = PeriodicWorkRequest().Builder().build();
+//
+//        workManager.enqueue(request);
+
     }
 
 }

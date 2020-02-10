@@ -42,6 +42,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
+import retrofit2.http.POST;
+
 import static android.content.Context.ALARM_SERVICE;
 import static com.softsquared.Modu.src.ApplicationClass.DATE_FORMAT;
 import static com.softsquared.Modu.src.ApplicationClass.sSharedPreferences;
@@ -152,7 +154,7 @@ public class HomeFragment extends Fragment {
 
                 final Intent alarmIntent = new Intent(getContext(), AlarmReceiver.class);
                 mAlarmManager = (AlarmManager) getActivity().getSystemService(ALARM_SERVICE);
-                mPendingIntent = PendingIntent.getBroadcast(getContext(), 0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                mPendingIntent = PendingIntent.getBroadcast(getContext(), pos, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
                 if (item.isChecked()) { // 알람 체크 되어있을 시
                     item.setChecked(false);
@@ -165,22 +167,28 @@ public class HomeFragment extends Fragment {
 //                    getActivity().sendBroadcast(alarmIntent);
 
                 } else { // 알람 체크 안되어 있을 시
-//                    item.setChecked(true);
-                    Toast.makeText(getContext(), getString(R.string.tv_item_home_alarm_not), Toast.LENGTH_SHORT).show();
+                    item.setChecked(true);
+//                    Toast.makeText(getContext(), getString(R.string.tv_item_home_alarm_not), Toast.LENGTH_SHORT).show();
 
 
 
                     //알림 켜기
-//                    Calendar calendar = Calendar.getInstance();
-//                    calendar.setTimeInMillis(System.currentTimeMillis());
-//                    calendar.add(Calendar.SECOND, 10);
-//
-//
-//                    alarmIntent.putExtra("state", "on");
-//                    alarmIntent.putExtra("index", pos);
-//                    alarmIntent.putExtra("title", item.getmBrand());
-//                    alarmIntent.putExtra("before", item.getmAlarm());
-//                    mAlarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mPendingIntent);
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTimeInMillis(System.currentTimeMillis());
+                    int DDay = item.getmDDay();
+                    int alarmBeforePay = item.getmAlarm();
+                    calendar.add(Calendar.DAY_OF_YEAR, DDay - alarmBeforePay);
+                    calendar.set(Calendar.HOUR_OF_DAY, 12);
+                    calendar.set(Calendar.MINUTE, 0);
+                    calendar.set(Calendar.SECOND, 0);
+
+
+                    alarmIntent.putExtra("state", "on");
+                    alarmIntent.putExtra("index", pos);
+                    alarmIntent.putExtra("title", item.getmBrand());
+                    alarmIntent.putExtra("before", item.getmAlarm());
+                    mPendingIntent = PendingIntent.getBroadcast(getContext(), pos, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    mAlarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mPendingIntent);
 //                    getActivity().sendBroadcast(alarmIntent);
 
                 }

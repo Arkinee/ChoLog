@@ -8,6 +8,8 @@ public class HomeItem implements Serializable {
 
     @SerializedName("brand")
     private String mBrand;      //서비스명
+    @SerializedName("product")
+    private String mProduct;    //상품명
     @SerializedName("Category")
     private String mCategory;   //카테고리
     @SerializedName("price")
@@ -15,17 +17,15 @@ public class HomeItem implements Serializable {
     @SerializedName("imageUrl")
     private String mImageUrl;   //이미지 주소
     @SerializedName("dday")
-    private int mDDay;
+    private int mDDay;          // 결제일 까지 디데이
     @SerializedName("Last")
-    private String mLast;
+    private String mLast;       // 마지막 결제일
     @SerializedName("duration")
     private int mDuration;      //주기
     @SerializedName("durationPer")
-    private int mDurationPer;
+    private int mDurationPer;   //주기 단위
     @SerializedName("alarm")
     private int mAlarm;         //알람 몇 일 전
-    @SerializedName("alarmPer")
-    private int mAlarmPer;
     @SerializedName("extra")
     private String mExtra;      //추가설명
     @SerializedName("change")
@@ -39,8 +39,9 @@ public class HomeItem implements Serializable {
     @SerializedName("isChecked")
     private boolean isChecked;  //알림 체크 되었는지
 
-    public HomeItem(String mBrand, String mCategory, int mPrice, int mCurrency, String mImageUrl, int mDDay, String mLast, int duration, int durationPer, int alarm, int alarmPer, String extra, String mChangeUrl, String mCancelUrl, String mPhone, boolean isChecked) {
+    public HomeItem(String mBrand, String mProduct, String mCategory, int mPrice, int mCurrency, String mImageUrl, int mDDay, String mLast, int duration, int durationPer, int alarm, String extra, String mChangeUrl, String mCancelUrl, String mPhone, boolean isChecked) {
         this.mBrand = mBrand;
+        this.mProduct = mProduct;
         this.mCategory = mCategory;
         this.mImageUrl = mImageUrl;
         this.mPrice = mPrice;
@@ -49,7 +50,6 @@ public class HomeItem implements Serializable {
         this.mDuration = duration;
         this.mDurationPer = durationPer;
         this.mAlarm = alarm;
-        this.mAlarmPer = alarmPer;
         this.mExtra = extra;
         this.mChangeUrl = mChangeUrl;
         this.mCancelUrl = mCancelUrl;
@@ -162,14 +162,6 @@ public class HomeItem implements Serializable {
         this.mDurationPer = mDurationPer;
     }
 
-    public int getmAlarmPer() {
-        return mAlarmPer;
-    }
-
-    public void setmAlarmPer(int mAlarmPer) {
-        this.mAlarmPer = mAlarmPer;
-    }
-
     public String getmLast() {
         return mLast;
     }
@@ -186,4 +178,11 @@ public class HomeItem implements Serializable {
         this.mDDay = mDDay;
     }
 
+    public String getmProduct() {
+        return mProduct;
+    }
+
+    public void setmProduct(String mProduct) {
+        this.mProduct = mProduct;
+    }
 }

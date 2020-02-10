@@ -84,6 +84,7 @@
     <string name="tv_service_toast_duration">결제 주기를 입력하세요.</string>
     <string name="tv_service_toast_alarm">알림을 설정해주세요.</string>
     <string name="tv_service_toast_remove">서비스를 먼저 추가해 주세요.</string>
+    <string name="tv_service_alarm_per">일</string>
 
     <!-- Dialog -->
     <string name="tv_service_add_dialog">완료</string>

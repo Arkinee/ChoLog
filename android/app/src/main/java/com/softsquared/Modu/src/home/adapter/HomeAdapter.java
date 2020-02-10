@@ -158,7 +158,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         Glide.with(mContext).load(homeItem.getmImageUrl()).fitCenter().placeholder(R.drawable.ic_default).override(200, 200).into(holder.ivHomeImage);
         holder.ivHomeImage.setBackgroundResource(R.color.colorTextHomeItemBack);
         holder.tvHomeCategory.setText(homeItem.getmCategory());
-        holder.tvHomeBrand.setText(homeItem.getmBrand());
+        holder.tvHomeBrand.setText(homeItem.getmBrand().concat(mContext.getResources().getString(R.string.middleDot)).concat(homeItem.getmProduct()));
 
         holder.tvHomeChange.setOnClickListener(new View.OnClickListener() {
             @Override

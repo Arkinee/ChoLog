@@ -30,9 +30,9 @@ public class AlarmReceiver extends BroadcastReceiver {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "Modu");
 
         builder.setSmallIcon(R.mipmap.ic_modu)
-                .setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.mipmap.ic_modu))
+//                .setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.mipmap.ic_modu))
                 .setContentTitle(intent.getStringExtra("title"))
-                .setContentText(String.valueOf(index).concat("번째의 정기 구독 결제 알림!"))
+                .setContentText("정기 구독 결제 전 알림이 왔습니다!")
                 .setAutoCancel(false)
                 .setContentIntent(pendingIntent);   // 푸쉬 클릭 시 메인으로
 

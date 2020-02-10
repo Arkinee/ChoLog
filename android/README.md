@@ -117,3 +117,6 @@ MakeUs_Project_Team_ChoLogBin_Android
 	- UUID를 이용해 fcmToken 서버로 보내기, 이용중인 상품 업로드 완료
 	- 자체적 푸시 알람은 상품에 따라 Calendar값 적용해서 테스트 해봐야 함
 
+# 2.09 ~ 2.10
+	- WorkManager를 이용한 반복적 스케쥴링 구현 필요
+	- 결제 전 알람에 대해서도 반복적인 수행을 위해서 WorkManager를 이용해야 할 것 같음

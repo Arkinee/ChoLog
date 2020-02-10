@@ -82,6 +82,7 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
     private String mCategory;
     private String mMembership;
     private String mBrand;
+    private Boolean mChecked;
     private int mIndex;
 
     private LastDialog mLastDialog;
@@ -101,7 +102,6 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
     private int mDurationPer;   // 0 : 일  1 : 주  2 : 달  3 : 년
 
     private int mAlarmNum;
-    private int mAlarmPer;  // 0 : 일  1 : 주 2: 달 3 : 년
 
     //requestCode
     private final int CURRENCY = 2000;
@@ -158,6 +158,7 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
         mIndex = getIntent().getExtras().getInt("index");
         mMembership = "";
         mBrand = "";
+        mChecked = false;
 
         Log.d("로그", "type: " + mType + " ," + "index: " + mIndex);
 
@@ -195,8 +196,12 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
     public void setField(HomeItem item) {
 
         //필수 정보 채우기
-        mTvProduct.setText(item.getmBrand());
+        mTvProduct.setText(item.getmBrand().concat(getResources().getString(R.string.middleDot)).concat(item.getmProduct()));
         mCategory = item.getmCategory();
+        mBrand = item.getmBrand();
+        mMembership = item.getmProduct();
+        mChecked = item.isChecked();
+
 //        Log.d("로그", "price: " + item.getmPrice());
 //        Log.d("로그", "currency: " + mCurrency);
 
@@ -234,25 +239,14 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
 
         //추후 알림 업데이트 시에 알림 채우는 양식 필요
         mAlarmNum = item.getmAlarm();
-        mAlarmPer = item.getmAlarmPer() - 1;
 
         String alarmNum = String.valueOf(mAlarmNum);
-        String alarmPer = "";
-
-        if (mDurationPer == 0) {
-            alarmPer = getResources().getString(R.string.day);
-        } else if (mDurationPer == 1) {
-            alarmPer = getResources().getString(R.string.week);
-        } else if (mDurationPer == 2) {
-            alarmPer = getResources().getString(R.string.month);
-        } else if (mDurationPer == 3) {
-            alarmPer = getResources().getString(R.string.year);
-        }
+        String alarmPer = getResources().getStringArray(R.array.day_week_month_year)[0];    // 일 단위
 
         if (mAlarmNum == -1) {
             mTvAlarm.setText(getResources().getString(R.string.tv_service_add_dialog_alarm_none));
         } else {
-            mTvAlarm.setText(String.valueOf(mAlarmNum).concat(alarmPer));
+            mTvAlarm.setText(alarmNum.concat(alarmPer));
         }
 
         //추가 정보 채우기
@@ -265,7 +259,7 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
         }
 
         if (item.getmCancelUrl() != null && !item.getmCancelUrl().equals("")) {
-            mEdtCancel.setText(item.getmChangeUrl());
+            mEdtCancel.setText(item.getmCancelUrl());
         }
 
         if (item.getmPhone() != null && !item.getmPhone().equals("")) {
@@ -405,8 +399,8 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
                     String product = data.getExtras().getString("product");
                     mCategory = data.getExtras().getString("category");
                     mImageUrl = data.getExtras().getString("imageUrl");
-                    mMembership = data.getStringExtra("membership");
                     mBrand = data.getStringExtra("brand");
+                    mMembership = data.getStringExtra("membership");
                     String change = data.getExtras().getString("changeUrl");
                     String cancel = data.getExtras().getString("cancelUrl");
 
@@ -487,15 +481,16 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
 
                 Intent resultIntent = new Intent();
                 //필수정보
-                resultIntent.putExtra("name", mTvProduct.getText().toString());
                 resultIntent.putExtra("category", mCategory);
+
                 if (mCurrency == 1) {
                     mPrice = Integer.parseInt(mEdtPrice.getText().toString());
                 } else if (mCurrency == 2) {
                     mPrice = (int) (Double.parseDouble(mEdtPrice.getText().toString()) * mKRWtoUSD);
                 }
 
-                //필수정보
+                resultIntent.putExtra("brand", mBrand);
+                resultIntent.putExtra("membership", mMembership);
                 Log.d("로그", "service add activity price: " + mPrice);
                 resultIntent.putExtra("price", mPrice);
                 resultIntent.putExtra("currency", mCurrency);
@@ -506,7 +501,7 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
                 resultIntent.putExtra("duration", mDurationNum);
                 resultIntent.putExtra("durationPer", mDurationPer);
                 resultIntent.putExtra("alarm", mAlarmNum);
-                resultIntent.putExtra("alarmPer", mAlarmPer);
+                resultIntent.putExtra("check", mChecked);
 
                 //추가정보
                 resultIntent.putExtra("imageUrl", mImageUrl);
@@ -735,7 +730,6 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
             }
         });
 
-        this.setDialogWindow(mDurationDialog);
         mDurationDialog.show();
         this.setDialogWindow(mDurationDialog);
     }
@@ -754,36 +748,18 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
 
         mAlarmDialog.setDialogListener(new AlarmListener() {
             @Override
-            public void onAlarmComplete(int number, int per) {
-                String strPer = "";
-                switch (per) {
-                    case 0: //일
-                        strPer = getResources().getStringArray(R.array.day_week_month_year)[0];
-                        mAlarmPer = 0;
-                        break;
-                    case 1: //주
-                        strPer = getResources().getStringArray(R.array.day_week_month_year)[1];
-                        mAlarmPer = 1;
-                        break;
-                    case 2: //달
-                        strPer = getResources().getStringArray(R.array.day_week_month_year)[2];
-                        mAlarmPer = 2;
-                        break;
-                    case 3: //년
-                        strPer = getResources().getStringArray(R.array.day_week_month_year)[3];
-                        mAlarmPer = 3;
-                        break;
-                }
+            public void onAlarmComplete(int number) {
+                String strPer = getResources().getStringArray(R.array.day_week_month_year)[0];
 
                 if (number == 0) {
                     mTvAlarm.setText(getResources().getString(R.string.tv_service_add_dialog_alarm_none));
                     mAlarmNum = -1;
                 } else if (number == 1) {
                     mTvAlarm.setText(getResources().getString(R.string.tv_service_add_dialog_alarm_d_day));
-                    mAlarmNum = -1;
+                    mAlarmNum = 0;
                 } else {
                     mTvAlarm.setText(String.valueOf(number - 1).concat(strPer));
-                    mAlarmNum = number;
+                    mAlarmNum = number - 1;
                 }
 
                 mAlarmDialog.dismiss();
@@ -792,7 +768,6 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
             }
         });
 
-        this.setDialogWindow(mAlarmDialog);
         mAlarmDialog.show();
         this.setDialogWindow(mAlarmDialog);
 

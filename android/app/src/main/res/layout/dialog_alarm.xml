@@ -32,12 +32,14 @@
             android:descendantFocusability="blocksDescendants"
             app:divider="@drawable/src_dialog_divider" />
 
-        <NumberPicker
-            android:id="@+id/picker_alarm_per"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:descendantFocusability="blocksDescendants"
-            app:divider="@drawable/src_dialog_divider" />
+            android:layout_height="wrap_content"
+            android:text="@string/tv_service_alarm_per"
+            android:textColor="@color/colorText"
+            android:layout_marginStart="51dp"
+            android:textSize="16sp"
+            />
 
     </LinearLayout>
 
