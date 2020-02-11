@@ -146,6 +146,7 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
+        <!--
         <item>8</item>
         <item>9</item>
         <item>10</item>
@@ -170,6 +171,7 @@
         <item>29</item>
         <item>30</item>
         <item>31</item>
+        -->
     </string-array>
 
     <!-- Product -->

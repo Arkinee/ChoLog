@@ -91,5 +91,6 @@
     <color name="colorWidgetUntilNext">#53515c</color>
     <color name="colorWidgetDay">#ff174c</color>
     <color name="colorWidgetBackground">#e6ffffff</color>
+    <color name="colorWidgetDay2">#ff8017</color>
 
 </resources>

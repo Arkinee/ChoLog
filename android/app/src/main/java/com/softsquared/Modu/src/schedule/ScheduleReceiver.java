@@ -8,8 +8,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
+import static com.softsquared.Modu.src.ApplicationClass.SCHEDULE_TAG;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -24,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import static com.softsquared.Modu.src.ApplicationClass.DATE_FORMAT;
 import static com.softsquared.Modu.src.ApplicationClass.sSharedPreferences;
@@ -100,9 +103,9 @@ public class ScheduleReceiver extends BroadcastReceiver {
             Log.d("로그", "dday :" + item.getmDDay());
         }
 
-        for(HomeItem item : homeItemList){
-            Log.d("로그", "저장 전 dday :" + item.getmDDay());
-        }
+//        for(HomeItem item : homeItemList){
+//            Log.d("로그", "저장 전 dday :" + item.getmDDay());
+//        }
 
         String json = gson.toJson(homeItemList, listType);
         SharedPreferences.Editor editor = sSharedPreferences.edit();
@@ -117,10 +120,10 @@ public class ScheduleReceiver extends BroadcastReceiver {
         myWidget.onUpdate(context, AppWidgetManager.getInstance(context),ids);
 
         // 24시간마다 반복되는 work schedule 걸기
-//        WorkManager workManager = WorkManager.getInstance();
-//        PeriodicWorkRequest request = PeriodicWorkRequest().Builder().build();
-//
-//        workManager.enqueue(request);
+        PeriodicWorkRequest.Builder daySyncBuilder = new PeriodicWorkRequest.Builder(DailyWorker.class, 15, TimeUnit.MINUTES);
+        PeriodicWorkRequest request = daySyncBuilder.build();
+        WorkManager.getInstance().cancelAllWorkByTag(SCHEDULE_TAG);
+        WorkManager.getInstance().enqueueUniquePeriodicWork(SCHEDULE_TAG, ExistingPeriodicWorkPolicy.REPLACE,request);
 
     }
 }

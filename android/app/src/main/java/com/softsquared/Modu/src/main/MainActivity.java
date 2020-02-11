@@ -322,6 +322,8 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         this.removeMyInfoItem(category, price, mMyInfoFee);
                         this.saveMyInfoList();
 //                        Log.d("로그", "HomeFee: " + mHomeFee);
+
+
                         break;
                     }
 
@@ -429,6 +431,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         this.saveMyInfoList();
                     }
 
+                    hf.saveList();
                     break;
                 case LOGIN:
                     break;
@@ -697,20 +700,20 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
 
         //마지막 저장된 날짜에서 다음 시작일의 차이만큼 아이템 날짜 업데이트
-        Date nowTime = Calendar.getInstance().getTime();
-//        String now_date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(nowTime);
-        String last_date = sSharedPreferences.getString("lastTime", "");
-//        Log.d("로그", "current date: " + last_date);
-        int difference = 0;
-        try {
-            Date lastTime = DATE_FORMAT.parse(last_date);
-            long calDate = nowTime.getTime() - lastTime.getTime();
-            difference = (int) (calDate / (24 * 60 * 60 * 1000));
-            difference = Math.abs(difference);
-
-        } catch (ParseException e) {
-            Log.d("로그", "parsing error");
-        }
+//        Date nowTime = Calendar.getInstance().getTime();
+////        String now_date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(nowTime);
+//        String last_date = sSharedPreferences.getString("lastTime", "");
+////        Log.d("로그", "current date: " + last_date);
+//        int difference = 0;
+//        try {
+//            Date lastTime = DATE_FORMAT.parse(last_date);
+//            long calDate = nowTime.getTime() - lastTime.getTime();
+//            difference = (int) (calDate / (24 * 60 * 60 * 1000));
+//            difference = Math.abs(difference);
+//
+//        } catch (ParseException e) {
+//            Log.d("로그", "parsing error");
+//        }
 
 //        Log.d("로그", "differ: " + difference);
 //        mHomeFragment.syncItems(difference);
@@ -722,11 +725,11 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         super.onStop();
         //홈 월 가격 저장, 마지막 날짜 저장
         SharedPreferences.Editor editor = sSharedPreferences.edit();
-        Date lastTime = Calendar.getInstance().getTime();
-        String last_date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(lastTime);
+//        Date lastTime = Calendar.getInstance().getTime();
+//        String last_date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(lastTime);
+//        editor.putString("lastTime", last_date);
 //        Log.d("로그", "last date: " + last_date);
         editor.putInt("homeFee", mHomeFee);
-        editor.putString("lastTime", last_date);
         editor.putInt("myInfoFee", mMyInfoFee);
         editor.apply();
 
@@ -775,6 +778,24 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
     }
 
+//    @Override
+//    protected void onRestart() {
+//        super.onRestart();
+//        ArrayList<HomeItem> itemList = new ArrayList<>();
+//        String homeList = sSharedPreferences.getString("homeList", "");
+//        Type listType = new TypeToken<ArrayList<HomeItem>>() {
+//        }.getType();
+//
+//        Gson gson = new GsonBuilder().create();
+//        if (gson.fromJson(homeList, listType) != null) {
+//            itemList = gson.fromJson(homeList, listType);
+//        }
+//
+//        HomeFragment hf = (HomeFragment) getSupportFragmentManager().findFragmentById(R.id.frame_main);
+//        hf.setItemList(itemList);
+//        hf.adapterNotify();
+//    }
+
     @Override
     public void getItemsFailure(String msg) {
         hideProgressDialog();
@@ -808,12 +829,12 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
     @Override
     public void postUploadSuccess(String msg) {
-        Log.d("로그", msg);
+        Log.d("로그", "업로드:".concat(msg));
     }
 
     @Override
     public void postUploadFailure(String msg) {
-        Log.d("로그", msg);
+        Log.d("로그", "업로드:".concat(msg));
     }
     @Override
     public void onBackPressed() {

@@ -120,3 +120,17 @@ MakeUs_Project_Team_ChoLogBin_Android
 # 2.09 ~ 2.10
 	- WorkManager를 이용한 반복적 스케쥴링 구현 필요
 	- 결제 전 알람에 대해서도 반복적인 수행을 위해서 WorkManager를 이용해야 할 것 같음
+
+# 2.11
+	- Scheduling	
+		- 처음 앱 설치시 다음날까지의 시간 구해서 alarmManager로 WorkManager를 세팅하도록 함
+		- WorkRequest는 주기적으로 doWork를 하는 PeriodicWorkRequest로 구현
+		- PeriodicWorkRequest주기 : 15분
+		- doWork에서 하루가 지났는지를 체크 
+		=> 하루 이상이 지났으면 (보통 하루, 2틀이상 꺼놨을 시 꺼둔 날짜만큼 차이 발생) 그 차이를 계산해서 아이템들 DDay에서 감소시킴
+	- doWork가 완료되고 아이템 저장 및 위젯 업데이트
+	
+	-Widget
+		- 새로운 UI 적용
+		- Work반복될때마다 그리고 앱에서 아이템을 추가하거나 삭제했을 시에 업데이트
+		- 3 * 1 크기로 고정 (resizeMode=none)

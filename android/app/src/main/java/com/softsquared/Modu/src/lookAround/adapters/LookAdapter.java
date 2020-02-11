@@ -105,7 +105,7 @@ public class LookAdapter extends RecyclerView.Adapter<LookAdapter.ViewHolder> {
             imageUrl = lookItem.getmImageUrl().replace("drive.google.com/open", "docs.google.com/uc");
         }
 
-        Log.d("로그", "adapter url: " +imageUrl);
+//        Log.d("로그", "adapter url: " +imageUrl);
         Glide.with(mContext).load(imageUrl).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.DATA).placeholder(R.drawable.ic_default).override(50, 50).into(holder.ivLookImage);
 
     }

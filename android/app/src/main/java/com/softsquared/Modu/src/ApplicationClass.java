@@ -36,6 +36,7 @@ public class ApplicationClass extends Application {
     public static DecimalFormat myFormatter = new DecimalFormat("###,###");
     // SharedPreferences 키 값
     public static String TAG = "Modu";
+    public static String SCHEDULE_TAG = "DAILY_WORK";
 
     // JWT Token 값
     public static final String X_ACCESS_TOKEN = "X-ACCESS-TOKEN";

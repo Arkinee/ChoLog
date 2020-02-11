@@ -88,7 +88,7 @@ public class LookFragment extends Fragment {
         this.setItems("onlineList", mLookOnlineList);
         this.setItems("offlineList", mLookOfflineList);
 
-        Log.d("로그", "image url : " + mLookPopularList.get(0).getmImageUrl());
+//        Log.d("로그", "image url : " + mLookPopularList.get(0).getmImageUrl());
 
         return view;
     }

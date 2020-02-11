@@ -36,6 +36,9 @@ public class NewAppWidget extends AppWidgetProvider {
         String TAG = "Modu";
         SharedPreferences sharedPreferences = context.getSharedPreferences(TAG, Context.MODE_PRIVATE);
 
+        Intent intent = new Intent(context, Splash.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
         ArrayList<HomeItem> homeItemList = new ArrayList<>();
         String homeList = sharedPreferences.getString("homeList", "");
@@ -47,7 +50,14 @@ public class NewAppWidget extends AppWidgetProvider {
             homeItemList = gson.fromJson(homeList, listType);
         }
 
-        if(homeItemList.size() == 0) return;
+        if(homeItemList.size() == 0) {
+            Log.d("로그", "widget show no item");
+            views.setTextViewText(R.id.tv_widget_day, "");
+            views.setTextViewText(R.id.tv_widget_price, "등록된 상품이 없습니다.");
+            views.setOnClickPendingIntent(R.id.widget_box, pendingIntent);
+            appWidgetManager.updateAppWidget(appWidgetId, views);
+            return;
+        }
 
         int index = 0;
         int min_day = homeItemList.get(0).getmDDay();
@@ -61,11 +71,6 @@ public class NewAppWidget extends AppWidgetProvider {
 
         views.setTextViewText(R.id.tv_widget_day, "D-".concat(String.valueOf(min_day)));
         views.setTextViewText(R.id.tv_widget_price, myFormatter.format(homeItemList.get(index).getmPrice()).concat(context.getResources().getString(R.string.tv_main_won)));
-
-        Intent intent = new Intent(context, Splash.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-
         views.setOnClickPendingIntent(R.id.widget_box, pendingIntent);
 
         // Instruct the widget manager to update the widget
@@ -76,7 +81,7 @@ public class NewAppWidget extends AppWidgetProvider {
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
         super.onUpdate(context, appWidgetManager, appWidgetIds);
-        Log.d("로그", "위젯 onUpdate");
+//        Log.d("로그", "위젯 onUpdate");
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
         }
