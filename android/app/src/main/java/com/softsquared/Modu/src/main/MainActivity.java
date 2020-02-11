@@ -1,7 +1,9 @@
 package com.softsquared.Modu.src.main;
 
 import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -53,6 +55,7 @@ import com.softsquared.Modu.src.main.models.Items;
 import com.softsquared.Modu.src.myInfo.MyInfoFragment;
 import com.softsquared.Modu.src.myInfo.models.MyInfoItem;
 import com.softsquared.Modu.src.schedule.DailyWorker;
+import com.softsquared.Modu.src.schedule.ScheduleReceiver;
 import com.softsquared.Modu.src.serviceAdd.ServiceAddActivity;
 import com.softsquared.Modu.src.widget.NewAppWidget;
 
@@ -401,7 +404,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         this.addMyInfoItem(category, price, mMyInfoFee);
                         this.saveMyInfoList();
 
-
                         JSONObject params = new JSONObject();
                         String uuid = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
                         try {
@@ -426,10 +428,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         this.fixMyInfoItem(category, compare, mMyInfoFee);
                         this.saveMyInfoList();
                     }
-
-                    Intent widgetIntent = new Intent(MainActivity.this, NewAppWidget.class);
-                    widgetIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-                    MainActivity.this.sendBroadcast(widgetIntent);
 
                     break;
                 case LOGIN:
@@ -715,7 +713,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         }
 
 //        Log.d("로그", "differ: " + difference);
-        mHomeFragment.syncItems(difference);
+//        mHomeFragment.syncItems(difference);
 
     }
 
@@ -731,6 +729,16 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         editor.putString("lastTime", last_date);
         editor.putInt("myInfoFee", mMyInfoFee);
         editor.apply();
+
+        //widget sync
+        Intent widgetIntent = new Intent(MainActivity.this, NewAppWidget.class);
+        widgetIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        int[] ids = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(new ComponentName(getApplication(), NewAppWidget.class));
+//                    widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
+//                    MainActivity.this.sendBroadcast(widgetIntent);
+        NewAppWidget myWidget = new NewAppWidget();
+        myWidget.onUpdate(this, AppWidgetManager.getInstance(this),ids);
+
     }
 
     @Override
@@ -847,13 +855,24 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
     private void setDailyWork(){
 
-//        AlarmManager dayoff = AlarmManager
-//
-//        WorkManager workManager = WorkManager.getInstance();
-//        PeriodicWorkRequest request = PeriodicWorkRequest().Builder().build();
-//
-//        workManager.enqueue(request);
+        //schedule이 걸린적 없으면 실행
+        if(!sSharedPreferences.getBoolean("schedule", false)) {
+            AlarmManager dayoff = (AlarmManager) this.getSystemService(ALARM_SERVICE);
+            Calendar now = Calendar.getInstance();
+            now.setTimeInMillis(System.currentTimeMillis());
+            Calendar tomorrow = now;
+            tomorrow.add(Calendar.DAY_OF_YEAR, 1);
+            tomorrow.set(Calendar.HOUR_OF_DAY, 0);
+            tomorrow.set(Calendar.MINUTE, 0);
+            tomorrow.set(Calendar.SECOND, 0);
+            final Intent scheduleIntent = new Intent(this, ScheduleReceiver.class);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1000, scheduleIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            dayoff.set(AlarmManager.RTC_WAKEUP, tomorrow.getTimeInMillis(), pendingIntent);
 
+            SharedPreferences.Editor editor = sSharedPreferences.edit();
+            editor.putBoolean("schedule", true);
+            editor.apply();
+        }
     }
 
 }

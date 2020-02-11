@@ -170,27 +170,25 @@ public class HomeFragment extends Fragment {
                     item.setChecked(true);
 //                    Toast.makeText(getContext(), getString(R.string.tv_item_home_alarm_not), Toast.LENGTH_SHORT).show();
 
-
-
                     //알림 켜기
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTimeInMillis(System.currentTimeMillis());
                     int DDay = item.getmDDay();
                     int alarmBeforePay = item.getmAlarm();
-                    calendar.add(Calendar.DAY_OF_YEAR, DDay - alarmBeforePay);
-                    calendar.set(Calendar.HOUR_OF_DAY, 12);
-                    calendar.set(Calendar.MINUTE, 0);
-                    calendar.set(Calendar.SECOND, 0);
 
+                    if(alarmBeforePay != -1) {
+                        calendar.add(Calendar.DAY_OF_YEAR, DDay - alarmBeforePay);
+                        calendar.set(Calendar.HOUR_OF_DAY, 12);
+                        calendar.set(Calendar.MINUTE, 0);
+                        calendar.set(Calendar.SECOND, 0);
 
-                    alarmIntent.putExtra("state", "on");
-                    alarmIntent.putExtra("index", pos);
-                    alarmIntent.putExtra("title", item.getmBrand());
-                    alarmIntent.putExtra("before", item.getmAlarm());
-                    mPendingIntent = PendingIntent.getBroadcast(getContext(), pos, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-                    mAlarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mPendingIntent);
-//                    getActivity().sendBroadcast(alarmIntent);
-
+                        alarmIntent.putExtra("state", "on");
+                        alarmIntent.putExtra("index", pos);
+                        alarmIntent.putExtra("title", item.getmBrand());
+                        alarmIntent.putExtra("before", item.getmAlarm());
+                        mPendingIntent = PendingIntent.getBroadcast(getContext(), pos, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                        mAlarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mPendingIntent);
+                    }
                 }
                 mHomeAdapter.notifyDataSetChanged();
             }
@@ -208,6 +206,7 @@ public class HomeFragment extends Fragment {
     public void addItem(HomeItem item) {
         mHomeItemList.add(item);
         mHomeAdapter.notifyDataSetChanged();
+        this.saveList();
     }
 
     public void setItem(int pos, HomeItem item) {
@@ -225,7 +224,7 @@ public class HomeFragment extends Fragment {
 
     public void syncItems(int difference) {
 //        Log.d("로그", "sync items");
-        for (int i = 0; i < mHomeItemList.size(); i++) {
+/*        for (int i = 0; i < mHomeItemList.size(); i++) {
             HomeItem item = mHomeItemList.get(i);
             int day = item.getmDDay();
             int calDateDays = 0;
@@ -283,8 +282,8 @@ public class HomeFragment extends Fragment {
 //                Log.d("로그", "After Day: " + item.getmDDay());
             }
         }
-
-        this.saveList();
+*/
+//        this.saveList();
         mHomeAdapter.notifyDataSetChanged();
     }
 
@@ -363,6 +362,10 @@ public class HomeFragment extends Fragment {
         SharedPreferences.Editor editor = sSharedPreferences.edit();
         editor.putString("homeList", json);
         editor.apply();
+
+    }
+
+    public void AdapterNotify(){
 
     }
 

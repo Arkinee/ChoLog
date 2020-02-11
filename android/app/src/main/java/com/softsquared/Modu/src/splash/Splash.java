@@ -103,6 +103,12 @@ public class Splash extends BaseActivity implements SplashActivityView {
         //초반 플래시 화면에서 넘어갈때 뒤로가기 버튼 못누르게 함
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        //하루마다 아이템의 D day를 감소시키는 work를 세팅
 
 
+    }
 }

@@ -22,13 +22,10 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         Intent notificationIntent = new Intent(context, MainActivity.class);
-
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "Modu");
-
         builder.setSmallIcon(R.mipmap.ic_modu)
 //                .setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.mipmap.ic_modu))
                 .setContentTitle(intent.getStringExtra("title"))

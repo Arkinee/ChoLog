@@ -3,7 +3,9 @@ package com.softsquared.Modu.src.fcm;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,8 @@ import androidx.core.app.NotificationCompat;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.softsquared.Modu.R;
+import com.softsquared.Modu.src.main.MainActivity;
+import com.softsquared.Modu.src.splash.Splash;
 
 public class MyFireBaseMessagingService extends FirebaseMessagingService {
 
@@ -36,6 +40,10 @@ public class MyFireBaseMessagingService extends FirebaseMessagingService {
     private void sendNotification(RemoteMessage remoteMessage){
         String title = remoteMessage.getData().get("title");
         String message = remoteMessage.getData().get("message");
+
+        Intent notificationIntent = new Intent(getApplicationContext(), Splash.class);
+        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         /**
          * 오레오 버전부터는 Notification Channel이 없으면 푸시가 생성되지 않는 현상이 있습니다.
@@ -62,6 +70,7 @@ public class MyFireBaseMessagingService extends FirebaseMessagingService {
                             .setContentText(message)
                             .setChannelId(channel)
                             .setAutoCancel(true)
+                            .setContentIntent(pendingIntent)
                             .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
 
             NotificationManager notificationManager =
@@ -76,6 +85,7 @@ public class MyFireBaseMessagingService extends FirebaseMessagingService {
                             .setContentTitle(title)
                             .setContentText(message)
                             .setAutoCancel(true)
+                            .setContentIntent(pendingIntent)
                             .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
 
             NotificationManager notificationManager =

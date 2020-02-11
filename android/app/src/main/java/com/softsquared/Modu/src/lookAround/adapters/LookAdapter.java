@@ -1,6 +1,7 @@
 package com.softsquared.Modu.src.lookAround.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -103,6 +104,8 @@ public class LookAdapter extends RecyclerView.Adapter<LookAdapter.ViewHolder> {
         if (lookItem.getmImageUrl() != null) {
             imageUrl = lookItem.getmImageUrl().replace("drive.google.com/open", "docs.google.com/uc");
         }
+
+        Log.d("로그", "adapter url: " +imageUrl);
         Glide.with(mContext).load(imageUrl).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.DATA).placeholder(R.drawable.ic_default).override(50, 50).into(holder.ivLookImage);
 
     }

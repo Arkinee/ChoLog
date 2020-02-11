@@ -90,6 +90,10 @@
         </service>
         
         <!-- Schedule-->
+        <receiver
+            android:name=".src.schedule.ScheduleReceiver"
+            android:enabled="true"
+            android:exported="false" />
 
         <!-- Facebook SDK -->
         <meta-data

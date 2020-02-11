@@ -25,18 +25,6 @@ public class DailyWorker extends Worker {
 
 
 
-        Calendar now = Calendar.getInstance();
-        now.setTimeInMillis(System.currentTimeMillis());
-        Calendar tomorrow =  now;
-        tomorrow.add(Calendar.DAY_OF_YEAR, 1);
-        tomorrow.set(Calendar.HOUR_OF_DAY, 0);
-        tomorrow.set(Calendar.MINUTE, 0);
-        tomorrow.set(Calendar.SECOND, 0);
-
-        long diff = (tomorrow.getTimeInMillis() - now.getTimeInMillis()) / 1000;
-
-
-
         return Result.success();
     }
 }

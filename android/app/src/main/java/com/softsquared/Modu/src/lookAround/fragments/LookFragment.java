@@ -3,6 +3,7 @@ package com.softsquared.Modu.src.lookAround.fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,6 +87,8 @@ public class LookFragment extends Fragment {
         this.setItems("recommendList", mLookRecommendList);
         this.setItems("onlineList", mLookOnlineList);
         this.setItems("offlineList", mLookOfflineList);
+
+        Log.d("로그", "image url : " + mLookPopularList.get(0).getmImageUrl());
 
         return view;
     }

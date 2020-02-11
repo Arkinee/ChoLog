@@ -6,30 +6,30 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="로그" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da160842-ae57-4e26-8898-dedb12e5d479" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/DailyWorker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/PayAlarmWorker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/ScheduleReceiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_9_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_9_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_glide_4_9_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_glide_4_9_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/AlarmReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/AlarmReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/alarmDialog/AlarmDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/alarmDialog/AlarmDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/alarmDialog/AlarmListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/alarmDialog/AlarmListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/fcm/MyFireBaseMessagingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/fcm/MyFireBaseMessagingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/adapter/HomeAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/adapter/HomeAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/models/HomeItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/models/HomeItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/adapters/LookAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/adapters/LookAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/ServiceAddActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/ServiceAddActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/DailyWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/DailyWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/splash/Splash.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/splash/Splash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/NewAppWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/NewAppWidget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_alarm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_alarm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/widget_modu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/widget_modu.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +40,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="S10_API_29" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="ce04160482a9281303" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -80,131 +80,71 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5265734">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/HomeFragment.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2252">
-                  <caret line="173" selection-start-line="173" selection-end-line="173" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/adapter/HomeAdapter.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1059">
-                  <caret line="160" selection-start-line="160" selection-end-line="160" />
-                  <folding>
-                    <element signature="e#6635#6688#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/models/HomeItem.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="200">
-                  <caret line="32" column="27" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="27" />
-                  <folding>
-                    <element signature="e#4407#4408#0" expanded="true" />
-                    <element signature="e#4438#4439#0" expanded="true" />
-                    <element signature="e#4486#4487#0" expanded="true" />
-                    <element signature="e#4526#4527#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainActivity.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="527">
-                  <caret line="844" column="33" lean-forward="true" selection-start-line="844" selection-start-column="33" selection-end-line="844" selection-end-column="33" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-              <provider editor-type-id="android-manifest" />
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="895">
-                  <caret line="98" selection-start-line="98" selection-end-line="98" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/NewAppWidget.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="988">
-                  <caret line="71" column="24" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="24" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/DeviceBootReceiver.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="304">
-                  <caret line="30" selection-start-line="30" selection-end-line="30" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/PayAlarmWorker.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="76">
-                  <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/AlarmReceiver.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="641">
-                  <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/DailyWorker.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="475">
-                  <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/ApplicationClass.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="118">
-                  <caret line="37" column="36" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="36" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1106">
+              <caret line="715" column="28" selection-start-line="715" selection-start-column="24" selection-end-line="715" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="90" column="37" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/adapters/LookAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="93" column="40" lean-forward="true" selection-start-line="93" selection-start-column="40" selection-end-line="93" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/DailyWorker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="427">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="332">
+              <caret line="101" selection-start-line="101" selection-end-line="101" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/interfaces/MainRetrofitInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -216,12 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>둘러보기</find>
-      <find>btn_look_around</find>
-      <find>상품 준비</find>
-      <find>onActivi</find>
-      <find>commit</find>
-      <find>ff174c</find>
       <find>mBack</find>
       <find>searchAPI</find>
       <find>JsonArray</find>
@@ -231,13 +165,11 @@
       <find>일</find>
       <find>080417</find>
       <find>alarmPer</find>
-      <find>alarm</find>
       <find>알람일</find>
       <find>알람 일</find>
       <find>hf</find>
       <find>save</find>
       <find>dot</find>
-      <find>add</find>
       <find>checked</find>
       <find>check</find>
       <find>uuid</find>
@@ -246,6 +178,14 @@
       <find>setField</find>
       <find>cancel</find>
       <find>broad</find>
+      <find>alarm</find>
+      <find>-1</find>
+      <find>widget</find>
+      <find>add</find>
+      <find>saveList</find>
+      <find>onStop</find>
+      <find>syncItems</find>
+      <find>sync</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -260,10 +200,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/fcm/FireBaseMessagingService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/fcm/ModuFireBaseMessagingService.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/fcm/MyFireBaseMessagingService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/models/UploadResponse.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_look_around.xml" />
@@ -286,12 +223,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/interfaces/MainRetrofitInterface.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/widget_provider.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/widget_modu.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookOfflineFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookPopularFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookRecommendFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/myInfo/MyInfoFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookOnlineFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/dialog/alarmDialog/AlarmListener.java" />
@@ -301,23 +236,28 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/DeviceBootReceiver.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/adapter/HomeAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/DailyJobService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/splash/Splash.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/ServiceAddActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/AlarmReceiver.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/PayAlarmWorker.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/AlarmReceiver.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/fcm/MyFireBaseMessagingService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/widget_modu.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/NewAppWidget.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/HomeFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/DailyWorker.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/splash/Splash.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/ScheduleReceiver.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/HomeFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/adapters/LookAdapter.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="width" value="2107" />
-    <option name="height" value="1398" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="width" value="1943" />
+    <option name="height" value="1103" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -327,6 +267,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -366,7 +307,83 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="fcm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="adapter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lookAround" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lookAround" type="462c0819:PsiDirectoryNode" />
+              <item name="adapters" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lookAround" type="462c0819:PsiDirectoryNode" />
+              <item name="fragments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lookAround" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="schedule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="serviceAdd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="Modu" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="splash" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="android" type="1abcf292:AndroidViewProjectNode" />
@@ -383,25 +400,18 @@
             </path>
             <path>
               <item name="android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="xml" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="android" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="android" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
             </path>
           </expand>
           <select />
@@ -444,18 +454,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="android" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -611,11 +609,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="1685" height="1118" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.12" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.13959731" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -623,21 +621,21 @@
       <window_info id="Designer" order="6" />
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Capture Tool" order="8" />
-      <window_info anchor="bottom" id="Run" order="0" weight="0.32588834" />
-      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.4993113" weight="0.30558375" />
-      <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.4993113" weight="0.328934" />
+      <window_info anchor="bottom" id="Run" order="0" weight="0.3248227" />
+      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.4993113" weight="0.2397163" />
+      <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.4993113" weight="0.32765958" />
       <window_info anchor="bottom" id="Debug" order="3" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.32914376" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50068873" side_tool="true" weight="0.328934" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3295129" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.2324873" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.23120567" />
       <window_info anchor="bottom" id="Android Profiler" order="8" weight="0.3295129" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.3283582" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.2116923" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Preview" order="4" weight="0.3914623" />
+      <window_info anchor="right" id="Preview" order="4" weight="0.24630873" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Assistant" order="6" weight="0.3341289" />
     </layout>
@@ -671,17 +669,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/MyRemoteViewsService.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/WidgetProvider.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/new_app_widget_info.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/splash/model/SplashResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/widget_example.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/models/CurrencyResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -691,17 +678,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/models/UpLoadResponse.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_product.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="68" column="48" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="48" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/splash/SplashService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
@@ -757,41 +737,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/interfaces/MainRetrofitInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1954">
-          <caret line="120" selection-start-line="120" selection-end-line="120" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Documents/카카오톡 받은 파일/culture/appActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8156">
-          <caret line="217" lean-forward="true" selection-start-line="217" selection-end-line="217" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/widget_modu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="38" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
+    <entry file="file://$USER_HOME$/Documents/카카오톡 받은 파일/culture/appActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/myInfo/MyInfoFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
@@ -806,13 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookOfflineFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookPopularFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="655">
@@ -824,13 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="736">
           <caret line="102" column="25" lean-forward="true" selection-start-line="102" selection-start-column="25" selection-end-line="102" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="745">
-          <caret line="130" column="128" lean-forward="true" selection-start-line="130" selection-start-column="12" selection-end-line="130" selection-end-column="128" />
         </state>
       </provider>
     </entry>
@@ -863,12 +795,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_alarm.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
           <caret line="40" column="34" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -891,44 +823,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/splash/Splash.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/DailyJobService.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/BaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="53" column="51" lean-forward="true" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2909#2910#0" expanded="true" />
-            <element signature="e#2961#2962#0" expanded="true" />
-            <element signature="e#3027#3028#0" expanded="true" />
-            <element signature="e#3079#3080#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/ServiceAddActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="260" column="79" selection-start-line="260" selection-start-column="79" selection-end-line="260" selection-end-column="79" />
-          <folding>
-            <element signature="e#7070#7114#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="42" column="57" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/fcm/MyFireBaseMessagingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1577">
-          <caret line="85" column="8" lean-forward="true" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="95">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -939,89 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/DailyJobService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#242#243#0" expanded="true" />
-            <element signature="e#270#271#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#373#374#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/adapter/HomeAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1059">
-          <caret line="160" selection-start-line="160" selection-end-line="160" />
-          <folding>
-            <element signature="e#6635#6688#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/models/HomeItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="32" column="27" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="27" />
-          <folding>
-            <element signature="e#4407#4408#0" expanded="true" />
-            <element signature="e#4438#4439#0" expanded="true" />
-            <element signature="e#4486#4487#0" expanded="true" />
-            <element signature="e#4526#4527#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/NewAppWidget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="988">
-          <caret line="71" column="24" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="895">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/AlarmReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
-          <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/PayAlarmWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/HomeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2252">
-          <caret line="173" selection-start-line="173" selection-end-line="173" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/BaseActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/ApplicationClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
@@ -1029,10 +845,135 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/models/HomeItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/PayAlarmWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/fcm/MyFireBaseMessagingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/alarm/AlarmReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="24" column="102" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="102" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/serviceAdd/ServiceAddActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2746">
+          <caret line="502" column="56" selection-start-line="502" selection-start-column="47" selection-end-line="502" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/widget_modu.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="63" column="37" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="93" column="56" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/widget/NewAppWidget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="77" column="64" lean-forward="true" selection-start-line="77" selection-start-column="64" selection-end-line="77" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/adapter/HomeAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="157" column="55" selection-start-line="157" selection-start-column="43" selection-end-line="157" selection-end-column="55" />
+          <folding>
+            <element signature="e#6635#6688#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/splash/Splash.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/home/HomeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4617">
+          <caret line="352" column="16" selection-start-line="352" selection-start-column="16" selection-end-line="352" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/ScheduleReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="103" column="57" selection-start-line="103" selection-start-column="57" selection-end-line="103" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/splash/SplashService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/schedule/DailyWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="427">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="101" selection-start-line="101" selection-end-line="101" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/interfaces/MainRetrofitInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1041,8 +982,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/main/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="844" column="33" lean-forward="true" selection-start-line="844" selection-start-column="33" selection-end-line="844" selection-end-column="33" />
+        <state relative-caret-position="-1106">
+          <caret line="715" column="28" selection-start-line="715" selection-start-column="24" selection-end-line="715" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/models/LookListResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/models/LookListItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/models/LookItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="90" column="37" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/fragments/LookOfflineFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-846">
+          <caret line="38" column="42" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/softsquared/Modu/src/lookAround/adapters/LookAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="93" column="40" lean-forward="true" selection-start-line="93" selection-start-column="40" selection-end-line="93" selection-end-column="40" />
         </state>
       </provider>
     </entry>
