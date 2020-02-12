@@ -170,25 +170,26 @@ public class HomeFragment extends Fragment {
                     item.setChecked(true);
 //                    Toast.makeText(getContext(), getString(R.string.tv_item_home_alarm_not), Toast.LENGTH_SHORT).show();
 
-                    //알림 켜기
-                    Calendar calendar = Calendar.getInstance();
-                    calendar.setTimeInMillis(System.currentTimeMillis());
-                    int DDay = item.getmDDay();
-                    int alarmBeforePay = item.getmAlarm();
+//                    //알림 켜기
+//                    Calendar calendar = Calendar.getInstance();
+//                    calendar.setTimeInMillis(System.currentTimeMillis());
+//                    int DDay = item.getmDDay();
+//                    int alarmBeforePay = item.getmAlarm();
+//
+//                    if(alarmBeforePay != -1) {
+//                        calendar.add(Calendar.DAY_OF_YEAR, DDay - alarmBeforePay);
+//                        calendar.set(Calendar.HOUR_OF_DAY, 12);
+//                        calendar.set(Calendar.MINUTE, 0);
+//                        calendar.set(Calendar.SECOND, 0);
+//
+//                        alarmIntent.putExtra("state", "on");
+//                        alarmIntent.putExtra("index", pos);
+//                        alarmIntent.putExtra("title", item.getmBrand());
+//                        alarmIntent.putExtra("before", item.getmAlarm());
+//                        mPendingIntent = PendingIntent.getBroadcast(getContext(), pos, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+//                        mAlarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mPendingIntent);
+//                    }
 
-                    if(alarmBeforePay != -1) {
-                        calendar.add(Calendar.DAY_OF_YEAR, DDay - alarmBeforePay);
-                        calendar.set(Calendar.HOUR_OF_DAY, 12);
-                        calendar.set(Calendar.MINUTE, 0);
-                        calendar.set(Calendar.SECOND, 0);
-
-                        alarmIntent.putExtra("state", "on");
-                        alarmIntent.putExtra("index", pos);
-                        alarmIntent.putExtra("title", item.getmBrand());
-                        alarmIntent.putExtra("before", item.getmAlarm());
-                        mPendingIntent = PendingIntent.getBroadcast(getContext(), pos, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-                        mAlarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mPendingIntent);
-                    }
                 }
                 mHomeAdapter.notifyDataSetChanged();
             }
@@ -333,6 +334,22 @@ public class HomeFragment extends Fragment {
         }
 
         mOnceFlag = false;
+
+        if(sSharedPreferences.getBoolean("change", false)) {
+            String homeList = sSharedPreferences.getString("homeList", "");
+            Type listType = new TypeToken<ArrayList<HomeItem>>() {
+            }.getType();
+
+            Gson gson = new GsonBuilder().create();
+            if (gson.fromJson(homeList, listType) != null) {
+                mHomeItemList = gson.fromJson(homeList, listType);
+            }
+            adapterNotify();
+
+            SharedPreferences.Editor editor = sSharedPreferences.edit();
+            editor.putBoolean("change", false);
+            editor.apply();
+        }
 
         SharedPreferences.Editor editor = sSharedPreferences.edit();
         if (mHomeItemList.size() > 0) {

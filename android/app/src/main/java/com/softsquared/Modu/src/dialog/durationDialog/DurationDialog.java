@@ -41,6 +41,7 @@ public class DurationDialog extends Dialog {
         PickerNumber.setMaxValue(durationArray.length - 1);
         PickerPer.setMinValue(0);
         PickerPer.setMaxValue(durationPer.length - 1);
+        PickerPer.setValue(2);  //default 값을 '달'로 세팅
 //        mPickerPer.setFormatter(new NumberPicker.Formatter() {
 //            @Override
 //            public String format(int i) {

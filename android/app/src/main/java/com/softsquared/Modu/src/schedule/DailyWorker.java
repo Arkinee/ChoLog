@@ -1,5 +1,7 @@
 package com.softsquared.Modu.src.schedule;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -14,6 +16,7 @@ import androidx.work.WorkerParameters;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.softsquared.Modu.src.alarm.AlarmReceiver;
 import com.softsquared.Modu.src.home.models.HomeItem;
 import com.softsquared.Modu.src.widget.NewAppWidget;
 
@@ -25,6 +28,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import static android.content.Context.ALARM_SERVICE;
 import static com.softsquared.Modu.src.ApplicationClass.DATE_FORMAT;
 import static com.softsquared.Modu.src.ApplicationClass.sSharedPreferences;
 
@@ -40,6 +44,7 @@ public class DailyWorker extends Worker {
     public Result doWork() {
 
 //        int result = getInputData().getInt(WORK_RESULT, 0);
+        SharedPreferences.Editor editor = sSharedPreferences.edit();
 
         Log.d("로그", "doWork");
         Date nowTime = Calendar.getInstance().getTime();
@@ -51,9 +56,9 @@ public class DailyWorker extends Worker {
 
         try {
             Date lastTime;
-            if(last_date.equals("")){
+            if (last_date.equals("")) {
                 lastTime = nowTime;
-            }else {
+            } else {
                 lastTime = DATE_FORMAT.parse(last_date);
             }
             long calDate = nowTime.getTime() - lastTime.getTime();
@@ -65,7 +70,7 @@ public class DailyWorker extends Worker {
             Log.d("로그", "parsing error");
         }
 
-        if(difference != 0) {
+        if (difference != 0) {
 
             ArrayList<HomeItem> homeItemList = new ArrayList<>();
             String homeList = sSharedPreferences.getString("homeList", "");
@@ -124,7 +129,7 @@ public class DailyWorker extends Worker {
                         calDateDays = Math.abs(calDateDays);
                         item.setmDDay(calDateDays);
                     } catch (ParseException e) {
-                        Log.d("로그", "날짜 파싱 에러");
+                        Log.d("로그", "work 날짜 파싱 에러");
                     }
                 } else {
                     item.setmDDay(item.getmDDay() - difference);
@@ -135,10 +140,32 @@ public class DailyWorker extends Worker {
             saveList(homeItemList);
             syncWidget();
 
-        }  // difference가 0이 아닐때 행해질 작업 finish
+            editor.putBoolean("change", true);
+            editor.apply();
+
+            //알람 체크된 아이템들 확인 후 dday가 알람과 같거나 작으면 푸쉬알림 보내기
+            for (int i = 0; i < homeItemList.size(); i++) {
+                HomeItem item = homeItemList.get(i);
+
+                // -1이면 없음
+                if (item.getmDDay() == item.getmAlarm() && item.getmAlarm() != -1) {
+                    AlarmManager alarmManager = (AlarmManager) getApplicationContext().getSystemService(ALARM_SERVICE);
+                    final Intent alarmIntent = new Intent(getApplicationContext(), AlarmReceiver.class);
+                    alarmIntent.putExtra("state", "on");
+                    alarmIntent.putExtra("index", i);
+                    alarmIntent.putExtra("title", item.getmBrand());
+                    alarmIntent.putExtra("before", item.getmAlarm());
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), i, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+//                    alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mPendingIntent);
+                    getApplicationContext().sendBroadcast(alarmIntent);
+                }
+
+            }
+
+        }//difference 0 아닐때 작업
 
         //작업이 끝나고 마지막 시간을 저장
-        SharedPreferences.Editor editor = sSharedPreferences.edit();
+//        SharedPreferences.Editor editor = sSharedPreferences.edit();
         Date lastTime = Calendar.getInstance().getTime();
         String last = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(lastTime);
         editor.putString("lastTime", last);
@@ -147,7 +174,7 @@ public class DailyWorker extends Worker {
         return Result.success();
     }
 
-    private void saveList(ArrayList<HomeItem> homeItemList){
+    private void saveList(ArrayList<HomeItem> homeItemList) {
         Gson gson = new GsonBuilder().create();
         Type listType = new TypeToken<ArrayList<HomeItem>>() {
         }.getType();
@@ -157,12 +184,12 @@ public class DailyWorker extends Worker {
         editor.apply();
     }
 
-    private void syncWidget(){
+    private void syncWidget() {
         Intent widgetIntent = new Intent(getApplicationContext(), NewAppWidget.class);
         widgetIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
         int[] ids = AppWidgetManager.getInstance(getApplicationContext()).getAppWidgetIds(new ComponentName(getApplicationContext(), NewAppWidget.class));
         NewAppWidget myWidget = new NewAppWidget();
-        myWidget.onUpdate(getApplicationContext(), AppWidgetManager.getInstance(getApplicationContext()),ids);
+        myWidget.onUpdate(getApplicationContext(), AppWidgetManager.getInstance(getApplicationContext()), ids);
     }
 
 }

@@ -71,9 +71,9 @@
             android:name=".src.alarm.AlarmReceiver"
             android:enabled="true"
             android:exported="false" />
+
         <receiver
-            android:name=".src.alarm.DeviceBootReceiver"
-            android:enabled="false">
+            android:name=".src.alarm.DeviceBootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

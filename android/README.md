@@ -128,9 +128,19 @@ MakeUs_Project_Team_ChoLogBin_Android
 		- PeriodicWorkRequest주기 : 15분
 		- doWork에서 하루가 지났는지를 체크 
 		=> 하루 이상이 지났으면 (보통 하루, 2틀이상 꺼놨을 시 꺼둔 날짜만큼 차이 발생) 그 차이를 계산해서 아이템들 DDay에서 감소시킴
-	- doWork가 완료되고 아이템 저장 및 위젯 업데이트
+		- doWork가 완료되고 아이템 저장 및 위젯 업데이트
 	
-	-Widget
+	- Widget
 		- 새로운 UI 적용
 		- Work반복될때마다 그리고 앱에서 아이템을 추가하거나 삭제했을 시에 업데이트
 		- 3 * 1 크기로 고정 (resizeMode=none)
+
+# 2.12
+	- Scheduling
+		- 기기를 재부팅 할 시에 Device의 Reboot Complete intent를 받아서 처리하는 DeviceRebootReceiver를 이용하여 앱을 처음 설치했을시에
+		  설정되는 alarmManager의 세팅을 다시 한번 set해줌
+		- 15분 마다 시간을 재는 WorkManager에서 D Day가 바뀌었다면 그 아이템의 결제 몇일 전에 알람을 받기로 했는지와 비교하여 같다면
+		   푸시 알림을 띄워줌
+
+	- ServiceAdd
+		- 서비스의 duration Dialog에서 default 값을 1 달로 지정함

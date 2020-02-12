@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 
@@ -19,6 +20,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         int index = intent.getIntExtra("index", 0);
+        Log.d("로그", "푸시 index: " + index);
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         Intent notificationIntent = new Intent(context, MainActivity.class);
@@ -30,7 +32,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 //                .setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.mipmap.ic_modu))
                 .setContentTitle(intent.getStringExtra("title"))
                 .setContentText("정기 구독 결제 전 알림이 왔습니다!")
-                .setAutoCancel(false)
+                .setAutoCancel(true)
                 .setContentIntent(pendingIntent);   // 푸쉬 클릭 시 메인으로
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

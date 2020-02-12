@@ -37,6 +37,10 @@ public class ScheduleReceiver extends BroadcastReceiver {
 
         Log.d("로그", "scheduleReceiver OnReceive");
 
+        SharedPreferences.Editor editor = sSharedPreferences.edit();
+        editor.putBoolean("scheduleComplete", true);
+        editor.apply();
+
         // 처음에는 일단 D day를 하루씩 감소
         ArrayList<HomeItem> homeItemList = new ArrayList<>();
         String homeList = sSharedPreferences.getString("homeList", "");
@@ -108,7 +112,6 @@ public class ScheduleReceiver extends BroadcastReceiver {
 //        }
 
         String json = gson.toJson(homeItemList, listType);
-        SharedPreferences.Editor editor = sSharedPreferences.edit();
         editor.putString("homeList", json);
         editor.apply();
 
