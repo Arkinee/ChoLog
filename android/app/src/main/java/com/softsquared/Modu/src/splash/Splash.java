@@ -40,37 +40,34 @@ public class Splash extends BaseActivity implements SplashActivityView {
 
     }
 
-    private void getFcmToken(){
+    private void getFcmToken() {
         FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
             @Override
             public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                if(!task.isSuccessful()){
+                if (!task.isSuccessful()) {
                     Log.d("로그", "getInstanceId failed", task.getException());
                     return;
                 }
 
                 String token = task.getResult().getToken();
-//                Log.d("로그", "fcm token : " + token);
+                Log.d("로그", "fcm token : " + token);
                 //이전 fcm 토큰이 없거나 현재와 다를 때 로컬에 저장 후 서버에 날림
-                if(!sSharedPreferences.getString("fcmToken", "").equals(token)){
-                    SharedPreferences.Editor editor = sSharedPreferences.edit();
-                    editor.putString("fcmToken", token);
-                    editor.apply();
 
-                    JSONObject body = new JSONObject();
-                    String uuid = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+                JSONObject body = new JSONObject();
+                String uuid = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+                Log.d("로그", "uuid:" + uuid);
 
-                    try {
-                        body.put("uuid", uuid);
-                        body.put("fcm", sSharedPreferences.getString("fcmToken", ""));
-                    }catch (Exception e){
-                        return;
-                    }
-
-                    final SplashService postTokenService = new SplashService(mSplashActivityView, body, mContext);
-                    postTokenService.tryPostToken();
-
+                try {
+                    body.put("uuid", uuid);
+                    body.put("fcm", token);
+                } catch (Exception e) {
+                    return;
                 }
+
+                final SplashService postTokenService = new SplashService(mSplashActivityView, body, mContext);
+                postTokenService.tryPostToken();
+
+
             }
         });
     }

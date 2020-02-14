@@ -42,7 +42,7 @@ public class MyFireBaseMessagingService extends FirebaseMessagingService {
         String message = remoteMessage.getData().get("message");
 
         Intent notificationIntent = new Intent(getApplicationContext(), Splash.class);
-        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP & Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         /**
