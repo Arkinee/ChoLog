@@ -61,7 +61,7 @@
     <string name="tv_service_duration_month">마다</string>
     <string name="tv_service_add_image">이미지 추가</string>
     <string name="tv_service_add_image_btn">추가하기</string>
-    <string name="tv_service_alarm">알림 설정 (추후 업데이트)</string>
+    <string name="tv_service_alarm">알림 설정</string>
     <string name="tv_service_alarm_hint">다음 결제일로부터</string>
     <string name="tv_service_alarm_day">전</string>
     <string name="tv_service_extra">추가 설명</string>

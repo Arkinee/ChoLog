@@ -67,10 +67,11 @@ public class MyFireBaseMessagingService extends FirebaseMessagingService {
                     new NotificationCompat.Builder(this, channel)
                             .setSmallIcon(R.mipmap.ic_modu)
                             .setContentTitle(title)
-                            .setContentText(message)
+//                            .setContentText(message)
                             .setChannelId(channel)
                             .setAutoCancel(true)
                             .setContentIntent(pendingIntent)
+                            .setStyle(new NotificationCompat.BigTextStyle().bigText(message))
                             .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
 
             NotificationManager notificationManager =
