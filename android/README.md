@@ -144,3 +144,8 @@ MakeUs_Project_Team_ChoLogBin_Android
 
 	- ServiceAdd
 		- 서비스의 duration Dialog에서 default 값을 1 달로 지정함
+
+# 2.16
+	- Scheduling
+		- AlarmManager 작동을 없애고 모든 스케쥴링 부분을 WorkManager가 수행하도록 변경
+		-v1.2.2 적용 

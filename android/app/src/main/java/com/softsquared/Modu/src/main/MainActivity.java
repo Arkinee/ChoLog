@@ -1,7 +1,5 @@
 package com.softsquared.Modu.src.main;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -25,7 +23,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.work.OneTimeWorkRequest;
+import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 
@@ -55,7 +53,6 @@ import com.softsquared.Modu.src.main.models.Items;
 import com.softsquared.Modu.src.myInfo.MyInfoFragment;
 import com.softsquared.Modu.src.myInfo.models.MyInfoItem;
 import com.softsquared.Modu.src.schedule.DailyWorker;
-import com.softsquared.Modu.src.schedule.ScheduleReceiver;
 import com.softsquared.Modu.src.serviceAdd.ServiceAddActivity;
 import com.softsquared.Modu.src.widget.NewAppWidget;
 
@@ -70,8 +67,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 import static com.softsquared.Modu.src.ApplicationClass.DATE_FORMAT;
+import static com.softsquared.Modu.src.ApplicationClass.SCHEDULE_TAG;
 import static com.softsquared.Modu.src.ApplicationClass.myFormatter;
 import static com.softsquared.Modu.src.ApplicationClass.sSharedPreferences;
 
@@ -379,9 +378,9 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         nextDate = DATE_FORMAT.parse(last);
                         cal.setTime(nextDate);
                         if (durationPer == 0) {
-                            cal.add(Calendar.DAY_OF_MONTH, duration);
+                            cal.add(Calendar.DAY_OF_YEAR, duration);
                         } else if (durationPer == 1) {
-                            cal.add(Calendar.WEEK_OF_MONTH, duration);
+                            cal.add(Calendar.WEEK_OF_YEAR, duration);
                         } else if (durationPer == 2) {
                             cal.add(Calendar.MONTH, duration);
                         } else if (durationPer == 3) {
@@ -698,26 +697,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
             mMainMyInfoList = gson.fromJson(myInfoList, listType);
         }
 
-
-        //마지막 저장된 날짜에서 다음 시작일의 차이만큼 아이템 날짜 업데이트
-//        Date nowTime = Calendar.getInstance().getTime();
-////        String now_date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(nowTime);
-//        String last_date = sSharedPreferences.getString("lastTime", "");
-////        Log.d("로그", "current date: " + last_date);
-//        int difference = 0;
-//        try {
-//            Date lastTime = DATE_FORMAT.parse(last_date);
-//            long calDate = nowTime.getTime() - lastTime.getTime();
-//            difference = (int) (calDate / (24 * 60 * 60 * 1000));
-//            difference = Math.abs(difference);
-//
-//        } catch (ParseException e) {
-//            Log.d("로그", "parsing error");
-//        }
-
-//        Log.d("로그", "differ: " + difference);
-//        mHomeFragment.syncItems(difference);
-
     }
 
     @Override
@@ -725,10 +704,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         super.onStop();
         //홈 월 가격 저장, 마지막 날짜 저장
         SharedPreferences.Editor editor = sSharedPreferences.edit();
-//        Date lastTime = Calendar.getInstance().getTime();
-//        String last_date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(lastTime);
-//        editor.putString("lastTime", last_date);
-//        Log.d("로그", "last date: " + last_date);
         editor.putInt("homeFee", mHomeFee);
         editor.putInt("myInfoFee", mMyInfoFee);
         editor.apply();
@@ -777,24 +752,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         hideProgressDialog();
 
     }
-
-//    @Override
-//    protected void onRestart() {
-//        super.onRestart();
-//        ArrayList<HomeItem> itemList = new ArrayList<>();
-//        String homeList = sSharedPreferences.getString("homeList", "");
-//        Type listType = new TypeToken<ArrayList<HomeItem>>() {
-//        }.getType();
-//
-//        Gson gson = new GsonBuilder().create();
-//        if (gson.fromJson(homeList, listType) != null) {
-//            itemList = gson.fromJson(homeList, listType);
-//        }
-//
-//        HomeFragment hf = (HomeFragment) getSupportFragmentManager().findFragmentById(R.id.frame_main);
-//        hf.setItemList(itemList);
-//        hf.adapterNotify();
-//    }
 
     @Override
     public void getItemsFailure(String msg) {
@@ -876,22 +833,21 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
     private void setDailyWork(){
 
-        //schedule이 걸린적 없으면 실행
-        if(!sSharedPreferences.getBoolean("schedule", false)) {
-            AlarmManager dayoff = (AlarmManager) this.getSystemService(ALARM_SERVICE);
-            Calendar now = Calendar.getInstance();
-            now.setTimeInMillis(System.currentTimeMillis());
-            Calendar tomorrow = now;
-            tomorrow.add(Calendar.DAY_OF_YEAR, 1);
-            tomorrow.set(Calendar.HOUR_OF_DAY, 0);
-            tomorrow.set(Calendar.MINUTE, 0);
-            tomorrow.set(Calendar.SECOND, 0);
-            final Intent scheduleIntent = new Intent(this, ScheduleReceiver.class);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1000, scheduleIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-            dayoff.set(AlarmManager.RTC_WAKEUP, tomorrow.getTimeInMillis(), pendingIntent);
-
+        if(sSharedPreferences.getBoolean("firstInstall", true)) {
+            // 24시간마다 반복되는 work schedule 걸기
+            Log.d("로그", "first schedule set");
             SharedPreferences.Editor editor = sSharedPreferences.edit();
-            editor.putBoolean("schedule", true);
+            Date lastTime = Calendar.getInstance().getTime();
+            String last = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(lastTime);
+            editor.putString("lastTime", last);
+            editor.apply();
+
+            PeriodicWorkRequest.Builder daySyncBuilder = new PeriodicWorkRequest.Builder(DailyWorker.class, 15, TimeUnit.MINUTES);
+            PeriodicWorkRequest request = daySyncBuilder.build();
+            WorkManager.getInstance().cancelAllWorkByTag(SCHEDULE_TAG);
+            WorkManager.getInstance().enqueueUniquePeriodicWork(SCHEDULE_TAG, ExistingPeriodicWorkPolicy.REPLACE, request);
+
+            editor.putBoolean("firstInstall", false);
             editor.apply();
         }
     }

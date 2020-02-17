@@ -7,6 +7,8 @@ import android.media.MediaDrm;
 import android.media.UnsupportedSchemeException;
 import android.provider.Settings;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.softsquared.Modu.config.XAccessTokenInterceptor;
 
 import java.text.DecimalFormat;
@@ -58,6 +60,10 @@ public class ApplicationClass extends Application {
         if (sSharedPreferences == null) {
             sSharedPreferences = getApplicationContext().getSharedPreferences(TAG, Context.MODE_PRIVATE);
         }
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
+
     }
 
     public static String addDate(String dt, int d) throws Exception {

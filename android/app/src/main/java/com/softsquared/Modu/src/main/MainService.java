@@ -1,6 +1,7 @@
 package com.softsquared.Modu.src.main;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -123,8 +124,10 @@ class MainService {
             public void onResponse(Call<UpLoadResponse> call, Response<UpLoadResponse> response) {
 
                 final UpLoadResponse upLoadResponse = response.body();
+
                 if (upLoadResponse == null) {
                     mMainActivityView.postUploadFailure(mContext.getString(R.string.network_failure));
+                    Log.d("로그", "response null");
                     return;
                 }
 
@@ -134,6 +137,7 @@ class MainService {
             @Override
             public void onFailure(Call<UpLoadResponse> call, Throwable t) {
                 mMainActivityView.postUploadFailure(mContext.getString(R.string.network_failure));
+                Log.d("로그", "onFailure");
             }
         });
     }

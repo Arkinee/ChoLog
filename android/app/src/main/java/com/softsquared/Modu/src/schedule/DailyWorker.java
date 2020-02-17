@@ -119,6 +119,7 @@ public class DailyWorker extends Worker {
                         //마지막 결제일 초기화
                         nextLast = new Date(cal.getTimeInMillis());
                         String reset = new SimpleDateFormat("yyyy-MM-dd").format(nextLast);
+                        Log.d("로그", "reset: " + reset);
                         item.setmLast(reset);
 
                         int calDateDays = 0;

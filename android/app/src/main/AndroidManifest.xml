@@ -71,13 +71,6 @@
             android:enabled="true"
             android:exported="false" />
 
-        <receiver
-            android:name=".src.alarm.DeviceBootReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
         <!-- Event Notification -->
         <service
             android:name=".src.fcm.MyFireBaseMessagingService"
@@ -87,12 +80,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        
-        <!-- Schedule-->
-        <receiver
-            android:name=".src.schedule.ScheduleReceiver"
-            android:enabled="true"
-            android:exported="false" />
 
         <!-- Facebook SDK -->
         <meta-data
