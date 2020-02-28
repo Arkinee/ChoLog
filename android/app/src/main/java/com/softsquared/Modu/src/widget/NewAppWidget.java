@@ -53,6 +53,7 @@ public class NewAppWidget extends AppWidgetProvider {
         if(homeItemList.size() == 0) {
             Log.d("로그", "widget show no item");
             views.setTextViewText(R.id.tv_widget_day, "");
+            views.setTextViewText(R.id.tv_widget_name, "");
             views.setTextViewText(R.id.tv_widget_price, "등록된 상품이 없습니다.");
             views.setOnClickPendingIntent(R.id.widget_box, pendingIntent);
             appWidgetManager.updateAppWidget(appWidgetId, views);
@@ -60,17 +61,22 @@ public class NewAppWidget extends AppWidgetProvider {
         }
 
         int index = 0;
+        int count = 0;
         int min_day = homeItemList.get(0).getmDDay();
         for(int i=0; i< homeItemList.size(); i++){
             HomeItem item = homeItemList.get(i);
             if(item.getmDDay() < min_day){
                 min_day = item.getmDDay();
                 index = i;
+                count = 0;
+            }else if (item.getmDDay() == min_day){
+                count += 1;
             }
         }
 
         views.setTextViewText(R.id.tv_widget_day, "D-".concat(String.valueOf(min_day)));
         views.setTextViewText(R.id.tv_widget_price, myFormatter.format(homeItemList.get(index).getmPrice()).concat(context.getResources().getString(R.string.tv_main_won)));
+        views.setTextViewText(R.id.tv_widget_name, homeItemList.get(index).getmBrand());
         views.setOnClickPendingIntent(R.id.widget_box, pendingIntent);
 
         // Instruct the widget manager to update the widget

@@ -51,8 +51,6 @@ public class ApplicationClass extends Application {
     public static Retrofit retrofit;
     public static Retrofit currencyRetrofit;
 
-    public static String DEVICE_UUID;
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -63,6 +61,14 @@ public class ApplicationClass extends Application {
 
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
+
+        if(!sSharedPreferences.getBoolean("uuid_set", false)) {
+            String uuid = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+            SharedPreferences.Editor editor = sSharedPreferences.edit();
+            editor.putString("uuid", uuid);
+            editor.putBoolean("uuid_set", true);
+            editor.apply();
+        }
 
     }
 

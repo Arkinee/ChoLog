@@ -266,6 +266,6 @@
     <!-- widget -->
     <string name="tv_widget_item_tools">15</string>
     <string name="tv_widget_empty">Empty</string>
-    <string name="tv_widget_until_next">다음 결제일까지</string>
+    <string name="tv_widget_until_next">결제일까지</string>
 
 </resources>

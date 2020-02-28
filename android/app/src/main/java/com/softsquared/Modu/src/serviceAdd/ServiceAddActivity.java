@@ -497,7 +497,9 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
                 resultIntent.putExtra("year", mYear);
                 resultIntent.putExtra("month", mMonth);
                 resultIntent.putExtra("day", mDay);
-                Log.d("로그", "service day:" + mDay);
+
+                Log.d("로그", "service year-month-day:" + mYear + mMonth + mDay);
+
                 resultIntent.putExtra("duration", mDurationNum);
                 resultIntent.putExtra("durationPer", mDurationPer);
                 resultIntent.putExtra("alarm", mAlarmNum);
@@ -656,7 +658,7 @@ public class ServiceAddActivity extends BaseActivity implements ServiceAddActivi
             @Override
             public void onLastComplete(int year, int month, int day) {
                 mYear = year;
-                mMonth = month;
+                mMonth = month + 1;
                 mDay = day;
                 String last = String.valueOf(year).concat(".").concat(String.valueOf(month + 1)).concat(".").concat(String.valueOf(day));
                 mTvLast.setText(last);

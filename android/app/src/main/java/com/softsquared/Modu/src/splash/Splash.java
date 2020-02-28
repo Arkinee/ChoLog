@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
 import android.util.Base64;
 import android.util.Log;
 
@@ -22,6 +21,8 @@ import com.softsquared.Modu.src.ApplicationClass;
 import com.softsquared.Modu.src.BaseActivity;
 import com.softsquared.Modu.src.main.MainActivity;
 import com.softsquared.Modu.src.splash.interfaces.SplashActivityView;
+
+import static com.softsquared.Modu.src.ApplicationClass.sSharedPreferences;
 
 import org.json.JSONObject;
 
@@ -56,11 +57,13 @@ public class Splash extends BaseActivity implements SplashActivityView {
 
                 String token = task.getResult().getToken();
 //                Log.d("로그", "fcm token : " + token);
-                //이전 fcm 토큰이 없거나 현재와 다를 때 로컬에 저장 후 서버에 날림
 
                 JSONObject body = new JSONObject();
-                String uuid = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
-//                Log.d("로그", "uuid:" + uuid);
+                String uuid = sSharedPreferences.getString("uuid", "");
+
+                if(uuid.equals("")) return;
+
+//                Log.d("로그", "uuid: " + uuid);
 
                 try {
                     body.put("uuid", uuid);

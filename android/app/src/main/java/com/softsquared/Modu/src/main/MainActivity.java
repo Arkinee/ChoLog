@@ -336,10 +336,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                     String year = String.valueOf(homeIntent.getExtras().getInt("year"));
                     int day_int = homeIntent.getExtras().getInt("day");
 
-                    if (type == 1) {        //서비스 추가
-                        month_int = month_int + 1;
-                    }
-
 
                     //month 와 day 가 10보다 작으면 앞에 0 붙여주기
                     if (month_int < 10) {
@@ -399,6 +395,8 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                     String url = homeIntent.getStringExtra("imageUrl");
                     HomeItem item = new HomeItem(brand, product, category, price, currency, url, calDateDays, last, duration, durationPer, alarm, extra, changeUrl, cancelUrl, phone, false);
 
+                    Log.d("로그", "last: " + last);
+
                     if (type == 1) {
                         assert hf != null;
                         hf.addItem(item);
@@ -406,7 +404,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         this.saveMyInfoList();
 
                         JSONObject params = new JSONObject();
-                        String uuid = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+                        String uuid = sSharedPreferences.getString("uuid", "");
                         try {
                             params.put("company", homeIntent.getStringExtra("brand"));
                             params.put("productName", homeIntent.getStringExtra("membership"));
@@ -430,6 +428,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         this.saveMyInfoList();
                     }
 
+                    hf.adapterNotify();
                     hf.saveList();
                     break;
                 case LOGIN:
