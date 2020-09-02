@@ -40,9 +40,9 @@ public class Splash extends BaseActivity implements SplashActivityView {
         setContentView(R.layout.activity_splash);
         mContext = this;
         getFcmToken();
-        getKeyHash(this);
+//        getKeyHash(this);
         Handler hd = new Handler();
-        hd.postDelayed(new splashHandler(), 1000); // 1초 후에 hd handler 실행
+        hd.postDelayed(new splashHandler(), 750); // 1초 후에 hd handler 실행
 
     }
 

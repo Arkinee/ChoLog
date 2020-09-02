@@ -393,7 +393,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
 //                    Log.d("로그", "main dday: " + calDateDays);
                     String url = homeIntent.getStringExtra("imageUrl");
-                    HomeItem item = new HomeItem(brand, product, category, price, currency, url, calDateDays, last, duration, durationPer, alarm, extra, changeUrl, cancelUrl, phone, false);
+                    HomeItem item = new HomeItem(brand, product, category, price, currency, url, calDateDays, last, duration, durationPer, alarm, extra, changeUrl, cancelUrl, phone, true);
 
                     Log.d("로그", "last: " + last);
 

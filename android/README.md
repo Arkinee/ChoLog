@@ -149,3 +149,7 @@ MakeUs_Project_Team_ChoLogBin_Android
 	- Scheduling
 		- AlarmManager 작동을 없애고 모든 스케쥴링 부분을 WorkManager가 수행하도록 변경
 		-v1.2.2 적용 
+
+# 09.01
+	- 바뀐 서버 적용
+	- push default ON으로 변경

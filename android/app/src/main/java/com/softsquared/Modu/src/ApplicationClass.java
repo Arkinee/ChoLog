@@ -29,7 +29,8 @@ public class ApplicationClass extends Application {
     public static MediaType MEDIA_TYPE_JPEG = MediaType.parse("image/jpeg");
 
     //서버 주소
-    public static String BASE_URL = "http://52.79.202.195";
+//    public static String BASE_URL = "http://52.79.202.195";
+    public static String BASE_URL = "http://13.209.233.63";
     //currency 주소
     public static String CURRENCY_URL = "http://quotation-api-cdn.dunamu.com";
     //공용 sharedpreference
