@@ -1,13 +1,6 @@
 ﻿Team Modu
  
  ![modu](https://user-images.githubusercontent.com/42999237/92217686-fd64b580-eed2-11ea-8c49-602ebab06fcd.jpg)
-![screenshot_01](https://user-images.githubusercontent.com/42999237/92217736-0f465880-eed3-11ea-9aab-8d7e11e237d0.jpg)
-![screenshot_02](https://user-images.githubusercontent.com/42999237/92217743-11a8b280-eed3-11ea-81b2-0cf235b1349a.jpg)
-![screenshot_03](https://user-images.githubusercontent.com/42999237/92217746-12d9df80-eed3-11ea-8683-bb843b19b5a7.jpg)
-![screenshot_04](https://user-images.githubusercontent.com/42999237/92217749-140b0c80-eed3-11ea-97b9-b71229002d33.jpg)
-![screenshot_05](https://user-images.githubusercontent.com/42999237/92217752-153c3980-eed3-11ea-99c2-3d7564fbca08.jpg)
-![screenshot_06](https://user-images.githubusercontent.com/42999237/92217755-166d6680-eed3-11ea-9326-6c9d67589458.jpg)
-
 
 - 프로젝트 시작 계기
 "돈으로 산 경험, 경험으로 만든 기회"
@@ -33,3 +26,11 @@
 4. 소비자가 모르는 구독 서비스 추천
 
  위 기능을 기반으로 저희 비지니스 모델은 구독 관리에서 시작합니다. 자신의 구독관련 소비를 인지, 통제, 관리하고 싶은 사람들로 하여금 원만한 구독관리를 할 수 있도록 도와줍니다. 구독 시장이 커지며 개인당 사용하는 구독 상품의 수가 늘면 구독을 관리하는 것이 점차 지출을 관리하는 개념으로 넘어갈 것 입니다. 추후 적용될 기능인 공인인증서를 이용한 은행사 결제내역 조회를 통해 이용자들의 지출을 관리해 주며 데이터를 통해 지출 패턴을 알 수 있으므로 여기서 저희는 소비자들에게 더 합리적인 소비를 할 수 있는 금융상품을 추천해 줄 수 있을 것입니다.
+ 
+ 
+![screenshot_01](https://user-images.githubusercontent.com/42999237/92217736-0f465880-eed3-11ea-9aab-8d7e11e237d0.jpg)
+![screenshot_02](https://user-images.githubusercontent.com/42999237/92217743-11a8b280-eed3-11ea-81b2-0cf235b1349a.jpg)
+![screenshot_03](https://user-images.githubusercontent.com/42999237/92217746-12d9df80-eed3-11ea-8683-bb843b19b5a7.jpg)
+![screenshot_04](https://user-images.githubusercontent.com/42999237/92217749-140b0c80-eed3-11ea-97b9-b71229002d33.jpg)
+![screenshot_05](https://user-images.githubusercontent.com/42999237/92217752-153c3980-eed3-11ea-99c2-3d7564fbca08.jpg)
+![screenshot_06](https://user-images.githubusercontent.com/42999237/92217755-166d6680-eed3-11ea-9326-6c9d67589458.jpg)
