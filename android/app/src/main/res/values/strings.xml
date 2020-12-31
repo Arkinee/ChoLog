@@ -10,6 +10,25 @@
     <!-- Splash -->
     <string name="splash_description"> 〉</string>
 
+    <!-- Sign Up -->
+    <string name="tv_sign_up_bottom">회원가입</string>
+    <string name="tv_sign_up_top">회원정보</string>
+    <string name="tv_sign_up_name_hint">이름 또는 닉네임</string>
+    <string name="tv_sign_up_id_hint">아이디 입력</string>
+    <string name="tv_sign_up_password_hint">비밀번호 입력</string>
+    <string name="tv_sign_up_password_verify_hint">비밀번호 확인</string>
+    <string name="tv_sign_up_content_description">sign_up</string>
+    <string name="sign_up_tv_sign_up_info_top">이름을\n알려주세요.</string>
+    <string name="sign_up_tv_sign_up_info_tv_next">다음</string>
+    <string name="sign_up_tv_sign_up_info_hint_name">이름</string>
+
+    <string name="sign_up_tv_sign_up_verify_tv_top">본인 인증을\n진행해주세요.</string>
+    <string name="sign_up_tv_sign_up_verify_hint_phone">휴대폰 번호 (-없이 입력)</string>
+    <string name="sign_up_tv_sign_up_verify_tv_send_verify_code">인증</string>
+    <string name="sign_up_tv_sign_up_verify_tv_send_verify_code_again">재발송</string>
+    <string name="sign_up_tv_sign_up_verify_hint_code">인증번호 입력</string>
+    <string name="sign_up_tv_sign_up_verify_tv_verify_complete">완료</string>
+
     <!-- Main -->
     <string name="tv_serviceFee">구독 서비스 이용료</string>
     <string name="tv_serviceFee_tool">10월 구독 서비스 이용료</string>
@@ -253,15 +272,6 @@
     <!-- Date Picker -->
     <string name="tv_picker_start">2000</string>
     <string name="tv_picker_end">2020</string>
-
-    <!-- Sign Up -->
-    <string name="tv_sign_up_bottom">회원가입</string>
-    <string name="tv_sign_up_top">회원정보</string>
-    <string name="tv_sign_up_name_hint">이름 또는 닉네임</string>
-    <string name="tv_sign_up_id_hint">아이디 입력</string>
-    <string name="tv_sign_up_password_hint">비밀번호 입력</string>
-    <string name="tv_sign_up_password_verify_hint">비밀번호 확인</string>
-    <string name="tv_sign_up_content_description">sign_up</string>
 
     <!-- widget -->
     <string name="tv_widget_item_tools">15</string>

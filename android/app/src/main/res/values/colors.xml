@@ -11,6 +11,13 @@
     <color name="colorTransparent">#00000000</color>
     <color name="colorScrollBar">#e1e1e1</color>
     <color name="colorText">#080417</color>
+    <color name="colorBorder">#1A000000</color>
+
+    <!-- Sign up -->
+    <color name="colorSignUpTvNextInactivate">#e3e3e3</color>
+    <color name="colorSignUpTvNextActivate">#ffca17</color>
+    <color name="colorSignUpEdtNameHint">#40313131</color>
+    <color name="colorSignUpEdt">#313131</color>
 
     <!-- Main -->
     <color name="colorTextMainServiceFee">#444445</color>
