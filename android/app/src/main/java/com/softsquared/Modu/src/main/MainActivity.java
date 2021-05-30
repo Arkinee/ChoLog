@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
@@ -15,6 +16,8 @@ import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -39,6 +42,8 @@ import com.softsquared.Modu.src.dialog.exitDialog.ExitDialog;
 import com.softsquared.Modu.src.dialog.exitDialog.exitListener;
 import com.softsquared.Modu.src.dialog.loginDialog.LoginDialog;
 import com.softsquared.Modu.src.dialog.loginDialog.loginListener;
+import com.softsquared.Modu.src.dialog.updateDialog.UpdateDialog;
+import com.softsquared.Modu.src.dialog.updateDialog.UpdateListener;
 import com.softsquared.Modu.src.home.HomeFragment;
 import com.softsquared.Modu.src.home.models.HomeItem;
 import com.softsquared.Modu.src.login.LoginActivity;
@@ -114,12 +119,14 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
     private LoginDialog mLoginDialog;
     private ExitDialog mExitDialog;
+    private UpdateDialog mUpdateDialog;
     private WindowManager.LayoutParams mWm;
     private int mFragmentFlag;
     private String TAG = "로그";
     private Context mContext;
     private int mPrice;
     private double mDollar;
+    private boolean mFlag = false;
 
     ArrayList<MyInfoItem> mMainMyInfoList;
     private OnBackPressedListener mBackListener;
@@ -141,6 +148,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         this.setFragment();
         this.setLoginDialog();
         this.setExitDialog();
+        this.setUpdateDialog();
 
     }
 
@@ -274,6 +282,44 @@ public class MainActivity extends BaseActivity implements MainActivityView {
             @Override
             public void onExitNegativeClicked() {
                 mExitDialog.dismiss();
+            }
+        });
+
+    }
+
+    public void setUpdateDialog() {
+
+        mUpdateDialog = new UpdateDialog(this);
+
+        mWm = new WindowManager.LayoutParams();
+        mWm.copyFrom(Objects.requireNonNull(mUpdateDialog.getWindow()).getAttributes());
+
+        mWm.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        mWm.dimAmount = 0.5f;
+
+        mUpdateDialog.setCancelable(false);
+        mUpdateDialog.setDialogListener(new UpdateListener() {
+            @Override
+            public void onPositiveClicked() {
+                if(mFlag) return;
+                mFlag = true;
+
+                String url = "https://docs.google.com/forms/d/e/1FAIpQLScshLcf41AkisUDStVDAZ9Y2_xIvGLxJbWRS0NmtejJkvvrKA/viewform";
+                Intent goSurvey = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(goSurvey);
+                showProgressDialog();
+
+            }
+
+            @Override
+            public void onNegativeClicked() {
+                mUpdateDialog.dismiss();
+                sSharedPreferences.edit().putBoolean("noticeUpdate", false).apply();
+            }
+
+            @Override
+            public void onCloseClicked() {
+                mUpdateDialog.dismiss();
             }
         });
 
@@ -701,6 +747,8 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     @Override
     public void onStop() {
         super.onStop();
+        hideProgressDialog();
+
         //홈 월 가격 저장, 마지막 날짜 저장
         SharedPreferences.Editor editor = sSharedPreferences.edit();
         editor.putInt("homeFee", mHomeFee);
@@ -721,7 +769,27 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     @Override
     protected void onResume() {
         super.onResume();
+        mFlag = false;
         FirebaseAnalytics.getInstance(this).setCurrentScreen(this, getClass().getSimpleName(), getClass().getSimpleName());
+
+        if(sSharedPreferences.getBoolean("noticeUpdate", true)){
+            //공지사항
+            mUpdateDialog.show();
+            Window window = mUpdateDialog.getWindow();
+            assert window != null;
+            WindowManager.LayoutParams wm = new WindowManager.LayoutParams();
+            window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            wm.copyFrom(window.getAttributes());
+            window.setAttributes(wm);
+
+            Display display = getWindowManager().getDefaultDisplay();
+            Point size = new Point();
+            display.getSize(size);
+//                Window window2 = mLoginDialog.getWindow();
+            int x = (int) (size.x * 0.9f);
+            int y = (int) (size.y * 0.65f);
+            window.setLayout(x, y);
+        }
     }
 
     @Override

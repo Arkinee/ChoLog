@@ -153,3 +153,7 @@ MakeUs_Project_Team_ChoLogBin_Android
 # 09.01
 	- 바뀐 서버 적용
 	- push default ON으로 변경
+
+# '21.05.31
+	- 공지사항 추가
+	- 스플래시 앱 업데이트 가능 여부 체크
